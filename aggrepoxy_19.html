@@ -1,0 +1,1375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Aggrepoxy - Premium Concrete Floor Coatings, Los Angeles and Orange County</title>
+<meta name="description" content="Serving Greater LA and OC. Premium epoxy, polyaspartic, and polished concrete floor specialists. Free estimates. Done in 1-2 days."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+@font-face{font-family:'Industry';font-weight:400;font-style:normal;font-display:swap;src:url('./fonts/industry-400.otf') format('opentype');}
+@font-face{font-family:'Industry';font-weight:600;font-style:normal;font-display:swap;src:url('./fonts/industry-600.otf') format('opentype');}
+@font-face{font-family:'Industry';font-weight:700;font-style:normal;font-display:swap;src:url('./fonts/industry-700.otf') format('opentype');}
+@font-face{font-family:'Tungsten';font-weight:600;font-style:normal;font-display:swap;src:url('./fonts/tungsten-600.woff2') format('woff2');}
+@font-face{font-family:'Tungsten';font-weight:700;font-style:normal;font-display:swap;src:url('./fonts/tungsten-700.woff2') format('woff2');}
+@font-face{font-family:'Tungsten';font-weight:800;font-style:normal;font-display:swap;src:url('./fonts/tungsten-800.woff2') format('woff2');}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:auto}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:#ffffff;color:#0C0C0C;font-family:'DM Sans',sans-serif;font-weight:400;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;background:none;border:none;cursor:pointer}
+svg{display:block}
+::selection{background:#00D9C8;color:#0C0C0C}
+
+:root{
+  --black:#0C0C0C;
+  --cyan:#00D9C8;
+  --rule-dark:#2a2a2a;
+  --rule-mid:#d8d8d4;
+  --rule-light:rgba(0,0,0,.08);
+  --bg-white:#ffffff;
+  --bg-off:#f4f3ef;
+  --bg-dark:#0C0C0C;
+  --bg-dark2:#111111;
+  --pad:clamp(20px,4vw,80px);
+  --sec-pad:clamp(72px,9vh,120px);
+  --font-sub:'Industry',sans-serif;
+  --font-display:'Tungsten',sans-serif;
+  --font-body:'DM Sans',sans-serif;
+}
+
+/* GRAIN */
+.grain{position:relative}
+.grain::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:256px 256px;mix-blend-mode:multiply;}
+.grain-d::after{mix-blend-mode:screen;opacity:.04}
+
+.l-light path,.l-light polygon{fill:#ffffff}
+.l-dark path,.l-dark polygon{fill:#0C0C0C}
+
+/* ================================================================
+   NAV
+================================================================ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 var(--pad);height:72px;
+  background:transparent;
+  border-bottom:1px solid transparent;
+  transition:background .35s,border-color .35s,backdrop-filter .35s;
+}
+.nav.scrolled{
+  background:rgba(12,12,12,.96);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom-color:var(--rule-dark);
+}
+.nav-logo{display:flex;align-items:center;height:72px;line-height:0;}
+.nav-logo svg{display:block;height:36px;width:auto;}
+.nav-links{
+  display:flex;gap:28px;
+  font-family:var(--font-sub);font-weight:600;
+  font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s;
+}
+.nav.scrolled .nav-links{opacity:1;pointer-events:auto;}
+.nav-links a{color:rgba(255,255,255,.6);transition:color .18s;}
+.nav-links a:hover{color:#fff}
+.nav-cta{
+  font-family:var(--font-sub);font-weight:700;font-size:13px;
+  letter-spacing:.1em;text-transform:uppercase;
+  background:var(--cyan);color:#0C0C0C;
+  padding:10px 20px;flex-shrink:0;
+  transition:background .2s;
+}
+.nav-cta:hover{background:#00c4b4}
+
+/* ================================================================
+   HERO
+================================================================ */
+.hero{
+  position:relative;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;background:#0C0C0C;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background-size:cover;background-position:center 45%;
+  filter:contrast(1.08) saturate(.58);
+  will-change:transform;
+}
+.hero-veil{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(0deg,rgba(12,12,12,.97) 0%,rgba(12,12,12,.68) 30%,rgba(12,12,12,.18) 58%,rgba(12,12,12,.48) 100%);
+}
+.hero-outer{
+  position:relative;z-index:2;
+  width:100%;min-height:100svh;
+  display:flex;align-items:flex-end;
+}
+.hero-inner{
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 var(--pad) clamp(40px,5.5vh,64px);
+  display:grid;
+  grid-template-columns:1fr minmax(320px,400px);
+  gap:clamp(24px,3vw,48px);
+  align-items:end;
+}
+
+.hero-left{display:flex;flex-direction:column;justify-content:flex-end;}
+.hero-left *{text-shadow:0 2px 18px rgba(0,0,0,.55),0 1px 4px rgba(0,0,0,.45);}
+
+.hero-eyebrow{
+  font-family:var(--font-sub);font-weight:600;
+  font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:#ffffff;margin-bottom:12px;
+  display:flex;align-items:center;gap:10px;opacity:.8;
+}
+.hero-eyebrow::before{content:'';width:18px;height:1px;background:#ffffff;flex-shrink:0;}
+.hero-h1{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(56px,6.5vw,90px);
+  line-height:.9;text-transform:uppercase;
+  color:#ffffff;letter-spacing:.01em;
+  margin-bottom:clamp(14px,2vh,22px);
+}
+.hero-sub{
+  font-family:var(--font-body);font-size:17px;line-height:1.6;
+  color:#ffffff;max-width:42ch;
+  margin-bottom:clamp(22px,3vh,36px);
+}
+.hero-proof{display:flex;gap:32px;flex-wrap:wrap;}
+.hp-num{font-family:var(--font-sub);font-weight:700;font-size:30px;line-height:1;color:#ffffff;}
+.hp-label{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.6);margin-top:4px;}
+
+/* ================================================================
+   QUOTE FORM
+================================================================ */
+.quoter{
+  background:#f5f4f0;
+  box-shadow:0 20px 72px rgba(0,0,0,.5),0 2px 8px rgba(0,0,0,.2);
+  padding:28px 26px 24px;
+  display:flex;flex-direction:column;gap:11px;
+  align-self:end;
+}
+.q-title{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(34px,3.8vw,46px);
+  text-transform:uppercase;color:#0C0C0C;line-height:.92;
+  margin-bottom:0;
+}
+.q-subtitle{font-family:var(--font-body);font-size:14px;color:rgba(12,12,12,.48);line-height:1.4;}
+.q-field input,.q-field select{
+  background:#ffffff;border:1.5px solid rgba(0,0,0,.14);
+  padding:13px 14px;font-family:var(--font-body);font-size:15px;
+  color:#0C0C0C;outline:none;-webkit-appearance:none;appearance:none;
+  width:100%;transition:border-color .18s,box-shadow .18s;
+}
+.q-field input::placeholder{color:rgba(12,12,12,.35);}
+.q-field input:focus,.q-field select:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,217,200,.13);}
+.q-field select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2300D9C8'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;
+  background-color:#ffffff;padding-right:36px;cursor:pointer;
+}
+.q-check{display:flex;align-items:flex-start;gap:8px;font-size:11px;color:rgba(12,12,12,.42);line-height:1.4;}
+.q-check input[type=checkbox]{width:13px;height:13px;flex-shrink:0;margin-top:2px;accent-color:var(--cyan);cursor:pointer;}
+.q-check a{color:var(--cyan);}
+.q-submit{
+  font-family:var(--font-sub);font-weight:700;font-size:14px;
+  letter-spacing:.12em;text-transform:uppercase;
+  background:var(--cyan);color:#0C0C0C;padding:15px;
+  border:none;cursor:pointer;width:100%;
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  transition:background .2s,transform .12s;
+}
+.q-submit:hover{background:#00c4b4}
+.q-submit:active{transform:scale(.985)}
+.q-trust{
+  font-family:var(--font-sub);font-weight:600;font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(12,12,12,.28);text-align:center;
+  display:flex;align-items:center;gap:8px;justify-content:center;
+}
+.q-trust::before,.q-trust::after{content:'';flex:1;height:1px;background:rgba(0,0,0,.06);}
+.q-success{text-align:center;padding:28px 0 18px;display:flex;flex-direction:column;align-items:center;gap:12px;}
+.q-success-icon{width:44px;height:44px;border:1.5px solid var(--cyan);display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:20px;}
+.q-success h3{font-family:var(--font-display);font-weight:700;font-size:22px;text-transform:uppercase;color:#0C0C0C;}
+.q-success p{font-size:13px;color:rgba(12,12,12,.45);max-width:26ch;line-height:1.5;}
+
+/* ================================================================
+   CLIENT BAR
+================================================================ */
+.clients-bar{
+  background:#111111;
+  border-bottom:1px solid var(--rule-dark);
+  padding:36px 0;overflow:hidden;
+}
+.clients-label{
+  font-family:var(--font-sub);font-weight:600;font-size:11px;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.22);text-align:center;margin-bottom:28px;
+}
+.clients-track-wrap{position:relative;}
+/* Wider, deeper gradient fade — matches design */
+.clients-track-wrap::before,.clients-track-wrap::after{
+  content:'';position:absolute;top:0;bottom:0;width:200px;z-index:2;pointer-events:none;
+}
+.clients-track-wrap::before{left:0;background:linear-gradient(to right,#111111 30%,transparent);}
+.clients-track-wrap::after{right:0;background:linear-gradient(to left,#111111 30%,transparent);}
+
+.clients-list{
+  display:flex;align-items:center;justify-content:center;
+  gap:clamp(32px,5vw,72px);
+  padding:0 220px; /* keep logos away from gradient edges */
+}
+.client-item{
+  display:flex;align-items:center;justify-content:center;
+  opacity:.38;
+  transition:opacity .25s ease;
+  flex-shrink:0;
+}
+.client-item:hover{opacity:.78}
+/* mclaren and lexus face inward (center logos) — slightly more prominent */
+.client-item.center{opacity:.48;}
+.client-item.center:hover{opacity:.9;}
+/* All logos same optical height — individual overrides via data attr if needed */
+.client-logo{height:26px;width:auto;display:block;filter:brightness(0) invert(1);}
+/* Wordmark-heavy logos need slightly less height to read optically equal */
+.client-logo.wordmark{height:20px;}
+.client-logo.icon{height:32px;}
+
+/* ================================================================
+   SHARED SECTION TOKENS
+================================================================ */
+.section{position:relative;padding:var(--sec-pad) var(--pad);overflow:hidden;}
+.section>*{position:relative;z-index:2;}
+.section.bg-white{background:var(--bg-white);}
+.section.bg-off{background:var(--bg-off);}
+.section.bg-dark{background:var(--bg-dark);color:#ffffff;}
+.section.bg-dark2{background:var(--bg-dark2);color:#ffffff;}
+.section-inner{max-width:1200px;margin:0 auto;width:100%;}
+
+.sec-eyebrow{
+  font-family:var(--font-sub);font-weight:600;
+  font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+  display:block;margin-bottom:8px;
+}
+.bg-dark .sec-eyebrow,.bg-dark2 .sec-eyebrow{color:var(--cyan);}
+.bg-white .sec-eyebrow,.bg-off .sec-eyebrow{color:rgba(12,12,12,.45);}
+
+.sec-h2{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(40px,5.5vw,80px);
+  line-height:.9;text-transform:uppercase;
+  margin-bottom:clamp(12px,1.8vw,20px);
+}
+.sec-body{font-size:16px;line-height:1.65;max-width:52ch;}
+.bg-dark .sec-h2,.bg-dark2 .sec-h2{color:#ffffff;}
+.bg-dark .sec-body,.bg-dark2 .sec-body{color:rgba(255,255,255,.6);}
+.bg-white .sec-h2,.bg-off .sec-h2{color:#0C0C0C;}
+.bg-white .sec-body,.bg-off .sec-body{color:rgba(12,12,12,.52);}
+
+/* ================================================================
+   PAIN / PROBLEM SECTION — parallax bg, centered headline, 4-col
+================================================================ */
+.pain-section{
+  position:relative;
+  padding:0;
+  overflow:hidden;
+  background:#0C0C0C;
+}
+/* Parallax background layer */
+.pain-bg{
+  position:absolute;inset:-15% 0;
+  background-image:url('./images/cracked-concrete.webp');
+  background-size:cover;
+  background-position:center;
+  filter:brightness(.32) contrast(1.15) saturate(.5);
+  will-change:transform;
+  z-index:0;
+}
+/* Veil for darkening — heavier gradient like hero */
+.pain-veil{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(0deg,rgba(12,12,12,.82) 0%,rgba(12,12,12,.55) 30%,rgba(12,12,12,.38) 60%,rgba(12,12,12,.62) 100%);
+}
+.pain-content{
+  position:relative;z-index:2;
+  padding:clamp(80px,11vh,130px) var(--pad) clamp(80px,11vh,130px);
+  max-width:1200px;
+  margin:0 auto;
+}
+
+/* Header block */
+.pain-header{
+  text-align:center;
+  margin-bottom:clamp(52px,8vh,88px);
+}
+.pain-h{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(48px,6.5vw,94px);
+  line-height:.92;text-transform:uppercase;
+  color:#ffffff;
+  letter-spacing:.01em;
+  margin-bottom:16px;
+}
+.pain-lead{
+  font-size:17px;line-height:1.6;
+  color:rgba(255,255,255,.52);
+  max-width:52ch;margin:0 auto;
+}
+
+/* 4-column pain cards */
+.pain-cols{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  border-top:1px solid rgba(255,255,255,.1);
+}
+.pain-col{
+  padding:clamp(28px,3.5vw,40px) clamp(20px,2.5vw,32px);
+  border-right:1px solid rgba(255,255,255,.1);
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .62s cubic-bezier(.2,.8,.2,1), transform .62s cubic-bezier(.2,.8,.2,1);
+}
+.pain-col:last-child{border-right:none;}
+.pain-col.on{opacity:1;transform:none;}
+/* Staggered delays */
+.pain-col:nth-child(1){transition-delay:.05s}
+.pain-col:nth-child(2){transition-delay:.14s}
+.pain-col:nth-child(3){transition-delay:.23s}
+.pain-col:nth-child(4){transition-delay:.32s}
+
+.pain-col-num{
+  font-family:var(--font-sub);font-weight:700;
+  font-size:14px;letter-spacing:.18em;
+  color:rgba(255,255,255,.5);
+  margin-bottom:10px;
+  display:block;
+  text-align:center;
+}
+.pain-col-title{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(24px,2.4vw,32px);
+  text-transform:uppercase;
+  color:#ffffff;line-height:.96;
+  margin-bottom:12px;
+  text-align:center;
+  white-space:nowrap;
+}
+.pain-col-body{
+  font-size:14px;line-height:1.65;
+  color:rgba(255,255,255,.72);
+  text-align:center;
+}
+
+/* ================================================================
+   WHY CHOOSE — off-white, 2-col checklist, matches design
+================================================================ */
+.why-section{
+  background:var(--bg-off);
+  padding:var(--sec-pad) var(--pad);
+  overflow:hidden;
+}
+.why-inner{max-width:1200px;margin:0 auto;}
+.why-header{
+  text-align:center;
+  margin-bottom:clamp(44px,6vh,72px);
+}
+.why-eyebrow{
+  font-family:var(--font-sub);font-weight:600;
+  font-size:14px;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(12,12,12,.42);
+  display:block;margin-bottom:10px;
+}
+.why-h{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(48px,6vw,88px);
+  line-height:.88;text-transform:uppercase;
+  color:#0C0C0C;letter-spacing:.01em;
+  white-space:nowrap;
+}
+
+/* 2-column checklist grid */
+.why-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 clamp(32px,4vw,64px);
+  margin-bottom:clamp(44px,6vh,64px);
+}
+.why-item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 0;
+  border-bottom:1px solid rgba(0,0,0,.07);
+  opacity:0;
+  transform:translateX(-12px);
+  transition:opacity .55s cubic-bezier(.2,.8,.2,1), transform .55s cubic-bezier(.2,.8,.2,1);
+}
+.why-item.on{opacity:1;transform:none;}
+/* Stagger left column 0–7, right column 8–15 */
+.why-item:nth-child(1){transition-delay:.04s}
+.why-item:nth-child(2){transition-delay:.08s}
+.why-item:nth-child(3){transition-delay:.12s}
+.why-item:nth-child(4){transition-delay:.16s}
+.why-item:nth-child(5){transition-delay:.20s}
+.why-item:nth-child(6){transition-delay:.24s}
+.why-item:nth-child(7){transition-delay:.28s}
+.why-item:nth-child(8){transition-delay:.32s}
+.why-item:nth-child(9){transition-delay:.06s}
+.why-item:nth-child(10){transition-delay:.10s}
+.why-item:nth-child(11){transition-delay:.14s}
+.why-item:nth-child(12){transition-delay:.18s}
+.why-item:nth-child(13){transition-delay:.22s}
+.why-item:nth-child(14){transition-delay:.26s}
+.why-item:nth-child(15){transition-delay:.30s}
+.why-item:nth-child(16){transition-delay:.34s}
+
+.why-check{
+  width:26px;height:26px;flex-shrink:0;
+  background:var(--cyan);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+/* Last item on right col gets a dark filled check (matching design) */
+.why-item.check-dark .why-check{background:#0C0C0C;}
+.why-check svg{width:12px;height:12px;fill:none;stroke:#0C0C0C;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+.why-item.check-dark .why-check svg{stroke:#ffffff;}
+
+.why-item-label{
+  font-family:var(--font-sub);font-weight:700;
+  font-size:clamp(13px,1.2vw,15px);
+  letter-spacing:.06em;text-transform:uppercase;
+  color:#0C0C0C;line-height:1;
+}
+
+/* CTA button centered */
+.why-cta-row{display:flex;justify-content:center;}
+.why-cta-btn{
+  font-family:var(--font-sub);font-weight:700;
+  font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+  background:#0C0C0C;color:#ffffff;
+  padding:17px 48px;
+  display:inline-flex;align-items:center;gap:10px;
+  transition:background .2s,transform .12s;
+}
+.why-cta-btn:hover{background:#1a1a1a;}
+.why-cta-btn:active{transform:scale(.985);}
+
+/* ================================================================
+   WHAT WE COAT — 3x2 card grid
+================================================================ */
+.coat-section{
+  background:#ffffff;
+  padding:var(--sec-pad) var(--pad);
+}
+.coat-section-inner{max-width:1200px;margin:0 auto;}
+.coat-section-head{
+  text-align:center;
+  margin-bottom:clamp(44px,6vh,72px);
+}
+.coat-section-eyebrow{
+  font-family:var(--font-sub);font-weight:600;
+  font-size:14px;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(12,12,12,.42);display:block;margin-bottom:10px;
+}
+.coat-section-h{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(48px,6vw,88px);
+  line-height:.88;text-transform:uppercase;
+  color:#0C0C0C;letter-spacing:.01em;
+}
+.coat-section-sub{
+  font-size:16px;color:rgba(12,12,12,.48);
+  margin-top:12px;line-height:1.6;
+}
+
+/* 3-column grid */
+.coat-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(16px,2vw,24px);
+}
+
+/* Card */
+.coat-card{
+  background:#ffffff;
+  border:1px solid rgba(0,0,0,.08);
+  display:flex;flex-direction:column;
+  opacity:0;transform:translateY(20px);
+  transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1),
+             box-shadow .25s ease;
+  cursor:default;
+}
+.coat-card.on{opacity:1;transform:none;}
+.coat-card:nth-child(1){transition-delay:.04s}
+.coat-card:nth-child(2){transition-delay:.10s}
+.coat-card:nth-child(3){transition-delay:.16s}
+.coat-card:nth-child(4){transition-delay:.08s}
+.coat-card:nth-child(5){transition-delay:.14s}
+.coat-card:nth-child(6){transition-delay:.20s}
+
+.coat-card:hover{
+  box-shadow:0 8px 32px rgba(0,0,0,.10),0 2px 8px rgba(0,0,0,.06);
+  transform:translateY(-3px);
+  border-color:rgba(0,0,0,.14);
+}
+/* Don't double-animate while still invisible */
+.coat-card:not(.on):hover{transform:none;box-shadow:none;}
+
+/* Image area */
+.coat-card-img{
+  position:relative;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  background:#e8e8e6;
+}
+.coat-card-img-bg{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  transition:transform .5s cubic-bezier(.2,.8,.2,1);
+}
+.coat-card:hover .coat-card-img-bg{transform:scale(1.04);}
+
+/* Popular badge */
+.coat-card-badge{
+  position:absolute;top:14px;left:14px;z-index:2;
+  font-family:var(--font-sub);font-weight:700;font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;
+  background:#0C0C0C;color:#ffffff;
+  padding:5px 10px;
+  pointer-events:none;
+}
+
+/* Card body */
+.coat-card-body{
+  padding:clamp(16px,2vw,22px);
+  display:flex;flex-direction:column;
+  flex:1;
+  gap:0;
+}
+.coat-card-title{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(22px,2vw,28px);
+  text-transform:uppercase;color:#0C0C0C;
+  line-height:.95;margin-bottom:12px;
+}
+.coat-card-bullets{
+  list-style:none;display:flex;flex-direction:column;gap:5px;
+  margin-bottom:20px;flex:1;
+}
+.coat-card-bullets li{
+  display:flex;align-items:flex-start;gap:8px;
+  font-size:13px;line-height:1.5;color:rgba(12,12,12,.6);
+}
+.coat-card-bullets li::before{
+  content:'•';
+  color:#0C0C0C;
+  flex-shrink:0;font-size:13px;line-height:1.5;
+  margin-top:0;
+}
+
+/* Learn more link */
+.coat-card-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--font-sub);font-weight:700;
+  font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  color:#0C0C0C;
+  padding-top:14px;
+  border-top:1px solid rgba(0,0,0,.08);
+  transition:gap .2s ease,color .2s ease;
+  text-decoration:none;
+  align-self:flex-start;
+  width:100%;
+}
+.coat-card-link:hover{color:var(--cyan);gap:10px;}
+.coat-card-link svg{
+  width:13px;height:13px;flex-shrink:0;
+  fill:none;stroke:currentColor;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round;
+  transition:transform .2s ease;
+}
+.coat-card-link:hover svg{transform:translateX(2px);}
+
+/* ================================================================
+   BEFORE / AFTER
+================================================================ */
+.ba-section{padding:var(--sec-pad) var(--pad);}
+.ba-section.bg-white{background:var(--bg-white);}
+.ba-head{margin-bottom:clamp(36px,5vh,56px);}
+.ba-eyebrow{font-family:var(--font-sub);font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(12,12,12,.4);margin-bottom:6px;display:block;}
+.ba-h2{font-family:var(--font-display);font-weight:700;font-size:clamp(40px,5.5vw,80px);line-height:.9;text-transform:uppercase;color:#0C0C0C;}
+.ba-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(20px,3vw,36px);
+  max-width:1000px;
+  margin:0 auto;
+}
+.ba-item{display:flex;flex-direction:column;gap:10px;}
+.ba-slider-wrap{
+  position:relative;overflow:hidden;
+  user-select:none;cursor:col-resize;
+  aspect-ratio:4/3;background:#1a1a1a;
+  border-radius:4px;
+}
+.ba-before,.ba-after{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+}
+.ba-after{clip-path:inset(0 50% 0 0);}
+.ba-handle{
+  position:absolute;top:0;bottom:0;width:2px;
+  background:var(--cyan);left:50%;transform:translateX(-50%);
+  pointer-events:none;z-index:10;
+}
+.ba-handle::before{
+  content:'';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:34px;height:34px;background:var(--cyan);border-radius:50%;
+}
+.ba-handle-arrows{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);z-index:11;pointer-events:none;
+}
+.ba-labels{
+  position:absolute;bottom:10px;width:100%;
+  display:flex;justify-content:space-between;padding:0 10px;z-index:12;pointer-events:none;
+}
+.ba-lbl{font-family:var(--font-sub);font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;background:rgba(0,0,0,.6);color:#fff;padding:4px 8px;backdrop-filter:blur(4px);}
+.ba-lbl.after{background:rgba(0,217,200,.88);color:#0C0C0C;}
+.ba-meta{display:flex;align-items:center;justify-content:space-between;}
+.ba-meta-tag{font-family:var(--font-sub);font-weight:600;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);}
+.ba-meta-loc{font-size:13px;color:rgba(12,12,12,.45);}
+
+/* ================================================================
+   TESTIMONIAL — full-bleed photo, floating centered card carousel
+================================================================ */
+.testi-section{
+  position:relative;
+  min-height:680px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.testi-photo{
+  position:absolute;inset:0;z-index:0;
+  background-size:cover;background-position:center;
+}
+/* Dark veil over photo */
+.testi-veil{
+  position:absolute;inset:0;z-index:1;
+  background:rgba(12,12,12,.58);
+}
+/* Floating card — centered, not left-anchored */
+.testi-card{
+  position:relative;z-index:2;
+  width:clamp(320px,48%,580px);
+  background:#0C0C0C;
+  padding:clamp(36px,5vh,56px) clamp(32px,4vw,52px) clamp(28px,4vh,44px);
+  display:flex;flex-direction:column;gap:14px;
+  opacity:0;transform:translateY(20px);
+  transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);
+}
+.testi-card.on{opacity:1;transform:none;}
+
+/* Cyan quote mark */
+.testi-mark{
+  font-family:var(--font-display);font-weight:700;
+  font-size:72px;line-height:.6;
+  color:#c8f400; /* chartreuse/lime — matching design's yellow-green */
+  display:block;margin-bottom:6px;
+}
+.testi-headline{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(32px,4vw,52px);line-height:.92;
+  text-transform:uppercase;color:#ffffff;
+}
+.testi-body{
+  font-size:15px;line-height:1.72;
+  color:rgba(255,255,255,.68);
+  max-width:42ch;
+}
+.testi-author{
+  font-family:var(--font-sub);font-weight:700;
+  font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);
+}
+/* Dot indicators + arrow nav row */
+.testi-nav{
+  display:flex;align-items:center;gap:14px;
+  margin-top:4px;
+}
+.testi-dots{
+  display:flex;gap:7px;flex:1;
+}
+.testi-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,.25);
+  transition:background .22s,transform .22s;
+  cursor:pointer;
+}
+.testi-dot.on{background:#ffffff;transform:scale(1.3);}
+.testi-btn{
+  width:40px;height:40px;
+  border:1px solid rgba(255,255,255,.22);
+  display:flex;align-items:center;justify-content:center;
+  color:#ffffff;cursor:pointer;background:transparent;
+  transition:border-color .18s,background .18s;flex-shrink:0;
+}
+.testi-btn:hover{border-color:#ffffff;background:rgba(255,255,255,.1);}
+.testi-btn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+
+/* ================================================================
+   BIG CTA
+================================================================ */
+.cta-section{position:relative;background:#0C0C0C;overflow:hidden;border-top:1px solid var(--rule-dark);}
+.cta-bg-img{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;filter:contrast(1.1) saturate(.4) brightness(.22);}
+.cta-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(12,12,12,.94) 0%,rgba(12,12,12,.76) 50%,rgba(12,12,12,.92) 100%);}
+.cta-inner{
+  position:relative;z-index:2;
+  padding:clamp(64px,10vh,120px) var(--pad);
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(36px,5vw,80px);align-items:center;
+  max-width:1200px;margin:0 auto;
+}
+.cta-h{font-family:var(--font-display);font-weight:700;font-size:clamp(48px,6.5vw,100px);line-height:.88;text-transform:uppercase;color:#ffffff;}
+.cta-h em{font-style:normal;color:var(--cyan);}
+.cta-pills-row{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0 0;}
+.cta-pill{display:flex;align-items:center;gap:7px;font-family:var(--font-sub);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.cta-check{width:15px;height:15px;flex-shrink:0;border:1px solid rgba(0,217,200,.4);display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:9px;}
+.cta-right{display:flex;flex-direction:column;gap:12px;}
+.cta-sub{font-size:16px;line-height:1.65;color:rgba(255,255,255,.58);max-width:38ch;}
+.cta-form{display:flex;flex-direction:column;gap:9px;margin-top:4px;}
+.cta-row{display:flex;gap:8px;}
+.cta-field{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);padding:13px 15px;font-family:var(--font-body);font-size:15px;color:#fff;outline:none;flex:1;min-width:0;transition:border-color .18s;}
+.cta-field::placeholder{color:rgba(255,255,255,.3);}
+.cta-field:focus{border-color:var(--cyan);}
+.cta-field-full{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);padding:13px 15px;font-family:var(--font-body);font-size:15px;color:#fff;outline:none;transition:border-color .18s;}
+.cta-field-full::placeholder{color:rgba(255,255,255,.3);}
+.cta-field-full:focus{border-color:var(--cyan);}
+.cta-submit{font-family:var(--font-sub);font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;background:var(--cyan);color:#0C0C0C;padding:16px;border:none;cursor:pointer;width:100%;display:flex;align-items:center;justify-content:center;gap:9px;transition:background .2s;}
+.cta-submit:hover{background:#00c4b4}
+.cta-micro{font-size:13px;color:rgba(255,255,255,.26);}
+.cta-phone{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-sub);font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.38);transition:color .18s;}
+.cta-phone:hover{color:#fff}
+.cta-phone svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;}
+
+/* ================================================================
+   FOOTER
+================================================================ */
+.footer{background:#0C0C0C;border-top:1px solid var(--rule-dark);padding:clamp(44px,6vh,72px) var(--pad) 26px;}
+.footer-top{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:clamp(18px,3vw,44px);padding-bottom:clamp(32px,4vh,48px);border-bottom:1px solid var(--rule-dark);}
+.footer-brand{display:flex;flex-direction:column;gap:14px;}
+.footer-tagline{font-size:14px;line-height:1.6;color:rgba(255,255,255,.35);max-width:22ch;}
+.footer-col-head{font-family:var(--font-sub);font-weight:700;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;}
+.footer-col a{display:block;margin-bottom:9px;font-size:14px;color:rgba(255,255,255,.38);transition:color .15s;}
+.footer-col a:hover{color:#ffffff}
+.footer-base{display:flex;justify-content:space-between;align-items:center;padding-top:18px;flex-wrap:wrap;gap:8px;}
+.footer-copy{font-size:13px;color:rgba(255,255,255,.18);}
+.footer-lic{font-family:var(--font-sub);font-weight:600;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.13);}
+
+/* ================================================================
+   REVEAL (fallback for other sections)
+================================================================ */
+.rv{opacity:0;transform:translateY(18px);}
+.rv.on{opacity:1;transform:none;transition:opacity .68s cubic-bezier(.2,.8,.2,1),transform .68s cubic-bezier(.2,.8,.2,1);}
+.rv.d1{transition-delay:.07s}.rv.d2{transition-delay:.14s}.rv.d3{transition-delay:.21s}.rv.d4{transition-delay:.28s}
+
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:transparent;}::-webkit-scrollbar-thumb{background:#2a2a2a;}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;}
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+@media(max-width:1024px){
+  .coat-grid{grid-template-columns:repeat(2,1fr);}
+  .testi-card{width:clamp(300px,80%,560px);}
+  .cta-inner{grid-template-columns:1fr;}
+  .pain-cols{grid-template-columns:repeat(2,1fr);}
+  .why-grid{grid-template-columns:1fr;}
+  .why-h{white-space:normal;}
+}
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;gap:28px;}
+  .ba-grid{grid-template-columns:1fr;}
+  .pain-cols{grid-template-columns:1fr 1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .clients-list{padding:0 160px;gap:clamp(20px,4vw,48px);}
+  .coat-grid{grid-template-columns:1fr;}
+  .testi-card{width:90%;padding:32px 28px 28px;}
+  .pain-col-title{white-space:normal;}
+}
+@media(max-width:540px){
+  .nav-links{display:none;}
+  .footer-top{grid-template-columns:1fr;}
+  .cta-row{flex-direction:column;}
+  .pain-cols{grid-template-columns:1fr;}
+  .why-grid{grid-template-columns:1fr;}
+  .clients-list{padding:0 100px;gap:24px;}
+  .clients-track-wrap::before,.clients-track-wrap::after{width:100px;}
+  .why-h{font-size:clamp(36px,10vw,60px);}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#" class="nav-logo" aria-label="Aggrepoxy">
+    <svg class="logo-compact l-light" viewBox="0 0 143.02 27.76" xmlns="http://www.w3.org/2000/svg" style="height:36px;width:auto">
+      <g><path d="M6,8.55h-3.75l1.95,1.97-2.39,2.6h3.69l2.17-2.45h5.82l-.08,2.45h3.83l.02-11.29h-5.09l-6.16,6.72ZM13.57,8.54h-4.03l4.19-4.74-.17,4.74Z"/><path d="M29.82,1.83h-5.85c-2.3,0-3.4.73-3.4,2.26v6.77c0,1.53,1.09,2.26,3.4,2.26h5.85c2.3,0,3.4-.73,3.4-2.26v-3.97h-6.69v2.03h3.2v1.74c0,.24-.12.32-.49.32h-4.68c-.36,0-.49-.08-.49-.32v-6.39c0-.24.12-.32.49-.32h4.68c.36,0,.49.08.49.32v1.29h3.49v-1.48c0-1.53-1.09-2.26-3.4-2.26Z"/><path d="M45.39,1.83h-5.85c-2.3,0-3.4.73-3.4,2.26v6.77c0,1.53,1.09,2.26,3.4,2.26h5.85c2.3,0,3.4-.73,3.4-2.26v-3.97h-6.69v2.03h3.2v1.74c0,.24-.12.32-.49.32h-4.68c-.36,0-.48-.08-.48-.32v-6.39c0-.24.12-.32.48-.32h4.68c.36,0,.49.08.49.32v1.29h3.49v-1.48c0-1.53-1.09-2.26-3.4-2.26Z"/><path d="M64.48,6.82v-2.73c0-1.53-1.09-2.26-3.4-2.26h-8.95v11.29h3.49v-3.98h2.81l2.81,3.98h3.76l-2.89-4.11c1.6-.19,2.35-.92,2.35-2.19ZM60.98,6.75c0,.24-.12.32-.49.32h-4.88v-3.14h4.88c.36,0,.49.08.49.32v2.5Z"/><polygon points="67.9 13.12 71.19 13.12 79.32 13.12 79.32 10.99 71.39 10.99 71.39 8.4 77.82 8.4 77.82 6.3 71.39 6.3 71.39 3.96 79.32 3.96 79.32 1.83 67.9 1.83 67.9 13.12"/><path d="M91.37,1.83h-8.97v11.29h3.49v-3.77h5.48c2.3,0,3.4-.73,3.4-2.26v-3c0-1.53-1.09-2.26-3.4-2.26ZM91.28,6.9c0,.24-.12.32-.48.32h-4.9v-3.26h4.9c.36,0,.48.08.48.32v2.61Z"/><path d="M106.8,1.83h-6.23c-2.3,0-3.4.73-3.4,2.26v6.77c0,1.53,1.09,2.26,3.4,2.26h6.23c2.3,0,3.4-.73,3.4-2.26v-6.77c0-1.53-1.09-2.26-3.4-2.26ZM106.7,10.67c0,.24-.12.32-.49.32h-5.07c-.36,0-.49-.08-.49-.32v-6.39c0-.24.12-.32.49-.32h5.07c.36,0,.49.08.49.32v6.39Z"/><polygon points="125.62 1.83 121.86 1.83 118.51 5.48 115.19 1.83 111.26 1.83 116.4 7.38 111.12 13.12 114.88 13.12 118.34 9.32 121.84 13.12 125.77 13.12 120.33 7.38 125.62 1.83"/><polygon points="137.48 1.83 133.96 6.86 130.45 1.83 126.66 1.83 132.19 9.27 132.19 13.12 135.68 13.12 135.68 9.27 141.21 1.83 137.48 1.83"/></g>
+      <g><path d="M12.7,22.71l1.61-4.4h.96l1.6,4.4h-.9l-1.19-3.43-1.19,3.43h-.89ZM13.41,21.71l.23-.66h2.24l.22.66h-2.68Z"/><path d="M18.71,22.71v-4.4h1.47c.51,0,.93.09,1.27.27s.58.44.74.77.24.71.24,1.16-.08.83-.24,1.16c-.16.33-.41.58-.74.77-.33.18-.75.27-1.27.27h-1.47ZM19.55,21.98h.58c.36,0,.64-.06.85-.18.21-.12.35-.29.44-.51.09-.22.13-.48.13-.79s-.04-.57-.13-.79-.24-.39-.44-.51c-.21-.12-.49-.18-.85-.18h-.58v2.95Z"/><path d="M25.52,22.71l-1.6-4.4h.9l1.22,3.53,1.23-3.53h.9l-1.6,4.4h-1.04Z"/><path d="M29.1,22.71l1.61-4.4h.96l1.6,4.4h-.9l-1.19-3.43-1.19,3.43h-.89ZM29.81,21.71l.23-.66h2.24l.22.66h-2.68Z"/><path d="M35.11,22.71v-4.4h.85l2.02,3.03v-3.03h.85v4.4h-.85l-2.02-3.03v3.03h-.85Z"/><path d="M42.92,22.79c-.44,0-.82-.1-1.13-.29-.32-.19-.56-.46-.73-.8-.17-.34-.25-.74-.25-1.18s.08-.84.25-1.19c.17-.34.41-.61.73-.8.32-.19.69-.29,1.13-.29.53,0,.97.13,1.31.4.34.26.55.64.63,1.12h-.92c-.05-.23-.17-.42-.34-.55s-.4-.2-.68-.2c-.26,0-.48.06-.67.19-.19.12-.33.3-.43.52-.1.22-.15.49-.15.81s.05.58.15.8c.1.23.24.4.43.52.19.12.41.18.67.18.28,0,.51-.06.68-.19.17-.12.28-.3.34-.52h.93c-.08.46-.3.81-.63,1.07-.34.26-.77.39-1.31.39Z"/><path d="M46.83,22.71v-4.4h2.89v.68h-2.04v1.15h1.85v.66h-1.85v1.22h2.04v.68h-2.89Z"/><path d="M51.75,22.71v-4.4h1.47c.51,0,.93.09,1.27.27s.58.44.74.77.24.71.24,1.16-.08.83-.24,1.16c-.16.33-.41.58-.74.77-.33.18-.75.27-1.27.27h-1.47ZM52.6,21.98h.58c.36,0,.64-.06.85-.18.21-.12.35-.29.44-.51.09-.22.13-.48.13-.79s-.04-.57-.13-.79-.24-.39-.44-.51c-.21-.12-.49-.18-.85-.18h-.58v2.95Z"/><path d="M62.15,22.79c-.44,0-.82-.1-1.13-.29-.32-.19-.56-.46-.73-.8-.17-.34-.25-.74-.25-1.18s.08-.84.25-1.19c.17-.34.41-.61.73-.8.32-.19.69-.29,1.13-.29.53,0,.97.13,1.31.4.34.26.55.64.63,1.12h-.92c-.05-.23-.17-.42-.34-.55s-.4-.2-.68-.2c-.26,0-.48.06-.67.19-.19.12-.33.3-.43.52-.1.22-.15.49-.15.81s.05.58.15.8c.1.23.24.4.43.52.19.12.41.18.67.18.28,0,.51-.06.68-.19.17-.12.28-.3.34-.52h.93c-.08.46-.3.81-.63,1.07-.34.26-.77.39-1.31.39Z"/><path d="M68.1,22.79c-.43,0-.8-.1-1.13-.29-.33-.19-.58-.46-.77-.8-.18-.34-.28-.74-.28-1.18s.09-.84.28-1.18c.18-.34.44-.61.77-.8.33-.19.7-.29,1.13-.29s.81.1,1.14.29c.33.19.58.46.76.8s.27.74.27,1.18-.09.84-.27,1.18-.44.61-.76.8c-.33.19-.71.29-1.14.29ZM68.1,22.03c.27,0,.5-.06.69-.19.19-.12.35-.3.46-.52s.16-.49.16-.8-.05-.58-.16-.81c-.11-.22-.26-.4-.46-.52-.19-.12-.43-.18-.69-.18s-.49.06-.69.18c-.2.12-.35.29-.46.52-.11.22-.16.49-.16.81s.05.58.16.8.26.4.46.52.43.19.69.19Z"/><path d="M71.68,22.71l1.61-4.4h.96l1.6,4.4h-.9l-1.19-3.43-1.19,3.43h-.89ZM72.39,21.71l.23-.66h2.24l.22.66h-2.68Z"/><path d="M78.24,22.71v-3.71h-1.29v-.68h3.41v.68h-1.28v3.71h-.84Z"/><path d="M82.23,22.71v-4.4h.85v4.4h-.85Z"/><path d="M85.19,22.71v-4.4h.85l2.02,3.03v-3.03h.85v4.4h-.85l-2.02-3.03v3.03h-.85Z"/><path d="M92.95,22.79c-.42,0-.78-.09-1.09-.28-.31-.19-.55-.45-.72-.79-.17-.34-.26-.73-.26-1.18s.09-.85.26-1.2c.18-.35.43-.62.76-.81.33-.2.73-.3,1.19-.3.52,0,.94.12,1.28.37.34.25.56.59.66,1.03h-.95c-.06-.19-.18-.34-.35-.46-.17-.11-.39-.17-.66-.17-.28,0-.53.06-.73.19-.2.13-.35.3-.46.53-.1.23-.16.5-.16.81s.05.59.16.81c.1.22.25.39.45.51s.42.17.69.17c.39,0,.68-.1.88-.31.2-.21.32-.48.35-.81h-1.08v-.63h1.93v2.43h-.79l-.06-.56c-.09.14-.2.25-.32.35s-.27.17-.43.21c-.16.05-.35.07-.57.07Z"/><path d="M101.41,22.79c-.32,0-.6-.05-.85-.16-.25-.11-.45-.27-.59-.48-.14-.21-.22-.46-.22-.76h.9c0,.13.04.25.1.35.06.1.15.19.26.25.11.06.24.09.4.09.13,0,.25-.02.35-.07.1-.04.17-.11.23-.19.05-.08.08-.17.08-.28,0-.13-.03-.23-.09-.31-.06-.08-.14-.15-.25-.21s-.23-.11-.37-.16c-.14-.05-.29-.1-.44-.15-.35-.11-.61-.26-.79-.45s-.27-.44-.27-.75c0-.26.06-.49.19-.68s.3-.33.53-.43.48-.15.77-.15.56.05.78.15c.22.1.4.25.53.44s.2.42.2.68h-.9c0-.1-.03-.19-.08-.27-.05-.09-.12-.16-.22-.21s-.2-.08-.33-.08c-.11,0-.21.01-.3.05-.09.04-.16.09-.21.17s-.08.16-.08.27.03.19.08.26.12.13.22.19c.09.05.2.1.33.14.13.04.26.09.41.14.22.08.42.16.6.27.18.1.33.24.44.4s.16.38.16.65c0,.23-.06.44-.18.64s-.3.36-.52.48c-.23.12-.51.18-.85.18Z"/><path d="M105.9,22.71v-1.54l-1.48-2.85h.96l1.04,2.17h-.17l1.03-2.17h.96l-1.48,2.85v1.54h-.85Z"/><path d="M111.26,22.79c-.32,0-.6-.05-.85-.16-.25-.11-.45-.27-.59-.48-.14-.21-.22-.46-.22-.76h.9c0,.13.04.25.1.35.06.1.15.19.26.25.11.06.24.09.4.09.13,0,.25-.02.35-.07.1-.04.17-.11.23-.19.05-.08.08-.17.08-.28,0-.13-.03-.23-.09-.31-.06-.08-.14-.15-.25-.21s-.23-.11-.37-.16c-.14-.05-.29-.1-.44-.15-.35-.11-.61-.26-.79-.45s-.27-.44-.27-.75c0-.26.06-.49.19-.68s.3-.33.53-.43.48-.15.77-.15.56.05.78.15c.22.1.4.25.53.44s.2.42.2.68h-.9c0-.1-.03-.19-.08-.27-.05-.09-.12-.16-.22-.21s-.2-.08-.33-.08c-.11,0-.21.01-.3.05-.09.04-.16.09-.21.17s-.08.16-.08.27.03.19.08.26.12.13.22.19c.09.05.2.1.33.14.13.04.26.09.41.14.22.08.42.16.6.27.18.1.33.24.44.4s.16.38.16.65c0,.23-.06.44-.18.64s-.3.36-.52.48c-.23.12-.51.18-.85.18Z"/><path d="M115.78,22.71v-3.71h-1.29v-.68h3.41v.68h-1.28v3.71h-.84Z"/><path d="M119.76,22.71v-4.4h2.89v.68h-2.04v1.15h1.85v.66h-1.85v1.22h2.04v.68h-2.89Z"/><path d="M124.68,22.71v-4.4h1.01l1.34,2.74,1.33-2.74h1.01v4.4h-.85v-2.95l-1.16,2.34h-.67l-1.17-2.34v2.95h-.85Z"/><path d="M133.01,22.79c-.32,0-.6-.05-.85-.16-.25-.11-.45-.27-.59-.48-.14-.21-.22-.46-.22-.76h.9c0,.13.04.25.1.35.06.1.15.19.26.25.11.06.24.09.4.09.13,0,.25-.02.35-.07.1-.04.17-.11.23-.19.05-.08.08-.17.08-.28,0-.13-.03-.23-.09-.31-.06-.08-.14-.15-.25-.21s-.23-.11-.37-.16c-.14-.05-.29-.1-.44-.15-.35-.11-.61-.26-.79-.45s-.27-.44-.27-.75c0-.26.06-.49.19-.68s.3-.33.53-.43.48-.15.77-.15.56.05.78.15c.22.1.4.25.53.44s.2.42.2.68h-.9c0-.1-.03-.19-.08-.27-.05-.09-.12-.16-.22-.21s-.2-.08-.33-.08c-.11,0-.21.01-.3.05-.09.04-.16.09-.21.17s-.08.16-.08.27.03.19.08.26.12.13.22.19c.09.05.2.1.33.14.13.04.26.09.41.14.22.08.42.16.6.27.18.1.33.24.44.4s.16.38.16.65c0,.23-.06.44-.18.64s-.3.36-.52.48c-.23.12-.51.18-.85.18Z"/></g>
+    </svg>
+  </a>
+  <nav class="nav-links" id="nav-links">
+    <a href="#why">Why Us</a>
+    <a href="#coatings">Coatings</a>
+    <a href="#work">Our Work</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="#contact" class="nav-cta">Get a Free Estimate</a>
+</header>
+
+<!-- HERO -->
+<section class="hero grain grain-d" id="hero">
+  <div class="hero-bg" style="background-image:url('./images/section-01.jpg')"></div>
+  <div class="hero-veil"></div>
+  <div class="hero-outer">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <span class="hero-eyebrow" id="h-eyebrow">Serving Greater LA and OC Areas</span>
+        <h1 class="hero-h1" id="h-h1">Your Concrete.<br/><span style="color:var(--cyan)">Transformed.</span></h1>
+        <p class="hero-sub" id="h-sub">From garage floors to commercial spaces, we install long lasting coatings that look amazing and are ready for anything.</p>
+        <div class="hero-proof" id="h-proof">
+          <div><div class="hp-num">1M+</div><div class="hp-label">Sq ft installed</div></div>
+          <div><div class="hp-num">10+</div><div class="hp-label">Years in the trades</div></div>
+          <div><div class="hp-num">1-2 days</div><div class="hp-label">Most jobs complete</div></div>
+        </div>
+      </div>
+      <div id="quoter-wrap"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT BAR -->
+<div class="clients-bar">
+  <p class="clients-label">Trusted by leading brands across Southern California</p>
+  <div class="clients-track-wrap">
+    <div class="clients-list">
+      <div class="client-item">
+        <img src="./images/clients/ferguson.svg" alt="Ferguson" class="client-logo wordmark"/>
+      </div>
+      <div class="client-item">
+        <img src="./images/clients/valvoline.svg" alt="Valvoline" class="client-logo"/>
+      </div>
+      <div class="client-item center">
+        <img src="./images/clients/mclaren.svg" alt="McLaren" class="client-logo"/>
+      </div>
+      <div class="client-item center">
+        <img src="./images/clients/lexus.svg" alt="Lexus" class="client-logo wordmark"/>
+      </div>
+      <div class="client-item">
+        <img src="./images/clients/toyota.svg" alt="Toyota" class="client-logo"/>
+      </div>
+      <div class="client-item">
+        <img src="./images/clients/sloan.svg" alt="Sloan" class="client-logo wordmark"/>
+      </div>
+      <div class="client-item">
+        <img src="./images/clients/driven.svg" alt="Driven Car Wash" class="client-logo"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAIN / PROBLEM SECTION -->
+<section class="pain-section grain grain-d" id="why">
+  <div class="pain-bg" id="pain-bg"></div>
+  <div class="pain-veil"></div>
+  <div class="pain-content">
+    <div class="pain-header rv">
+      <h2 class="pain-h">You stopped noticing.<br/>They haven't.</h2>
+      <p class="pain-lead">You've invested in everything else. The floor keeps getting pushed to later. Here's what that's costing you.</p>
+    </div>
+    <div class="pain-cols">
+      <div class="pain-col" data-pain>
+        <span class="pain-col-num">01.</span>
+        <div class="pain-col-title">Made to Break</div>
+        <p class="pain-col-body">Bare concrete isn't designed for heavy equipment, chemical spills, or daily punishment.</p>
+      </div>
+      <div class="pain-col" data-pain>
+        <span class="pain-col-num">02.</span>
+        <div class="pain-col-title">Safety Hazard</div>
+        <p class="pain-col-body">Cracked, dusty concrete is a slip hazard. For homeowners it's a risk. For businesses it's a liability.</p>
+      </div>
+      <div class="pain-col" data-pain>
+        <span class="pain-col-num">03.</span>
+        <div class="pain-col-title">Losing Value</div>
+        <p class="pain-col-body">A finished floor is a return on investment. An unfinished one is a line item on every buyer's inspection report.</p>
+      </div>
+      <div class="pain-col" data-pain>
+        <span class="pain-col-num">04.</span>
+        <div class="pain-col-title">First Impressions</div>
+        <p class="pain-col-body">A cracked, stained, or unfinished floor is the wrong message to send to guests and clients.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE AGGREPOXY -->
+<section class="why-section" id="process">
+  <div class="why-inner">
+    <div class="why-header rv">
+      <span class="why-eyebrow">Built right the first time</span>
+      <h2 class="why-h">Why Choose Aggrepoxy</h2>
+    </div>
+    <div class="why-grid" id="why-grid">
+      <!-- Left column (items 1–8) -->
+      <div class="why-item" data-why><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">10+ Years of Experience</span></div>
+      <div class="why-item" data-why><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">1M+ Sq/Ft Installed</span></div>
+      <div class="why-item" data-why><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Family Owned</span></div>
+      <div class="why-item" data-why><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Licensed, Bonded, Insured</span></div>
+      <div class="why-item" data-why><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Commercial Tools &amp; Equipment</span></div>
+      <div class="why-item" data-why><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Impact and Stain Resistant</span></div>
+      <div class="why-item" data-why><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Hot Tire Resistant</span></div>
+      <div class="why-item" data-why><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Anti-Microbial</span></div>
+      <!-- Right column (items 9–16) -->
+      <div class="why-item" data-why><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Non-Slip</span></div>
+      <div class="why-item" data-why><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">No Yellowing</span></div>
+      <div class="why-item" data-why><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Easy to Clean</span></div>
+      <div class="why-item" data-why><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Custom Colors</span></div>
+      <div class="why-item" data-why><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Increase Home Value</span></div>
+      <div class="why-item" data-why><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Garages, Shops, Commercial Applications</span></div>
+      <div class="why-item" data-why><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">1-2 Day Typical Install</span></div>
+      <div class="why-item check-dark" data-why><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Backed by 1 Year Warranty</span></div>
+    </div>
+    <div class="why-cta-row rv">
+      <a href="#contact" class="why-cta-btn">
+        Get a Free Estimate
+        <svg width="13" height="13" viewBox="0 0 13 13" style="display:block;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE COAT -->
+<section class="coat-section" id="coatings">
+  <div class="coat-section-inner">
+    <div class="coat-section-head rv">
+      <span class="coat-section-eyebrow">Coatings That Exceed Your Demands</span>
+      <h2 class="coat-section-h">What we coat.</h2>
+      <p class="coat-section-sub">From single-car garages to 50,000 sq ft industrial floors.</p>
+    </div>
+    <div class="coat-grid" id="coat-grid">
+      <!-- Cards injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="ba-section bg-white" id="work">
+  <div class="section-inner">
+    <div class="ba-head rv">
+      <span class="ba-eyebrow">Concrete Transformations</span>
+      <h2 class="ba-h2">See the difference.</h2>
+    </div>
+    <div class="ba-grid rv d1" id="ba-grid"></div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL — full-bleed floating carousel -->
+<div class="testi-section grain grain-d" id="testimonials">
+  <div class="testi-photo" style="background-image:url('./images/section-01.jpg')"></div>
+  <div class="testi-veil"></div>
+  <div class="testi-card" id="testi-card">
+    <span class="testi-mark">"</span>
+    <p class="testi-headline" id="testi-headline"></p>
+    <p class="testi-body" id="testi-body"></p>
+    <p class="testi-author" id="testi-author"></p>
+    <div class="testi-nav">
+      <div class="testi-dots" id="testi-dots"></div>
+      <button class="testi-btn" id="testi-prev" aria-label="Previous"><svg viewBox="0 0 14 14"><path d="M9 2L4.5 7 9 12"/></svg></button>
+      <button class="testi-btn" id="testi-next" aria-label="Next"><svg viewBox="0 0 14 14"><path d="M5 2l4.5 5L5 12"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<!-- BIG CTA -->
+<section class="cta-section grain grain-d" id="contact">
+  <div class="cta-bg-img" style="background-image:url('./images/section-05.jpg')"></div>
+  <div class="cta-veil"></div>
+  <div class="cta-inner">
+    <div class="rv">
+      <span style="font-family:var(--font-sub);font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:10px;">Free. No obligation.</span>
+      <h2 class="cta-h">Ready to see what your floor can <em>become?</em></h2>
+      <div class="cta-pills-row">
+        <div class="cta-pill"><div class="cta-check">&#10003;</div>Free estimate</div>
+        <div class="cta-pill"><div class="cta-check">&#10003;</div>No sales pressure</div>
+        <div class="cta-pill"><div class="cta-check">&#10003;</div>Response in 24 hrs</div>
+      </div>
+    </div>
+    <div class="cta-right rv d1">
+      <p class="cta-sub">Tell us your name and number. We'll reach out within 24 hours to schedule a free walkthrough at your location.</p>
+      <form class="cta-form" id="cta-form" novalidate>
+        <div class="cta-row">
+          <input class="cta-field" type="text" name="name" placeholder="Your name" autocomplete="given-name" required/>
+          <input class="cta-field" type="tel" name="phone" placeholder="Phone number" autocomplete="tel" required/>
+        </div>
+        <input class="cta-field-full" type="text" name="project" placeholder="Tell us about your space (garage, warehouse, patio...)"/>
+        <button type="submit" class="cta-submit">Get my free estimate <svg viewBox="0 0 14 14" style="width:13px;height:13px;display:inline-block;vertical-align:middle;margin-left:4px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round"><path d="M2 7h10M7 3l4 4-4 4"/></svg></button>
+        <p class="cta-micro">We'll text or call back within 24 hours. No spam. Ever.</p>
+      </form>
+      <a href="tel:+13125550144" class="cta-phone" style="margin-top:10px;">
+        <svg viewBox="0 0 15 15"><path d="M2.5 3c0 0 1.5-1.5 2.5 0s.5 3.5-.5 4c0 0 1 3 4 4.5.5-1 2-1 3.5 0s1.5 2.5 1.5 2.5C12.5 15.5 10.5 15 9 14 6 12.5 3.5 9.5 3 7.5 2.5 5.5 2.5 3 2.5 3Z"/></svg>
+        (312) 555-0144
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" aria-label="Aggrepoxy">
+        <svg class="logo-compact l-light" viewBox="0 0 143.02 27.76" xmlns="http://www.w3.org/2000/svg" style="height:34px;width:auto">
+          <g><path d="M6,8.55h-3.75l1.95,1.97-2.39,2.6h3.69l2.17-2.45h5.82l-.08,2.45h3.83l.02-11.29h-5.09l-6.16,6.72ZM13.57,8.54h-4.03l4.19-4.74-.17,4.74Z"/><path d="M29.82,1.83h-5.85c-2.3,0-3.4.73-3.4,2.26v6.77c0,1.53,1.09,2.26,3.4,2.26h5.85c2.3,0,3.4-.73,3.4-2.26v-3.97h-6.69v2.03h3.2v1.74c0,.24-.12.32-.49.32h-4.68c-.36,0-.49-.08-.49-.32v-6.39c0-.24.12-.32.49-.32h4.68c.36,0,.49.08.49.32v1.29h3.49v-1.48c0-1.53-1.09-2.26-3.4-2.26Z"/><path d="M45.39,1.83h-5.85c-2.3,0-3.4.73-3.4,2.26v6.77c0,1.53,1.09,2.26,3.4,2.26h5.85c2.3,0,3.4-.73,3.4-2.26v-3.97h-6.69v2.03h3.2v1.74c0,.24-.12.32-.49.32h-4.68c-.36,0-.48-.08-.48-.32v-6.39c0-.24.12-.32.48-.32h4.68c.36,0,.49.08.49.32v1.29h3.49v-1.48c0-1.53-1.09-2.26-3.4-2.26Z"/><path d="M64.48,6.82v-2.73c0-1.53-1.09-2.26-3.4-2.26h-8.95v11.29h3.49v-3.98h2.81l2.81,3.98h3.76l-2.89-4.11c1.6-.19,2.35-.92,2.35-2.19ZM60.98,6.75c0,.24-.12.32-.49.32h-4.88v-3.14h4.88c.36,0,.49.08.49.32v2.5Z"/><polygon points="67.9 13.12 71.19 13.12 79.32 13.12 79.32 10.99 71.39 10.99 71.39 8.4 77.82 8.4 77.82 6.3 71.39 6.3 71.39 3.96 79.32 3.96 79.32 1.83 67.9 1.83 67.9 13.12"/><path d="M91.37,1.83h-8.97v11.29h3.49v-3.77h5.48c2.3,0,3.4-.73,3.4-2.26v-3c0-1.53-1.09-2.26-3.4-2.26ZM91.28,6.9c0,.24-.12.32-.48.32h-4.9v-3.26h4.9c.36,0,.48.08.48.32v2.61Z"/><path d="M106.8,1.83h-6.23c-2.3,0-3.4.73-3.4,2.26v6.77c0,1.53,1.09,2.26,3.4,2.26h6.23c2.3,0,3.4-.73,3.4-2.26v-6.77c0-1.53-1.09-2.26-3.4-2.26ZM106.7,10.67c0,.24-.12.32-.49.32h-5.07c-.36,0-.49-.08-.49-.32v-6.39c0-.24.12-.32.49-.32h5.07c.36,0,.49.08.49.32v6.39Z"/><polygon points="125.62 1.83 121.86 1.83 118.51 5.48 115.19 1.83 111.26 1.83 116.4 7.38 111.12 13.12 114.88 13.12 118.34 9.32 121.84 13.12 125.77 13.12 120.33 7.38 125.62 1.83"/><polygon points="137.48 1.83 133.96 6.86 130.45 1.83 126.66 1.83 132.19 9.27 132.19 13.12 135.68 13.12 135.68 9.27 141.21 1.83 137.48 1.83"/></g>
+        </svg>
+      </a>
+      <p class="footer-tagline">Premium concrete coatings for Los Angeles and Orange County.</p>
+    </div>
+    <div class="footer-col"><div class="footer-col-head">Services</div><a href="#">Decorative Flake</a><a href="#">Metallic Finish</a><a href="#">Quartz Systems</a><a href="#">Solid Color Epoxy</a><a href="#">Concrete Polish</a><a href="#">Industrial Coatings</a></div>
+    <div class="footer-col"><div class="footer-col-head">Spaces</div><a href="#">Garages</a><a href="#">Patios and Decks</a><a href="#">Showrooms</a><a href="#">Warehouses</a><a href="#">Restaurants</a></div>
+    <div class="footer-col"><div class="footer-col-head">Where We Work</div><a href="#">Los Angeles</a><a href="#">Orange County</a><a href="#">Chicago</a></div>
+    <div class="footer-col"><div class="footer-col-head">Company</div><a href="#">About</a><a href="#">Process</a><a href="#contact">Contact</a></div>
+  </div>
+  <div class="footer-base">
+    <span class="footer-copy">2026 Aggrepoxy LLC. Family owned and operated.</span>
+    <span class="footer-lic">CA Lic #1098823</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){'use strict';
+
+/* ─── LENIS ─────────────────────────────────────────────────── */
+const lenis=new Lenis({duration:1.1,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),smoothWheel:true});
+(function raf(t){lenis.raf(t);requestAnimationFrame(raf);})(0);
+
+/* ─── REGISTER GSAP PLUGINS ─────────────────────────────────── */
+gsap.registerPlugin(ScrollTrigger);
+
+/* ─── NAV SCROLL BEHAVIOR ───────────────────────────────────── */
+const nav=document.getElementById('nav');
+lenis.on('scroll',({scroll})=>nav.classList.toggle('scrolled',scroll>60));
+
+/* ─── SMOOTH ANCHOR LINKS ───────────────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href');
+    if(!id||id==='#')return;
+    e.preventDefault();
+    const t=document.querySelector(id);
+    if(t)lenis.scrollTo(t,{offset:-68,duration:1.25});
+  });
+});
+
+/* ─── HERO ENTRANCE ─────────────────────────────────────────── */
+const hEls=['#h-eyebrow','#h-h1','#h-sub','#h-proof','#quoter-wrap'];
+gsap.set([nav,...hEls],{opacity:0,y:16});
+const tl=gsap.timeline({delay:.05});
+tl.to(nav,{opacity:1,y:0,duration:.45,ease:'power3.out'})
+  .to('#h-eyebrow',{opacity:1,y:0,duration:.5,ease:'power3.out'},'-=.1')
+  .to('#h-h1',{opacity:1,y:0,duration:.82,ease:'expo.out'},'-=.32')
+  .to('#h-sub',{opacity:1,y:0,duration:.58,ease:'power3.out'},'-=.5')
+  .to('#h-proof',{opacity:1,y:0,duration:.48,ease:'power3.out'},'-=.4')
+  .to('#quoter-wrap',{opacity:1,y:0,duration:.58,ease:'power3.out'},'-=.44');
+
+/* ─── HERO PARALLAX ─────────────────────────────────────────── */
+gsap.to('.hero-bg',{
+  yPercent:13,ease:'none',
+  scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}
+});
+
+/* ─── PAIN SECTION PARALLAX ─────────────────────────────────── */
+gsap.to('#pain-bg',{
+  yPercent:22,ease:'none',
+  scrollTrigger:{trigger:'.pain-section',start:'top bottom',end:'bottom top',scrub:true}
+});
+
+/* ─── GENERIC SCROLL REVEALS (rv class) ─────────────────────── */
+const rvObs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('on');rvObs.unobserve(e.target);}
+}),{threshold:.05,rootMargin:'0px 0px -24px 0px'});
+document.querySelectorAll('.rv').forEach(el=>rvObs.observe(el));
+
+/* ─── PAIN COLUMNS STAGGER (IntersectionObserver) ───────────── */
+const painObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('on');painObs.unobserve(e.target);}
+  });
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('[data-pain]').forEach(el=>painObs.observe(el));
+
+/* ─── WHY CHECKLIST STAGGER ──────────────────────────────────── */
+// Observe the grid container, then animate items in when it enters
+const whyGrid = document.getElementById('why-grid');
+if(whyGrid){
+  const whyObs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        // Fire items with their CSS transition-delay
+        document.querySelectorAll('[data-why]').forEach(item=>item.classList.add('on'));
+        whyObs.unobserve(e.target);
+      }
+    });
+  },{threshold:.08,rootMargin:'0px 0px -32px 0px'});
+  whyObs.observe(whyGrid);
+}
+
+/* ─── WHY ITEM HOVER ─────────────────────────────────────────── */
+document.querySelectorAll('[data-why]').forEach(item=>{
+  item.addEventListener('mouseenter',()=>{
+    gsap.to(item.querySelector('.why-check'),{scale:1.12,duration:.22,ease:'power2.out'});
+    gsap.to(item.querySelector('.why-item-label'),{x:3,duration:.22,ease:'power2.out'});
+  });
+  item.addEventListener('mouseleave',()=>{
+    gsap.to(item.querySelector('.why-check'),{scale:1,duration:.3,ease:'power2.out'});
+    gsap.to(item.querySelector('.why-item-label'),{x:0,duration:.3,ease:'power2.out'});
+  });
+});
+
+/* ─── HERO FORM ──────────────────────────────────────────────── */
+const SPACES=['Garage','Patio or deck','Showroom','Restaurant','Warehouse','Other'];
+let heroSent=false;
+function renderHeroForm(){
+  const w=document.getElementById('quoter-wrap');if(!w)return;
+  if(heroSent){
+    w.innerHTML=`<div class="quoter"><div class="q-success"><div class="q-success-icon">&#10003;</div><h3>You're in the queue</h3><p>We'll reach out within 24 hours to schedule your walkthrough.</p></div></div>`;
+    return;
+  }
+  w.innerHTML=`
+    <form class="quoter" id="hqform" novalidate>
+      <div class="q-title">Get your<br/>free estimate</div>
+      <p class="q-subtitle">Fast Response. No obligation. Licensed and Insured.</p>
+      <div class="q-field"><input id="hq-name" type="text" placeholder="Name" autocomplete="name" required/></div>
+      <div class="q-field"><input id="hq-phone" type="tel" placeholder="Phone Number" autocomplete="tel" required/></div>
+      <div class="q-field">
+        <select id="hq-space" aria-label="Type of space">
+          <option value="" disabled selected>Type of space</option>
+          ${SPACES.map(s=>`<option>${s}</option>`).join('')}
+        </select>
+      </div>
+      <label class="q-check"><input type="checkbox" id="hq-agree1" required/><span>By submitting, you agree to Aggrepoxy's <a href="#">Privacy Policy</a> and <a href="#">Terms and Conditions</a>.</span></label>
+      <label class="q-check"><input type="checkbox" id="hq-agree2"/><span>You consent to receive calls and SMS from Aggrepoxy about your project. Reply STOP to opt out. Message and data rates may apply.</span></label>
+      <button type="submit" class="q-submit">Request Estimate <svg viewBox="0 0 13 13" style="width:12px;height:12px;display:inline-block;vertical-align:middle;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></button>
+      <div class="q-trust">Licensed and insured &nbsp;|&nbsp; LA and OC</div>
+    </form>`;
+  const form=document.getElementById('hqform');
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const n=document.getElementById('hq-name');
+    const p=document.getElementById('hq-phone');
+    const a=document.getElementById('hq-agree1');
+    let ok=true;
+    [n,p].forEach(f=>{if(!f.value.trim()){f.style.borderColor='#cc3344';if(ok)f.focus();ok=false;}else f.style.borderColor='';});
+    if(!a.checked){a.focus();return;}
+    if(!ok)return;
+    const btn=form.querySelector('.q-submit');btn.textContent='Sending...';btn.disabled=true;
+    setTimeout(()=>{heroSent=true;renderHeroForm();},700);
+  });
+  ['hq-name','hq-phone'].forEach(id=>{const f=document.getElementById(id);f&&f.addEventListener('input',()=>f.style.borderColor='');});
+}
+renderHeroForm();
+
+/* ─── WHAT WE COAT — card grid ───────────────────────────────── */
+const coatData=[
+  {name:'Solid Color Epoxy',
+   img:'./images/garage-flake.jpg',
+   popular:false,
+   bullets:['Uniform look for showrooms and retail','Dozens of standard and custom colors','Easy mopping and maintenance','Available with anti-slip additive on request']},
+  {name:'Decorative Flake',
+   img:'./images/Lambo-Volt-scaled.jpg',
+   popular:false,
+   bullets:['Popular heavy-duty system for garages','Custom color blends','Flake finish hides dirt and debris','Slip-resistant texture built in','UV-stable, will not yellow']},
+  {name:'Quartz Systems',
+   img:'./images/section-05.jpg',
+   popular:false,
+   bullets:['Maximum traction even when wet','Ideal for pool decks, patios, and kitchens','Chemical-resistant formulation','No grout lines to maintain']},
+  {name:'Metallic Finish',
+   img:'./images/section-04.jpg',
+   popular:true,
+   bullets:['3D marbled finish that showcases your space','Popular in homes, salons, offices, and garages','Unlimited custom color combinations','High gloss surface that wipes clean','Non-slip additive can be mixed in']},
+  {name:'Concrete Polish',
+   img:'./images/section-01.jpg',
+   popular:false,
+   bullets:['Sophisticated look','No topcoat to chip, peel, or re-apply','Easy to clean for high traffic areas','Best for commercial and retail environments']},
+  {name:'Industrial Coatings',
+   img:'./images/section-05.jpg',
+   popular:false,
+   bullets:['Forklifts, pallet jacks, and heavy equipment','Chemical and thermal shock resistant','OSHA slip-resistance requirements','Safety stripe and zone-marking']},
+];
+
+const coatGridEl=document.getElementById('coat-grid');
+coatData.forEach(c=>{
+  const card=document.createElement('div');
+  card.className='coat-card';
+  card.innerHTML=`
+    <div class="coat-card-img">
+      <div class="coat-card-img-bg" style="background-image:url('${c.img}')"></div>
+      ${c.popular?`<div class="coat-card-badge">Popular</div>`:''}
+    </div>
+    <div class="coat-card-body">
+      <div class="coat-card-title">${c.name}</div>
+      <ul class="coat-card-bullets">${c.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+      <a href="#contact" class="coat-card-link">Learn More <svg viewBox="0 0 13 13"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
+    </div>`;
+  coatGridEl.appendChild(card);
+});
+
+// Animate cards on scroll
+const coatCardObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('on');coatCardObs.unobserve(e.target);}
+  });
+},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.coat-card').forEach(c=>coatCardObs.observe(c));
+
+/* ─── TESTIMONIALS — floating card carousel ──────────────────── */
+const testis=[
+  {
+    hl:'No Slipping, No Worries',
+    body:"I was worried the floor would be slippery when my kids ran through the garage with wet feet. The anti-slip texture is barely visible but makes a huge difference. We've had zero issues — it's grippy even when wet.",
+    author:'Sandra R. — Pasadena, CA'
+  },
+  {
+    hl:'Worth Every Penny',
+    body:"I went in expecting sticker shock but the quote was fair and the results are incredible. No toxic smell during cure, they ventilated the garage properly and we were back in the next day. Best investment we've made in this house.",
+    author:'Marcus T. — Irvine, CA'
+  },
+  {
+    hl:'Still Looks Brand New',
+    body:"Two years in and our showroom floor still looks like it was installed yesterday. No yellowing, no peeling, no fading under the skylights. I've had three competitors ask who did our floors.",
+    author:'Drew A. — El Segundo, CA'
+  },
+];
+let tIdx=0;
+const tCard=document.getElementById('testi-card');
+const tHeadEl=document.getElementById('testi-headline');
+const tBodyEl=document.getElementById('testi-body');
+const tAuthEl=document.getElementById('testi-author');
+const tDotsEl=document.getElementById('testi-dots');
+
+// Build dots
+testis.forEach((_,i)=>{
+  const dot=document.createElement('div');
+  dot.className='testi-dot'+(i===0?' on':'');
+  dot.addEventListener('click',()=>setTesti(i));
+  tDotsEl.appendChild(dot);
+});
+
+function setTesti(i){
+  tIdx=i;
+  tCard.style.opacity='0';tCard.style.transform='translateY(10px)';
+  setTimeout(()=>{
+    tHeadEl.textContent=testis[i].hl;
+    tBodyEl.textContent=testis[i].body;
+    tAuthEl.textContent=testis[i].author;
+    document.querySelectorAll('.testi-dot').forEach((d,j)=>d.classList.toggle('on',j===i));
+    tCard.style.opacity='1';tCard.style.transform='none';
+  },220);
+}
+tCard.style.transition='opacity .3s ease,transform .3s ease';
+setTesti(0);
+
+// Reveal card on scroll
+const testiObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('on');testiObs.unobserve(e.target);}
+  });
+},{threshold:.15});
+testiObs.observe(tCard);
+
+document.getElementById('testi-prev').addEventListener('click',()=>setTesti((tIdx-1+testis.length)%testis.length));
+document.getElementById('testi-next').addEventListener('click',()=>setTesti((tIdx+1)%testis.length));
+/* ─── BEFORE / AFTER ─────────────────────────────────────────── */
+const baData=[
+  {tag:'Decorative Flake',loc:'Residential garage, Los Angeles CA',
+   before:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=80',
+   after:'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&auto=format&fit=crop&q=80'},
+  {tag:'Polyaspartic',loc:'Commercial showroom, Irvine CA',
+   before:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=80',
+   after:'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&auto=format&fit=crop&q=80'},
+  {tag:'Metallic Finish',loc:'Restaurant floor, West Hollywood CA',
+   before:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=80',
+   after:'https://images.unsplash.com/photo-1519302959554-a75be0afc82a?w=900&auto=format&fit=crop&q=80'},
+  {tag:'Industrial Coating',loc:'Distribution warehouse, Vernon CA',
+   before:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=80',
+   after:'https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=900&auto=format&fit=crop&q=80'},
+];
+const baGridEl=document.getElementById('ba-grid');
+baData.forEach((d,idx)=>{
+  const item=document.createElement('div');item.className='ba-item';
+  item.innerHTML=`
+    <div class="ba-slider-wrap" id="bas-${idx}">
+      <div class="ba-before" style="background-image:url('${d.before}')"></div>
+      <div class="ba-after" id="baa-${idx}" style="background-image:url('${d.after}')"></div>
+      <div class="ba-handle" id="bah-${idx}">
+        <div class="ba-handle-arrows">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="display:block">
+            <path d="M6 10H14M6 10L9 7M6 10L9 13M14 10L11 7M14 10L11 13" stroke="#0C0C0C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="ba-labels">
+        <span class="ba-lbl">Before</span>
+        <span class="ba-lbl after">After</span>
+      </div>
+    </div>
+    <div class="ba-meta">
+      <span class="ba-meta-tag">${d.tag}</span>
+      <span class="ba-meta-loc">${d.loc}</span>
+    </div>`;
+  baGridEl.appendChild(item);
+  let drag=false,pos=0.5;
+  const wrap=item.querySelector('.ba-slider-wrap');
+  const afterEl=document.getElementById('baa-'+idx);
+  const handleEl=document.getElementById('bah-'+idx);
+  function setPos(p){
+    pos=Math.max(.02,Math.min(.98,p));
+    afterEl.style.clipPath=`inset(0 ${((1-pos)*100).toFixed(1)}% 0 0)`;
+    handleEl.style.left=(pos*100).toFixed(1)+'%';
+  }
+  function gx(e){return e.touches?e.touches[0].clientX:e.clientX;}
+  function mv(e){if(!drag)return;const r=wrap.getBoundingClientRect();setPos((gx(e)-r.left)/r.width);}
+  wrap.addEventListener('mousedown',e=>{drag=true;mv(e);});
+  wrap.addEventListener('touchstart',e=>{drag=true;mv(e);},{passive:true});
+  window.addEventListener('mousemove',mv);
+  window.addEventListener('touchmove',mv,{passive:true});
+  window.addEventListener('mouseup',()=>drag=false);
+  window.addEventListener('touchend',()=>drag=false);
+  setPos(0.5);
+});
+
+/* ─── CTA FORM ───────────────────────────────────────────────── */
+document.getElementById('cta-form').addEventListener('submit',e=>{
+  e.preventDefault();
+  e.currentTarget.innerHTML=`<div style="padding:20px 0;color:#fff;text-align:center"><div style="font-family:var(--font-display);font-weight:700;font-size:30px;text-transform:uppercase;margin-bottom:8px">You're set.</div><p style="color:rgba(255,255,255,.45);font-size:15px">We'll be in touch within 24 hours to schedule your walkthrough.</p></div>`;
+});
+
+})();
+</script>
+</body>
+</html>
