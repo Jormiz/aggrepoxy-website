@@ -370,7 +370,7 @@ svg{display:block}
 }
 .pain-content{
   position:relative;z-index:2;
-  padding:clamp(80px,11vh,130px) var(--pad) clamp(80px,11vh,130px);
+  padding:clamp(48px,6vh,80px) var(--pad) clamp(48px,6vh,80px);
   max-width:1280px;
   margin:0 auto;
 }
@@ -378,15 +378,15 @@ svg{display:block}
 /* Header block */
 .pain-header{
   text-align:center;
-  margin-bottom:clamp(52px,8vh,88px);
+  margin-bottom:clamp(24px,3vh,36px);
 }
 .pain-h{
   font-family:var(--font-display);font-weight:700;
-  font-size:clamp(48px,6.5vw,94px);
+  font-size:clamp(40px,5.5vw,74px);
   line-height:.92;text-transform:uppercase;
   color:#ffffff;
   letter-spacing:.01em;
-  margin-bottom:18px;
+  margin-bottom:12px;
 }
 
 /* 4 columns — no borders at all, full width, wider */
@@ -396,7 +396,7 @@ svg{display:block}
 }
 .pain-col{
   flex:1;
-  padding:clamp(28px,3.5vw,44px) clamp(24px,2.8vw,40px);
+  padding:clamp(18px,2.2vw,28px) clamp(24px,2.8vw,40px);
   opacity:0;
   transform:translateY(24px);
   transition:opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1);
@@ -488,7 +488,7 @@ svg{display:block}
 .why-counter-num{
   font-family:var(--font-display);font-weight:700;
   font-size:clamp(52px,6vw,88px);
-  line-height:1;color:#0C0C0C;
+  line-height:1;color:var(--cyan);
   letter-spacing:-.01em;
 }
 .why-counter-suffix{
@@ -498,7 +498,7 @@ svg{display:block}
 .why-counter-label{
   font-family:var(--font-sub);font-weight:600;
   font-size:11px;letter-spacing:.2em;text-transform:uppercase;
-  color:rgba(12,12,12,.42);
+  color:#0C0C0C;
 }
 
 /* 2-column checklist — explicit column wrappers so left fills before right */
@@ -1055,8 +1055,8 @@ input:focus,select:focus,textarea:focus{outline:none;}
   <div class="pain-veil"></div>
   <div class="pain-content">
     <div class="pain-header rv">
-      <h2 class="pain-h">Bare concrete is costing you<br/>more than you think.</h2>
-      <p class="pain-lead">It's not just about looks. Bare concrete has four real costs most people never account for.</p>
+      <h2 class="pain-h">Old or Cracked Concrete?</h2>
+      <p class="pain-lead">It's costing you more than you think.</p>
     </div>
     <div class="pain-cols">
       <div class="pain-col" data-pain>
@@ -1071,8 +1071,8 @@ input:focus,select:focus,textarea:focus{outline:none;}
       </div>
       <div class="pain-col" data-pain>
         <span class="pain-col-num">03.</span>
-        <div class="pain-col-title">Losing Value</div>
-        <p class="pain-col-body">A finished floor is a return on investment. An unfinished one is a line item on every buyer's inspection report.</p>
+        <div class="pain-col-title">Stains Easily</div>
+        <p class="pain-col-body">Bare concrete is porous. Oil, rust, and chemical spills soak in fast and rarely come back out, leaving permanent marks behind.</p>
       </div>
       <div class="pain-col" data-pain>
         <span class="pain-col-num">04.</span>
@@ -1116,8 +1116,8 @@ input:focus,select:focus,textarea:focus{outline:none;}
         <div class="why-item" data-why data-delay="0"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">24HR Response</span></div>
         <div class="why-item" data-why data-delay="1"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">1-2 Day Install</span></div>
         <div class="why-item" data-why data-delay="2"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Family Owned &amp; Operated</span></div>
-        <div class="why-item" data-why data-delay="3"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Licensed, Bonded, Insured</span></div>
-        <div class="why-item" data-why data-delay="4"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">State-of-the-Art Equipment</span></div>
+        <div class="why-item" data-why data-delay="3"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">State-of-the-Art Equipment</span></div>
+        <div class="why-item" data-why data-delay="4"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">HEPA Rated Dust Extraction</span></div>
         <div class="why-item" data-why data-delay="5"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Garages, Pools, &amp; Patios</span></div>
         <div class="why-item" data-why data-delay="6"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Commercial &amp; Industrial</span></div>
       </div>
