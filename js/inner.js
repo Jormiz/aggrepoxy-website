@@ -25,7 +25,12 @@
   }
   function close(){lb.classList.remove('open');document.body.style.overflow='';}
 
-  items.forEach(function(el,i){el.addEventListener('click',function(){open(i);});});
+  items.forEach(function(el,i){
+    el.addEventListener('click',function(e){e.preventDefault();open(i);});
+    el.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '||e.key==='Spacebar'){e.preventDefault();open(i);}
+    });
+  });
   var closeBtn=lb.querySelector('.lightbox-close');
   if(closeBtn)closeBtn.addEventListener('click',close);
   var prevBtn=lb.querySelector('.lightbox-nav.prev');
@@ -40,6 +45,34 @@
     if(e.key==='ArrowRight')open(idx+1);
   });
 })();
+
+/* ─── SERVICE PAGE SLIDESHOW ─────────────────────────────────── */
+document.querySelectorAll('.svc-slideshow').forEach(function(sh){
+  var slides=Array.prototype.slice.call(sh.querySelectorAll('.svc-slide'));
+  var dotsWrap=sh.querySelector('.svc-slideshow-dots');
+  if(!slides.length||!dotsWrap)return;
+  var idx=0,timer=null;
+  var dots=slides.map(function(_,i){
+    var d=document.createElement('button');
+    d.type='button';d.className='svc-slideshow-dot'+(i===0?' on':'');
+    d.setAttribute('aria-label','Go to slide '+(i+1));
+    d.addEventListener('click',function(){show(i);reset();});
+    dotsWrap.appendChild(d);
+    return d;
+  });
+  function show(i){
+    idx=(i+slides.length)%slides.length;
+    slides.forEach(function(s,si){s.classList.toggle('on',si===idx);});
+    dots.forEach(function(d,di){d.classList.toggle('on',di===idx);});
+  }
+  function reset(){if(timer)clearInterval(timer);timer=setInterval(function(){show(idx+1);},4800);}
+  var prevBtn=sh.querySelector('.svc-slideshow-btn.prev');
+  var nextBtn=sh.querySelector('.svc-slideshow-btn.next');
+  if(prevBtn)prevBtn.addEventListener('click',function(){show(idx-1);reset();});
+  if(nextBtn)nextBtn.addEventListener('click',function(){show(idx+1);reset();});
+  show(0);
+  reset();
+});
 
 /* ─── CONTACT 2-STEP QUOTER ──────────────────────────────────── */
 (function(){
@@ -115,9 +148,9 @@
       if(!ok){if(firstBad)firstBad.focus();return;}
 
       var lines=[
-        'Space type: '+(state.space||'—'),
-        'Approx. square footage: '+(state.sqft||'—'),
-        'Timeline: '+(state.timeline||'—'),
+        'Space type: '+(state.space||'N/A'),
+        'Approx. square footage: '+(state.sqft||'N/A'),
+        'Timeline: '+(state.timeline||'N/A'),
         'Name: '+document.getElementById('qf-name').value.trim(),
         'Phone: '+document.getElementById('qf-phone').value.trim(),
         'Email: '+document.getElementById('qf-email').value.trim(),
@@ -125,7 +158,7 @@
         'Project details: '+(document.getElementById('qf-details').value||'').trim()
       ];
       var to='floors@aggrepoxy.com';
-      var mailto='mailto:'+to+'?subject='+encodeURIComponent('New estimate request — Aggrepoxy')+'&body='+encodeURIComponent(lines.join('\n'));
+      var mailto='mailto:'+to+'?subject='+encodeURIComponent('New estimate request: Aggrepoxy')+'&body='+encodeURIComponent(lines.join('\n'));
       var btn=form.querySelector('.q-submit');
       if(btn){btn.textContent='Opening your email…';btn.disabled=true;}
       window.location.href=mailto;

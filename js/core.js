@@ -37,6 +37,39 @@ if(nav){
   mobile.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
 })();
 
+/* ─── NAV DROPDOWN ARIA STATE ─────────────────────────────────
+   Keeps aria-expanded in sync with the hover/focus-driven CSS
+   dropdown so screen readers get an accurate state. ──────────── */
+document.querySelectorAll('.nav-drop').forEach(function(drop){
+  var trigger=drop.querySelector('.nav-drop-trigger');
+  if(!trigger)return;
+  function setOpen(open){trigger.setAttribute('aria-expanded',open?'true':'false');}
+  drop.addEventListener('mouseenter',function(){setOpen(true);});
+  drop.addEventListener('mouseleave',function(){setOpen(false);});
+  trigger.addEventListener('focus',function(){setOpen(true);});
+  drop.addEventListener('focusout',function(e){
+    if(!drop.contains(e.relatedTarget))setOpen(false);
+  });
+  trigger.addEventListener('keydown',function(e){
+    if(e.key==='Enter'||e.key===' '){
+      e.preventDefault();
+      setOpen(trigger.getAttribute('aria-expanded')!=='true');
+    }
+    if(e.key==='Escape')setOpen(false);
+  });
+});
+
+/* ─── FORM ACCESSIBILITY: placeholder → aria-label fallback ───
+   Auto-labels any input/textarea that has a placeholder but no
+   associated <label> or explicit aria-label, site-wide. ──────── */
+document.querySelectorAll('input,textarea,select').forEach(function(el){
+  if(el.getAttribute('aria-label'))return;
+  if(el.id&&document.querySelector('label[for="'+el.id+'"]'))return;
+  if(el.closest('label'))return;
+  var fallback=el.getAttribute('placeholder')||el.name;
+  if(fallback)el.setAttribute('aria-label',fallback);
+});
+
 /* ─── SMOOTH ANCHOR LINKS (same-page only) ──────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
   a.addEventListener('click',function(e){
@@ -145,7 +178,7 @@ window.AGX.wireForm=function(opts){
       var val=el?(el.value||'').trim():'';
       return val?(f.label+': '+val):null;
     }).filter(Boolean);
-    var subject=opts.subject||'New estimate request — Aggrepoxy';
+    var subject=opts.subject||'New estimate request: Aggrepoxy';
     var to=opts.to||'floors@aggrepoxy.com';
     var mailto='mailto:'+to+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
 
@@ -159,10 +192,51 @@ window.AGX.wireForm=function(opts){
         target.innerHTML='<div class="q-success">'+
           '<div class="q-success-icon">&#10003;</div>'+
           '<h3>Almost there</h3>'+
-          '<p>Your email app should be open with your details filled in — just hit send. If nothing opened, email us directly at <a href="mailto:'+to+'" style="color:var(--cyan)">'+to+'</a>.</p>'+
+          '<p>Your email app should be open with your details filled in. Just hit send. If nothing opened, email us directly at <a href="mailto:'+to+'" style="color:var(--cyan)">'+to+'</a>.</p>'+
           '</div>';
       }
     },500);
+  });
+};
+
+/* ─── SHARED BEFORE/AFTER SLIDER RENDERER ─────────────────────
+   Used on the homepage and on service pages. Pass the id of an
+   empty .ba-grid container and an array of {tag,loc,before,after}. */
+window.AGX.renderBeforeAfter=function(containerId,data){
+  var gridEl=document.getElementById(containerId);
+  if(!gridEl)return;
+  data.forEach(function(d,idx){
+    var uid=containerId+'-'+idx;
+    var item=document.createElement('div');item.className='ba-item';
+    item.innerHTML=
+      '<div class="ba-slider-wrap" id="bas-'+uid+'">'+
+        '<div class="ba-before" style="background-image:url(\''+d.before+'\')"></div>'+
+        '<div class="ba-after" id="baa-'+uid+'" style="background-image:url(\''+d.after+'\')"></div>'+
+        '<div class="ba-handle" id="bah-'+uid+'">'+
+          '<div class="ba-handle-arrows"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="display:block"><path d="M6 10H14M6 10L9 7M6 10L9 13M14 10L11 7M14 10L11 13" stroke="#0C0C0C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'+
+        '</div>'+
+        '<div class="ba-labels"><span class="ba-lbl">Before</span><span class="ba-lbl after">After</span></div>'+
+      '</div>'+
+      '<div class="ba-meta"><span class="ba-meta-tag">'+d.tag+'</span><span class="ba-meta-loc">'+d.loc+'</span></div>';
+    gridEl.appendChild(item);
+    var drag=false,pos=0.5;
+    var wrap=item.querySelector('.ba-slider-wrap');
+    var afterEl=document.getElementById('baa-'+uid);
+    var handleEl=document.getElementById('bah-'+uid);
+    function setPos(p){
+      pos=Math.max(.02,Math.min(.98,p));
+      afterEl.style.clipPath='inset(0 '+((1-pos)*100).toFixed(1)+'% 0 0)';
+      handleEl.style.left=(pos*100).toFixed(1)+'%';
+    }
+    function gx(e){return e.touches?e.touches[0].clientX:e.clientX;}
+    function mv(e){if(!drag)return;var r=wrap.getBoundingClientRect();setPos((gx(e)-r.left)/r.width);}
+    wrap.addEventListener('mousedown',function(e){drag=true;mv(e);});
+    wrap.addEventListener('touchstart',function(e){drag=true;mv(e);},{passive:true});
+    window.addEventListener('mousemove',mv);
+    window.addEventListener('touchmove',mv,{passive:true});
+    window.addEventListener('mouseup',function(){drag=false;});
+    window.addEventListener('touchend',function(){drag=false;});
+    setPos(0.5);
   });
 };
 
