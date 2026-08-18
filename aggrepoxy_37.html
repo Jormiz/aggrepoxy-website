@@ -15,6 +15,18 @@
 @font-face{font-family:'Tungsten';font-weight:600;font-style:normal;font-display:swap;src:url('./fonts/tungsten-600.woff2') format('woff2');}
 @font-face{font-family:'Tungsten';font-weight:700;font-style:normal;font-display:swap;src:url('./fonts/tungsten-700.woff2') format('woff2');}
 @font-face{font-family:'Tungsten';font-weight:800;font-style:normal;font-display:swap;src:url('./fonts/tungsten-800.woff2') format('woff2');}
+/* Geist — self-hosted from repo /Fonts/Geist/Static/. NOTE: filenames below follow the
+   standard Google Fonts static-export naming convention. If your exported files use
+   different names, update the src paths accordingly. */
+@font-face{font-family:'Geist';font-weight:400;font-style:normal;font-display:swap;src:url('./Fonts/Geist/Static/Geist-Regular.ttf') format('truetype');}
+@font-face{font-family:'Geist';font-weight:500;font-style:normal;font-display:swap;src:url('./Fonts/Geist/Static/Geist-Medium.ttf') format('truetype');}
+@font-face{font-family:'Geist';font-weight:600;font-style:normal;font-display:swap;src:url('./Fonts/Geist/Static/Geist-SemiBold.ttf') format('truetype');}
+@font-face{font-family:'Geist';font-weight:700;font-style:normal;font-display:swap;src:url('./Fonts/Geist/Static/Geist-Bold.ttf') format('truetype');}
+@font-face{font-family:'Geist';font-weight:800;font-style:normal;font-display:swap;src:url('./Fonts/Geist/Static/Geist-ExtraBold.ttf') format('truetype');}
+@font-face{font-family:'Geist';font-weight:900;font-style:normal;font-display:swap;src:url('./Fonts/Geist/Static/Geist-Black.ttf') format('truetype');}
+@font-face{font-family:'Geist';font-weight:700;font-style:italic;font-display:swap;src:url('./Fonts/Geist/Static/Geist-BoldItalic.ttf') format('truetype');}
+@font-face{font-family:'Geist';font-weight:800;font-style:italic;font-display:swap;src:url('./Fonts/Geist/Static/Geist-ExtraBoldItalic.ttf') format('truetype');}
+@font-face{font-family:'Geist';font-weight:900;font-style:italic;font-display:swap;src:url('./Fonts/Geist/Static/Geist-BlackItalic.ttf') format('truetype');}
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:auto}
@@ -25,11 +37,11 @@ img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;background:none;border:none;cursor:pointer}
 svg{display:block}
-::selection{background:#00D9C8;color:#0C0C0C}
+::selection{background:#00ced8;color:#0C0C0C}
 
 :root{
   --black:#0C0C0C;
-  --cyan:#00D9C8;
+  --cyan:#00ced8;
   --rule-dark:#2a2a2a;
   --rule-mid:#d8d8d4;
   --rule-light:rgba(0,0,0,.08);
@@ -42,7 +54,36 @@ svg{display:block}
   --font-sub:'Industry',sans-serif;
   --font-display:'Tungsten',sans-serif;
   --font-body:'DM Sans',sans-serif;
+  --display-weight:700;
+  --display-style:normal;
+  --display-tracking:.01em;
+  --orange:#e58225;
 }
+/* ── TYPE TOGGLE — Tungsten (default) / Geist / Geist Italic ── */
+html[data-font="geist"]{--font-display:'Geist',sans-serif;--display-weight:800;--display-style:normal;--display-tracking:-.015em;}
+html[data-font="geist-italic"]{--font-display:'Geist',sans-serif;--display-weight:800;--display-style:italic;--display-tracking:-.015em;}
+
+/* ── TYPE TOGGLE WIDGET (dev/preview only) ── */
+.type-toggle{
+  position:fixed;bottom:20px;right:20px;z-index:999;
+  display:flex;gap:0;
+  background:#0C0C0C;border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 12px 32px rgba(0,0,0,.4);
+  font-family:'DM Sans',sans-serif;
+}
+.type-toggle button{
+  font-family:var(--font-sub);font-weight:600;font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);
+  padding:11px 16px;
+  border-right:1px solid rgba(255,255,255,.1);
+  transition:color .15s,background .15s;
+  cursor:pointer;
+}
+.type-toggle button:last-child{border-right:none;}
+.type-toggle button:hover{color:#fff;background:rgba(255,255,255,.06);}
+.type-toggle button.active{color:#0C0C0C;background:var(--cyan);}
+@media(max-width:640px){.type-toggle{left:12px;right:12px;bottom:12px;justify-content:stretch;}.type-toggle button{flex:1;padding:11px 6px;}}
 
 /* GRAIN */
 .grain{position:relative}
@@ -96,7 +137,7 @@ svg{display:block}
 ================================================================ */
 .hero{
   position:relative;min-height:100svh;
-  display:flex;flex-direction:column;justify-content:flex-end;
+  display:flex;flex-direction:column;justify-content:center;
   overflow:hidden;background:#0C0C0C;
 }
 .hero-bg{
@@ -112,44 +153,90 @@ svg{display:block}
 .hero-outer{
   position:relative;z-index:2;
   width:100%;min-height:100svh;
-  display:flex;align-items:flex-end;
+  display:flex;align-items:center;
 }
 .hero-inner{
   width:100%;
-  max-width:1200px;
+  max-width:1320px;
   margin:0 auto;
-  padding:0 var(--pad) clamp(40px,5.5vh,64px);
+  padding:clamp(90px,14vh,140px) var(--pad) clamp(48px,6.5vh,76px);
   display:grid;
-  grid-template-columns:1fr minmax(320px,400px);
-  gap:clamp(24px,3vw,48px);
-  align-items:end;
+  grid-template-columns:1.1fr minmax(340px,440px);
+  gap:clamp(32px,4vw,64px);
+  align-items:center;
 }
 
-.hero-left{display:flex;flex-direction:column;justify-content:flex-end;}
+.hero-left{display:flex;flex-direction:column;align-items:flex-start;text-align:left;max-width:640px;width:100%;}
 .hero-left *{text-shadow:0 2px 18px rgba(0,0,0,.55),0 1px 4px rgba(0,0,0,.45);}
 
 .hero-eyebrow{
   font-family:var(--font-sub);font-weight:600;
   font-size:12px;letter-spacing:.22em;text-transform:uppercase;
   color:#ffffff;margin-bottom:12px;
-  display:flex;align-items:center;gap:10px;opacity:.8;
+  display:flex;align-items:center;justify-content:flex-start;gap:10px;opacity:.8;
 }
 .hero-eyebrow::before{content:'';width:18px;height:1px;background:#ffffff;flex-shrink:0;}
 .hero-h1{
-  font-family:var(--font-display);font-weight:700;
-  font-size:clamp(56px,6.5vw,90px);
-  line-height:.9;text-transform:uppercase;
-  color:#ffffff;letter-spacing:.01em;
-  margin-bottom:clamp(14px,2vh,22px);
+  font-family:var(--font-display);font-weight:var(--display-weight);font-style:var(--display-style);
+  font-size:clamp(42px,6vw,88px);
+  line-height:1.05;text-transform:uppercase;
+  color:#ffffff;letter-spacing:var(--display-tracking);
+  margin-bottom:clamp(16px,2.2vh,26px);
 }
 .hero-sub{
-  font-family:var(--font-body);font-size:17px;line-height:1.6;
-  color:#ffffff;max-width:42ch;
-  margin-bottom:clamp(22px,3vh,36px);
+  font-family:var(--font-body);font-size:18px;line-height:1.6;
+  color:#ffffff;max-width:52ch;
+  margin:0 0 clamp(24px,3.2vh,34px);
 }
-.hero-proof{display:flex;gap:32px;flex-wrap:wrap;}
+.hero-proof{display:flex;gap:32px;flex-wrap:wrap;justify-content:flex-start;}
 .hp-num{font-family:var(--font-sub);font-weight:700;font-size:30px;line-height:1;color:#ffffff;}
 .hp-label{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.6);margin-top:4px;}
+
+/* ── Inline estimate card — right column, dark card, sharp corners ── */
+.hero-card{
+  background:#0C0C0C;
+  padding:clamp(26px,3vw,38px);
+  display:flex;flex-direction:column;gap:13px;
+  box-shadow:0 24px 64px rgba(0,0,0,.5),0 2px 10px rgba(0,0,0,.3);
+  width:100%;
+}
+.hc-title{
+  font-family:'Geist',sans-serif;font-weight:800;
+  font-size:clamp(22px,2.2vw,28px);text-transform:uppercase;
+  color:#ffffff;line-height:1.1;text-align:center;
+}
+.hc-sub{
+  font-family:var(--font-body);font-size:14px;line-height:1.5;
+  color:rgba(255,255,255,.6);text-align:center;margin-bottom:4px;
+}
+.hc-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.hc-field input,.hc-field textarea,.hc-field select{
+  width:100%;background:#ffffff;border:none;
+  padding:14px 15px;font-family:var(--font-body);font-size:14px;color:#0C0C0C;
+  outline:none;transition:box-shadow .18s;-webkit-appearance:none;appearance:none;
+}
+.hc-field input::placeholder,.hc-field textarea::placeholder{color:rgba(12,12,12,.4);}
+.hc-field input:focus,.hc-field textarea:focus,.hc-field select:focus{box-shadow:0 0 0 2px var(--cyan);}
+.hc-field textarea{resize:vertical;min-height:88px;font-family:var(--font-body);display:block;}
+.hc-field select{
+  cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%230C0C0C'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;padding-right:34px;
+}
+.hc-check{display:flex;align-items:flex-start;gap:9px;font-size:11.5px;line-height:1.5;color:rgba(255,255,255,.5);}
+.hc-check input[type=checkbox]{width:14px;height:14px;flex-shrink:0;margin-top:2px;accent-color:var(--cyan);cursor:pointer;}
+.hc-check a{color:var(--cyan);}
+.hc-submit{
+  font-family:var(--font-sub);font-weight:700;font-size:14px;
+  letter-spacing:.1em;text-transform:uppercase;
+  background:var(--cyan);color:#0C0C0C;padding:16px;border:none;cursor:pointer;
+  transition:background .2s,transform .12s;
+}
+.hc-submit:hover{background:#00c4b4;}
+.hc-submit:active{transform:scale(.99);}
+
+@media(max-width:1024px){.hero-inner{grid-template-columns:1fr;}.hero-left{align-items:center;text-align:center;max-width:640px;margin:0 auto;}.hero-eyebrow{justify-content:center;}.hero-proof{justify-content:center;}.hero-sub{margin-left:auto;margin-right:auto;}}
+@media(max-width:560px){.hc-row{grid-template-columns:1fr;}}
 
 /* ================================================================
    QUOTE FORM
@@ -162,7 +249,7 @@ svg{display:block}
   align-self:end;
 }
 .q-title{
-  font-family:var(--font-display);font-weight:700;
+  font-family:var(--font-display);font-weight:var(--display-weight);font-style:var(--display-style);
   font-size:clamp(34px,3.8vw,46px);
   text-transform:uppercase;color:#0C0C0C;line-height:.92;
   margin-bottom:0;
@@ -177,7 +264,7 @@ svg{display:block}
 .q-field input::placeholder{color:rgba(12,12,12,.35);}
 .q-field input:focus,.q-field select:focus{border-color:var(--cyan);}
 .q-field select{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2300D9C8'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2300ced8'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 14px center;
   background-color:#ffffff;padding-right:36px;cursor:pointer;
 }
@@ -260,7 +347,7 @@ svg{display:block}
 }
 .q-success{text-align:center;padding:28px 0 18px;display:flex;flex-direction:column;align-items:center;gap:12px;}
 .q-success-icon{width:44px;height:44px;border:1.5px solid var(--cyan);display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:20px;}
-.q-success h3{font-family:var(--font-display);font-weight:700;font-size:22px;text-transform:uppercase;color:#0C0C0C;}
+.q-success h3{font-family:var(--font-display);font-weight:var(--display-weight);font-style:var(--display-style);font-size:22px;text-transform:uppercase;color:#0C0C0C;}
 .q-success p{font-size:13px;color:rgba(12,12,12,.45);max-width:26ch;line-height:1.5;}
 
 /* ================================================================
@@ -325,7 +412,7 @@ svg{display:block}
 .bg-white .sec-eyebrow,.bg-off .sec-eyebrow{color:rgba(12,12,12,.45);}
 
 .sec-h2{
-  font-family:var(--font-display);font-weight:700;
+  font-family:var(--font-display);font-weight:var(--display-weight);font-style:var(--display-style);
   font-size:clamp(40px,5.5vw,80px);
   line-height:.9;text-transform:uppercase;
   margin-bottom:clamp(12px,1.8vw,20px);
@@ -370,77 +457,73 @@ svg{display:block}
 }
 .pain-content{
   position:relative;z-index:2;
-  padding:clamp(48px,6vh,80px) var(--pad) clamp(48px,6vh,80px);
+  padding:clamp(56px,8vh,96px) var(--pad);
   max-width:1280px;
   margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(240px,360px) 1fr;
+  gap:clamp(28px,5vw,64px);
+  align-items:center;
 }
 
-/* Header block */
+/* Header block — left column */
 .pain-header{
-  text-align:center;
-  margin-bottom:clamp(24px,3vh,36px);
+  display:flex;flex-direction:column;
+  justify-content:center;
 }
+.pain-eyebrow{
+  font-family:var(--font-sub);font-weight:600;
+  font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.pain-eyebrow::before{content:'';width:18px;height:1px;background:var(--orange);flex-shrink:0;}
 .pain-h{
-  font-family:var(--font-display);font-weight:700;
-  font-size:clamp(40px,5.5vw,74px);
-  line-height:.92;text-transform:uppercase;
+  font-family:var(--font-display);font-weight:var(--display-weight);font-style:var(--display-style);
+  font-size:clamp(36px,4vw,54px);
+  line-height:.96;text-transform:uppercase;
   color:#ffffff;
-  letter-spacing:.01em;
+  letter-spacing:var(--display-tracking);
   margin-bottom:12px;
 }
-
-/* 4 columns — no borders at all, full width, wider */
-.pain-cols{
-  display:flex;
-  gap:0;
+/* Pills — clean grid, no cascade, darker interior so text stands out */
+.pain-pills{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(12px,1.6vw,18px);
 }
-.pain-col{
-  flex:1;
-  padding:clamp(18px,2.2vw,28px) clamp(24px,2.8vw,40px);
+.pain-pill{
+  display:flex;flex-direction:column;gap:6px;
+  background:rgba(0,0,0,.55);
+  border:1.5px solid rgba(229,130,37,.45);
+  padding:20px 22px;
   opacity:0;
-  transform:translateY(24px);
-  transition:opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1);
+  transform:translateY(18px);
+  transition:opacity .6s cubic-bezier(.2,.8,.2,1), transform .6s cubic-bezier(.2,.8,.2,1), border-color .2s, background .2s;
 }
-.pain-col.on{opacity:1;transform:none;}
-.pain-col:nth-child(1){transition-delay:.05s}
-.pain-col:nth-child(2){transition-delay:.16s}
-.pain-col:nth-child(3){transition-delay:.27s}
-.pain-col:nth-child(4){transition-delay:.38s}
+.pain-pill.on{opacity:1;transform:none;}
+.pain-pill:hover{border-color:var(--orange);background:rgba(0,0,0,.7);}
+.pain-pill:nth-child(1){transition-delay:.05s;}
+.pain-pill:nth-child(2){transition-delay:.14s;}
+.pain-pill:nth-child(3){transition-delay:.23s;}
+.pain-pill:nth-child(4){transition-delay:.32s;}
 
-.pain-col-num{
-  font-family:var(--font-sub);font-weight:300;
-  font-size:18px;letter-spacing:.14em;
+.pain-pill-title{
+  font-family:var(--font-sub);font-weight:700;
+  font-size:15px;letter-spacing:.06em;text-transform:uppercase;
+  color:rgba(229,130,37,1);line-height:1.15;
+}
+.pain-pill-sub{
+  font-size:13px;line-height:1.3;
   color:#ffffff;
-  margin-bottom:14px;
-  display:block;
-  text-align:center;
 }
-.pain-col-title{
-  font-family:var(--font-display);font-weight:700;
-  font-size:36px;
-  text-transform:uppercase;
-  color:#ffffff;line-height:.96;
-  margin-bottom:14px;
-  text-align:center;
-}
-.pain-col-body{
-  font-size:16px;line-height:1.65;
-  color:#ffffff;
-  text-align:center;
-  text-wrap:balance;
-}
-.pain-lead{
-  font-size:17px;line-height:1.65;
-  color:#ffffff;
-  font-weight:700;
-  max-width:58ch;margin:0 auto;
-}
+@media(max-width:640px){.pain-pills{grid-template-columns:1fr;}}
 
 /* ================================================================
    WHY CHOOSE — off-white, 2-col checklist, matches design
 ================================================================ */
 .why-section{
-  background:#ffffff;
+  background:#f4f3ef;
   padding:var(--sec-pad) var(--pad);
   overflow:hidden;
 }
@@ -456,93 +539,62 @@ svg{display:block}
   display:block;margin-bottom:10px;
 }
 .why-h{
-  font-family:var(--font-display);font-weight:700;
-  font-size:clamp(48px,6vw,88px);
+  font-family:var(--font-display);font-weight:var(--display-weight);font-style:var(--display-style);
+  font-size:68px;
   line-height:.88;text-transform:uppercase;
-  color:#0C0C0C;letter-spacing:.01em;
+  color:#0C0C0C;letter-spacing:var(--display-tracking);
   white-space:nowrap;
 }
 
-/* Counter row */
-.why-counters{
+/* ── Precision System — 4 pillar cards, white on off-white section ── */
+.pillar-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:0;
-  margin-bottom:clamp(44px,6vh,64px);
-  border:1px solid rgba(0,0,0,.08);
+  gap:clamp(14px,2vw,20px);
+  margin-bottom:clamp(40px,5.5vh,56px);
 }
-.why-counter{
-  padding:clamp(24px,3.5vh,40px) clamp(20px,2.5vw,32px);
-  border-right:1px solid rgba(0,0,0,.08);
-  text-align:center;
-  display:flex;flex-direction:column;align-items:center;gap:10px;
-  opacity:0;transform:translateY(16px);
+.pillar-card{
+  background:#ffffff;
+  box-shadow:0 2px 12px rgba(0,0,0,.05);
+  padding:clamp(28px,3vw,36px) clamp(20px,2.2vw,26px);
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;
+  opacity:0;transform:translateY(20px);
   transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1);
 }
-.why-counter.on{opacity:1;transform:none;}
-.why-counter:nth-child(1){transition-delay:.05s}
-.why-counter:nth-child(2){transition-delay:.14s}
-.why-counter:nth-child(3){transition-delay:.23s}
-.why-counter:nth-child(4){transition-delay:.32s}
-.why-counter:last-child{border-right:none;}
-.why-counter-num{
-  font-family:var(--font-display);font-weight:700;
-  font-size:clamp(52px,6vw,88px);
-  line-height:1;color:var(--cyan);
-  letter-spacing:-.01em;
+.pillar-card.on{opacity:1;transform:none;}
+.pillar-card:nth-child(1){transition-delay:.04s}
+.pillar-card:nth-child(2){transition-delay:.11s}
+.pillar-card:nth-child(3){transition-delay:.18s}
+.pillar-card:nth-child(4){transition-delay:.25s}
+.pillar-icon{
+  width:68px;height:68px;flex-shrink:0;
+  background:transparent;border:2px solid var(--cyan);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:4px;
 }
-.why-counter-suffix{
-  /* suffix like +, M+, yr — inline after number */
-  font-family:var(--font-display);font-weight:700;
+.pillar-icon svg{width:31px;height:31px;fill:none;stroke:var(--cyan);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.pillar-title{
+  font-family:'Tungsten',sans-serif;font-weight:700;
+  font-size:34px;letter-spacing:.03em;text-transform:uppercase;
+  color:#0C0C0C;line-height:1.15;
 }
-.why-counter-label{
-  font-family:var(--font-sub);font-weight:600;
-  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+.pillar-body{
+  font-size:13.5px;line-height:1.55;
   color:#0C0C0C;
 }
 
-/* 2-column checklist — explicit column wrappers so left fills before right */
-.why-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:0 clamp(32px,4vw,64px);
-  margin-bottom:clamp(44px,6vh,64px);
-  align-items:start;
+/* ── Closing CTA — below the pillars ── */
+.why-cta-block{
+  text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+  padding-top:clamp(28px,4vh,40px);
+  border-top:1px solid rgba(0,0,0,.08);
 }
-.why-col{display:flex;flex-direction:column;}
-.why-item{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  padding:14px 0;
-  border-bottom:1px solid rgba(0,0,0,.07);
-  opacity:0;
-  transform:translateX(-12px);
-  transition:opacity .55s cubic-bezier(.2,.8,.2,1), transform .55s cubic-bezier(.2,.8,.2,1);
-}
-.why-item.on{opacity:1;transform:none;}
-/* Left col items: delays 0–7, right col items: delays 8–15 */
-/* Applied via JS data-delay attribute */
-
-.why-check{
-  width:26px;height:26px;flex-shrink:0;
-  background:var(--cyan);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-}
-/* Last item on right col gets a dark filled check (matching design) */
-.why-item.check-dark .why-check{background:#0C0C0C;}
-.why-check svg{width:12px;height:12px;fill:none;stroke:#0C0C0C;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
-.why-item.check-dark .why-check svg{stroke:#ffffff;}
-
-.why-item-label{
+.why-cta-heading{
   font-family:var(--font-sub);font-weight:700;
-  font-size:18px;
-  letter-spacing:.06em;text-transform:uppercase;
-  color:#0C0C0C;line-height:1;
+  font-size:clamp(17px,1.8vw,20px);letter-spacing:.03em;text-transform:uppercase;
+  color:#0C0C0C;
 }
-
-/* CTA button centered */
-.why-cta-row{display:flex;justify-content:center;}
 .why-cta-btn{
   font-family:var(--font-sub);font-weight:700;
   font-size:13px;letter-spacing:.14em;text-transform:uppercase;
@@ -555,30 +607,17 @@ svg{display:block}
 .why-cta-btn:active{transform:scale(.985);}
 
 /* ================================================================
-   WHAT WE COAT — 3x2 card grid
+   WHAT WE COAT — space-selector, one feature panel at a time
 ================================================================ */
 .coat-section{
-  background-color:#f5f4f0;
+  background-color:#ffffff;
   padding:var(--sec-pad) var(--pad);
   border-top:1px solid rgba(0,0,0,.07);
-}
-/* ── Noise level variants — swap class on .coat-section to preview ── */
-/* noise-2x: ~18% opacity, 100px tile */
-.coat-section.noise-2x{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.18'/%3E%3C/svg%3E");
-}
-/* noise-4x: ~36% opacity, 80px tile, fully desaturated (monochromatic) */
-.coat-section.noise-4x{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch' result='noise'/%3E%3CfeColorMatrix type='saturate' values='0' in='noise'/%3E%3C/filter%3E%3Crect width='80' height='80' filter='url(%23n)' opacity='0.36'/%3E%3C/svg%3E");
-}
-/* noise-8x: ~72% opacity, 60px tile — heavy grain, almost paper-like */
-.coat-section.noise-8x{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='60' height='60' filter='url(%23n)' opacity='0.72'/%3E%3C/svg%3E");
 }
 .coat-section-inner{max-width:1200px;margin:0 auto;}
 .coat-section-head{
   text-align:center;
-  margin-bottom:clamp(44px,6vh,72px);
+  margin-bottom:clamp(40px,5.5vh,60px);
 }
 .coat-section-eyebrow{
   font-family:var(--font-sub);font-weight:600;
@@ -586,123 +625,177 @@ svg{display:block}
   color:rgba(12,12,12,.42);display:block;margin-bottom:10px;
 }
 .coat-section-h{
-  font-family:var(--font-display);font-weight:700;
+  font-family:var(--font-display);font-weight:var(--display-weight);font-style:var(--display-style);
   font-size:clamp(48px,6vw,88px);
   line-height:.88;text-transform:uppercase;
-  color:#0C0C0C;letter-spacing:.01em;
+  color:#0C0C0C;letter-spacing:var(--display-tracking);
 }
 .coat-section-sub{
   font-size:14px;color:rgba(12,12,12,.48);
   margin-top:12px;line-height:1.6;
 }
 
-/* 3-column grid */
-.coat-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:clamp(16px,2vw,24px);
+/* Space tabs — self-select entry point */
+.coat-tabs{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:8px;
+  margin-bottom:clamp(32px,4.5vh,48px);
 }
-
-/* Card */
-.coat-card{
+.coat-tab{
+  display:flex;align-items:center;gap:9px;
+  font-family:var(--font-sub);font-weight:700;
+  font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:rgba(12,12,12,.45);
   background:#ffffff;
-  border:1px solid rgba(0,0,0,.08);
-  display:flex;flex-direction:column;
-  opacity:0;transform:translateY(20px);
-  transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1),
-             box-shadow .25s ease;
-  cursor:default;
-}
-.coat-card.on{opacity:1;transform:none;}
-.coat-card:nth-child(1){transition-delay:.04s}
-.coat-card:nth-child(2){transition-delay:.10s}
-.coat-card:nth-child(3){transition-delay:.16s}
-.coat-card:nth-child(4){transition-delay:.08s}
-.coat-card:nth-child(5){transition-delay:.14s}
-.coat-card:nth-child(6){transition-delay:.20s}
-
-.coat-card:hover{
-  box-shadow:0 8px 32px rgba(0,0,0,.10),0 2px 8px rgba(0,0,0,.06);
-  transform:translateY(-3px);
-  border-color:rgba(0,0,0,.14);
-}
-/* Don't double-animate while still invisible */
-.coat-card:not(.on):hover{transform:none;box-shadow:none;}
-
-/* Image area */
-.coat-card-img{
+  border:1.5px solid rgba(0,0,0,.12);
+  padding:11px 18px 11px 14px;
+  cursor:pointer;
+  transition:border-color .18s,color .18s,background .18s;
   position:relative;
-  aspect-ratio:4/3;
-  overflow:hidden;
-  background:#e8e8e6;
 }
-.coat-card-img-bg{
+.coat-tab svg{width:16px;height:16px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.coat-tab:hover{border-color:rgba(0,0,0,.3);color:#0C0C0C;}
+.coat-tab.active{
+  background:#0C0C0C;border-color:#0C0C0C;color:#ffffff;
+}
+.coat-tab-dot{
+  position:absolute;top:-4px;right:-4px;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--cyan);
+}
+
+/* Feature panel — one product, full attention */
+.coat-panel{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:clamp(28px,4vw,56px);
+  align-items:stretch;
+  background:#f5f4f0;
+}
+.coat-panel-img{
+  position:relative;
+  overflow:hidden;
+  min-height:340px;
+}
+.coat-panel-img-bg{
   position:absolute;inset:0;
   background-size:cover;background-position:center;
-  transition:transform .5s cubic-bezier(.2,.8,.2,1);
+  opacity:1;transition:opacity .3s ease;
 }
-.coat-card:hover .coat-card-img-bg{transform:scale(1.04);}
-
-/* Popular badge */
-.coat-card-badge{
-  position:absolute;bottom:12px;left:12px;top:auto;z-index:2;
+.coat-panel-badge{
+  position:absolute;bottom:18px;left:18px;z-index:2;
   font-family:var(--font-sub);font-weight:700;font-size:10px;
   letter-spacing:.16em;text-transform:uppercase;
   background:var(--cyan);color:#0C0C0C;
-  padding:5px 10px;
-  pointer-events:none;
+  padding:6px 12px;
+}
+.coat-img-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:42px;height:42px;flex-shrink:0;
+  background:var(--cyan);border:2.5px solid #ffffff;border-radius:50%;
+  box-shadow:0 2px 14px rgba(0,0,0,.4);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;z-index:3;
+  transition:filter .18s,transform .18s;
+}
+.coat-img-arrow:hover{filter:brightness(.88);}
+.coat-img-arrow:active{transform:translateY(-50%) scale(.94);}
+.coat-img-arrow.prev{left:16px;}
+.coat-img-arrow.next{right:16px;}
+.coat-img-arrow svg{width:18px;height:18px;fill:none;stroke:#0C0C0C;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;}
+.coat-panel-body{
+  padding:clamp(32px,4vw,52px) clamp(28px,3.5vw,44px) clamp(32px,4vw,52px) 0;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.coat-panel-headline{
+  font-family:'Geist',sans-serif;font-weight:800;font-style:normal;
+  font-size:34px;
+  line-height:1.1;text-transform:uppercase;
+  color:#0C0C0C;letter-spacing:-.01em;
+  margin-bottom:12px;
+}
+.coat-panel-name{
+  font-size:15px;line-height:1.6;color:rgba(12,12,12,.6);
+  margin-bottom:24px;
+}
+.coat-panel-bullets{
+  list-style:none;display:flex;flex-direction:column;gap:12px;
+  margin-bottom:28px;
+}
+.coat-panel-bullets li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:15px;line-height:1.55;color:#3f3f3f;
+}
+.coat-panel-bullets li::before{
+  content:'•';color:#0C0C0C;flex-shrink:0;font-size:15px;line-height:1.55;
+}
+.coat-panel-link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-sub);font-weight:700;
+  font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+  background:#0C0C0C;color:#ffffff;
+  padding:15px 28px;
+  align-self:flex-start;
+  transition:background .2s,gap .2s;
+}
+.coat-panel-link:hover{background:#1a1a1a;gap:12px;}
+.coat-panel-link svg{width:13px;height:13px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+
+.coat-panel.fade-body .coat-panel-headline,
+.coat-panel.fade-body .coat-panel-name,
+.coat-panel.fade-body .coat-panel-bullets{
+  transition:opacity .3s ease;
+}
+.coat-panel.fade-body.out .coat-panel-headline,
+.coat-panel.fade-body.out .coat-panel-name,
+.coat-panel.fade-body.out .coat-panel-bullets{
+  opacity:0;
 }
 
-/* Card body */
-.coat-card-body{
-  padding:clamp(16px,2vw,22px);
-  display:flex;flex-direction:column;
-  flex:1;
+@media(max-width:900px){
+  .coat-panel{grid-template-columns:1fr;}
+  .coat-panel-img{min-height:260px;}
+  .coat-panel-body{padding:clamp(28px,4vw,36px);}
+}
+@media(max-width:560px){
+  .coat-tabs{gap:6px;}
+  .coat-tab{font-size:11px;padding:9px 14px 9px 12px;}
+}
+
+/* ================================================================
+   STATS BAND — black section between Coat and Before/After
+================================================================ */
+.stats-band{background:#0C0C0C;padding:clamp(48px,6vh,72px) var(--pad);}
+.stats-band-inner{max-width:1100px;margin:0 auto;}
+.stats-band .why-counters{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
   gap:0;
 }
-.coat-card-title{
-  font-family:var(--font-sub);font-weight:700;
-  font-size:clamp(18px,1.6vw,22px);
-  text-transform:uppercase;color:#0C0C0C;
-  line-height:1;margin-bottom:12px;
-  letter-spacing:.04em;
+.stats-band .why-counter{
+  padding:clamp(20px,3vh,32px) clamp(20px,2.5vw,32px);
+  text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  opacity:0;transform:translateY(16px);
+  transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1);
 }
-.coat-card-bullets{
-  list-style:none;display:flex;flex-direction:column;gap:5px;
-  margin-bottom:20px;flex:1;
+.stats-band .why-counter.on{opacity:1;transform:none;}
+.stats-band .why-counter:nth-child(1){transition-delay:.05s}
+.stats-band .why-counter:nth-child(2){transition-delay:.14s}
+.stats-band .why-counter:nth-child(3){transition-delay:.23s}
+.stats-band .why-counter:nth-child(4){transition-delay:.32s}
+.stats-band .why-counter-num{
+  font-family:var(--font-display);font-weight:var(--display-weight);font-style:var(--display-style);
+  font-size:clamp(48px,5.5vw,80px);
+  line-height:1;color:#ffffff;
+  letter-spacing:-.01em;
 }
-.coat-card-bullets li{
-  display:flex;align-items:flex-start;gap:8px;
-  font-size:13px;line-height:1.5;color:#3f3f3f;
+.stats-band .why-counter-label{
+  font-family:var(--font-sub);font-weight:600;
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--cyan);
 }
-.coat-card-bullets li::before{
-  content:'•';
-  color:#0C0C0C;
-  flex-shrink:0;font-size:13px;line-height:1.5;
-  margin-top:0;
-}
-
-/* Learn more link */
-.coat-card-link{
-  display:inline-flex;align-items:center;gap:6px;
-  font-family:var(--font-sub);font-weight:700;
-  font-size:12px;letter-spacing:.12em;text-transform:uppercase;
-  color:#0C0C0C;
-  padding-top:14px;
-  border-top:1px solid rgba(0,0,0,.08);
-  transition:gap .2s ease,color .2s ease;
-  text-decoration:none;
-  align-self:flex-start;
-  width:100%;
-}
-.coat-card-link:hover{color:var(--cyan);gap:10px;}
-.coat-card-link svg{
-  width:13px;height:13px;flex-shrink:0;
-  fill:none;stroke:currentColor;stroke-width:1.8;
-  stroke-linecap:round;stroke-linejoin:round;
-  transition:transform .2s ease;
-}
-.coat-card-link:hover svg{transform:translateX(2px);}
+@media(max-width:640px){.stats-band .why-counters{grid-template-columns:repeat(2,1fr);}}
 
 /* ================================================================
    BEFORE / AFTER
@@ -711,7 +804,7 @@ svg{display:block}
 .ba-section.bg-white{background:var(--bg-white);}
 .ba-head{margin-bottom:clamp(36px,5vh,56px);}
 .ba-eyebrow{font-family:var(--font-sub);font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(12,12,12,.4);margin-bottom:6px;display:block;}
-.ba-h2{font-family:var(--font-display);font-weight:700;font-size:clamp(40px,5.5vw,80px);line-height:.9;text-transform:uppercase;color:#0C0C0C;}
+.ba-h2{font-family:var(--font-display);font-weight:var(--display-weight);font-style:var(--display-style);font-size:clamp(40px,5.5vw,80px);line-height:.9;text-transform:uppercase;color:#0C0C0C;}
 .ba-grid{
   display:grid;grid-template-columns:1fr 1fr;
   gap:clamp(20px,3vw,36px);
@@ -749,7 +842,7 @@ svg{display:block}
   display:flex;justify-content:space-between;padding:0 10px;z-index:12;pointer-events:none;
 }
 .ba-lbl{font-family:var(--font-sub);font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;background:rgba(0,0,0,.6);color:#fff;padding:4px 8px;backdrop-filter:blur(4px);}
-.ba-lbl.after{background:rgba(0,217,200,.88);color:#0C0C0C;}
+.ba-lbl.after{background:rgba(139,201,213,.88);color:#0C0C0C;}
 .ba-meta{display:flex;align-items:center;justify-content:space-between;}
 .ba-meta-tag{font-family:var(--font-sub);font-weight:600;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);}
 .ba-meta-loc{font-size:13px;color:rgba(12,12,12,.45);}
@@ -796,7 +889,7 @@ svg{display:block}
   letter-spacing:-.01em;
 }
 .testi-headline{
-  font-family:var(--font-display);font-weight:700;
+  font-family:var(--font-display);font-weight:var(--display-weight);font-style:var(--display-style);
   font-size:clamp(32px,4vw,52px);line-height:.92;
   text-transform:uppercase;color:#ffffff;
 }
@@ -828,12 +921,12 @@ svg{display:block}
 .testi-dot.on{background:var(--cyan);transform:scale(1.25);}
 .testi-btn{
   width:40px;height:40px;
-  border:1px solid rgba(0,217,200,.4);
+  border:1px solid rgba(139,201,213,.4);
   display:flex;align-items:center;justify-content:center;
   color:var(--cyan);cursor:pointer;background:transparent;
   transition:border-color .18s,background .18s,color .18s;flex-shrink:0;
 }
-.testi-btn:hover{border-color:var(--cyan);background:rgba(0,217,200,.1);color:#ffffff;}
+.testi-btn:hover{border-color:var(--cyan);background:rgba(139,201,213,.1);color:#ffffff;}
 .testi-btn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 
 /* ================================================================
@@ -845,34 +938,27 @@ svg{display:block}
   overflow:hidden;
   /* no border-top */
 }
-.cta-inner{
+.cta-stack{
   position:relative;z-index:2;
   padding:clamp(80px,12vh,140px) var(--pad);
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:clamp(36px,5vw,80px);align-items:center;
-  max-width:1100px;margin:0 auto;
+  display:flex;flex-direction:column;align-items:center;
+  max-width:900px;margin:0 auto;
 }
+.cta-head-center{text-align:center;max-width:640px;margin:0 auto;}
 .cta-h{
-  font-family:var(--font-display);font-weight:700;
+  font-family:var(--font-display);font-weight:var(--display-weight);font-style:var(--display-style);
   font-size:clamp(44px,5.5vw,78px);
   line-height:.92;text-transform:uppercase;color:#0C0C0C;
-}
-.cta-h em{font-style:normal;color:#0C0C0C;}
-.cta-eyebrow{
-  font-family:var(--font-sub);font-weight:600;font-size:12px;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:rgba(12,12,12,.4);display:block;margin-bottom:12px;
 }
 .cta-sub-under{
   font-size:15px;line-height:1.65;
   color:rgba(12,12,12,.7);
   max-width:42ch;
-  margin-top:14px;
+  margin:14px auto 0;
 }
-/* Bullet list above form */
 .cta-bullets{
-  display:flex;flex-direction:column;gap:7px;
-  margin-bottom:14px;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;
+  margin:clamp(28px,4vh,40px) 0;
 }
 .cta-bullet-item{
   display:flex;align-items:center;gap:9px;
@@ -884,41 +970,55 @@ svg{display:block}
   width:6px;height:6px;background:var(--cyan);
   border-radius:50%;flex-shrink:0;
 }
-.cta-right{display:flex;flex-direction:column;gap:10px;}
-.cta-form{display:flex;flex-direction:column;gap:8px;}
-.cta-row{display:flex;gap:8px;}
-/* Single clean border — no outline on focus, border-color change only */
-.cta-field{
+.cta-quote-head-center{text-align:center;margin-bottom:clamp(22px,3vh,30px);}
+.cta-quote-label{
+  font-family:var(--font-sub);font-weight:700;font-style:italic;
+  font-size:13px;letter-spacing:.02em;
+  color:rgba(12,12,12,.45);display:block;
+}
+.cta-quote-sub{
+  font-family:var(--font-sub);font-weight:700;
+  font-size:clamp(15px,1.6vw,17px);
+  color:#0C0C0C;margin-top:4px;
+}
+.cta-quote-sub a{color:var(--cyan);}
+
+/* Full-width form card — same field set as the hero estimate form */
+.cta-form-card{
+  width:100%;
   background:#ffffff;
-  border:1.5px solid rgba(0,0,0,.18);
-  outline:none;
-  padding:13px 15px;font-family:var(--font-body);font-size:15px;
-  color:#0C0C0C;flex:1;min-width:0;
-  transition:border-color .18s;
-  -webkit-appearance:none;appearance:none;
+  box-shadow:0 4px 24px rgba(0,0,0,.05);
+  padding:clamp(28px,3.5vw,44px);
 }
-.cta-field::placeholder{color:rgba(12,12,12,.32);}
-.cta-field:focus{border-color:var(--cyan);}
-.cta-field-full{
-  width:100%;background:#ffffff;
-  border:1.5px solid rgba(0,0,0,.18);
-  outline:none;
-  padding:13px 15px;font-family:var(--font-body);font-size:15px;
-  color:#0C0C0C;
-  transition:border-color .18s;
-  -webkit-appearance:none;appearance:none;
+.ctaf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.ctaf-field input,.ctaf-field textarea,.ctaf-field select{
+  width:100%;background:#f5f4f0;border:none;
+  padding:14px 15px;font-family:var(--font-body);font-size:14px;color:#0C0C0C;
+  outline:none;transition:box-shadow .18s;-webkit-appearance:none;appearance:none;
 }
-.cta-field-full::placeholder{color:rgba(12,12,12,.32);}
-.cta-field-full:focus{border-color:var(--cyan);}
-.cta-submit{
-  font-family:var(--font-sub);font-weight:700;font-size:13px;
-  letter-spacing:.12em;text-transform:uppercase;
-  background:#0C0C0C;color:#ffffff;padding:15px;
-  border:none;cursor:pointer;width:100%;
-  display:flex;align-items:center;justify-content:center;gap:9px;
-  transition:background .2s;
+.ctaf-field input::placeholder,.ctaf-field textarea::placeholder{color:rgba(12,12,12,.4);}
+.ctaf-field input:focus,.ctaf-field textarea:focus,.ctaf-field select:focus{box-shadow:0 0 0 2px var(--cyan);}
+.ctaf-field textarea{resize:vertical;min-height:88px;display:block;font-family:var(--font-body);}
+.ctaf-field select{
+  cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%230C0C0C'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;padding-right:34px;
 }
-.cta-submit:hover{background:#222222;}
+.ctaf-check{display:flex;align-items:flex-start;gap:9px;font-size:11.5px;line-height:1.5;color:rgba(12,12,12,.5);}
+.ctaf-check input[type=checkbox]{width:14px;height:14px;flex-shrink:0;margin-top:2px;accent-color:var(--cyan);cursor:pointer;}
+.ctaf-check a{color:var(--cyan);}
+.ctaf-submit{
+  width:100%;
+  font-family:var(--font-sub);font-weight:700;font-size:14px;
+  letter-spacing:.1em;text-transform:uppercase;
+  background:#0C0C0C;color:#ffffff;
+  padding:16px;border:none;cursor:pointer;
+  transition:background .2s,transform .12s;
+}
+.ctaf-submit:hover{background:#1a1a1a;}
+.ctaf-submit:active{transform:scale(.99);}
+@media(max-width:560px){.ctaf-row{grid-template-columns:1fr;}}
+@media(max-width:560px){.ctaf-row{grid-template-columns:1fr;}}
 
 /* ================================================================
    FOOTER
@@ -949,30 +1049,22 @@ input:focus,select:focus,textarea:focus{outline:none;}
    RESPONSIVE
 ================================================================ */
 @media(max-width:1024px){
-  .coat-grid{grid-template-columns:repeat(2,1fr);}
   .testi-card{width:clamp(300px,80%,560px);}
-  .cta-inner{grid-template-columns:1fr;}
-  .pain-cols{grid-template-columns:repeat(2,1fr);}
-  .why-grid{grid-template-columns:1fr;}
+  .pain-content{grid-template-columns:1fr;gap:28px;}
+  .pillar-grid{grid-template-columns:repeat(2,1fr);}
   .why-h{white-space:normal;}
-  .why-counters{grid-template-columns:repeat(2,1fr);}
 }
 @media(max-width:768px){
-  .hero-inner{grid-template-columns:1fr;gap:28px;}
   .ba-grid{grid-template-columns:1fr;}
-  .pain-cols{grid-template-columns:1fr 1fr;}
   .footer-top{grid-template-columns:1fr 1fr;}
   .clients-list{padding:0 160px;gap:clamp(20px,4vw,48px);}
-  .coat-grid{grid-template-columns:1fr;}
   .testi-card{width:90%;padding:32px 28px 28px;}
-  .pain-col-title{white-space:normal;}
 }
 @media(max-width:540px){
   .nav-links{display:none;}
   .footer-top{grid-template-columns:1fr;}
   .cta-row{flex-direction:column;}
-  .pain-cols{grid-template-columns:1fr;}
-  .why-grid{grid-template-columns:1fr;}
+  .pillar-grid{grid-template-columns:1fr;}
   .clients-list{padding:0 100px;gap:24px;}
   .clients-track-wrap::before,.clients-track-wrap::after{width:100px;}
   .why-h{font-size:clamp(36px,10vw,60px);}
@@ -1005,16 +1097,51 @@ input:focus,select:focus,textarea:focus{outline:none;}
   <div class="hero-outer">
     <div class="hero-inner">
       <div class="hero-left">
-        <span class="hero-eyebrow" id="h-eyebrow">Serving Greater LA and OC Areas</span>
-        <h1 class="hero-h1" id="h-h1">Your Concrete.<br/><span style="color:var(--cyan)">Transformed.</span></h1>
-        <p class="hero-sub" id="h-sub">From garage floors to commercial spaces, we install long lasting coatings that look amazing and are ready for anything.</p>
+        <span class="hero-eyebrow" id="h-eyebrow">Precision Floor Coating System — LA &amp; OC</span>
+        <h1 class="hero-h1" id="h-h1">The Floor You<br/>Keep Ignoring.<br/><span style="background:var(--cyan);color:#0C0C0C;padding:0 12px;text-shadow:none;box-decoration-break:clone;-webkit-box-decoration-break:clone;">Not Anymore.</span></h1>
+        <p class="hero-sub" id="h-sub">Cracks, stains, and dust don't fix themselves. Our Precision Coating System turns bare concrete into a floor built to be seen — installed in 1 to 2 days, guaranteed for 1 year.</p>
         <div class="hero-proof" id="h-proof">
           <div><div class="hp-num">1M+</div><div class="hp-label">Sq ft installed</div></div>
           <div><div class="hp-num">10+</div><div class="hp-label">Years in the trades</div></div>
           <div><div class="hp-num">1-2 days</div><div class="hp-label">Most jobs complete</div></div>
         </div>
       </div>
-      <div id="quoter-wrap"></div>
+      <div class="hero-card" id="h-form">
+        <div class="hc-title">Get Your Free Estimate</div>
+        <p class="hc-sub">Fast Response. No Obligation.</p>
+        <form id="hero-estimate-form" novalidate>
+          <div class="hc-row">
+            <div class="hc-field"><input type="text" id="he-name" placeholder="Name" autocomplete="name" required/></div>
+            <div class="hc-field"><input type="tel" id="he-phone" placeholder="Phone Number" autocomplete="tel" required/></div>
+          </div>
+          <div class="hc-row" style="margin-top:12px;">
+            <div class="hc-field"><input type="text" id="he-address" placeholder="Address" autocomplete="street-address"/></div>
+            <div class="hc-field"><input type="email" id="he-email" placeholder="Email Address" autocomplete="email" required/></div>
+          </div>
+          <div class="hc-field" style="margin-top:12px;">
+            <textarea id="he-details" placeholder="Project Details"></textarea>
+          </div>
+          <div class="hc-field" style="margin-top:12px;">
+            <select id="he-source">
+              <option value="">How Did You Hear About Us?</option>
+              <option>Google Search</option>
+              <option>Referral</option>
+              <option>Instagram / Facebook</option>
+              <option>Yard Sign / Door Hanger</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <label class="hc-check" style="margin-top:14px;">
+            <input type="checkbox" id="he-agree" required/>
+            <span>By submitting this form, you agree to Aggrepoxy's <a href="#">Privacy Policy</a> and <a href="#">Terms &amp; Conditions</a>.</span>
+          </label>
+          <label class="hc-check">
+            <input type="checkbox" id="he-sms"/>
+            <span>You consent to receive phone calls and SMS messages from Aggrepoxy about your project. Message frequency depends on activity. Reply STOP to opt out.</span>
+          </label>
+          <button type="submit" class="hc-submit" style="margin-top:6px;">Request Estimate</button>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -1055,29 +1182,25 @@ input:focus,select:focus,textarea:focus{outline:none;}
   <div class="pain-veil"></div>
   <div class="pain-content">
     <div class="pain-header rv">
-      <h2 class="pain-h">Old or Cracked Concrete?</h2>
-      <p class="pain-lead">It's costing you more than you think.</p>
+      <span class="pain-eyebrow">Old or Cracked Concrete?</span>
+      <h2 class="pain-h">It's Costing You More Than You Think.</h2>
     </div>
-    <div class="pain-cols">
-      <div class="pain-col" data-pain>
-        <span class="pain-col-num">01.</span>
-        <div class="pain-col-title">Made to Break</div>
-        <p class="pain-col-body">Bare concrete isn't designed for heavy equipment, chemical spills, or daily punishment.</p>
+    <div class="pain-pills">
+      <div class="pain-pill" data-pain>
+        <span class="pain-pill-title">Made to Break</span>
+        <span class="pain-pill-sub">One heavy drop and it's cracked for good.</span>
       </div>
-      <div class="pain-col" data-pain>
-        <span class="pain-col-num">02.</span>
-        <div class="pain-col-title">Safety Hazard</div>
-        <p class="pain-col-body">Cracked, dusty concrete is a slip hazard. For homeowners it's a risk. For businesses it's a liability.</p>
+      <div class="pain-pill" data-pain>
+        <span class="pain-pill-title">Safety Hazard</span>
+        <span class="pain-pill-sub">Dusty, slick concrete — one slip away from a claim.</span>
       </div>
-      <div class="pain-col" data-pain>
-        <span class="pain-col-num">03.</span>
-        <div class="pain-col-title">Stains Easily</div>
-        <p class="pain-col-body">Bare concrete is porous. Oil, rust, and chemical spills soak in fast and rarely come back out, leaving permanent marks behind.</p>
+      <div class="pain-pill" data-pain>
+        <span class="pain-pill-title">Stains Easily</span>
+        <span class="pain-pill-sub">Oil and rust soak in and never come back out.</span>
       </div>
-      <div class="pain-col" data-pain>
-        <span class="pain-col-num">04.</span>
-        <div class="pain-col-title">First Impressions</div>
-        <p class="pain-col-body">A cracked, stained, or unfinished floor is the wrong message to send to guests and clients.</p>
+      <div class="pain-pill" data-pain>
+        <span class="pain-pill-title">Poor First Impression</span>
+        <span class="pain-pill-sub">The first thing guests and buyers notice.</span>
       </div>
     </div>
   </div>
@@ -1087,11 +1210,77 @@ input:focus,select:focus,textarea:focus{outline:none;}
 <section class="why-section" id="process">
   <div class="why-inner">
     <div class="why-header rv">
-      <span class="why-eyebrow">Built right the first time</span>
-      <h2 class="why-h">Why Choose Aggrepoxy</h2>
+      <span class="why-eyebrow">Three steps. One warranty. Zero guesswork.</span>
+      <h2 class="why-h">The Aggrepoxy Precision System</h2>
     </div>
 
-    <!-- Animated counters -->
+    <!-- 4 primary pillars -->
+    <div class="pillar-grid" id="pillar-grid">
+      <div class="pillar-card" data-pillar>
+        <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M4 9l4-6h8l4 6-8 11-8-11z"/><path d="M4 9h16M9 3l3 6 3-6"/></svg></div>
+        <span class="pillar-title">Diamond-Ground</span>
+        <p class="pillar-body">We grind, not paint over. A true mechanical bite means the coating won't peel, bubble, or lift.</p>
+      </div>
+      <div class="pillar-card" data-pillar>
+        <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 3l9 4-9 4-9-4 9-4z"/><path d="M3 12l9 4 9-4"/><path d="M3 17l9 4 9-4"/></svg></div>
+        <span class="pillar-title">Commercial-Grade</span>
+        <p class="pillar-body">The same polyaspartic systems used on dealership and showroom floors, built for daily abuse.</p>
+      </div>
+      <div class="pillar-card" data-pillar>
+        <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M3 4h18l-7 9v6l-4 2v-8L3 4z"/></svg></div>
+        <span class="pillar-title">HEPA-Filtered</span>
+        <p class="pillar-body">Protecting your home, your family, and our crew from harmful silica dust.</p>
+      </div>
+      <div class="pillar-card" data-pillar>
+        <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <span class="pillar-title">1-Year Coverage</span>
+        <p class="pillar-body">If it's not right, we make it right. No fine print.</p>
+      </div>
+    </div>
+
+    <div class="why-cta-block rv">
+      <span class="why-cta-heading">Ready to Get Started?</span>
+      <a href="#contact" class="why-cta-btn">
+        Free Estimate
+        <svg width="13" height="13" viewBox="0 0 13 13" style="display:block;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE COAT -->
+<section class="coat-section" id="coatings">
+  <div class="coat-section-inner">
+    <div class="coat-section-head rv">
+      <span class="coat-section-eyebrow">Floors That Exceed Your Demands</span>
+      <h2 class="coat-section-h">Where do you want to transform?</h2>
+      <p class="coat-section-sub">Pick your space. We'll show you the system built for it.</p>
+    </div>
+    <div class="coat-tabs" id="coat-tabs"><!-- Tabs injected by JS --></div>
+    <div class="coat-panel rv d1" id="coat-panel">
+      <div class="coat-panel-img" id="coat-panel-img">
+        <div class="coat-panel-img-bg" id="coat-panel-img-bg"></div>
+        <button type="button" class="coat-img-arrow prev" id="coat-img-prev" aria-label="Previous image">
+          <svg viewBox="0 0 20 20"><path d="M12 4l-6 6 6 6"/></svg>
+        </button>
+        <button type="button" class="coat-img-arrow next" id="coat-img-next" aria-label="Next image">
+          <svg viewBox="0 0 20 20"><path d="M8 4l6 6-6 6"/></svg>
+        </button>
+        <div class="coat-panel-badge" id="coat-panel-badge-el" style="display:none;">Popular</div>
+      </div>
+      <div class="coat-panel-body">
+        <h3 class="coat-panel-headline" id="coat-panel-headline"></h3>
+        <p class="coat-panel-name" id="coat-panel-name"></p>
+        <ul class="coat-panel-bullets" id="coat-panel-bullets"></ul>
+        <a href="#contact" class="coat-panel-link">Get a Quote for This <svg viewBox="0 0 13 13"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="stats-band">
+  <div class="stats-band-inner">
     <div class="why-counters" id="why-counters">
       <div class="why-counter">
         <div class="why-counter-num"><span class="count-num" data-target="1" data-suffix="M+">0</span></div>
@@ -1109,47 +1298,6 @@ input:focus,select:focus,textarea:focus{outline:none;}
         <div class="why-counter-num"><span class="count-num" data-target="1" data-suffix="">0</span></div>
         <div class="why-counter-label">Year Warranty</div>
       </div>
-    </div>
-
-    <div class="why-grid" id="why-grid">
-      <div class="why-col">
-        <div class="why-item" data-why data-delay="0"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">24HR Response</span></div>
-        <div class="why-item" data-why data-delay="1"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">1-2 Day Install</span></div>
-        <div class="why-item" data-why data-delay="2"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Family Owned &amp; Operated</span></div>
-        <div class="why-item" data-why data-delay="3"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">State-of-the-Art Equipment</span></div>
-        <div class="why-item" data-why data-delay="4"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">HEPA Rated Dust Extraction</span></div>
-        <div class="why-item" data-why data-delay="5"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Garages, Pools, &amp; Patios</span></div>
-        <div class="why-item" data-why data-delay="6"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Commercial &amp; Industrial</span></div>
-      </div>
-      <div class="why-col">
-        <div class="why-item" data-why data-delay="7"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Easy to Clean</span></div>
-        <div class="why-item" data-why data-delay="8"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Shock Proof</span></div>
-        <div class="why-item" data-why data-delay="9"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Stain Repellent</span></div>
-        <div class="why-item" data-why data-delay="10"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Anti-Microbial</span></div>
-        <div class="why-item" data-why data-delay="11"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">UV Protected</span></div>
-        <div class="why-item" data-why data-delay="12"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Custom Colors</span></div>
-        <div class="why-item check-dark" data-why data-delay="13"><div class="why-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div><span class="why-item-label">Home Value Add</span></div>
-      </div>
-    </div>
-    <div class="why-cta-row rv">
-      <a href="#contact" class="why-cta-btn">
-        Get a Free Estimate
-        <svg width="13" height="13" viewBox="0 0 13 13" style="display:block;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT WE COAT -->
-<section class="coat-section noise-4x" id="coatings">
-  <div class="coat-section-inner">
-    <div class="coat-section-head rv">
-      <span class="coat-section-eyebrow">Floors That Exceed Your Demands</span>
-      <h2 class="coat-section-h">What we coat.</h2>
-      <p class="coat-section-sub">From single-car garages to 50,000 sq ft industrial floors.</p>
-    </div>
-    <div class="coat-grid" id="coat-grid">
-      <!-- Cards injected by JS -->
     </div>
   </div>
 </section>
@@ -1184,21 +1332,63 @@ input:focus,select:focus,textarea:focus{outline:none;}
 
 <!-- CTA -->
 <section class="cta-section grain" id="contact">
-  <div class="cta-inner">
-    <div class="rv">
-      <h2 class="cta-h">The floor you've been putting off.<br/>Let's finish it.</h2>
+  <div class="cta-stack">
+    <div class="cta-head-center rv">
+      <h2 class="cta-h">The floor you've been putting off.<br/><span style="color:var(--cyan)">Let's finish it.</span></h2>
       <p class="cta-sub-under">Schedule a free on-site walkthrough. We'll assess your space, answer your questions, and give you an honest quote — no pressure.</p>
     </div>
-    <div class="cta-right rv d1">
-      <div class="cta-bullets">
-        <div class="cta-bullet-item"><div class="cta-bullet-dot"></div>Free Walkthrough</div>
-        <div class="cta-bullet-item"><div class="cta-bullet-dot"></div>No Obligation</div>
-        <div class="cta-bullet-item"><div class="cta-bullet-dot"></div>Quick Response</div>
-      </div>
-      <div id="cta-form-wrap"></div>
+    <div class="cta-bullets rv d1">
+      <div class="cta-bullet-item"><div class="cta-bullet-dot"></div>Free Walkthrough</div>
+      <div class="cta-bullet-item"><div class="cta-bullet-dot"></div>No Obligation</div>
+      <div class="cta-bullet-item"><div class="cta-bullet-dot"></div>Quick Response</div>
+    </div>
+    <div class="cta-quote-head-center rv d1">
+      <span class="cta-quote-label">Receive a Free Estimate</span>
+      <p class="cta-quote-sub">Use the form below or call <a href="tel:2139715868">(213) 971-5868</a> today.</p>
+    </div>
+    <div class="cta-form-card rv d1" id="cta-quote-panel">
+      <form id="cta-quote-form" novalidate>
+        <div class="ctaf-row">
+          <div class="ctaf-field"><input type="text" id="cqf-name" placeholder="Name" autocomplete="name" required/></div>
+          <div class="ctaf-field"><input type="tel" id="cqf-phone" placeholder="Phone Number" autocomplete="tel" required/></div>
+        </div>
+        <div class="ctaf-row" style="margin-top:14px;">
+          <div class="ctaf-field"><input type="text" id="cqf-address" placeholder="Address" autocomplete="street-address"/></div>
+          <div class="ctaf-field"><input type="email" id="cqf-email" placeholder="Email Address" autocomplete="email" required/></div>
+        </div>
+        <div class="ctaf-field" style="margin-top:14px;">
+          <textarea id="cqf-details" placeholder="Project Details"></textarea>
+        </div>
+        <div class="ctaf-field" style="margin-top:14px;">
+          <select id="cqf-source">
+            <option value="">How Did You Hear About Us?</option>
+            <option>Google Search</option>
+            <option>Referral</option>
+            <option>Instagram / Facebook</option>
+            <option>Yard Sign / Door Hanger</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <label class="ctaf-check" style="margin-top:16px;">
+          <input type="checkbox" id="cqf-agree" required/>
+          <span>By submitting this form, you agree to Aggrepoxy's <a href="#">Privacy Policy</a> and <a href="#">Terms &amp; Conditions</a>.</span>
+        </label>
+        <label class="ctaf-check">
+          <input type="checkbox" id="cqf-sms"/>
+          <span>You consent to receive phone calls and SMS messages from Aggrepoxy about your project. Message frequency depends on activity. Reply STOP to opt out.</span>
+        </label>
+        <button type="submit" class="ctaf-submit" style="margin-top:12px;">Request Estimate</button>
+      </form>
     </div>
   </div>
 </section>
+
+<!-- TYPE TOGGLE — preview widget, not for production -->
+<div class="type-toggle" id="type-toggle">
+  <button type="button" data-font-choice="tungsten" class="active">Tungsten</button>
+  <button type="button" data-font-choice="geist">Geist</button>
+  <button type="button" data-font-choice="geist-italic">Geist Italic</button>
+</div>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -1230,6 +1420,20 @@ input:focus,select:focus,textarea:focus{outline:none;}
 <script>
 (function(){'use strict';
 
+/* ─── TYPE TOGGLE — Tungsten / Geist / Geist Italic preview ──── */
+(function(){
+  const panel=document.getElementById('type-toggle');
+  if(!panel)return;
+  panel.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const choice=btn.dataset.fontChoice;
+      if(choice==='tungsten')document.documentElement.removeAttribute('data-font');
+      else document.documentElement.setAttribute('data-font',choice);
+      panel.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b===btn));
+    });
+  });
+})();
+
 /* ─── LENIS ─────────────────────────────────────────────────── */
 const lenis=new Lenis({duration:1.1,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),smoothWheel:true});
 (function raf(t){lenis.raf(t);requestAnimationFrame(raf);})(0);
@@ -1253,15 +1457,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 });
 
 /* ─── HERO ENTRANCE ─────────────────────────────────────────── */
-const hEls=['#h-eyebrow','#h-h1','#h-sub','#h-proof','#quoter-wrap'];
+const hEls=['#h-eyebrow','#h-h1','#h-sub','#h-form','#h-proof'];
 gsap.set([nav,...hEls],{opacity:0,y:16});
 const tl=gsap.timeline({delay:.05});
 tl.to(nav,{opacity:1,y:0,duration:.45,ease:'power3.out'})
   .to('#h-eyebrow',{opacity:1,y:0,duration:.5,ease:'power3.out'},'-=.1')
   .to('#h-h1',{opacity:1,y:0,duration:.82,ease:'expo.out'},'-=.32')
   .to('#h-sub',{opacity:1,y:0,duration:.58,ease:'power3.out'},'-=.5')
-  .to('#h-proof',{opacity:1,y:0,duration:.48,ease:'power3.out'},'-=.4')
-  .to('#quoter-wrap',{opacity:1,y:0,duration:.58,ease:'power3.out'},'-=.44');
+  .to('#h-form',{opacity:1,y:0,duration:.5,ease:'power3.out'},'-=.4')
+  .to('#h-proof',{opacity:1,y:0,duration:.48,ease:'power3.out'},'-=.34');
 
 /* ─── HERO PARALLAX ─────────────────────────────────────────── */
 gsap.to('.hero-bg',{
@@ -1330,237 +1534,155 @@ document.querySelectorAll('[data-pain]').forEach(el=>painObs.observe(el));
   if(countersEl)counterObs.observe(countersEl);
 })();
 
-/* ─── WHY CHECKLIST — col1 first then col2, data-delay driven ── */
-// Set transition-delay from data-delay attribute (each step = 100ms)
-document.querySelectorAll('[data-why]').forEach(item=>{
-  const d=parseInt(item.dataset.delay||0);
-  item.style.transitionDelay=(d*0.10)+'s';
-});
-const whyGrid = document.getElementById('why-grid');
-if(whyGrid){
-  const whyObs = new IntersectionObserver(entries=>{
+/* ─── PRECISION SYSTEM PILLARS — reveal + hover ─────────────── */
+const pillarGrid = document.getElementById('pillar-grid');
+if(pillarGrid){
+  const pillarObs = new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(e.isIntersecting){
-        document.querySelectorAll('[data-why]').forEach(item=>item.classList.add('on'));
-        whyObs.unobserve(e.target);
+        document.querySelectorAll('[data-pillar]').forEach(item=>item.classList.add('on'));
+        pillarObs.unobserve(e.target);
       }
     });
-  },{threshold:.06,rootMargin:'0px 0px -32px 0px'});
-  whyObs.observe(whyGrid);
+  },{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+  pillarObs.observe(pillarGrid);
 }
-
-/* ─── WHY ITEM HOVER ─────────────────────────────────────────── */
-document.querySelectorAll('[data-why]').forEach(item=>{
+document.querySelectorAll('[data-pillar]').forEach(item=>{
   item.addEventListener('mouseenter',()=>{
-    gsap.to(item.querySelector('.why-check'),{scale:1.12,duration:.22,ease:'power2.out'});
-    gsap.to(item.querySelector('.why-item-label'),{x:3,duration:.22,ease:'power2.out'});
+    gsap.to(item.querySelector('.pillar-icon'),{scale:1.08,duration:.22,ease:'power2.out'});
   });
   item.addEventListener('mouseleave',()=>{
-    gsap.to(item.querySelector('.why-check'),{scale:1,duration:.3,ease:'power2.out'});
-    gsap.to(item.querySelector('.why-item-label'),{x:0,duration:.3,ease:'power2.out'});
+    gsap.to(item.querySelector('.pillar-icon'),{scale:1,duration:.3,ease:'power2.out'});
   });
 });
 
-/* ─── TWO-STEP HERO FORM ─────────────────────────────────────── */
-function buildTwoStepForm(containerId,darkMode){
-  const wrap=document.getElementById(containerId);
-  if(!wrap)return;
-
-  // Shared state
-  const d=darkMode;
-  let step1Data={};
-
-  // CSS vars for dark (CTA) vs light (hero quoter)
-  const bg    =d?'transparent':'#f5f4f0';
-  const border=d?'rgba(0,0,0,.18)':'rgba(0,0,0,.14)';
-  const text  =d?'#0C0C0C':'#0C0C0C';
-  const pill_idle_bg=d?'#ffffff':'#ffffff';
-
-  function dotHTML(active){
-    return `<div class="q-progress"><div class="q-dot${active===1?' on':''}"></div><div class="q-dot${active===2?' on':''}"></div></div>`;
-  }
-
-  function step1HTML(){
-    return `
-      <div class="quoter" id="q-container" style="background:${bg}">
-        ${dotHTML(1)}
-        <div class="q-title">Get your<br/>free estimate</div>
-        <p class="q-subtitle">Fast response. No obligation. Licensed &amp; insured.</p>
-        <div class="q-step-wrap" id="q-step-wrap">
-          <div class="q-step in" id="q-s1">
-            <div style="display:flex;flex-direction:column;gap:9px;margin-top:4px;">
-              <div class="q-field"><input id="qn-name" type="text" placeholder="Your name" autocomplete="name" required/></div>
-              <div class="q-field"><input id="qn-phone" type="tel" placeholder="Phone number" autocomplete="tel" required/></div>
-              <div class="q-field"><input id="qn-extra" type="text" placeholder="Tell us about your space (optional)"/></div>
-              <label class="q-check"><input type="checkbox" id="qn-agree" required/><span>By continuing, you agree to our <a href="#">Privacy Policy</a> and <a href="#">Terms</a>.</span></label>
-              <button type="button" id="qn-next" class="q-submit">Get My Free Walkthrough <svg viewBox="0 0 13 13" style="width:12px;height:12px;display:inline-block;vertical-align:middle;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></button>
-            </div>
-          </div>
-          <div class="q-step out" id="q-s2" style="top:0;left:0;">
-            <p style="font-family:var(--font-sub);font-weight:600;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(12,12,12,.45);margin-bottom:12px;">One more thing — help us prepare for your walkthrough</p>
-            <div style="display:flex;flex-direction:column;gap:12px;">
-              <div>
-                <span class="q-label">Space Type</span>
-                <div class="q-pills" id="qn-type"></div>
-              </div>
-              <div>
-                <span class="q-label">Approximate Sq Ft</span>
-                <div class="q-range" id="qn-sqft"></div>
-              </div>
-              <div>
-                <span class="q-label">Timeline</span>
-                <div class="q-timeline" id="qn-timeline"></div>
-              </div>
-              <div class="q-field"><input id="qn-area" type="text" placeholder="City or neighborhood" autocomplete="address-level2"/></div>
-              <button type="button" id="qn-send" class="q-submit">Send My Request <svg viewBox="0 0 13 13" style="width:12px;height:12px;display:inline-block;vertical-align:middle;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></button>
-            </div>
-          </div>
-        </div>
-        <div class="q-trust">Licensed and insured &nbsp;|&nbsp; LA and OC</div>
-      </div>`;
-  }
-
-  wrap.innerHTML=step1HTML();
-
-  // Populate pill options
-  const typeOpts=['Garage','Warehouse','Showroom','Patio / Deck','Restaurant','Other'];
-  const sqftOpts=['Under 200','200–500','500–1,000','1,000+'];
-  const timeOpts=['ASAP','Within 3 months','Just exploring'];
-
-  function makePillGroup(containerId,opts,type){
-    const c=document.getElementById(containerId);if(!c)return;
-    opts.forEach(o=>{
-      const b=document.createElement('button');
-      b.type='button';
-      b.className=type==='range'?'q-range-btn':type==='timeline'?'q-timeline-btn':'q-pill-btn';
-      b.textContent=o;
-      b.addEventListener('click',()=>{
-        c.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));
-        b.classList.add('sel');
-      });
-      c.appendChild(b);
-    });
-  }
-  makePillGroup('qn-type',typeOpts,'pill');
-  makePillGroup('qn-sqft',sqftOpts,'range');
-  makePillGroup('qn-timeline',timeOpts,'timeline');
-
-  // Step 1 → Step 2 transition
-  document.getElementById('qn-next').addEventListener('click',()=>{
-    const name=document.getElementById('qn-name');
-    const phone=document.getElementById('qn-phone');
-    const agree=document.getElementById('qn-agree');
+/* ─── HERO ESTIMATE CARD — inline form handler ───────────────── */
+(function(){
+  const form=document.getElementById('hero-estimate-form');
+  if(!form)return;
+  const requiredFields=['he-name','he-phone','he-email'].map(id=>document.getElementById(id));
+  const agree=document.getElementById('he-agree');
+  requiredFields.forEach(f=>f.addEventListener('input',()=>f.style.boxShadow=''));
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
     let ok=true;
-    [name,phone].forEach(f=>{
-      if(!f.value.trim()){f.style.borderColor='#cc3344';if(ok)f.focus();ok=false;}
-      else f.style.borderColor='';
+    requiredFields.forEach(f=>{
+      if(!f.value.trim()){f.style.boxShadow='0 0 0 2px #cc3344';if(ok)f.focus();ok=false;}
+      else f.style.boxShadow='';
     });
-    if(!agree.checked){agree.focus();return;}
+    if(!agree.checked){if(ok)agree.focus();ok=false;}
     if(!ok)return;
-    // Save step 1 data
-    step1Data={name:name.value.trim(),phone:phone.value.trim(),extra:document.getElementById('qn-extra').value.trim()};
-    // Slide transition
-    const s1=document.getElementById('q-s1');
-    const s2=document.getElementById('q-s2');
-    const stepWrap=document.getElementById('q-step-wrap');
-    // Set wrap height before transition
-    stepWrap.style.height=s1.offsetHeight+'px';
-    s1.classList.add('out');s1.classList.remove('in');
-    s2.style.position='relative';
-    s2.classList.remove('out');s2.classList.add('in');
-    // Animate height
-    setTimeout(()=>{
-      stepWrap.style.height=s2.offsetHeight+'px';
-      setTimeout(()=>{stepWrap.style.height='auto';},400);
-    },50);
-    // Update progress dot
-    wrap.querySelectorAll('.q-dot')[0].classList.remove('on');
-    wrap.querySelectorAll('.q-dot')[1].classList.add('on');
-  });
-
-  // Step 2 final send
-  document.getElementById('qn-send').addEventListener('click',()=>{
-    const payload={
-      ...step1Data,
-      spaceType:document.querySelector('#qn-type .sel')?.textContent||'',
-      sqft:document.querySelector('#qn-sqft .sel')?.textContent||'',
-      timeline:document.querySelector('#qn-timeline .sel')?.textContent||'',
-      area:document.getElementById('qn-area')?.value.trim()||''
-    };
-    const btn=document.getElementById('qn-send');
+    const btn=form.querySelector('.hc-submit');
     btn.textContent='Sending…';btn.disabled=true;
-    // Simulate send (replace with actual fetch in production)
     setTimeout(()=>{
-      document.getElementById('q-container').innerHTML=`
-        <div class="q-success">
+      document.getElementById('h-form').innerHTML=`
+        <div class="q-success" style="color:#ffffff;">
           <div class="q-success-icon">&#10003;</div>
-          <h3>You're in the queue</h3>
-          <p>We'll reach out within 24 hours to schedule your walkthrough.</p>
+          <h3 style="color:#ffffff;">You're in the queue</h3>
+          <p style="color:rgba(255,255,255,.6);">We'll reach out within 24 hours to schedule your walkthrough.</p>
         </div>`;
     },700);
   });
+})();
 
-  // Clear error borders on input
-  ['qn-name','qn-phone'].forEach(id=>{
-    const f=document.getElementById(id);
-    f&&f.addEventListener('input',()=>f.style.borderColor='');
-  });
-}
-
-buildTwoStepForm('quoter-wrap',false);
-
-/* ─── WHAT WE COAT — card grid ───────────────────────────────── */
-const coatData=[
-  {name:'Solid Color Epoxy',
-   img:'./images/garage-flake.jpg',
+/* ─── WHAT WE COAT — space selector ───────────────────────────── */
+const spaceData=[
+  {space:'Garage',
+   name:'Decorative Flake System',
+   headline:'The garage floor everyone stops to look at.',
+   imgs:['./images/Lambo-Volt-scaled.jpg','https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&auto=format&fit=crop&q=80','https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&auto=format&fit=crop&q=80'],
    popular:false,
-   bullets:['Uniform look for showrooms and retail','Dozens of standard and custom colors','Easy mopping and maintenance','Available with anti-slip additive on request']},
-  {name:'Decorative Flake',
-   img:'./images/Lambo-Volt-scaled.jpg',
+   icon:'<path d="M3 21V10l9-6 9 6v11"/><path d="M3 21h18"/><path d="M8 21v-6h8v6"/>',
+   bullets:['Popular heavy-duty system for garages','Slip-resistant texture built in','UV-stable, will not yellow']},
+  {space:'Pool &amp; Patio',
+   name:'Quartz Systems',
+   headline:'Grip that holds up, even soaking wet.',
+   imgs:['./images/section-05.jpg','https://images.unsplash.com/photo-1519302959554-a75be0afc82a?w=1200&auto=format&fit=crop&q=80','https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=1200&auto=format&fit=crop&q=80'],
    popular:false,
-   bullets:['Popular heavy-duty system for garages','Custom color blends','Flake finish hides dirt and debris','Slip-resistant texture built in','UV-stable, will not yellow']},
-  {name:'Quartz Systems',
-   img:'./images/section-05.jpg',
-   popular:false,
-   bullets:['Maximum traction even when wet','Ideal for pool decks, patios, and kitchens','Chemical-resistant formulation','No grout lines to maintain']},
-  {name:'Metallic Finish',
-   img:'./images/section-04.jpg',
+   icon:'<path d="M2 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M2 19c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>',
+   bullets:['Maximum traction even when wet','Ideal for pool decks, patios, and kitchens','Chemical-resistant formulation']},
+  {space:'Showroom',
+   name:'Metallic Finish',
+   headline:'Floors that sell the room before you do.',
+   imgs:['./images/section-04.jpg','https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&auto=format&fit=crop&q=80','https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&auto=format&fit=crop&q=80'],
    popular:true,
-   bullets:['3D marbled finish that showcases your space','Popular in homes, salons, offices, and garages','Unlimited custom color combinations','High gloss surface that wipes clean','Non-slip additive can be mixed in']},
-  {name:'Concrete Polish',
-   img:'./images/section-01.jpg',
+   icon:'<path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/>',
+   bullets:['3D marbled finish that showcases your space','Unlimited custom color combinations','High gloss surface that wipes clean']},
+  {space:'Warehouse',
+   name:'Industrial Coatings',
+   headline:'Built for forklifts. Not just foot traffic.',
+   imgs:['./images/section-01.jpg','https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=1200&auto=format&fit=crop&q=80','https://images.unsplash.com/photo-1519302959554-a75be0afc82a?w=1200&auto=format&fit=crop&q=80'],
    popular:false,
-   bullets:['Sophisticated look','No topcoat to chip, peel, or re-apply','Easy to clean for high traffic areas','Best for commercial and retail environments']},
-  {name:'Industrial Coatings',
-   img:'./images/section-05.jpg',
+   icon:'<path d="M3 9l9-5 9 5v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z"/><path d="M9 21V12h6v9"/>',
+   bullets:['Forklifts, pallet jacks, and heavy equipment','Chemical and thermal shock resistant','OSHA slip-resistance requirements']},
+  {space:'Retail &amp; Commercial',
+   name:'Solid Color Epoxy',
+   headline:'One consistent floor, wall to wall.',
+   imgs:['./images/garage-flake.jpg','https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&auto=format&fit=crop&q=80','https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&auto=format&fit=crop&q=80'],
    popular:false,
-   bullets:['Forklifts, pallet jacks, and heavy equipment','Chemical and thermal shock resistant','OSHA slip-resistance requirements','Safety stripe and zone-marking']},
+   icon:'<path d="M3 9l1-5h16l1 5"/><path d="M4 9v11h16V9"/><path d="M9 20v-6h6v6"/>',
+   bullets:['Uniform look for showrooms and retail','Dozens of standard and custom colors','Easy mopping and maintenance']},
 ];
 
-const coatGridEl=document.getElementById('coat-grid');
-coatData.forEach(c=>{
-  const card=document.createElement('div');
-  card.className='coat-card';
-  card.innerHTML=`
-    <div class="coat-card-img">
-      <div class="coat-card-img-bg" style="background-image:url('${c.img}')"></div>
-      ${c.popular?`<div class="coat-card-badge">Popular</div>`:''}
-    </div>
-    <div class="coat-card-body">
-      <div class="coat-card-title">${c.name}</div>
-      <ul class="coat-card-bullets">${c.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
-      <a href="#contact" class="coat-card-link">Learn More <svg viewBox="0 0 13 13"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></a>
-    </div>`;
-  coatGridEl.appendChild(card);
+const coatTabsEl=document.getElementById('coat-tabs');
+const coatPanelEl=document.getElementById('coat-panel');
+const coatImgBgEl=document.getElementById('coat-panel-img-bg');
+const coatBadgeEl=document.getElementById('coat-panel-badge-el');
+let coatCatIdx=0;
+let coatImgIdx=0;
+
+spaceData.forEach((s,i)=>{
+  const btn=document.createElement('button');
+  btn.type='button';
+  btn.className='coat-tab'+(i===0?' active':'');
+  btn.innerHTML=`<svg viewBox="0 0 24 24">${s.icon}</svg>${s.space}${s.popular?'<span class="coat-tab-dot"></span>':''}`;
+  btn.addEventListener('click',()=>setSpace(i));
+  coatTabsEl.appendChild(btn);
 });
 
-// Animate cards on scroll
-const coatCardObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('on');coatCardObs.unobserve(e.target);}
-  });
-},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.coat-card').forEach(c=>coatCardObs.observe(c));
+function renderImg(){
+  coatImgBgEl.style.opacity='0';
+  setTimeout(()=>{
+    coatImgBgEl.style.backgroundImage=`url('${spaceData[coatCatIdx].imgs[coatImgIdx]}')`;
+    coatImgBgEl.style.opacity='1';
+  },220);
+}
+
+function setSpace(i){
+  if(i===coatCatIdx)return;
+  coatCatIdx=i;
+  coatImgIdx=0;
+  const s=spaceData[i];
+  document.querySelectorAll('.coat-tab').forEach((t,j)=>t.classList.toggle('active',j===i));
+  coatBadgeEl.style.display=s.popular?'block':'none';
+  renderImg();
+
+  coatPanelEl.classList.add('fade-body','out');
+  setTimeout(()=>{
+    document.getElementById('coat-panel-headline').textContent=s.name;
+    document.getElementById('coat-panel-name').textContent=s.headline;
+    document.getElementById('coat-panel-bullets').innerHTML=s.bullets.map(b=>`<li>${b}</li>`).join('');
+    coatPanelEl.classList.remove('out');
+  },260);
+}
+
+document.getElementById('coat-img-prev').addEventListener('click',()=>{
+  const imgs=spaceData[coatCatIdx].imgs;
+  coatImgIdx=(coatImgIdx-1+imgs.length)%imgs.length;
+  renderImg();
+});
+document.getElementById('coat-img-next').addEventListener('click',()=>{
+  const imgs=spaceData[coatCatIdx].imgs;
+  coatImgIdx=(coatImgIdx+1)%imgs.length;
+  renderImg();
+});
+
+// Initialize first panel content
+coatImgBgEl.style.backgroundImage=`url('${spaceData[0].imgs[0]}')`;
+document.getElementById('coat-panel-headline').textContent=spaceData[0].name;
+document.getElementById('coat-panel-name').textContent=spaceData[0].headline;
+document.getElementById('coat-panel-bullets').innerHTML=spaceData[0].bullets.map(b=>`<li>${b}</li>`).join('');
+coatBadgeEl.style.display=spaceData[0].popular?'block':'none';
 
 /* ─── TESTIMONIALS — floating card carousel ──────────────────── */
 const testis=[
@@ -1678,22 +1800,34 @@ baData.forEach((d,idx)=>{
   setPos(0.5);
 });
 
-/* ─── CTA 2-STEP FORM ────────────────────────────────────────── */
-// Inject CTA-specific style overrides for light-bg form
+/* ─── CTA — full form handler (matches hero estimate form) ──── */
 (function(){
-  const s=document.createElement('style');
-  s.textContent=`
-    #cta-form-wrap .quoter{background:transparent;box-shadow:none;padding:0;gap:9px;}
-    #cta-form-wrap .q-title,#cta-form-wrap .q-subtitle,#cta-form-wrap .q-trust{display:none;}
-    #cta-form-wrap .q-dot{background:rgba(0,0,0,.15);}
-    #cta-form-wrap .q-dot.on{background:var(--cyan);}
-    #cta-form-wrap .q-progress{margin-bottom:10px;}
-    #cta-form-wrap .q-submit{background:#0C0C0C;color:#ffffff;}
-    #cta-form-wrap .q-submit:hover{background:#222;}
-  `;
-  document.head.appendChild(s);
+  const form=document.getElementById('cta-quote-form');
+  if(!form)return;
+  const requiredFields=['cqf-name','cqf-phone','cqf-email'].map(id=>document.getElementById(id));
+  const agree=document.getElementById('cqf-agree');
+  requiredFields.forEach(f=>f.addEventListener('input',()=>f.style.boxShadow=''));
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    let ok=true;
+    requiredFields.forEach(f=>{
+      if(!f.value.trim()){f.style.boxShadow='0 0 0 2px #cc3344';if(ok)f.focus();ok=false;}
+      else f.style.boxShadow='';
+    });
+    if(!agree.checked){if(ok)agree.focus();ok=false;}
+    if(!ok)return;
+    const btn=form.querySelector('.ctaf-submit');
+    btn.textContent='Sending…';btn.disabled=true;
+    setTimeout(()=>{
+      document.getElementById('cta-quote-panel').innerHTML=`
+        <div class="q-success">
+          <div class="q-success-icon">&#10003;</div>
+          <h3>You're in the queue</h3>
+          <p>We'll reach out within 24 hours to schedule your walkthrough.</p>
+        </div>`;
+    },700);
+  });
 })();
-buildTwoStepForm('cta-form-wrap',false);
 
 })();
 </script>
