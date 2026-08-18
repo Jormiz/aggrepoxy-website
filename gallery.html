@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg"/>
+<title>Project Gallery — Aggrepoxy Concrete Coatings</title>
+<meta name="description" content="Browse recent concrete coating projects across Los Angeles, Orange County, and the Inland Empire — garages, patios, showrooms, and warehouses."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/main.css"/>
+<link rel="stylesheet" href="css/inner.css"/>
+</head>
+<body>
+
+<header class="nav solid" id="nav">
+  <a href="index.html" class="nav-logo" aria-label="Aggrepoxy"><img src="images/Logo-new-white.svg" alt="Aggrepoxy"/></a>
+  <nav class="nav-links" id="nav-links">
+    <div class="nav-drop">
+      <span class="nav-drop-trigger" tabindex="0">Services <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></span>
+      <div class="nav-drop-panel">
+        <a href="services/index.html">All Services</a>
+        <a href="services/solid-color-epoxy.html">Solid Color Epoxy</a>
+        <a href="services/decorative-flake.html">Decorative Flake</a>
+        <a href="services/quartz-systems.html">Quartz Systems</a>
+        <a href="services/metallic-finish.html">Metallic Finish</a>
+        <a href="services/concrete-polish.html">Concrete Polish</a>
+        <a href="services/industrial-coatings.html">Industrial Coatings</a>
+      </div>
+    </div>
+    <a href="gallery.html" class="current">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <a href="contact.html" class="nav-cta">Get a Free Estimate</a>
+  <button type="button" class="nav-burger" id="nav-burger" aria-label="Open menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+</header>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="index.html">Home</a>
+  <div class="nav-mobile-services">
+    <a href="services/index.html">All Services</a>
+    <a href="services/solid-color-epoxy.html">Solid Color Epoxy</a>
+    <a href="services/decorative-flake.html">Decorative Flake</a>
+    <a href="services/quartz-systems.html">Quartz Systems</a>
+    <a href="services/metallic-finish.html">Metallic Finish</a>
+    <a href="services/concrete-polish.html">Concrete Polish</a>
+    <a href="services/industrial-coatings.html">Industrial Coatings</a>
+  </div>
+  <a href="gallery.html">Gallery</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="nav-mobile-cta">Get a Free Estimate</a>
+</div>
+
+<section class="inner-hero grain grain-d" style="min-height:44vh;">
+  <div class="inner-hero-bg" style="background-image:url('images/section-02.jpg')"></div>
+  <div class="inner-hero-veil"></div>
+  <div class="inner-hero-inner">
+    <div class="inner-hero-crumb"><a href="index.html">Home</a><span>/</span><span>Gallery</span></div>
+    <span class="inner-hero-eyebrow">The Work, Not The Pitch</span>
+    <h1 class="inner-hero-h1">Recent Projects.</h1>
+    <p class="inner-hero-sub">A running look at garages, patios, showrooms, and warehouses we've coated across LA, OC &amp; the Inland Empire.</p>
+  </div>
+</section>
+
+<!--
+  Placeholder gallery — swap these src values for real project photos whenever
+  you're ready. Each <a> can also take a data-full="path-to-larger-image.jpg"
+  if you want a higher-res version to open in the lightbox than what's shown
+  in the grid.
+-->
+<section class="section bg-white" style="padding-top:clamp(56px,7vh,90px);">
+  <div class="section-inner">
+    <div class="masonry" id="masonry">
+      <a class="masonry-item"><img src="images/Lambo-Volt-scaled.jpg" alt="Decorative flake garage floor with sports car"/></a>
+      <a class="masonry-item"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=700&h=900&auto=format&fit=crop&q=80" alt="Decorative flake floor"/></a>
+      <a class="masonry-item"><img src="images/section-01.jpg" alt="Aggrepoxy project photo"/></a>
+      <a class="masonry-item"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=700&h=520&auto=format&fit=crop&q=80" alt="Showroom coated floor"/></a>
+      <a class="masonry-item"><img src="images/section-02.jpg" alt="Aggrepoxy project photo"/></a>
+      <a class="masonry-item"><img src="https://images.unsplash.com/photo-1519302959554-a75be0afc82a?w=700&h=980&auto=format&fit=crop&q=80" alt="Pool deck quartz coating"/></a>
+      <a class="masonry-item"><img src="images/garage-flake.jpg" alt="Garage flake floor"/></a>
+      <a class="masonry-item"><img src="https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=700&h=560&auto=format&fit=crop&q=80" alt="Warehouse industrial coating"/></a>
+      <a class="masonry-item"><img src="images/section-03.jpg" alt="Aggrepoxy project photo"/></a>
+      <a class="masonry-item"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=700&h=700&auto=format&fit=crop&q=80" alt="Flake floor close-up"/></a>
+      <a class="masonry-item"><img src="images/section-04.jpg" alt="Aggrepoxy project photo"/></a>
+      <a class="masonry-item"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=700&h=900&auto=format&fit=crop&q=80" alt="Metallic finish showroom"/></a>
+      <a class="masonry-item"><img src="images/section-05.jpg" alt="Aggrepoxy project photo"/></a>
+      <a class="masonry-item"><img src="https://images.unsplash.com/photo-1519302959554-a75be0afc82a?w=700&h=520&auto=format&fit=crop&q=80" alt="Patio quartz coating"/></a>
+      <a class="masonry-item"><img src="images/section-06.jpg" alt="Aggrepoxy project photo"/></a>
+      <a class="masonry-item"><img src="https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=700&h=880&auto=format&fit=crop&q=80" alt="Industrial warehouse floor"/></a>
+      <a class="masonry-item"><img src="images/section-07.jpg" alt="Aggrepoxy project photo"/></a>
+      <a class="masonry-item"><img src="images/cracked-concrete.webp" alt="Before: cracked bare concrete"/></a>
+      <a class="masonry-item"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&h=560&auto=format&fit=crop&q=80" alt="Before: bare concrete floor"/></a>
+      <a class="masonry-item"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=700&h=980&auto=format&fit=crop&q=80" alt="Finished flake floor"/></a>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button type="button" class="lightbox-close" aria-label="Close"><svg viewBox="0 0 20 20"><path d="M4 4l12 12M16 4L4 16"/></svg></button>
+  <button type="button" class="lightbox-nav prev" aria-label="Previous"><svg viewBox="0 0 20 20"><path d="M12 4l-6 6 6 6"/></svg></button>
+  <img src="" alt=""/>
+  <button type="button" class="lightbox-nav next" aria-label="Next"><svg viewBox="0 0 20 20"><path d="M8 4l6 6-6 6"/></svg></button>
+</div>
+
+<section class="cta-section grain">
+  <div class="cta-stack">
+    <div class="cta-head-center rv"><h2 class="cta-h">Like what<br/><span style="color:var(--cyan)">you see?</span></h2><p class="cta-sub-under">Free on-site walkthrough. Honest quote. No pressure.</p></div>
+    <div class="btn-row rv d1" style="margin-top:20px;">
+      <a href="contact.html" class="btn-solid">Get My Free Estimate</a>
+      <a href="tel:2139715868" class="btn-outline">Call (213) 971-5868</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand"><a href="index.html" aria-label="Aggrepoxy" style="display:block;line-height:0;"><img src="images/Logo-new-white.svg" alt="Aggrepoxy"/></a><p class="footer-tagline">Premium concrete coatings for Los Angeles, Orange County, and the Inland Empire.</p></div>
+    <div class="footer-col"><div class="footer-col-head">Services</div><a href="services/solid-color-epoxy.html">Solid Color Epoxy</a><a href="services/decorative-flake.html">Decorative Flake</a><a href="services/quartz-systems.html">Quartz Systems</a><a href="services/metallic-finish.html">Metallic Finish</a><a href="services/concrete-polish.html">Concrete Polish</a><a href="services/industrial-coatings.html">Industrial Coatings</a></div>
+    <div class="footer-col"><div class="footer-col-head">Spaces</div><a href="index.html#coatings">Garages</a><a href="index.html#coatings">Patios and Decks</a><a href="index.html#coatings">Showrooms</a><a href="index.html#coatings">Warehouses</a><a href="index.html#coatings">Restaurants</a></div>
+    <div class="footer-col"><div class="footer-col-head">Where We Work</div><a href="contact.html">Los Angeles</a><a href="contact.html">Orange County</a><a href="contact.html">Inland Empire</a></div>
+    <div class="footer-col"><div class="footer-col-head">Company</div><a href="about.html">About</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
+  </div>
+  <div class="footer-base"><span class="footer-copy">2026 Aggrepoxy LLC. Family owned and operated.</span><span class="footer-lic">Free Estimates — Call (213) 971-5868</span></div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/inner.js"></script>
+</body>
+</html>
