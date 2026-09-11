@@ -19,6 +19,13 @@
   <nav class="nav-links" id="nav-links">
     <a href="../index.html">Home</a>
     <div class="nav-drop">
+      <span class="nav-drop-trigger" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Locations <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></span>
+      <div class="nav-drop-panel">
+        <a href="../la.html">Los Angeles / OC</a>
+        <a href="../chi.html">Chicago</a>
+      </div>
+    </div>
+    <div class="nav-drop">
       <span class="nav-drop-trigger" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Services <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></span>
       <div class="nav-drop-panel">
         <a href="garage-floors.html">Garage Floors</a>
@@ -37,6 +44,10 @@
 </header>
 <div class="nav-mobile" id="nav-mobile">
   <a href="../index.html">Home</a>
+  <div class="nav-mobile-services">
+    <a href="../la.html">Los Angeles / OC</a>
+    <a href="../chi.html">Chicago</a>
+  </div>
   <div class="nav-mobile-services">
     <a href="garage-floors.html">Garage Floors</a>
     <a href="pool-patio.html">Pool &amp; Patio</a>
@@ -88,8 +99,8 @@
 <section class="svc-slideshow">
   <div class="svc-slideshow-track">
     <div class="svc-slide on"><img src="../images/section-04.jpg" alt="Coated showroom floor"/><div class="svc-slide-veil"></div><span class="svc-slide-caption">Metallic Finish &middot; Beverly Hills, CA</span></div>
-    <div class="svc-slide"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1400&auto=format&fit=crop&q=80" alt="Metallic epoxy floor"/><div class="svc-slide-veil"></div><span class="svc-slide-caption">Metallic Finish &middot; Irvine, CA</span></div>
-    <div class="svc-slide"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1400&auto=format&fit=crop&q=80" alt="Showroom floor detail"/><div class="svc-slide-veil"></div><span class="svc-slide-caption">Solid Color &middot; West Hollywood, CA</span></div>
+    <div class="svc-slide"><img src="../images/gallery/gallery-02-dealership-service-bay.jpg" alt="Metallic epoxy floor"/><div class="svc-slide-veil"></div><span class="svc-slide-caption">Metallic Finish &middot; Irvine, CA</span></div>
+    <div class="svc-slide"><img src="../images/gallery/gallery-15-garage-light-gray-flake.jpg" alt="Showroom floor detail"/><div class="svc-slide-veil"></div><span class="svc-slide-caption">Solid Color &middot; West Hollywood, CA</span></div>
     <div class="svc-slide"><img src="../images/section-06.jpg" alt="Finished showroom floor"/><div class="svc-slide-veil"></div><span class="svc-slide-caption">Polished Concrete &middot; Long Beach, CA</span></div>
   </div>
   <div class="svc-slideshow-nav">
@@ -160,8 +171,8 @@
     <h2 class="sec-h2" style="color:#0C0C0C;font-size:clamp(30px,4vw,56px);">See it installed.</h2>
     <div class="svc-gallery-strip rv d1" style="margin-top:28px;">
       <a href="../gallery.html"><img src="../images/section-04.jpg" alt="Coated showroom floor"/></a>
-      <a href="../gallery.html"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=700&auto=format&fit=crop&q=80" alt="Metallic epoxy floor"/></a>
-      <a href="../gallery.html"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=700&auto=format&fit=crop&q=80" alt="Showroom floor detail"/></a>
+      <a href="../gallery.html"><img src="../images/gallery/gallery-02-dealership-service-bay.jpg" alt="Metallic epoxy floor"/></a>
+      <a href="../gallery.html"><img src="../images/gallery/gallery-15-garage-light-gray-flake.jpg" alt="Showroom floor detail"/></a>
       <a href="../gallery.html"><img src="../images/section-06.jpg" alt="Finished showroom floor"/></a>
     </div>
     <div style="text-align:center;margin-top:32px;"><a href="../gallery.html" class="btn-outline">View Full Gallery</a></div>
@@ -246,8 +257,8 @@ window.AGX.wireForm({
 });
 if(window.AGX&&window.AGX.renderBeforeAfter){
   window.AGX.renderBeforeAfter('ba-grid-showroom',[
-    {tag:'Metallic Finish',loc:'Auto dealership, Irvine CA',before:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=80',after:'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&auto=format&fit=crop&q=80'},
-    {tag:'Solid Color',loc:'Flagship retail, Beverly Hills CA',before:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=80',after:'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&auto=format&fit=crop&q=80'}
+    {tag:'Metallic Finish',loc:'Auto dealership, Irvine CA',before:'../images/cracked-concrete.webp',after:'../images/gallery/gallery-02-dealership-service-bay.jpg'},
+    {tag:'Solid Color',loc:'Flagship retail, Beverly Hills CA',before:'../images/cracked-concrete.webp',after:'../images/gallery/gallery-15-garage-light-gray-flake.jpg'}
   ]);
 }
 </script>

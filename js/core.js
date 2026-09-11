@@ -102,6 +102,48 @@ document.querySelectorAll('.trust-strip-inner').forEach(function(grid){
   obs.observe(grid);
 });
 
+/* ─── REVEAL SAFETY NET ───────────────────────────────────────
+   Every scroll-reveal above (and the pain-pill/pillar-card/testi-
+   card/counter reveals in home.js) works by having an
+   IntersectionObserver add an `.on` class the first time an element
+   crosses into view. That's efficient, but it's a single point of
+   failure: if an observer never fires for a given element (a
+   ScrollTrigger-driven layout recalculation shifting things after
+   the observer was set up, a browser extension throttling
+   observers, or any other edge case we can't fully test for), that
+   element just stays invisible forever with no way to recover.
+   This sweep is the belt-and-suspenders backstop — on load, on
+   scroll, and on resize it checks every known reveal target still
+   missing `.on` against its actual on-screen position and reveals
+   it directly if it's already visible. Idempotent and cheap, so it
+   costs nothing when the observers are working normally. ───────── */
+(function(){
+  var SEL='.rv,.pain-pill,.pillar-card,.testi-card,.trust-item,.stats-band .why-counter';
+  function sweep(){
+    document.querySelectorAll(SEL).forEach(function(el){
+      if(el.classList.contains('on'))return;
+      var r=el.getBoundingClientRect();
+      if(r.bottom<=0||r.top>=window.innerHeight)return;
+      el.classList.add('on');
+      if(el.classList.contains('why-counter')){
+        el.querySelectorAll('.count-num').forEach(function(c){
+          if(c.dataset.swept)return;
+          c.dataset.swept='1';
+          var target=parseFloat(c.dataset.target);
+          if(!isNaN(target))c.textContent=(c.dataset.prefix||'')+target+(c.dataset.suffix||'');
+        });
+      }
+    });
+  }
+  var pending=null;
+  function schedule(){if(pending)return;pending=requestAnimationFrame(function(){pending=null;sweep();});}
+  window.addEventListener('load',function(){setTimeout(sweep,350);});
+  window.addEventListener('scroll',schedule,{passive:true});
+  window.addEventListener('resize',schedule);
+  setTimeout(sweep,1200);
+  setTimeout(sweep,3000);
+})();
+
 /* ─── FAQ ACCORDION ──────────────────────────────────────────── */
 document.querySelectorAll('.faq-item').forEach(function(item){
   var q=item.querySelector('.faq-q');
@@ -117,42 +159,11 @@ document.querySelectorAll('.faq-item').forEach(function(item){
   });
 });
 
-/* ─── GEO REDIRECT — Midwest visitors to aggrepoxy.com ──────────
-   Fails open on any error / API block. Bypass with ?local=1.
-   Decision cached in sessionStorage so it only checks once per visit. */
-(function(){
-  try{
-    var params=new URLSearchParams(location.search);
-    if(params.has('local')||params.has('stay')){sessionStorage.setItem('agx_geo','stay');return;}
-    if(/^(localhost|127\.0\.0\.1|.*\.local)$/.test(location.hostname))return;
-
-    var cached=sessionStorage.getItem('agx_geo');
-    if(cached==='redirect'){redirect();return;}
-    if(cached==='stay')return;
-
-    var MIDWEST=['IL','IN','IA','KS','MI','MN','MO','NE','ND','OH','SD','WI'];
-    fetch('https://ipwho.is/',{mode:'cors'})
-      .then(function(r){return r.json();})
-      .then(function(d){
-        if(d&&d.success!==false&&d.country_code==='US'&&MIDWEST.indexOf(d.region_code)>-1){
-          sessionStorage.setItem('agx_geo','redirect');
-          redirect();
-        }else{
-          sessionStorage.setItem('agx_geo','stay');
-        }
-      })
-      .catch(function(){/* fail open */});
-
-    function redirect(){
-      var veil=document.createElement('div');
-      veil.className='geo-veil';
-      veil.innerHTML='<div class="geo-veil-inner"><div class="geo-spin"></div><p>Taking you to our Chicago shop&hellip;</p></div>';
-      document.body.appendChild(veil);
-      requestAnimationFrame(function(){veil.classList.add('show');});
-      setTimeout(function(){window.location.href='https://aggrepoxy.com/';},850);
-    }
-  }catch(e){/* fail open */}
-})();
+/* ─── GEO REDIRECT — retired ──────────────────────────────────
+   Previously bounced Midwest visitors off to a separate aggrepoxy.com
+   Chicago site. Now that Chicago has its own page on this same site
+   (chi.html), routing visitors away no longer makes sense — leaving
+   this stub so the intent is documented if it ever needs revisiting. */
 
 /* ─── SHARED MAILTO FORM HELPER ──────────────────────────────── */
 window.AGX=window.AGX||{};

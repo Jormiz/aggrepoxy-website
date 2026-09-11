@@ -19,6 +19,13 @@
   <nav class="nav-links" id="nav-links">
     <a href="../index.html">Home</a>
     <div class="nav-drop">
+      <span class="nav-drop-trigger" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Locations <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></span>
+      <div class="nav-drop-panel">
+        <a href="../la.html">Los Angeles / OC</a>
+        <a href="../chi.html">Chicago</a>
+      </div>
+    </div>
+    <div class="nav-drop">
       <span class="nav-drop-trigger" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Services <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></span>
       <div class="nav-drop-panel">
         <a href="garage-floors.html" class="current">Garage Floors</a>
@@ -37,6 +44,10 @@
 </header>
 <div class="nav-mobile" id="nav-mobile">
   <a href="../index.html">Home</a>
+  <div class="nav-mobile-services">
+    <a href="../la.html">Los Angeles / OC</a>
+    <a href="../chi.html">Chicago</a>
+  </div>
   <div class="nav-mobile-services">
     <a href="garage-floors.html">Garage Floors</a>
     <a href="pool-patio.html">Pool &amp; Patio</a>
@@ -89,8 +100,8 @@
   <div class="svc-slideshow-track">
     <div class="svc-slide on"><img src="../images/Lambo-Volt-scaled.jpg" alt="Decorative flake garage floor with sports car"/><div class="svc-slide-veil"></div><span class="svc-slide-caption">Full-Broadcast Flake &middot; Los Angeles, CA</span></div>
     <div class="svc-slide"><img src="../images/garage-flake.jpg" alt="Flake finish garage floor"/><div class="svc-slide-veil"></div><span class="svc-slide-caption">Decorative Flake &middot; Pasadena, CA</span></div>
-    <div class="svc-slide"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1400&auto=format&fit=crop&q=80" alt="Solid color garage floor"/><div class="svc-slide-veil"></div><span class="svc-slide-caption">Clean Solid Color &middot; Long Beach, CA</span></div>
-    <div class="svc-slide"><img src="../images/section-01.jpg" alt="Diamond-ground garage floor prep"/><div class="svc-slide-veil"></div><span class="svc-slide-caption">Diamond-Ground Prep &middot; Orange County, CA</span></div>
+    <div class="svc-slide"><img src="../images/gallery/gallery-15-garage-light-gray-flake.jpg" alt="Solid color garage floor"/><div class="svc-slide-veil"></div><span class="svc-slide-caption">Clean Solid Color &middot; Long Beach, CA</span></div>
+    <div class="svc-slide"><img src="../images/hero-bg.jpg" alt="Diamond-ground garage floor prep"/><div class="svc-slide-veil"></div><span class="svc-slide-caption">Diamond-Ground Prep &middot; Orange County, CA</span></div>
   </div>
   <div class="svc-slideshow-nav">
     <button type="button" class="svc-slideshow-btn prev" aria-label="Previous slide"><svg viewBox="0 0 14 14"><path d="M9 2L4.5 7 9 12"/></svg></button>
@@ -161,7 +172,7 @@
     <div class="svc-gallery-strip rv d1" style="margin-top:28px;">
       <a href="../gallery.html"><img src="../images/Lambo-Volt-scaled.jpg" alt="Coated garage floor with sports car"/></a>
       <a href="../gallery.html"><img src="../images/garage-flake.jpg" alt="Decorative flake garage floor"/></a>
-      <a href="../gallery.html"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=700&auto=format&fit=crop&q=80" alt="Garage floor coating detail"/></a>
+      <a href="../gallery.html"><img src="../images/gallery/gallery-15-garage-light-gray-flake.jpg" alt="Garage floor coating detail"/></a>
       <a href="../gallery.html"><img src="../images/section-03.jpg" alt="Finished garage floor"/></a>
     </div>
     <div style="text-align:center;margin-top:32px;"><a href="../gallery.html" class="btn-outline">View Full Gallery</a></div>
@@ -246,8 +257,8 @@ window.AGX.wireForm({
 });
 if(window.AGX&&window.AGX.renderBeforeAfter){
   window.AGX.renderBeforeAfter('ba-grid-garage',[
-    {tag:'Decorative Flake',loc:'Residential garage, Los Angeles CA',before:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=80',after:'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&auto=format&fit=crop&q=80'},
-    {tag:'Solid Color',loc:'Two-car garage, Pasadena CA',before:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=80',after:'https://images.unsplash.com/photo-1519302959554-a75be0afc82a?w=900&auto=format&fit=crop&q=80'}
+    {tag:'Decorative Flake',loc:'Residential garage, Los Angeles CA',before:'../images/cracked-concrete.webp',after:'../images/gallery/gallery-15-garage-light-gray-flake.jpg'},
+    {tag:'Solid Color',loc:'Two-car garage, Pasadena CA',before:'../images/cracked-concrete.webp',after:'../images/metallic-bg.jpg'}
   ]);
 }
 </script>

@@ -146,12 +146,19 @@ if(tCard){
 }
 
 /* ─── BEFORE / AFTER ─────────────────────────────────────────── */
+/* NOTE: these were previously hotlinked from images.unsplash.com. That's
+   an external dependency with no guarantee it loads on every network/
+   browser (ad-blockers, corporate firewalls, and Unsplash's own hotlink
+   throttling can all silently kill it) — when the image fails, the
+   slider's dark placeholder background is all that's left, which reads
+   as a solid black box. Using the site's own photography removes that
+   failure mode entirely. */
 if(window.AGX&&window.AGX.renderBeforeAfter){
   window.AGX.renderBeforeAfter('ba-grid',[
-    {tag:'Decorative Flake',loc:'Residential garage, Los Angeles CA',before:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=80',after:'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&auto=format&fit=crop&q=80'},
-    {tag:'Polyaspartic',loc:'Commercial showroom, Irvine CA',before:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=80',after:'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&auto=format&fit=crop&q=80'},
-    {tag:'Metallic Finish',loc:'Restaurant floor, West Hollywood CA',before:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=80',after:'https://images.unsplash.com/photo-1519302959554-a75be0afc82a?w=900&auto=format&fit=crop&q=80'},
-    {tag:'Industrial Coating',loc:'Distribution warehouse, Vernon CA',before:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=80',after:'https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=900&auto=format&fit=crop&q=80'}
+    {tag:'Decorative Flake',loc:'Residential garage, Los Angeles CA',before:'images/cracked-concrete.webp',after:'images/gallery/gallery-01-garage-flake-driveway.jpg'},
+    {tag:'Polyaspartic',loc:'Commercial showroom, Irvine CA',before:'images/cracked-concrete.webp',after:'images/gallery/gallery-02-dealership-service-bay.jpg'},
+    {tag:'Metallic Finish',loc:'Restaurant floor, West Hollywood CA',before:'images/cracked-concrete.webp',after:'images/metallic-bg.jpg'},
+    {tag:'Industrial Coating',loc:'Distribution warehouse, Vernon CA',before:'images/cracked-concrete.webp',after:'images/gallery/gallery-16-commercial-solid-color.jpg'}
   ]);
 }
 

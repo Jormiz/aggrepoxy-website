@@ -19,6 +19,13 @@
   <nav class="nav-links" id="nav-links">
     <a href="../index.html">Home</a>
     <div class="nav-drop">
+      <span class="nav-drop-trigger" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Locations <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></span>
+      <div class="nav-drop-panel">
+        <a href="../la.html">Los Angeles / OC</a>
+        <a href="../chi.html">Chicago</a>
+      </div>
+    </div>
+    <div class="nav-drop">
       <span class="nav-drop-trigger" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Services <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></span>
       <div class="nav-drop-panel">
         <a href="garage-floors.html">Garage Floors</a>
@@ -37,6 +44,10 @@
 </header>
 <div class="nav-mobile" id="nav-mobile">
   <a href="../index.html">Home</a>
+  <div class="nav-mobile-services">
+    <a href="../la.html">Los Angeles / OC</a>
+    <a href="../chi.html">Chicago</a>
+  </div>
   <div class="nav-mobile-services">
     <a href="garage-floors.html">Garage Floors</a>
     <a href="pool-patio.html">Pool &amp; Patio</a>
@@ -88,7 +99,7 @@
 <section class="svc-slideshow">
   <div class="svc-slideshow-track">
     <div class="svc-slide on"><img src="../images/section-07.jpg" alt="Industrial production floor coating"/><div class="svc-slide-veil"></div><span class="svc-slide-caption">Industrial Coating &middot; Fontana, CA</span></div>
-    <div class="svc-slide"><img src="https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=1400&auto=format&fit=crop&q=80" alt="Warehouse floor with safety striping"/><div class="svc-slide-veil"></div><span class="svc-slide-caption">Safety Striping &middot; Vernon, CA</span></div>
+    <div class="svc-slide"><img src="../images/gallery/gallery-16-commercial-solid-color.jpg" alt="Warehouse floor with safety striping"/><div class="svc-slide-veil"></div><span class="svc-slide-caption">Safety Striping &middot; Vernon, CA</span></div>
     <div class="svc-slide"><img src="../images/section-06.jpg" alt="Manufacturing facility floor"/><div class="svc-slide-veil"></div><span class="svc-slide-caption">Zone Marking &middot; Ontario, CA</span></div>
     <div class="svc-slide"><img src="../images/section-02.jpg" alt="Diamond-ground industrial floor prep"/><div class="svc-slide-veil"></div><span class="svc-slide-caption">Diamond-Ground Prep &middot; Riverside, CA</span></div>
   </div>
@@ -160,7 +171,7 @@
     <h2 class="sec-h2" style="color:#0C0C0C;font-size:clamp(30px,4vw,56px);">See it installed.</h2>
     <div class="svc-gallery-strip rv d1" style="margin-top:28px;">
       <a href="../gallery.html"><img src="../images/section-07.jpg" alt="Industrial production floor"/></a>
-      <a href="../gallery.html"><img src="https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=700&auto=format&fit=crop&q=80" alt="Warehouse floor with safety striping"/></a>
+      <a href="../gallery.html"><img src="../images/gallery/gallery-16-commercial-solid-color.jpg" alt="Warehouse floor with safety striping"/></a>
       <a href="../gallery.html"><img src="../images/section-06.jpg" alt="Manufacturing facility floor"/></a>
       <a href="../gallery.html"><img src="../images/section-02.jpg" alt="Finished industrial floor"/></a>
     </div>
@@ -246,8 +257,8 @@ window.AGX.wireForm({
 });
 if(window.AGX&&window.AGX.renderBeforeAfter){
   window.AGX.renderBeforeAfter('ba-grid-industrial',[
-    {tag:'Industrial Coating',loc:'Manufacturing plant, Fontana CA',before:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=80',after:'https://images.unsplash.com/photo-1486006920555-c77dcf18193c?w=900&auto=format&fit=crop&q=80'},
-    {tag:'Safety Striping',loc:'Distribution center, Vernon CA',before:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=80',after:'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&auto=format&fit=crop&q=80'}
+    {tag:'Industrial Coating',loc:'Manufacturing plant, Fontana CA',before:'../images/cracked-concrete.webp',after:'../images/gallery/gallery-16-commercial-solid-color.jpg'},
+    {tag:'Safety Striping',loc:'Distribution center, Vernon CA',before:'../images/cracked-concrete.webp',after:'../images/gallery/gallery-02-dealership-service-bay.jpg'}
   ]);
 }
 </script>
