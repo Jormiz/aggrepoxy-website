@@ -24,23 +24,21 @@
   <nav class="nav-links" id="nav-links">
     <a href="index.html">Home</a>
     <div class="nav-drop">
-      <span class="nav-drop-trigger" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Locations <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></span>
-      <div class="nav-drop-panel">
-        <a href="la.html" class="current">Los Angeles / OC</a>
-        <a href="chi.html">Chicago</a>
-      </div>
-    </div>
-    <div class="nav-drop">
       <span class="nav-drop-trigger" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Services <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></span>
       <div class="nav-drop-panel">
         <a href="services/garage-floors.html">Garage Floors</a>
-        <a href="services/pool-patio.html">Pool &amp; Patio</a>
-        <a href="services/showrooms.html">Showrooms</a>
-        <a href="services/commercial.html">Commercial</a>
-        <a href="services/industrial.html">Industrial</a>
+        <a href="services/industrial.html">Industrial Coatings</a>
+        <a href="services/concrete-polishing.html">Concrete Polishing</a>
       </div>
     </div>
     <a href="gallery.html">Gallery</a>
+    <div class="nav-drop">
+      <span class="nav-drop-trigger" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Locations <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></span>
+      <div class="nav-drop-panel">
+        <a href="la.html" class="current">Los Angeles</a>
+        <a href="chi.html">Chicago</a>
+      </div>
+    </div>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
@@ -50,17 +48,15 @@
 <div class="nav-mobile" id="nav-mobile">
   <a href="index.html">Home</a>
   <div class="nav-mobile-services">
-    <a href="la.html">Los Angeles / OC</a>
-    <a href="chi.html">Chicago</a>
-  </div>
-  <div class="nav-mobile-services">
     <a href="services/garage-floors.html">Garage Floors</a>
-    <a href="services/pool-patio.html">Pool &amp; Patio</a>
-    <a href="services/showrooms.html">Showrooms</a>
-    <a href="services/commercial.html">Commercial</a>
-    <a href="services/industrial.html">Industrial</a>
+    <a href="services/industrial.html">Industrial Coatings</a>
+    <a href="services/concrete-polishing.html">Concrete Polishing</a>
   </div>
   <a href="gallery.html">Gallery</a>
+  <div class="nav-mobile-services">
+    <a href="la.html">Los Angeles</a>
+    <a href="chi.html">Chicago</a>
+  </div>
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
   <a href="#contact" class="nav-mobile-cta">Get a Free Estimate</a>
@@ -81,7 +77,7 @@
           <div><div class="hp-num">10 Year</div><div class="hp-label">Warranty</div></div>
         </div>
       </div>
-      <div class="hero-card light" id="h-form">
+      <div class="hero-card" id="h-form">
         <div class="hc-title">Get Your Free Estimate</div>
         <p class="hc-sub">Fast Response. No Obligation.</p>
         <form id="hero-estimate-form" novalidate>
@@ -110,7 +106,7 @@
             <input type="checkbox" id="he-agree" required/>
             <span>By submitting this form, you agree to Aggrepoxy's <a href="#">Privacy Policy</a> and <a href="#">Terms &amp; Conditions</a>.</span>
           </label>
-          <button type="submit" class="hc-submit" style="margin-top:6px;">Request Estimate</button>
+          <button type="submit" class="hc-submit" style="margin-top:6px;">Get Free Estimate</button>
         </form>
       </div>
     </div>
@@ -119,7 +115,7 @@
 
 <!-- CLIENT BAR -->
 <div class="clients-bar">
-  <p class="clients-label">Trusted by leading brands across Southern California</p>
+  <p class="clients-label">Trusted by Industry Leaders</p>
   <div class="clients-track-wrap">
     <div class="clients-list">
       <div class="client-item"><img src="images/clients/ferguson.svg" alt="Ferguson" class="client-logo wordmark"/></div>
@@ -134,7 +130,7 @@
 </div>
 
 <!-- PAIN / PROBLEM SECTION -->
-<section class="pain-section grain grain-d" id="why">
+<section class="pain-section grain grain-d" id="why" style="display:none;">
   <div class="pain-bg" id="pain-bg"></div>
   <div class="pain-veil"></div>
   <div class="pain-content">
@@ -176,45 +172,26 @@
     </div>
     <div class="space-grid" id="space-grid">
       <a class="space-card rv" href="services/garage-floors.html">
-        <img src="images/Lambo-Volt-scaled.jpg" alt="Coated garage floor"/>
+        <img src="images/Libertyville-Hero.jpg" alt="Coated garage floor"/>
         <div class="space-card-body">
-          <div class="space-card-title">Garage</div>
-          <div class="space-card-link">Explore <svg width="11" height="11" viewBox="0 0 13 13" style="display:inline-block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></div>
-        </div>
-      </a>
-      <a class="space-card rv d1" href="services/pool-patio.html">
-        <img src="images/section-05.jpg" alt="Coated pool deck and patio"/>
-        <div class="space-card-body">
-          <div class="space-card-title">Patio</div>
-          <div class="space-card-link">Explore <svg width="11" height="11" viewBox="0 0 13 13" style="display:inline-block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></div>
-        </div>
-      </a>
-      <a class="space-card rv d2" href="services/showrooms.html">
-        <img src="images/section-04.jpg" alt="Coated showroom floor"/>
-        <div class="space-card-body">
-          <div class="space-card-title">Showroom</div>
-          <div class="space-card-link">Explore <svg width="11" height="11" viewBox="0 0 13 13" style="display:inline-block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></div>
-        </div>
-      </a>
-      <a class="space-card rv" href="services/commercial.html">
-        <img src="images/garage-flake.jpg" alt="Coated commercial floor"/>
-        <div class="space-card-body">
-          <div class="space-card-title">Commercial</div>
+          <div class="space-card-title">Garage Floors</div>
           <div class="space-card-link">Explore <svg width="11" height="11" viewBox="0 0 13 13" style="display:inline-block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></div>
         </div>
       </a>
       <a class="space-card rv d1" href="services/industrial.html">
-        <img src="images/section-07.jpg" alt="Coated industrial warehouse floor"/>
+        <img src="images/Warehouse-After.jpg" alt="Coated industrial warehouse floor"/>
         <div class="space-card-body">
-          <div class="space-card-title">Industrial</div>
+          <div class="space-card-title">Industrial Coatings</div>
           <div class="space-card-link">Explore <svg width="11" height="11" viewBox="0 0 13 13" style="display:inline-block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></div>
         </div>
       </a>
-      <div class="space-cta-card rv d2">
-        <div class="space-card-title" style="color:#fff;font-size:clamp(24px,2.6vw,30px);">Not Sure Which Fits?</div>
-        <p>Tell us about your space and we'll recommend the right system, free of charge.</p>
-        <a href="#contact" class="btn-solid cyan">Get a Free Estimate</a>
-      </div>
+      <a class="space-card rv d2" href="services/concrete-polishing.html">
+        <img src="images/polish-hero.jpg" alt="Polished concrete floor"/>
+        <div class="space-card-body">
+          <div class="space-card-title">Concrete Polishing</div>
+          <div class="space-card-link">Explore <svg width="11" height="11" viewBox="0 0 13 13" style="display:inline-block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -224,7 +201,7 @@
   <div class="why-inner">
 
     <div class="why-header rv">
-      <span class="why-eyebrow">Two Generations. Zero Shortcuts.</span>
+      <span class="why-eyebrow">Two Generations, One Standard</span>
       <h2 class="why-h">Why Choose Aggrepoxy</h2>
     </div>
     <div class="pillar-grid" id="pillar-grid">
@@ -253,11 +230,6 @@
         <p class="pillar-body">If it's not right, we make it right. No fine print.</p>
       </div>
     </div>
-
-    <a href="#contact" class="why-quote-banner rv">
-      <span>Get A Free Quote For Your Next Project</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
 
     <div class="why-header why-header-left why-header-gap rv">
       <h2 class="why-h">The AGX Precision System</h2>
@@ -314,12 +286,17 @@
         </div>
       </div>
       <div class="precision-visual" id="precision-visual">
-        <div class="precision-layer" data-layer="0"><img src="precision-system/Concrete-1.png" alt="Diamond-ground concrete surface profile" loading="lazy"/></div>
-        <div class="precision-layer" data-layer="1"><img src="precision-system/Basecoat.png" alt="High-solids basecoat layer" loading="lazy"/></div>
-        <div class="precision-layer" data-layer="2"><img src="precision-system/Flakes.png" alt="Full flake broadcast layer" loading="lazy"/></div>
-        <div class="precision-layer" data-layer="3"><img src="precision-system/Polyaspartic.png" alt="Polyaspartic top-coat layer" loading="lazy"/></div>
+        <div class="precision-layer" data-layer="0"><img src="images/precision-system/Concrete-1.png" alt="Diamond-ground concrete surface profile" loading="lazy"/></div>
+        <div class="precision-layer" data-layer="1"><img src="images/precision-system/Basecoat.png" alt="High-solids basecoat layer" loading="lazy"/></div>
+        <div class="precision-layer" data-layer="2"><img src="images/precision-system/Flakes.png" alt="Full flake broadcast layer" loading="lazy"/></div>
+        <div class="precision-layer" data-layer="3"><img src="images/precision-system/Polyaspartic.png" alt="Polyaspartic top-coat layer" loading="lazy"/></div>
       </div>
     </div>
+
+    <a href="#contact" class="why-quote-banner rv">
+      <span>Get A Free Quote For Your Next Project</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
   </div>
 </section>
 
@@ -396,7 +373,7 @@
           </select>
         </div>
         <label class="hc-check" style="margin-top:14px;"><input type="checkbox" id="cqf-agree" required/><span>By submitting this form, you agree to Aggrepoxy's <a href="#">Privacy Policy</a> and <a href="#">Terms &amp; Conditions</a>.</span></label>
-        <button type="submit" class="hc-submit" style="margin-top:6px;">Request Estimate</button>
+        <button type="submit" class="hc-submit" style="margin-top:6px;">Get Free Estimate</button>
       </form>
     </div>
   </div>
@@ -411,13 +388,11 @@
     </div>
     <div class="footer-col"><div class="footer-col-head">Services</div>
       <a href="services/garage-floors.html">Garage Floors</a>
-      <a href="services/pool-patio.html">Pool &amp; Patio</a>
-      <a href="services/showrooms.html">Showrooms</a>
-      <a href="services/commercial.html">Commercial</a>
-        <a href="services/industrial.html">Industrial</a>
+      <a href="services/industrial.html">Industrial Coatings</a>
+      <a href="services/concrete-polishing.html">Concrete Polishing</a>
     </div>
     <div class="footer-col"><div class="footer-col-head">Where We Work</div><a href="contact.html">Los Angeles</a><a href="contact.html">Orange County</a><a href="contact.html">Inland Empire</a></div>
-    <div class="footer-col"><div class="footer-col-head">Locations</div><a href="la.html" class="current">Los Angeles / OC</a><a href="chi.html">Chicago</a></div>
+    <div class="footer-col"><div class="footer-col-head">Locations</div><a href="la.html" class="current">Los Angeles</a><a href="chi.html">Chicago</a></div>
     <div class="footer-col"><div class="footer-col-head">Company</div><a href="about.html">About</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
   </div>
   <div class="footer-base">
