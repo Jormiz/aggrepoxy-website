@@ -1,11 +1,6 @@
 AGGREPOXY WEBSITE UPDATE — TERMINAL INSTRUCTIONS
 ==================================================
 
-This delivery contains FULL, complete files (not snippets). It also
-requires deleting 3 obsolete service pages that no longer exist in the
-site (Pool & Patio, Showrooms, Commercial were removed and replaced by
-Concrete Polishing).
-
 Do this in Terminal — do NOT drag files in Finder.
 
 --------------------------------------------------
@@ -14,126 +9,68 @@ STEP 1 — Go to your local project folder
 cd ~/Desktop/aggrepoxy-website
 
 --------------------------------------------------
-STEP 2 — Copy the updated/new files in from wherever you unzipped
-this delivery (replace SOURCE_FOLDER below with the actual unzipped
-folder path, e.g. ~/Downloads/delivery)
+STEP 2 — Copy the files in (replace SOURCE_FOLDER with wherever you
+unzipped this delivery, e.g. ~/Downloads/delivery3)
 --------------------------------------------------
 cp SOURCE_FOLDER/index.html ./index.html
 cp SOURCE_FOLDER/la.html ./la.html
-cp SOURCE_FOLDER/chi.html ./chi.html
-cp SOURCE_FOLDER/about.html ./about.html
-cp SOURCE_FOLDER/contact.html ./contact.html
-cp SOURCE_FOLDER/gallery.html ./gallery.html
 cp SOURCE_FOLDER/css/main.css ./css/main.css
 cp SOURCE_FOLDER/css/home.css ./css/home.css
-cp SOURCE_FOLDER/services/garage-floors.html ./services/garage-floors.html
-cp SOURCE_FOLDER/services/industrial.html ./services/industrial.html
-cp SOURCE_FOLDER/services/concrete-polishing.html ./services/concrete-polishing.html
+cp SOURCE_FOLDER/js/core.js ./js/core.js
+cp SOURCE_FOLDER/js/home.js ./js/home.js
 
 --------------------------------------------------
-STEP 3 — Delete the 3 obsolete service pages
-(Pool & Patio, Showrooms, and Commercial are no longer part of the
-site — every link to them has been removed from nav/footer, so these
-files are now orphaned and should be deleted)
---------------------------------------------------
-rm services/pool-patio.html
-rm services/showrooms.html
-rm services/commercial.html
-
---------------------------------------------------
-STEP 4 — Verify everything landed correctly
+STEP 3 — Verify everything landed correctly
 --------------------------------------------------
 ls -la css/
-ls -la services/
+ls -la js/
 
-You should see main.css and home.css with today's timestamp in css/,
-and garage-floors.html, industrial.html, concrete-polishing.html in
-services/ — with pool-patio.html, showrooms.html, and commercial.html
-GONE.
+You should see main.css and home.css in css/ with today's timestamp,
+and core.js and home.js in js/ with today's timestamp.
 
 --------------------------------------------------
-STEP 5 — Commit and push
+STEP 4 — Commit and push
 --------------------------------------------------
 git add -A
 git status
-   (confirm: 8 files modified, 1 file added [concrete-polishing.html],
-   3 files deleted [pool-patio.html, showrooms.html, commercial.html])
-git commit -m "Reorder nav, rebuild coat section to 3 services, add concrete polishing page, update why section and estimate boxes"
+   (confirm: index.html, la.html, css/main.css, css/home.css,
+   js/core.js, js/home.js all modified)
+git commit -m "Restyle hero eyebrows, garage thumbnail crop, quote banner, before/after section"
 git push
 
 ==================================================
 WHAT CHANGED — SUMMARY
 ==================================================
 
-NAVIGATION (all pages)
-- Reordered to: Home, Services, Gallery, Locations, About, Contact
-- Services dropdown now lists exactly 3 items: Garage Floors,
-  Industrial Coatings, Concrete Polishing
-- Locations dropdown label changed to "Los Angeles" (removed "/OC")
+HERO (index.html)
+- Eyebrow pills restyled: white text, cyan dot bullet, cyan outline,
+  30% black fill — matching your reference image
+- Text updated: "Los Angeles" → "Los Angeles & Orange County",
+  "Chicago" → "Chicago Metropolitan Area"
 
-HOMEPAGE (index.html) + LOS ANGELES PAGE (la.html)
-- Hero eyebrow: cyan rectangular background, black text
-- Estimate box: switched to black color scheme
-- Estimate buttons: full width inside the quote box, text changed to
-  "Get Free Estimate"
-- Client logo strip label changed to "Trusted by Industry Leaders"
-- "Pain" section hidden (display:none) — content preserved in the
-  HTML in case you want to reuse it elsewhere later
-- "Transform Your Space" (coat) section rebuilt to exactly 3 cards:
-  Garage Floors (Libertyville-Hero.jpg), Industrial Coatings
-  (Warehouse-After.jpg), Concrete Polishing (polish-hero.jpg)
-  - Removed the "free estimate" CTA card from that grid
-  - Thumbnail brightness: .8 normal / .6 on hover
-  - Card titles get a soft drop shadow
-  - "Explore" links are white, turn cyan on hover
-  - Section header ("Transform Your Space") set to 68px
-- Why section:
-  - New eyebrow: "Two Generations, One Standard"
-  - Background image switched to section-01.jpg
-  - Card + precision-item backgrounds changed to #0e0e0e
-  - Pillar tags (Topcoat / Design Coat / Basecoat / Surface Profile)
-    set to cyan
-  - The full-width estimate band shrunk to a small header size and
-    moved to the very bottom of the section (after the precision
-    system diagram)
-- Precision-system diagram images reconnected to their new location
-  at images/precision-system/ (you moved this folder — links updated
-  to match)
+TRANSFORM SECTION (index.html + la.html)
+- Garage Floors thumbnail (Libertyville-Hero.jpg) now zoomed in and
+  shifted down to show more floor and less of the garage door/ceiling
+  — only this one thumbnail was touched, the other two cards are
+  unchanged
+- The "Get A Free Quote For Your Next Project" cyan bar at the bottom
+  of the Why Choose Aggrepoxy section now sits flush against the very
+  bottom edge of that section — no gap/padding below it, so the white
+  "Concrete Transformations" section starts immediately after it, as
+  in your reference image
 
-SERVICES / FOOTER (site-wide)
-- Footer "Services" column reduced to the same 3 services everywhere
-- The old "Spaces" footer column (Garages / Patios and Decks /
-  Showrooms / Warehouses) was removed since it referenced the old
-  service lineup
-- "Request Estimate" buttons changed to "Get Free Estimate"
-  everywhere they appeared
-- Chicago page (chi.html) footer "Los Angeles / OC" link corrected to
-  "Los Angeles"
-
-NEW PAGE — services/concrete-polishing.html
-- Built to match the structure/design of the other service pages
-  (hero, slideshow, trust strip, system options, before/after,
-  best-for pills, gallery strip, FAQ, how-it-works, final CTA, footer)
-- Original copy written specifically about the mechanical diamond
-  grinding/polishing process (not a coating)
-- Hero + slideshow use polish-hero.jpg; other slides/gallery images
-  reuse existing site photography (gallery-09-commercial-polished-
-  concrete.jpg, section-02.jpg, section-04.jpg)
-- Nav/footer wired in with "Concrete Polishing" marked current
-
-REMOVED PAGES
-- services/pool-patio.html
-- services/showrooms.html
-- services/commercial.html
-  (all links to these — nav, footer, everywhere — have been removed;
-  Step 3 above deletes the actual files)
-
-A NOTE ON ONE PRE-EXISTING ITEM (not something I touched)
-- Several inner pages (chi.html, about.html, contact.html,
-  gallery.html, and both service pages) reference a script file at
-  js/inner.js that doesn't currently exist in the repo. This predates
-  this round of changes — I didn't introduce it and didn't remove the
-  reference, since it wasn't part of what you asked for this time. If
-  you're missing some interactive behavior on those pages (e.g. the
-  photo slideshow arrows), that missing file is likely why — worth a
-  look whenever convenient.
+BEFORE/AFTER SECTION — "Concrete Transformations" (index.html + la.html)
+- Reordered: Dealership Showroom (your updated photo) is now the 2nd
+  pair, Industrial/Locker Room moved to 4th
+- Picked up your replacement dealer-after image (the extension
+  changed from .jpg to .jpeg on your end — updated the reference so
+  it still loads)
+- Drag-handle icon replaced with a bigger, cleaner double-chevron
+  (no more connecting bar running through the middle) and the handle
+  circle itself is larger
+- "Before"/"After" badges enlarged, and the "After" badge is now the
+  actual brand cyan instead of the washed-out teal it was using
+- This handle/badge styling is shared with the before/after widgets
+  on the service pages (Garage Floors, Industrial Coatings, Concrete
+  Polishing), so those got the bigger arrows and badges too, for
+  consistency — their photos and order were not touched

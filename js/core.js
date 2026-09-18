@@ -224,7 +224,7 @@ window.AGX.renderBeforeAfter=function(containerId,data){
         '<div class="ba-before" style="background-image:url(\''+d.before+'\')"></div>'+
         '<div class="ba-after" id="baa-'+uid+'" style="background-image:url(\''+d.after+'\')"></div>'+
         '<div class="ba-handle" id="bah-'+uid+'">'+
-          '<div class="ba-handle-arrows"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="display:block"><path d="M6 10H14M6 10L9 7M6 10L9 13M14 10L11 7M14 10L11 13" stroke="#0C0C0C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'+
+          '<div class="ba-handle-arrows"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="display:block"><path d="M9 6L4 12L9 18" stroke="#0C0C0C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6L20 12L15 18" stroke="#0C0C0C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'+
         '</div>'+
         '<div class="ba-labels"><span class="ba-lbl">Before</span><span class="ba-lbl after">After</span></div>'+
       '</div>'+
