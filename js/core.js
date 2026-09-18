@@ -103,7 +103,7 @@ document.querySelectorAll('.trust-strip-inner').forEach(function(grid){
 });
 
 /* ─── REVEAL SAFETY NET ───────────────────────────────────────
-   Every scroll-reveal above (and the pain-pill/pillar-card/testi-
+   Every scroll-reveal above (and the pain-pill/testi-
    card/counter reveals in home.js) works by having an
    IntersectionObserver add an `.on` class the first time an element
    crosses into view. That's efficient, but it's a single point of
@@ -118,7 +118,7 @@ document.querySelectorAll('.trust-strip-inner').forEach(function(grid){
    it directly if it's already visible. Idempotent and cheap, so it
    costs nothing when the observers are working normally. ───────── */
 (function(){
-  var SEL='.rv,.pain-pill,.pillar-card,.testi-card,.trust-item,.stats-band .why-counter';
+  var SEL='.rv,.pain-pill,.testi-card,.trust-item,.pillar-card,.stats-band .why-counter';
   function sweep(){
     document.querySelectorAll(SEL).forEach(function(el){
       if(el.classList.contains('on'))return;

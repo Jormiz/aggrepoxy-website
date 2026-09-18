@@ -84,6 +84,70 @@ if(window.gsap){
   });
 }
 
+/* ─── AGX PRECISION SYSTEM — layer accordion ─────────────────
+   Left column is a single-open accordion, starting fully closed.
+   Each item's data-layer index maps 1:1 to a stacked isometric
+   image in .precision-visual on the right — opening an item scales
+   its matching layer up ~15% and brings it to the front; clicking
+   the open item again closes everything back to the baseline
+   stack. ─────────────────────────────────────────────────────── */
+(function(){
+  var list=document.getElementById('precision-list');
+  if(!list)return;
+  var items=Array.prototype.slice.call(list.querySelectorAll('.precision-item'));
+  var layers=document.querySelectorAll('.precision-layer');
+  function closeAll(){
+    items.forEach(function(it){
+      it.classList.remove('active');
+      it.querySelector('.precision-item-head').setAttribute('aria-expanded','false');
+      it.querySelector('.precision-item-body').style.maxHeight=null;
+    });
+    layers.forEach(function(l){l.classList.remove('active');});
+  }
+  function open(idx){
+    closeAll();
+    var it=items[idx];
+    it.classList.add('active');
+    it.querySelector('.precision-item-head').setAttribute('aria-expanded','true');
+    var body=it.querySelector('.precision-item-body');
+    body.style.maxHeight=body.scrollHeight+'px';
+    var layerIdx=it.dataset.layer;
+    layers.forEach(function(l){l.classList.toggle('active',l.dataset.layer===layerIdx);});
+  }
+  items.forEach(function(it,i){
+    it.querySelector('.precision-item-head').addEventListener('click',function(){
+      if(it.classList.contains('active'))closeAll();
+      else open(i);
+    });
+  });
+  /* Clicking the stacked visual toggles the accordion item for
+     whichever layer sits at that vertical position — the images
+     overlap (each is a full transparent-cornered PNG), so per-image
+     click targets would just fire on whichever layer is on top of
+     the DOM stack. Instead we read the click's position within the
+     visual and map it to a quarter-band, top-to-bottom, matching how
+     the layers actually render (Topcoat highest, Surface Profile
+     lowest). */
+  var visual=document.getElementById('precision-visual');
+  if(visual){
+    var topToBottom=['3','2','1','0'];
+    visual.addEventListener('click',function(e){
+      var rect=visual.getBoundingClientRect();
+      var relY=(e.clientY-rect.top)/rect.height;
+      var band=Math.min(3,Math.max(0,Math.floor(relY*4)));
+      var layerVal=topToBottom[band];
+      var idx=items.findIndex(function(it){return it.dataset.layer===layerVal;});
+      if(idx<0)return;
+      if(items[idx].classList.contains('active'))closeAll();
+      else open(idx);
+    });
+  }
+  window.addEventListener('resize',function(){
+    var openBody=list.querySelector('.precision-item.active .precision-item-body');
+    if(openBody)openBody.style.maxHeight=openBody.scrollHeight+'px';
+  });
+})();
+
 /* ─── HOME FORMS — real mailto submission ────────────────────── */
 window.AGX.wireForm({
   formId:'hero-estimate-form',

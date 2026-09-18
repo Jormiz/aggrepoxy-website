@@ -436,7 +436,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
 ================================================================ */
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}
-  .rv,.pain-pill,.pillar-card,.stats-band .why-counter,.testi-card{opacity:1 !important;transform:none !important;}
+  .rv,.pain-pill,.stats-band .why-counter,.testi-card{opacity:1 !important;transform:none !important;}
 }
 input:focus,select:focus,textarea:focus{outline:none;}
 
