@@ -236,7 +236,7 @@ window.AGX.renderBeforeAfter=function(containerId,data){
     var handleEl=document.getElementById('bah-'+uid);
     function setPos(p){
       pos=Math.max(.02,Math.min(.98,p));
-      afterEl.style.clipPath='inset(0 '+((1-pos)*100).toFixed(1)+'% 0 0)';
+      afterEl.style.clipPath='inset(0 0 0 '+(pos*100).toFixed(1)+'%)';
       handleEl.style.left=(pos*100).toFixed(1)+'%';
     }
     function gx(e){return e.touches?e.touches[0].clientX:e.clientX;}

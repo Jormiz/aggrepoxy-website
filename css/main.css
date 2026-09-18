@@ -303,21 +303,19 @@ svg{display:block}
 .ba-head{margin-bottom:clamp(36px,5vh,56px);}
 .ba-eyebrow{font-family:var(--font-sub);font-weight:600;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:rgba(12,12,12,.4);margin-bottom:6px;display:block;}
 .ba-h2{font-family:var(--font-display);font-weight:var(--display-weight);font-style:var(--display-style);font-size:clamp(40px,5.5vw,80px);line-height:.9;text-transform:uppercase;color:#0C0C0C;}
-.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,36px);max-width:1000px;margin:0 auto;}
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,36px);max-width:100%;margin:0 auto;}
 .ba-grid.two-up{max-width:1000px;}
 .ba-item{display:flex;flex-direction:column;gap:10px;}
-.ba-slider-wrap{position:relative;overflow:hidden;user-select:none;cursor:col-resize;aspect-ratio:4/3;background:#1a1a1a;border-radius:4px;}
+.ba-slider-wrap{position:relative;overflow:hidden;user-select:none;cursor:col-resize;aspect-ratio:4/3;background:#1a1a1a;border-radius:18px;}
 .ba-before,.ba-after{position:absolute;inset:0;background-size:cover;background-position:center;}
-.ba-after{clip-path:inset(0 50% 0 0);}
+.ba-after{clip-path:inset(0 0 0 50%);}
 .ba-handle{position:absolute;top:0;bottom:0;width:2px;background:var(--cyan);left:50%;transform:translateX(-50%);pointer-events:none;z-index:10;}
 .ba-handle::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34px;height:34px;background:var(--cyan);border-radius:50%;}
 .ba-handle-arrows{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:11;pointer-events:none;}
 .ba-labels{position:absolute;bottom:10px;width:100%;display:flex;justify-content:space-between;padding:0 10px;z-index:12;pointer-events:none;}
 .ba-lbl{font-family:var(--font-sub);font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;background:rgba(0,0,0,.6);color:#fff;padding:4px 8px;backdrop-filter:blur(4px);}
 .ba-lbl.after{background:rgba(139,201,213,.88);color:#0C0C0C;}
-.ba-meta{display:flex;align-items:center;justify-content:space-between;}
-.ba-meta-tag{font-family:var(--font-sub);font-weight:600;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);}
-.ba-meta-loc{font-size:13px;color:rgba(12,12,12,.45);}
+.ba-meta{display:none;}
 @media(max-width:768px){.ba-grid{grid-template-columns:1fr;}}
 
 /* ================================================================

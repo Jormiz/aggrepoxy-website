@@ -219,10 +219,10 @@ if(tCard){
    failure mode entirely. */
 if(window.AGX&&window.AGX.renderBeforeAfter){
   window.AGX.renderBeforeAfter('ba-grid',[
-    {tag:'Decorative Flake',loc:'Residential garage, Los Angeles CA',before:'images/cracked-concrete.webp',after:'images/gallery/gallery-01-garage-flake-driveway.jpg'},
-    {tag:'Polyaspartic',loc:'Commercial showroom, Irvine CA',before:'images/cracked-concrete.webp',after:'images/gallery/gallery-02-dealership-service-bay.jpg'},
-    {tag:'Metallic Finish',loc:'Restaurant floor, West Hollywood CA',before:'images/cracked-concrete.webp',after:'images/metallic-bg.jpg'},
-    {tag:'Industrial Coating',loc:'Distribution warehouse, Vernon CA',before:'images/cracked-concrete.webp',after:'images/gallery/gallery-16-commercial-solid-color.jpg'}
+    {tag:'Garage Floors',loc:'Residential garage, Los Angeles CA',before:'images/before-after/garage-before.jpg',after:'images/before-after/garage-after.jpg'},
+    {tag:'Industrial Coating',loc:'Commercial facility, Los Angeles CA',before:'images/before-after/lockers-before.jpeg',after:'images/before-after/lockers-after.jpeg'},
+    {tag:'Concrete Polishing',loc:'Showroom floor, Orange County CA',before:'images/before-after/polish-before.jpg',after:'images/before-after/polish-after.jpeg'},
+    {tag:'Dealership Showroom',loc:'Commercial showroom, Irvine CA',before:'images/before-after/dealer-before.jpeg',after:'images/before-after/dealer-after.jpg'}
   ]);
 }
 
