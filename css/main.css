@@ -313,7 +313,7 @@ svg{display:block}
 .ba-handle::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;background:var(--cyan);border-radius:50%;}
 .ba-handle-arrows{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:11;pointer-events:none;}
 .ba-labels{position:absolute;bottom:10px;width:100%;display:flex;justify-content:space-between;padding:0 10px;z-index:12;pointer-events:none;}
-.ba-lbl{font-family:var(--font-sub);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;background:rgba(0,0,0,.6);color:#fff;padding:8px 14px;backdrop-filter:blur(4px);}
+.ba-lbl{font-family:var(--font-sub);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;background:rgba(0,0,0,.6);color:#fff;padding:8px 14px;border-radius:999px;backdrop-filter:blur(4px);}
 .ba-lbl.after{background:var(--cyan);color:#0C0C0C;}
 .ba-meta{display:none;}
 @media(max-width:768px){.ba-grid{grid-template-columns:1fr;}}
