@@ -99,7 +99,10 @@ document.querySelectorAll('.agx-stack').forEach(function(stack){
   function set(i){
     idx=i;card.style.opacity='0';card.style.transform='translateX(-8px)';
     setTimeout(function(){
-      hl.textContent=data[i].hl;bd.textContent=data[i].body;au.textContent=data[i].author;
+      hl.textContent=data[i].hl;bd.textContent=data[i].body;
+      var a=data[i].author,k=a.indexOf(', ');au.textContent='';
+      var nm=document.createElement('span');nm.className='testi-name';nm.textContent=k>-1?a.slice(0,k):a;au.appendChild(nm);
+      if(k>-1){var lc=document.createElement('span');lc.className='testi-loc';lc.textContent=a.slice(k+2);au.appendChild(lc);}
       dotsEl.querySelectorAll('.testi-dot').forEach(function(d,j){d.classList.toggle('on',j===i);});
       card.style.opacity='1';card.style.transform='none';
     },220);
