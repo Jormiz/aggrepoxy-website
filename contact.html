@@ -15,7 +15,7 @@
 <body>
 
 <header class="nav solid" id="nav">
-  <a href="index.html" class="nav-logo" aria-label="Aggrepoxy"><img src="images/Logo-new-white.svg" alt="Aggrepoxy"/></a>
+  <a href="index.html" class="nav-logo" aria-label="Aggrepoxy"><img src="images/aggrepoxy-logo.svg" alt="Aggrepoxy"/></a>
   <nav class="nav-links" id="nav-links">
     <a href="index.html">Home</a>
     <div class="nav-drop">
@@ -37,8 +37,11 @@
     <a href="about.html">About</a>
     <a href="contact.html" class="current">Contact</a>
   </nav>
+  <div class="nav-cta-group">
+  <a href="tel:2139715868" class="nav-phone" data-geo-phone aria-label="Call Aggrepoxy"><svg viewBox="0 0 24 24" width="14" height="14" style="display:block;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-geo-phone-text>(213) 971-5868</span></a>
   <a href="contact.html" class="nav-cta">Get a Free Estimate</a>
   <button type="button" class="nav-burger" id="nav-burger" aria-label="Open menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
 </header>
 <div class="nav-mobile" id="nav-mobile">
   <a href="index.html">Home</a>
@@ -54,6 +57,7 @@
   </div>
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
+  <a href="tel:2139715868" class="nav-mobile-phone" data-geo-phone><svg viewBox="0 0 24 24" width="15" height="15" style="display:block;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-geo-phone-text>(213) 971-5868</span></a>
   <a href="contact.html" class="nav-mobile-cta">Get a Free Estimate</a>
 </div>
 
@@ -73,7 +77,16 @@
       <div class="contact-info rv">
         <h2 class="sec-h2" style="font-size:clamp(30px,3.6vw,48px);">Contact Us</h2>
         <p class="sec-body">Fill out the quick quote form, or skip straight to a call or email, whatever's faster on your end.</p>
-        <div class="contact-direct">
+
+        <div class="region-switch">
+          <span class="region-switch-label">Choose Your Location</span>
+          <div class="region-switch-btns">
+            <button type="button" class="region-btn active" data-region="la">Los Angeles &amp; Orange County</button>
+            <button type="button" class="region-btn" data-region="chi">Chicago Metro</button>
+          </div>
+        </div>
+
+        <div class="contact-direct region-content active" data-region-content="la">
           <a href="tel:2139715868" class="contact-direct-btn">
             <div class="contact-direct-icon"><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--cyan);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
             <div><div class="contact-direct-label">Call or Text</div><div class="contact-direct-value">(213) 971-5868</div></div>
@@ -83,80 +96,40 @@
             <div><div class="contact-direct-label">Email Us</div><div class="contact-direct-value">floors@aggrepoxy.com</div></div>
           </a>
         </div>
-      </div>
-
-      <div class="contact-areas service-area-block rv d1">
-        <div class="service-area-region">Los Angeles County</div>
-        <div class="service-area-chips">
-          <span class="service-area-chip">Los Angeles</span><span class="service-area-chip">Pasadena</span><span class="service-area-chip">Glendale</span><span class="service-area-chip">Burbank</span><span class="service-area-chip">Long Beach</span><span class="service-area-chip">Torrance</span>
-        </div>
-        <div class="service-area-region">Orange County</div>
-        <div class="service-area-chips">
-          <span class="service-area-chip">Irvine</span><span class="service-area-chip">Santa Ana</span><span class="service-area-chip">Anaheim</span><span class="service-area-chip">Newport Beach</span><span class="service-area-chip">Costa Mesa</span><span class="service-area-chip">Orange</span>
-        </div>
-        <div class="service-area-region">Inland Empire</div>
-        <div class="service-area-chips">
-          <span class="service-area-chip">Riverside</span><span class="service-area-chip">and surrounding areas</span>
+        <div class="contact-direct region-content" data-region-content="chi">
+          <a href="tel:6306324701" class="contact-direct-btn">
+            <div class="contact-direct-icon"><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--cyan);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><div class="contact-direct-label">Call or Text</div><div class="contact-direct-value">(630) 632-4701</div></div>
+          </a>
+          <a href="mailto:floors@aggrepoxy.com" class="contact-direct-btn">
+            <div class="contact-direct-icon"><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--cyan);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+            <div><div class="contact-direct-label">Email Us</div><div class="contact-direct-value">floors@aggrepoxy.com</div></div>
+          </a>
         </div>
       </div>
 
-      <div class="contact-form-col rv d1" id="quoter-form">
-        <div class="quoter">
-          <div class="q-progress"><span class="q-dot on"></span><span class="q-dot"></span></div>
-          <div class="q-step-wrap" id="q-step-wrap">
-            <div class="q-step in" id="q-step-1">
-              <div class="q-title">Get a Quote</div>
-              <p class="q-subtitle">Two quick steps. Takes about 30 seconds.</p>
-              <div style="margin-top:18px;">
-                <span class="q-label">Space Type</span>
-                <div class="q-pills" id="q-space-pills">
-                  <button type="button" class="q-pill-btn" data-val="Garage">Garage</button>
-                  <button type="button" class="q-pill-btn" data-val="Pool &amp; Patio">Pool &amp; Patio</button>
-                  <button type="button" class="q-pill-btn" data-val="Showroom">Showroom</button>
-                  <button type="button" class="q-pill-btn" data-val="Warehouse">Warehouse</button>
-                  <button type="button" class="q-pill-btn" data-val="Retail / Commercial">Retail / Commercial</button>
-                  <button type="button" class="q-pill-btn" data-val="Other">Other</button>
-                </div>
-              </div>
-              <div style="margin-top:16px;">
-                <span class="q-label">Approx. Square Footage</span>
-                <div class="q-range" id="q-sqft-range">
-                  <button type="button" class="q-range-btn" data-val="Under 500 sq ft">Under 500</button>
-                  <button type="button" class="q-range-btn" data-val="500-1,500 sq ft">500-1,500</button>
-                  <button type="button" class="q-range-btn" data-val="1,500-3,000 sq ft">1,500-3,000</button>
-                  <button type="button" class="q-range-btn" data-val="3,000+ sq ft">3,000+</button>
-                </div>
-              </div>
-              <div style="margin-top:16px;">
-                <span class="q-label">Timeline</span>
-                <div class="q-timeline" id="q-timeline">
-                  <button type="button" class="q-timeline-btn" data-val="As soon as possible">As soon as possible</button>
-                  <button type="button" class="q-timeline-btn" data-val="Within 1 month">Within 1 month</button>
-                  <button type="button" class="q-timeline-btn" data-val="1-3 months">1-3 months</button>
-                  <button type="button" class="q-timeline-btn" data-val="Just exploring">Just exploring</button>
-                </div>
-              </div>
-              <button type="button" class="q-submit" id="q-next" style="margin-top:20px;" disabled>Continue
-                <svg width="13" height="13" viewBox="0 0 13 13" style="display:block;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg>
-              </button>
-            </div>
-            <div class="q-step out" id="q-step-2">
-              <div class="q-title">Almost Done</div>
-              <p class="q-subtitle">Where should we send your estimate?</p>
-              <form id="quote-form" novalidate style="display:flex;flex-direction:column;gap:11px;margin-top:16px;">
-                <div class="q-field"><input type="text" id="qf-name" placeholder="Name" autocomplete="name" required/></div>
-                <div class="q-field"><input type="tel" id="qf-phone" placeholder="Phone Number" autocomplete="tel" required/></div>
-                <div class="q-field"><input type="email" id="qf-email" placeholder="Email Address" autocomplete="email" required/></div>
-                <div class="q-field"><input type="text" id="qf-address" placeholder="Address (optional)" autocomplete="street-address"/></div>
-                <div class="q-field"><input type="text" id="qf-details" placeholder="Anything else we should know? (optional)"/></div>
-                <label class="q-check" style="margin-top:4px;"><input type="checkbox" id="qf-agree" required/><span>By submitting this form, you agree to Aggrepoxy's <a href="#">Privacy Policy</a> and <a href="#">Terms &amp; Conditions</a>.</span></label>
-                <button type="button" class="q-back" id="q-back">← Back</button>
-                <button type="submit" class="q-submit">Send My Request</button>
-              </form>
-            </div>
+      <div class="contact-form-col rv d1" id="h-form">
+        <div class="hc-title" style="font-size:48px;">Get Your Free Estimate</div>
+        <p class="hc-sub">Fast Response. No Obligation.</p>
+        <form id="hero-estimate-form" novalidate>
+          <div class="hc-row">
+            <div class="hc-field"><input type="text" id="he-name" placeholder="Name *" autocomplete="name" required/></div>
+            <div class="hc-field"><input type="tel" id="he-phone" placeholder="Phone Number *" autocomplete="tel" required/></div>
           </div>
-          <p class="q-trust" style="margin-top:6px;">No Spam · Fast Response</p>
-        </div>
+          <div class="hc-row" style="margin-top:12px;">
+            <div class="hc-field"><input type="text" id="he-address" placeholder="Address" autocomplete="street-address"/></div>
+            <div class="hc-field"><input type="email" id="he-email" placeholder="Email Address *" autocomplete="email" required/></div>
+          </div>
+          <div class="hc-field" style="margin-top:12px;"><textarea id="he-details" placeholder="Project Details"></textarea></div>
+          <div class="hc-field" style="margin-top:12px;">
+            <select id="he-source">
+              <option value="">How Did You Hear About Us?</option>
+              <option>Google Search</option><option>Referral</option><option>Instagram / Facebook</option><option>Yard Sign / Door Hanger</option><option>Other</option>
+            </select>
+          </div>
+          <label class="hc-check" style="margin-top:14px;"><input type="checkbox" id="he-agree" required/><span>By submitting this form, you agree to Aggrepoxy's <a href="#">Privacy Policy</a> and <a href="#">Terms &amp; Conditions</a>.</span></label>
+          <button type="submit" class="hc-submit" style="margin-top:6px;">Get Free Estimate</button>
+        </form>
       </div>
     </div>
   </div>
@@ -175,13 +148,12 @@
 
 <footer class="footer">
   <div class="footer-top">
-    <div class="footer-brand"><a href="index.html" aria-label="Aggrepoxy" style="display:block;line-height:0;"><img src="images/Logo-new-white.svg" alt="Aggrepoxy"/></a><p class="footer-tagline">Premium concrete coatings for Los Angeles, Orange County, and the Inland Empire.</p></div>
+    <div class="footer-brand"><a href="index.html" aria-label="Aggrepoxy" style="display:block;line-height:0;"><img src="images/aggrepoxy-logo.svg" alt="Aggrepoxy"/></a><div class="footer-social"><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a></div></div>
     <div class="footer-col"><div class="footer-col-head">Services</div><a href="services/garage-floors.html">Garage Floors</a><a href="services/industrial.html">Industrial Coatings</a><a href="services/concrete-polishing.html">Concrete Polishing</a></div>
     
-    <div class="footer-col"><div class="footer-col-head">Where We Work</div><a href="contact.html">Los Angeles</a><a href="contact.html">Orange County</a><a href="contact.html">Inland Empire</a></div>
-    <div class="footer-col"><div class="footer-col-head">Company</div><a href="about.html">About</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><div class="footer-col-head">Company</div><a href="faq.html">FAQ</a><a href="about.html">About</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
   </div>
-  <div class="footer-base"><span class="footer-copy">2026 Aggrepoxy LLC. Family owned and operated.</span><span class="footer-lic">Free Estimates &middot; Call (213) 971-5868</span></div>
+  <div class="footer-base"><span class="footer-copy">Aggrepoxy Floor Coatings Copyright 2026. All rights reserved.</span></div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
@@ -189,5 +161,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/core.js"></script>
 <script src="js/inner.js"></script>
+<script>
+window.AGX.wireForm({
+  formId:'hero-estimate-form',requiredIds:['he-name','he-phone','he-email'],agreeId:'he-agree',
+  successContainerId:'h-form',subject:'New estimate request: Aggrepoxy (Contact page)',
+  fields:[
+    {id:'he-name',label:'Name'},{id:'he-phone',label:'Phone'},{id:'he-address',label:'Address'},
+    {id:'he-email',label:'Email'},{id:'he-details',label:'Project details'},{id:'he-source',label:'Heard about us via'}
+  ],
+  submitSelector:'.hc-submit'
+});
+</script>
 </body>
 </html>

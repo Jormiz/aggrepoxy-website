@@ -157,7 +157,7 @@ window.AGX.wireForm({
   subject:'New estimate request: Aggrepoxy (Hero form)',
   fields:[
     {id:'he-name',label:'Name'},{id:'he-phone',label:'Phone'},{id:'he-address',label:'Address'},
-    {id:'he-email',label:'Email'},{id:'he-details',label:'Project details'},{id:'he-source',label:'Heard about us via'}
+    {id:'he-email',label:'Email'},{id:'he-details',label:'Project details'},{id:'he-photos',label:'Attached files'},{id:'he-source',label:'Heard about us via'}
   ],
   submitSelector:'.hc-submit'
 });
@@ -169,7 +169,7 @@ window.AGX.wireForm({
   subject:'New estimate request: Aggrepoxy (CTA form)',
   fields:[
     {id:'cqf-name',label:'Name'},{id:'cqf-phone',label:'Phone'},{id:'cqf-address',label:'Address'},
-    {id:'cqf-email',label:'Email'},{id:'cqf-details',label:'Project details'},{id:'cqf-source',label:'Heard about us via'}
+    {id:'cqf-email',label:'Email'},{id:'cqf-details',label:'Project details'},{id:'cqf-photos',label:'Attached files'},{id:'cqf-source',label:'Heard about us via'}
   ],
   submitSelector:'.ctaf-submit'
 });

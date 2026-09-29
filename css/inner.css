@@ -5,7 +5,7 @@
 ================================================================ */
 
 /* ── Full-size service hero (quote form up top) ── */
-.svc-hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:#0C0C0C;padding-top:72px;}
+.svc-hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:#0C0C0C;padding-top:92px;}
 .svc-hero-bg{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;filter:contrast(1.08) saturate(.55);}
 .svc-hero-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(12,12,12,.95) 0%,rgba(12,12,12,.66) 32%,rgba(12,12,12,.3) 60%,rgba(12,12,12,.58) 100%);}
 .svc-hero-outer{position:relative;z-index:2;width:100%;display:flex;align-items:center;flex:1;}
@@ -76,7 +76,7 @@
 .agx-layer::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .4s;background:rgba(0,0,0,.18);}
 .agx-layer.active::before{opacity:0;}
 .agx-layer:not(.active):hover{flex-grow:1.25;}
-.agx-layer[data-layer="topcoat"]{background:linear-gradient(115deg,#0d5f66,#00ced8 130%);}
+.agx-layer[data-layer="topcoat"]{background:linear-gradient(115deg,#0d5f66,#16f0e4 130%);}
 .agx-layer[data-layer="design"]{background:linear-gradient(115deg,#1a1a1a,#3a3a3a 130%);}
 .agx-layer[data-layer="basecoat"]{background:linear-gradient(115deg,#2a2a2a,#484848 130%);}
 .agx-layer[data-layer="profile"]{background:linear-gradient(115deg,#171717,#2c2c2c 130%);}
@@ -188,7 +188,7 @@
 .cta-section.small .cta-h{font-size:clamp(34px,4.2vw,58px);}
 
 /* ── Contact page ── */
-.contact-split{display:grid;grid-template-columns:1.05fr .95fr;grid-template-areas:"info form" "areas form";gap:clamp(36px,5vw,64px) clamp(36px,5vw,64px);align-items:start;}
+.contact-split{display:grid;grid-template-columns:1.05fr .95fr;grid-template-areas:"info form";gap:clamp(36px,5vw,64px) clamp(36px,5vw,64px);align-items:start;}
 .contact-info{grid-area:info;}
 .contact-areas{grid-area:areas;}
 .contact-form-col{grid-area:form;}
@@ -214,4 +214,70 @@
 .region-btn{font-family:var(--font-sub);font-weight:600;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;border:1.5px solid rgba(255,255,255,.22);padding:11px 20px;cursor:pointer;background:transparent;color:rgba(255,255,255,.7);transition:border-color .15s,background .15s,color .15s;-webkit-appearance:none;}
 .region-btn:hover{border-color:var(--cyan);color:#fff;}
 .region-btn.active{background:var(--cyan);border-color:var(--cyan);color:#0C0C0C;}
-@media(max-width:1024px){.contact-split{grid-template-columns:1fr;grid-template-areas:"info" "form" "areas";}}
+.region-content{display:none;}
+.region-content.active{display:flex;flex-direction:column;gap:14px;}
+@media(max-width:1024px){.contact-split{grid-template-columns:1fr;grid-template-areas:"info" "form";}}
+
+/* ================================================================
+   GARAGE FLOORS PAGE (gf-)
+================================================================ */
+/* Section heads */
+.gf-head{text-align:center;margin-bottom:clamp(32px,4.5vh,48px);}
+.gf-lead{font-size:16px;line-height:1.65;color:rgba(12,12,12,.6);max-width:56ch;margin:0 auto;}
+
+/* Stat band */
+.gf-stats{background:#0C0C0C;padding:clamp(36px,5.5vh,60px) var(--pad);}
+.gf-stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);}
+.gf-stat{display:flex;align-items:center;justify-content:center;gap:clamp(12px,1.2vw,18px);}
+.gf-stat-num{font-family:var(--font-display);font-weight:700;font-size:clamp(56px,6vw,88px);line-height:.8;color:#fff;letter-spacing:.01em;}
+.gf-stat-label{font-family:var(--font-sub);font-weight:600;font-size:clamp(12px,1.1vw,15px);letter-spacing:.08em;text-transform:uppercase;line-height:1.4;color:#fff;}
+@media(max-width:900px){.gf-stats-inner{grid-template-columns:repeat(2,1fr);row-gap:32px;}.gf-stat{justify-content:flex-start;}}
+@media(max-width:420px){.gf-stats-inner{grid-template-columns:1fr;}}
+
+/* Where it goes: 4-up image cards, title at bottom over a gradient */
+.gf-where-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.gf-where-card{position:relative;overflow:hidden;aspect-ratio:3/4;display:flex;align-items:flex-end;background:#111;}
+.gf-where-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.2,1);}
+.gf-where-card::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(12,12,12,.88) 0%,rgba(12,12,12,.45) 28%,rgba(12,12,12,0) 55%);}
+.gf-where-card:hover img{transform:scale(1.05);}
+.gf-where-title{position:relative;z-index:2;display:block;width:100%;padding:0 22px 18px;font-family:var(--font-display);font-weight:700;font-size:clamp(30px,3vw,40px);line-height:.95;text-transform:uppercase;color:#fff;}
+@media(max-width:1024px){.gf-where-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.gf-where-grid{grid-template-columns:1fr;}.gf-where-card{aspect-ratio:4/3;}}
+
+/* Flake vs quartz (no cyan text on this light section) */
+.gf-finish-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.5vw,28px);}
+.gf-finish-card{background:#fff;border:1px solid rgba(0,0,0,.08);display:flex;flex-direction:column;overflow:hidden;}
+.gf-finish-img{position:relative;aspect-ratio:16/10;overflow:hidden;background:#111;}
+.gf-finish-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.2,.8,.2,1);}
+.gf-finish-card:hover .gf-finish-img img{transform:scale(1.04);}
+.gf-sticker{position:absolute;top:16px;left:16px;z-index:2;background:var(--cyan);color:#0C0C0C;font-family:var(--font-sub);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:8px 14px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.25);}
+.gf-finish-body{padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:14px;flex:1;}
+.gf-finish-title{font-family:var(--font-display);font-weight:700;font-size:clamp(40px,4vw,56px);line-height:.9;text-transform:uppercase;color:#0C0C0C;}
+.gf-finish-list{display:flex;flex-direction:column;gap:12px;}
+.gf-finish-list .svc-check-item{font-size:16px;}
+.gf-finish-list .svc-check-item svg{stroke:#0C0C0C;}
+.gf-finish-best{margin-top:auto;padding-top:18px;border-top:1px solid rgba(0,0,0,.08);font-family:var(--font-sub);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#0C0C0C;}
+.gf-finish-best span{display:block;font-size:10.5px;letter-spacing:.16em;color:rgba(12,12,12,.4);margin-bottom:4px;}
+@media(max-width:800px){.gf-finish-grid{grid-template-columns:1fr;}}
+
+/* Mid-page CTA band */
+.gf-midcta{background:#0C0C0C;padding:clamp(40px,6vh,64px) var(--pad);}
+.gf-midcta-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;}
+.gf-midcta-h{font-family:var(--font-display);font-weight:700;font-size:clamp(32px,3.6vw,52px);line-height:.95;text-transform:uppercase;color:#fff;}
+.gf-midcta-h span{color:var(--cyan);}
+.gf-midcta-sub{font-size:15px;line-height:1.6;color:rgba(255,255,255,.62);margin-top:8px;max-width:52ch;}
+@media(max-width:700px){.gf-midcta-inner{flex-direction:column;align-items:flex-start;}}
+
+/* Testimonial star row */
+.testi-stars{display:flex;gap:4px;margin-bottom:4px;}
+.testi-stars svg{width:18px;height:18px;fill:var(--cyan);}
+
+/* FAQ: all-caps questions */
+.gf-faq .faq-q span:first-child{text-transform:uppercase;letter-spacing:.03em;}
+
+/* How it works: dark variant */
+.gf-how .how-step-title{color:#fff;}
+.gf-how .how-step-body{color:rgba(255,255,255,.62);}
+
+/* Closing CTA: no cyan text on the light background */
+.gf-cta .cta-split-phone a{color:#0C0C0C;text-decoration:underline;text-underline-offset:3px;}
