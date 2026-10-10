@@ -8,15 +8,9 @@
    HERO
 ================================================================ */
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:#0C0C0C;}
-.hero-bg{position:absolute;inset:0;z-index:0;background-size:140%;background-position:center 105%;will-change:transform;}
-@media(min-width:781px) and (max-width:1024px){
-  .hero-bg{background-size:300%;background-position:center 93%;}
-}
-@media(min-width:641px) and (max-width:780px){
-  .hero-bg{background-size:420%;background-position:center 90%;}
-}
-@media(max-width:640px){
-  .hero-bg{background-size:640%;background-position:44.5% 86%;}
+.hero-bg{position:absolute;inset:-15% 0 0 0;z-index:0;background-size:cover;background-position:center 60%;will-change:transform;}
+@media(max-width:780px){
+  .hero-bg{background-position:58% 70%;}
 }
 .hero-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(12,12,12,.98) 0%,rgba(12,12,12,.7) 38%,rgba(12,12,12,.22) 58%,rgba(12,12,12,.8) 100%);}
 .hero-outer{position:relative;z-index:2;width:100%;min-height:100svh;display:flex;align-items:center;}
@@ -29,6 +23,9 @@
 .hero-tags{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;}
 .hero-tag{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--cyan);border-radius:999px;padding:7px 16px 7px 13px;font-family:var(--font-sub);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#ffffff;background:rgba(0,0,0,.5);text-shadow:none;}
 .hero-tag::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--cyan);flex-shrink:0;}
+a.hero-tag{transition:background .18s,color .18s;}
+a.hero-tag:hover{background:var(--cyan);color:#0C0C0C;}
+a.hero-tag:hover::before{background:#0C0C0C;}
 @media(max-width:1024px){.hero-tags{justify-content:center;}}
 .hero-sub{font-family:var(--font-body);font-weight:600;font-size:20px;line-height:1.6;color:#ffffff;max-width:52ch;margin:0 0 clamp(24px,3.2vh,34px);text-shadow:0 3px 20px rgba(0,0,0,.75),0 1px 6px rgba(0,0,0,.6);}
 .hero-sub-br{display:none;}
@@ -51,7 +48,7 @@
    CLIENT BAR
 ================================================================ */
 .clients-bar{background:#111111;border-bottom:1px solid var(--rule-dark);padding:36px 0;overflow:hidden;}
-.clients-label{font-family:var(--font-sub);font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.22);text-align:center;margin-bottom:28px;}
+.clients-label{font-family:var(--font-sub);font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.6);text-align:center;margin-bottom:28px;}
 .clients-track-wrap{position:relative;}
 .clients-track-wrap::before,.clients-track-wrap::after{content:'';position:absolute;top:0;bottom:0;width:200px;z-index:2;pointer-events:none;}
 .clients-track-wrap::before{left:0;background:linear-gradient(to right,#111111 30%,transparent);}
@@ -69,7 +66,7 @@
    PAIN / PROBLEM SECTION
 ================================================================ */
 .pain-section{position:relative;padding:0;overflow:hidden;background:#0C0C0C;}
-.pain-bg{position:absolute;inset:-15% 0;background-image:url('../images/cracked-concrete.webp');background-size:cover;background-position:center;filter:brightness(.38) contrast(1.1) saturate(.45);will-change:transform;z-index:0;}
+.pain-bg{position:absolute;inset:-15% 0;background-image:url('../images/heroes/cracked-concrete-bg.webp');background-size:cover;background-position:center;filter:brightness(.38) contrast(1.1) saturate(.45);will-change:transform;z-index:0;}
 .pain-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(12,12,12,.92) 0%,rgba(12,12,12,.60) 12%,rgba(12,12,12,.08) 30%,rgba(12,12,12,.05) 55%,rgba(12,12,12,.55) 82%,rgba(12,12,12,.96) 100%);}
 .pain-content{position:relative;z-index:2;padding:clamp(56px,8vh,96px) var(--pad);max-width:1280px;margin:0 auto;display:grid;grid-template-columns:minmax(240px,360px) 1fr;gap:clamp(28px,5vw,64px);align-items:center;}
 .pain-header{display:flex;flex-direction:column;justify-content:center;}
@@ -99,7 +96,7 @@
 /* ================================================================
    THE AGX PRECISION SYSTEM — layer accordion
 ================================================================ */
-.why-section{position:relative;background:#0C0C0C url('../images/section-01.jpg') center/cover no-repeat;color:#fff;padding:var(--sec-pad) var(--pad);overflow:hidden;}
+.why-section{position:relative;background:#0C0C0C url('../images/heroes/concrete-texture-bg.jpg') center/cover no-repeat;color:#fff;padding:var(--sec-pad) var(--pad);overflow:hidden;}
 .why-section::before{content:'';position:absolute;inset:0;background:rgba(12,12,12,.86);z-index:0;}
 .why-section>*{position:relative;z-index:1;}
 .why-inner{max-width:1200px;margin:0 auto;}
@@ -200,7 +197,7 @@
 .testi-author{font-family:var(--font-sub);font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);}
 .testi-nav{display:flex;align-items:center;gap:14px;margin-top:4px;}
 .testi-dots{display:flex;gap:7px;flex:1;}
-.testi-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.22);transition:background .22s,transform .22s;cursor:pointer;}
+.testi-dot{width:7px;height:7px;border-radius:50%;border:none;padding:0;box-sizing:content-box;outline-offset:8px;background:rgba(255,255,255,.22);transition:background .22s,transform .22s;cursor:pointer;}
 .testi-dot.on{background:var(--cyan);transform:scale(1.25);}
 .testi-btn{width:40px;height:40px;border:1px solid rgba(139,201,213,.4);display:flex;align-items:center;justify-content:center;color:var(--cyan);cursor:pointer;background:transparent;transition:border-color .18s,background .18s,color .18s;flex-shrink:0;}
 .testi-btn:hover{border-color:var(--cyan);background:rgba(139,201,213,.1);color:#ffffff;}

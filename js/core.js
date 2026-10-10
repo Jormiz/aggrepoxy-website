@@ -4,42 +4,47 @@
    nav scroll/mobile behavior, geo-redirect, mailto form helper.
 ================================================================ */
 
-/* ─── CRM HANDOFF (DripJobs via Zapier) ────────────────────────
-   Every quote form on the site fires a lead into DripJobs through
-   a Zapier "Catch Hook" webhook, in addition to its existing mailto
-   fallback. To turn this on:
-     1. In Zapier, create a Zap: Trigger = Webhooks by Zapier →
-        Catch Hook. Copy the custom webhook URL it gives you.
-     2. Add a second step: Action = DripJobs → Create Lead. Connect
-        your DripJobs account there using the API key from DripJobs
-        under Company Settings → Integrations (that key belongs in
-        Zapier's own connection screen, never in this file).
-     3. Map the incoming fields (name, phone, address, email,
-        details, source, photos, page, form) to DripJobs' lead
-        fields, then publish the Zap.
-     4. Paste the webhook URL below in place of the placeholder.
-   Until a real URL is pasted in, this is a no-op — no requests are
-   sent and nothing else on the site is affected.
+/* ─── LEAD HANDOFF: 2-STEP (email + DripJobs booking) ─────────
+   Step 1: the short form on the site emails the lead to us instantly
+           through Web3Forms (free, no Zapier). Even if the visitor
+           stops here, we have their name, phone, email, and ZIP.
+   Step 2: the thank-you screen opens the DripJobs booking form in a
+           pop-up so they can pick an estimate time. Submitting that
+           creates the lead in DripJobs and fires the drips.
 
-   PHOTOS: DripJobs' Zapier "Create Lead" action has no attachment
-   field, and Zapier's own webhook catcher doesn't reliably carry raw
-   file bytes anyway. So instead of sending the file itself, any
-   photo picked in a quote form is first uploaded straight from the
-   visitor's browser to Cloudinary's free "unsigned upload" endpoint
-   (cloudName/uploadPreset below — both are public identifiers, not
-   secrets, same idea as a Stripe publishable key) and the resulting
-   photo URL is sent in the `photos` field instead of just the
-   filename, so DripJobs gets a real clickable link to the image.
+   SETUP: get a free access key at web3forms.com (enter the inbox the
+   leads should go to) and paste it below. It's a public key, safe to
+   live in this file. Until it's pasted in, step 1 is skipped and the
+   visitor goes straight to the booking form, so nothing is lost.
+
+   A form can opt out of step 2 with {booking:false} (used on the
+   Chicago page, which isn't on the SoCal DripJobs account) or send
+   to a different inbox with {web3Key:'...'}.
 ================================================================ */
 window.AGX_CONFIG=window.AGX_CONFIG||{};
-window.AGX_CONFIG.dripjobsWebhookUrl='https://hooks.zapier.com/hooks/catch/28958469/4mbgr6b/';
+window.AGX_CONFIG.web3formsKey='d7204806-7e49-4e3a-9557-da909674a3ca';
+window.AGX_CONFIG.bookingUrl='https://aggrepoxy.dripjobs.com?f=agx';
 window.AGX_CONFIG.cloudinary={cloudName:'g7z6n9ug',uploadPreset:'aggrepoxy_lead_form'};
+
+/* ─── ANALYTICS HELPER ──────────────────────────────────────────
+   One call sends a conversion event to Google Analytics (and to
+   Microsoft Clarity once it is installed). Never sends form contents
+   or personal info, only the event name and which form/page. */
+window.agxTrack=function(name,params){
+  try{
+    if(typeof window.gtag==='function')window.gtag('event',name,params||{});
+    if(typeof window.clarity==='function')window.clarity('event',name);
+  }catch(e){}
+};
 
 (function(){'use strict';
 
 /* ─── LENIS ─────────────────────────────────────────────────── */
 var lenis=null;
-if(window.Lenis){
+var AGX_REDUCED=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+window.AGX_REDUCED=AGX_REDUCED;
+/* Smooth scroll is skipped for visitors who ask for reduced motion (WCAG 2.3.3) */
+if(window.Lenis&&!AGX_REDUCED){
   lenis=new Lenis({duration:1.1,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smoothWheel:true});
   (function raf(t){lenis.raf(t);requestAnimationFrame(raf);})(0);
 }
@@ -61,11 +66,15 @@ if(nav){
   var burger=document.getElementById('nav-burger');
   var mobile=document.getElementById('nav-mobile');
   if(!burger||!mobile)return;
-  function close(){mobile.classList.remove('open');document.body.style.overflow='';}
+  function close(){mobile.classList.remove('open');document.body.style.overflow='';burger.setAttribute('aria-expanded','false');burger.setAttribute('aria-label','Open menu');}
   burger.addEventListener('click',function(){
     var open=mobile.classList.toggle('open');
     document.body.style.overflow=open?'hidden':'';
+    burger.setAttribute('aria-expanded',open?'true':'false');
+    burger.setAttribute('aria-label',open?'Close menu':'Open menu');
+    if(open){var first=mobile.querySelector('a');if(first)first.focus();}
   });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mobile.classList.contains('open')){close();burger.focus();}});
   mobile.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
 })();
 
@@ -246,6 +255,52 @@ function agxSuccessHtml(title,message){
 }
 var AGX_SUCCESS_MSG='Your request is in. We\'ll reach out shortly. If it\'s urgent, call us directly at <a href="tel:2139715868" style="color:var(--cyan)">(213) 971-5868</a>.';
 
+/* Step-2 screen shown in place of the form after a successful send */
+function agxBookingHtml(){
+  return '<div class="q-success">'+
+    '<div class="q-success-icon">&#10003;</div>'+
+    '<h3>Got it! One last step.</h3>'+
+    '<p>Next, pick a day and time for your free 20-minute on-site estimate. Your scheduler will open in a pop-up.</p>'+
+    '<button type="button" class="hc-submit agx-open-booking" style="margin-top:8px;">Pick My Estimate Time</button>'+
+    '<p class="agx-countdown">Opening the scheduler in 3…</p>'+
+    '<p class="q-success-alt">Prefer to talk? Call <a href="tel:2139715868" style="color:var(--cyan)">(213) 971-5868</a>.</p>'+
+    '</div>';
+}
+
+/* DripJobs booking form in a pop-up (built once, reused) */
+window.AGX=window.AGX||{};
+window.AGX.openBooking=function(){
+  var url=window.AGX_CONFIG&&window.AGX_CONFIG.bookingUrl;
+  if(!url)return;
+  var m=document.getElementById('agx-booking');
+  if(!m){
+    m=document.createElement('div');
+    m.id='agx-booking';m.className='agx-modal';
+    m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.setAttribute('aria-label','Schedule your free estimate');
+    m.innerHTML='<div class="agx-modal-panel">'+
+      '<div class="agx-modal-head"><span>Schedule Your Free Estimate</span>'+
+      '<button type="button" class="agx-modal-close" aria-label="Close">&times;</button></div>'+
+      '<iframe src="'+url+'" title="Schedule your free estimate" loading="eager"></iframe>'+
+      '<a class="agx-modal-fallback" href="'+url+'" target="_blank" rel="noopener">Form not loading? Open it in a new tab</a>'+
+      '</div>';
+    document.body.appendChild(m);
+    function close(){m.classList.remove('open');document.body.style.overflow='';if(window.AGX_LENIS)window.AGX_LENIS.start();if(m._returnFocus&&m._returnFocus.focus)m._returnFocus.focus();}
+    m.addEventListener('keydown',function(e){if(e.key!=='Tab')return;var f=m.querySelectorAll('button,a[href],iframe');var a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus();}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();}});
+    m.addEventListener('click',function(e){if(e.target===m)close();});
+    m.querySelector('.agx-modal-close').addEventListener('click',close);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open'))close();});
+  }
+  window.agxTrack('booking_open',{page_path:window.location.pathname});
+  m._returnFocus=document.activeElement;
+  m.classList.add('open');document.body.style.overflow='hidden';
+  setTimeout(function(){var cb=m.querySelector('.agx-modal-close');if(cb)cb.focus();},50);
+  if(window.AGX_LENIS)window.AGX_LENIS.stop();
+};
+document.addEventListener('click',function(e){
+  var t=e.target.closest&&e.target.closest('.agx-open-booking');
+  if(t){e.preventDefault();window.AGX.openBooking();}
+});
+
 /* ─── SHARED MAILTO FORM HELPER ──────────────────────────────── */
 window.AGX=window.AGX||{};
 window.AGX.wireForm=function(opts){
@@ -253,7 +308,13 @@ window.AGX.wireForm=function(opts){
   if(!form)return;
   var requiredEls=(opts.requiredIds||[]).map(function(id){return document.getElementById(id);}).filter(Boolean);
   var agree=opts.agreeId?document.getElementById(opts.agreeId):null;
-  requiredEls.forEach(function(f){f.addEventListener('input',function(){f.style.boxShadow='';});});
+  requiredEls.forEach(function(f){f.addEventListener('input',function(){f.style.boxShadow='';f.removeAttribute('aria-invalid');});});
+  /* Text error summary, announced to screen readers (WCAG 3.3.1, 1.4.1) */
+  var errBox=document.createElement('p');
+  errBox.className='agx-form-error';errBox.setAttribute('role','alert');errBox.id=opts.formId+'-error';
+  var submitEl=form.querySelector(opts.submitSelector||'button[type="submit"]');
+  if(submitEl&&submitEl.parentNode)submitEl.parentNode.insertBefore(errBox,submitEl);else form.appendChild(errBox);
+  function fieldName(f){return (f.getAttribute('aria-label')||f.getAttribute('placeholder')||f.name||'This field').replace(/\s*\*$/,'');}
 
   /* ─── SPAM GUARD ────────────────────────────────────────────
      Two invisible checks, neither adds a click or a checkbox for a
@@ -386,27 +447,29 @@ window.AGX.wireForm=function(opts){
       return;
     }
 
-    var ok=true,firstBad=null;
-    function markBad(f){f.style.boxShadow='0 0 0 2px #cc3344';if(!firstBad)firstBad=f;ok=false;}
+    var ok=true,firstBad=null,msgs=[];
+    function markBad(f,why){f.style.boxShadow='0 0 0 2px #cc3344';f.setAttribute('aria-invalid','true');f.setAttribute('aria-describedby',errBox.id);msgs.push(fieldName(f)+' '+(why||'is required'));if(!firstBad)firstBad=f;ok=false;}
     requiredEls.forEach(function(f){
       var val=(f.value||'').trim();
       if(!val){markBad(f);return;}
-      if(f.type==='email'&&!/^[^\s@]+@[^\s@]+\.[a-z0-9-]+$/i.test(val)){markBad(f);return;}
+      if(f.type==='email'&&!/^[^\s@]+@[^\s@]+\.[a-z0-9-]+$/i.test(val)){markBad(f,'needs a valid email address');return;}
       if(f.type==='tel'){
         var digits=val.replace(/\D/g,'');
-        if(digits.length<10||digits.length>11){markBad(f);return;}
+        if(digits.length<10||digits.length>11){markBad(f,'needs a 10-digit phone number');return;}
       }
-      f.style.boxShadow='';
+      f.style.boxShadow='';f.removeAttribute('aria-invalid');
     });
-    if(agree&&!agree.checked){ok=false;if(!firstBad)firstBad=agree;}
+    if(agree&&!agree.checked){ok=false;agree.setAttribute('aria-invalid','true');msgs.push('Please check the box to agree to the Privacy Policy and Terms');if(!firstBad)firstBad=agree;}else if(agree){agree.removeAttribute('aria-invalid');}
+    errBox.textContent=ok?'':'Please fix: '+msgs.join('. ')+'.';
     if(!ok){if(firstBad)firstBad.focus();return;}
 
     var subject=opts.subject||'New estimate request: Aggrepoxy';
     var to=opts.to||'floors@aggrepoxy.com';
     var target=document.getElementById(opts.successContainerId||opts.formId);
     var btn=form.querySelector(opts.submitSelector||'button[type="submit"]');
-    var webhookUrl=window.AGX_CONFIG&&window.AGX_CONFIG.dripjobsWebhookUrl;
-    var webhookConfigured=webhookUrl&&webhookUrl.indexOf('PASTE_')!==0;
+    var w3Key=opts.web3Key||(window.AGX_CONFIG&&window.AGX_CONFIG.web3formsKey);
+    var w3Configured=w3Key&&w3Key.indexOf('PASTE_')!==0;
+    var useBooking=opts.booking!==false&&!!(window.AGX_CONFIG&&window.AGX_CONFIG.bookingUrl);
 
     /* Upload any selected photo(s) to Cloudinary first, so the CRM
        payload (and the mailto fallback) can carry a real clickable
@@ -467,34 +530,60 @@ window.AGX.wireForm=function(opts){
         crmPayload.last_name='';
       }
 
-      if(webhookConfigured){
-        /* Lead goes straight into DripJobs via the Zapier webhook.
-           Submission is silent for the visitor, no email client, no
-           extra step on their end, just a clean confirmation. */
+      /* Readable email payload for Web3Forms */
+      /* Subject: "NEW ESTIMATE: Jane Smith" (Chicago: "NEW BID REQUEST: Name") */
+      var who=(crmPayload.name||'').trim();
+      var emailSubject=opts.booking===false?(subject.split(':')[0].toUpperCase()+(who?': '+who:'')):('NEW ESTIMATE'+(who?': '+who:''));
+      var emailPayload={access_key:w3Key,subject:emailSubject,from_name:'Aggrepoxy Website',botcheck:''};
+      (opts.fields||[]).forEach(function(f){
+        var k=f.id.replace(/^[a-z]+-/,'');
+        if(crmPayload[k]&&crmPayload[k]!=='Not specified')emailPayload[f.label]=crmPayload[k];
+      });
+      if(crmPayload.email)emailPayload.replyto=crmPayload.email;
+      emailPayload['Page']=window.location.pathname;
+      emailPayload['DripJobs']=useBooking?'Visitor was shown the booking form. This lead is NOT in DripJobs until they finish it. If no booking shows up, add them manually.':'Not sent to DripJobs. Follow up directly.';
+
+      function showDone(){
+        if(!target)return;
+        if(useBooking){
+          target.innerHTML=agxBookingHtml();
+          /* Give them a few seconds to read what's next, with a visible countdown */
+          var cd=target.querySelector('.agx-countdown'),n=3;
+          var tick=setInterval(function(){
+            n--;
+            if(cd)cd.textContent=n>0?'Opening the scheduler in '+n+'…':'Opening the scheduler…';
+            if(n<=0){clearInterval(tick);window.AGX.openBooking();}
+          },1000);
+          var openBtn=target.querySelector('.agx-open-booking');
+          if(openBtn)openBtn.addEventListener('click',function(){clearInterval(tick);if(cd)cd.textContent='';});
+        }else{
+          target.innerHTML=agxSuccessHtml('Got it, thanks!',opts.successMsg||AGX_SUCCESS_MSG);
+        }
+      }
+
+      window.agxTrack('generate_lead',{form_id:opts.formId,page_path:window.location.pathname,with_booking:useBooking?'yes':'no'});
+      if(w3Configured){
         if(btn){btn.textContent='Sending…';}
         try{
-          fetch(webhookUrl,{
+          fetch('https://api.web3forms.com/submit',{
             method:'POST',
-            mode:'no-cors',
-            headers:{'Content-Type':'application/json'},
-            body:JSON.stringify(crmPayload),
+            headers:{'Content-Type':'application/json','Accept':'application/json'},
+            body:JSON.stringify(emailPayload),
             keepalive:true
-          }).catch(function(){/* best-effort, still show confirmation below */});
-        }catch(err){/* fetch unsupported or blocked, ignore */}
-
-        setTimeout(function(){
-          if(target)target.innerHTML=agxSuccessHtml('Got it, thanks!',AGX_SUCCESS_MSG);
-        },400);
+          }).catch(function(){/* best-effort, still continue to step 2 */});
+        }catch(err){/* ignore */}
+        setTimeout(showDone,400);
+      }else if(useBooking){
+        /* Email step not set up yet: go straight to booking so the
+           lead still lands in DripJobs. */
+        if(window.console)console.warn('AGX: Web3Forms key not set, skipping email step.');
+        showDone();
       }else{
-        /* Fallback while the CRM webhook isn't set up yet: hand the
-           details off via a mailto link so the form still does
-           something useful. */
+        /* No email key and no booking step: fall back to mailto. */
         if(hasFiles)lines.push(anyPhotoUrls?'(Photo link(s) included above — click to view.)':'(Please attach the file(s) named above to this email before sending, mailto links can\'t attach them automatically.)');
         var mailto='mailto:'+to+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
-
         if(btn){btn.textContent='Opening your email…';}
         window.location.href=mailto;
-
         setTimeout(function(){
           if(target)target.innerHTML=agxSuccessHtml('Almost there','Your email app should be open with your details filled in. Just hit send. If nothing opened, email us directly at <a href="mailto:'+to+'" style="color:var(--cyan)">'+to+'</a>.');
         },500);
@@ -521,7 +610,7 @@ window.AGX.renderBeforeAfter=function(containerId,data){
     var uid=containerId+'-'+idx;
     var item=document.createElement('div');item.className='ba-item';
     item.innerHTML=
-      '<div class="ba-slider-wrap" id="bas-'+uid+'">'+
+      '<div class="ba-slider-wrap" id="bas-'+uid+'" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50% before, 50% after" aria-label="Before and after comparison'+(d.tag?': '+d.tag:'')+(d.loc?', '+d.loc:'')+'. Use left and right arrow keys to compare.">'+
         '<div class="ba-before" style="background-image:url(\''+d.before+'\')"></div>'+
         '<div class="ba-after" id="baa-'+uid+'" style="background-image:url(\''+d.after+'\')"></div>'+
         '<div class="ba-handle" id="bah-'+uid+'">'+
@@ -539,9 +628,19 @@ window.AGX.renderBeforeAfter=function(containerId,data){
       pos=Math.max(.02,Math.min(.98,p));
       afterEl.style.clipPath='inset(0 0 0 '+(pos*100).toFixed(1)+'%)';
       handleEl.style.left=(pos*100).toFixed(1)+'%';
+      var pct=Math.round(pos*100);
+      wrap.setAttribute('aria-valuenow',pct);wrap.setAttribute('aria-valuetext',pct+'% before, '+(100-pct)+'% after');
     }
     function gx(e){return e.touches?e.touches[0].clientX:e.clientX;}
     function mv(e){if(!drag)return;var r=wrap.getBoundingClientRect();setPos((gx(e)-r.left)/r.width);}
+    wrap.addEventListener('keydown',function(e){
+      var k=e.key,step=e.shiftKey?.2:.05;
+      if(k==='ArrowLeft'||k==='ArrowDown'){setPos(pos-step);}
+      else if(k==='ArrowRight'||k==='ArrowUp'){setPos(pos+step);}
+      else if(k==='Home'){setPos(.02);}else if(k==='End'){setPos(.98);}
+      else return;
+      e.preventDefault();
+    });
     wrap.addEventListener('mousedown',function(e){drag=true;mv(e);});
     wrap.addEventListener('touchstart',function(e){drag=true;mv(e);},{passive:true});
     window.addEventListener('mousemove',mv);
@@ -610,3 +709,39 @@ document.querySelectorAll('.region-switch').forEach(function(sw){
 });
 
 })();
+
+
+/* ─── ACCESSIBILITY: pause control for autoplaying video (WCAG 2.2.2) ── */
+(function(){
+  var PAUSE='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>';
+  var PLAY='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>';
+  document.querySelectorAll('video[autoplay],video[loop]').forEach(function(v){
+    if(v.controls)return;
+    var host=v.parentElement;if(!host)return;
+    if(getComputedStyle(host).position==='static')host.style.position='relative';
+    var b=document.createElement('button');b.type='button';b.className='agx-media-toggle';
+    function sync(){var p=v.paused;b.innerHTML=p?PLAY:PAUSE;b.setAttribute('aria-label',p?'Play video':'Pause video');}
+    b.addEventListener('click',function(){if(v.paused)v.play();else v.pause();sync();});
+    v.addEventListener('play',sync);v.addEventListener('pause',sync);
+    host.appendChild(b);sync();
+  });
+})();
+
+/* ─── ACCESSIBILITY: skip link moves focus into main content ── */
+(function(){
+  var s=document.querySelector('.skip-link'),m=document.getElementById('main');
+  if(!s||!m)return;
+  s.addEventListener('click',function(e){e.preventDefault();m.focus();m.scrollIntoView();});
+})();
+
+
+/* ─── ANALYTICS: phone taps and email clicks (any page) ── */
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a[href^="tel:"],a[href^="mailto:"]');
+  if(!a)return;
+  var tel=a.getAttribute('href').indexOf('tel:')===0;
+  window.agxTrack(tel?'phone_click':'email_click',{
+    link_text:tel?a.getAttribute('href').replace('tel:',''):'email',
+    page_path:window.location.pathname
+  });
+});

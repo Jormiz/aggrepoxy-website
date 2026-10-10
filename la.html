@@ -1,123 +1,209 @@
 <!doctype html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CG2LTVT35F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CG2LTVT35F');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yvr9kfo5jo");
+</script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<link rel="icon" type="image/svg+xml" href="images/favicon.svg"/>
-<title>Aggrepoxy: Premium Concrete Floor Coatings, Los Angeles, Orange County &amp; Inland Empire</title>
-<meta name="description" content="Serving Greater LA, Orange County, and the Inland Empire. Premium epoxy, polyaspartic, and polished concrete floor specialists. Free estimates. Done in 1-2 days."/>
-<link rel="canonical" href="https://aggrepoxyca.com/la.html"/>
+<link rel="icon" type="image/svg+xml" href="images/brand/favicon.svg"/>
+<title>Garage, Driveway &amp; Patio Floor Coatings | Los Angeles &amp; Orange County | Aggrepoxy</title>
+<meta name="description" content="Family-owned floor coatings for homeowners across Los Angeles and Orange County. Garages, driveways, patios, and walkways. 1-day install, 10-year limited warranty, financing available."/>
+<!-- Ad landing page: hidden from search. Public version is los-angeles.html -->
+<meta name="robots" content="noindex, follow"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="css/main.css"/>
 <link rel="stylesheet" href="css/inner.css"/>
 <link rel="stylesheet" href="css/home.css"/>
+<style>
+/* Industrial: scenario tiles */
+.ind-scn-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:clamp(32px,4vw,48px);}
+.ind-scn{background:#f4f3ef;padding:28px 22px;border-top:3px solid var(--cyan);text-align:center;}
+.ind-scn-ic{width:34px;height:34px;fill:none;stroke:#0C0C0C;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin:0 auto 18px;display:block;}
+.ind-scn-title{display:block;font-family:var(--font-display);font-weight:var(--display-weight);font-size:26px;line-height:1;text-transform:uppercase;color:#0C0C0C;margin-bottom:10px;}
+.ind-scn p{font-size:15px;line-height:1.6;color:rgba(12,12,12,.65);}
+.ind-scn-close{text-align:center;max-width:64ch;margin:clamp(32px,4vw,48px) auto 0;font-size:17px;line-height:1.7;color:rgba(12,12,12,.7);}
+@media(max-width:1100px){.ind-scn-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:700px){.ind-scn-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:440px){.ind-scn-grid{grid-template-columns:1fr;}}
+
+/* LA residential page */
+.la-benefits .gf-benefits-inner{grid-template-columns:repeat(4,1fr);max-width:1100px;}
+@media(max-width:800px){.la-benefits .gf-benefits-inner{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:420px){.la-benefits .gf-benefits-inner{grid-template-columns:1fr;}}
+.la-hero .svc-hero-bg{background-size:cover;background-position:center 55%;transform:none;}
+.la-who .ind-scn-grid{grid-template-columns:repeat(4,1fr);}
+.la-who .ind-scn{background:#fff;}
+@media(max-width:1100px){.la-who .ind-scn-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:440px){.la-who .ind-scn-grid{grid-template-columns:1fr;}}
+.la-fam{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,6vw,96px);align-items:center;max-width:1200px;margin:0 auto;}
+.la-polaroid{max-width:440px;margin:0 auto;}
+.la-polaroid img{display:block;width:100%;height:auto;transform:rotate(0deg);transition:transform 1s cubic-bezier(.34,1.56,.64,1) .55s;}
+.la-polaroid.on img{transform:rotate(-3deg);}
+@media(prefers-reduced-motion:reduce){.la-polaroid img{transform:rotate(-3deg);transition:none;}}
+.la-fam-body p{font-size:17px;line-height:1.75;color:rgba(12,12,12,.68);max-width:52ch;margin-bottom:22px;}
+.la-fam-body .gf-finish-list{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+@media(max-width:900px){.la-fam{grid-template-columns:1fr;}.la-polaroid{max-width:340px;}}
+
+/* Recent work strip */
+.la-work{padding:clamp(48px,7vh,80px) 0;background:#fff;}
+.la-work-head{max-width:1200px;margin:0 auto 22px;padding:0 var(--pad);display:flex;align-items:flex-end;justify-content:space-between;gap:20px;}
+.la-work-head .sec-h2{color:#0C0C0C;font-size:clamp(32px,3.6vw,48px);line-height:1;}
+.la-work-nav{display:flex;gap:8px;}
+.la-work-btn{width:42px;height:42px;border:1.5px solid rgba(12,12,12,.2);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .18s,background .18s;}
+.la-work-btn:hover{border-color:var(--cyan);background:var(--cyan);}
+.la-work-btn svg{width:15px;height:15px;fill:none;stroke:#0C0C0C;stroke-width:1.8;}
+.la-strip{display:flex;gap:12px;overflow-x:auto;overscroll-behavior-x:contain;contain:content;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0;}
+.la-strip::-webkit-scrollbar{display:none;}
+.la-strip-item{flex:0 0 auto;height:clamp(220px,22vw,300px);aspect-ratio:4/3;scroll-snap-align:start;overflow:hidden;background:#111;}
+.la-strip-item img{width:100%;height:100%;object-fit:cover;display:block;}
+@media(max-width:640px){.la-strip-item{height:240px;aspect-ratio:3/4;}.la-work-nav{display:none;}}
+
+/* Install process */
+.pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.pr-step{background:#f4f3ef;display:flex;flex-direction:column;}
+.pr-media{aspect-ratio:16/10;overflow:hidden;background:#111;}
+.pr-media img{width:100%;height:100%;object-fit:cover;display:block;}
+.pr-icon{display:flex;align-items:center;justify-content:center;background:#0C0C0C;}
+.pr-icon svg{width:56px;height:56px;fill:none;stroke:var(--cyan);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;}
+.pr-body{padding:22px 24px 26px;}
+.pr-num{display:block;font-family:var(--font-display);font-weight:700;font-size:20px;color:#007A70;line-height:1;margin-bottom:6px;}
+.pr-title{display:block;font-family:var(--font-display);font-weight:700;font-size:30px;line-height:1;text-transform:uppercase;color:#0C0C0C;margin-bottom:8px;}
+.pr-body p{font-size:15px;line-height:1.6;color:rgba(12,12,12,.68);}
+.pr-cta{text-align:center;margin-top:clamp(32px,4vw,48px);}
+@media(max-width:1000px){.pr-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.pr-grid{grid-template-columns:1fr;}}
+
+/* Landing page chrome */
+.lp-nav{justify-content:space-between;}
+.lp-nav .nav-cta{display:inline-flex;}
+@media(max-width:480px){.lp-nav .nav-logo img{height:30px;}}
+.gf-hero-sub strong{color:#fff;font-weight:700;}
+#ba-grid-la .ba-meta{display:flex;align-items:center;gap:12px;margin-top:14px;}
+#ba-grid-la .ba-meta-tag{font-family:var(--font-sub);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:var(--cyan);color:#0C0C0C;padding:5px 10px;}
+#ba-grid-la .ba-meta-loc{font-family:var(--font-sub);font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#0C0C0C;}
+@media(max-width:600px){.lp-nav .nav-cta{display:none;}}
+.lp-proof{display:flex;gap:28px;margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.18);max-width:420px;}
+.lp-proof-item{display:flex;align-items:center;gap:10px;}
+.lp-proof-num{font-family:var(--font-display);font-weight:700;font-size:44px;line-height:1;color:var(--cyan);}
+.lp-proof-label{font-family:var(--font-sub);font-weight:600;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8);line-height:1.3;}
+@media(max-width:1024px){.lp-proof{margin-left:auto;margin-right:auto;justify-content:center;}}
+.pain-section .pain-eyebrow{background:none;color:var(--cyan);padding:0;}
+.why-section .la-who-grid{margin-top:clamp(48px,6vw,72px);grid-template-columns:repeat(4,1fr);}
+.why-section .la-who-grid .ind-scn{background:rgba(255,255,255,.06);}
+.why-section .la-who-grid .ind-scn-ic{stroke:var(--cyan);}
+.why-section .la-who-grid .ind-scn-title{color:#fff;}
+.why-section .la-who-grid .ind-scn p{color:rgba(255,255,255,.68);}
+@media(max-width:1100px){.why-section .la-who-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.why-section .la-who-grid{gap:10px;}.why-section .la-who-grid .ind-scn{padding:22px 14px;}.why-section .la-who-grid .ind-scn-title{font-size:22px;}.why-section .la-who-grid .ind-scn p{font-size:13.5px;}}
+.lp-pain-solve{font-size:16px;line-height:1.6;color:rgba(255,255,255,.82);margin-top:16px;max-width:36ch;}
+.lp-pain-btn{margin-top:22px;align-self:flex-start;}
+@media(max-width:1024px){.lp-pain-btn{align-self:center;}}
+.lp-steps{list-style:none;padding:0;margin:22px 0 26px;display:flex;flex-direction:column;gap:14px;max-width:44ch;}
+.lp-steps li{display:flex;gap:14px;align-items:flex-start;font-size:15px;line-height:1.55;color:rgba(12,12,12,.7);}
+.lp-steps li span{flex-shrink:0;width:30px;height:30px;background:var(--cyan);color:#0C0C0C;display:flex;align-items:center;justify-content:center;font-family:var(--font-sub);font-weight:700;font-size:13px;}
+.lp-steps strong{color:#0C0C0C;}
+.lp-cities{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:900px;margin:28px auto 0;}
+.lp-cities span{font-family:var(--font-sub);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;border:1.5px solid rgba(12,12,12,.14);padding:10px 16px;color:#0C0C0C;}
+.lp-area-note{margin-top:22px;font-size:15px;color:rgba(12,12,12,.6);}
+.lp-area-note a{color:#007A70;text-decoration:underline;}
+.lp-footer-inner{max-width:1200px;margin:0 auto;padding:40px var(--pad) 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.lp-footer-inner img{height:30px;width:auto;}
+.lp-footer-links{display:flex;gap:26px;flex-wrap:wrap;}
+.lp-footer-links a{font-size:14px;color:rgba(255,255,255,.65);}
+.lp-footer-links a:hover{color:#fff;}
+.lp-sticky{display:none;}
+@media(max-width:900px){
+  .lp-sticky{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:150;box-shadow:0 -6px 20px rgba(0,0,0,.25);transition:transform .3s ease;}
+  .lp-sticky.hide{transform:translateY(110%);}
+  .lp-sticky a{display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 10px calc(16px + env(safe-area-inset-bottom));font-family:var(--font-sub);font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;}
+  .lp-sticky-call{background:#0C0C0C;color:#fff;}
+  .lp-sticky-call svg{stroke:var(--cyan);width:16px;height:16px;}
+  .lp-sticky-cta{background:var(--cyan);color:#0C0C0C;}
+  body{padding-bottom:58px;}
+}
+
+/* Service area: dark split, truck + two counties (mirrors About page) */
+.sa2{display:grid;grid-template-columns:1fr 1fr;background:#131417;}
+.sa2-photo{min-height:560px;background:url('images/company/truck-and-trailer.jpg') 72% 68%/cover no-repeat;}
+.sa2-body{padding:clamp(56px,7vw,110px) clamp(24px,6vw,96px);display:flex;flex-direction:column;justify-content:center;}
+.sa2-eyebrow{font-family:var(--font-sub);font-weight:700;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:14px;}
+.sa2-body h2{font-family:var(--font-display);font-weight:var(--display-weight);font-size:clamp(40px,4.6vw,68px);line-height:.98;text-transform:uppercase;color:#fff;margin-bottom:18px;}
+.sa2-body>p{font-size:17px;line-height:1.7;color:rgba(255,255,255,.7);}
+.sa2-locs{display:grid;grid-template-columns:1fr;gap:14px;margin-top:32px;max-width:420px;}
+.sa2-loc{border:1px solid rgba(255,255,255,.14);padding:20px 22px;display:flex;align-items:center;gap:14px;}
+.sa2-pin{width:30px;height:30px;flex-shrink:0;fill:rgba(22,240,228,.1);stroke:var(--cyan);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.sa2-loc-name{font-family:var(--font-display);font-weight:var(--display-weight);font-size:28px;text-transform:uppercase;color:var(--cyan);line-height:1;}
+.sa2-loc-sub{font-family:var(--font-sub);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-top:8px;}
+.sa2-body>p.sa2-note{margin-top:24px;font-size:15px;color:rgba(255,255,255,.55);}
+.sa2-note a{color:var(--cyan);text-decoration:underline;}
+@media(max-width:900px){.sa2{grid-template-columns:1fr;}.sa2-photo{min-height:300px;background-position:50% 72%;}.sa2-locs{max-width:none;}}
+</style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
-<!-- NAV -->
-<header class="nav" id="nav">
-  <a href="index.html" class="nav-logo" aria-label="Aggrepoxy">
-    <img src="images/aggrepoxy-logo.svg" alt="Aggrepoxy"/>
-  </a>
-  <nav class="nav-links" id="nav-links">
-    <a href="index.html">Home</a>
-    <div class="nav-drop">
-      <span class="nav-drop-trigger" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Services <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></span>
-      <div class="nav-drop-panel">
-        <a href="services/garage-floors.html">Garage Floors</a>
-        <a href="services/industrial.html">Industrial Coatings</a>
-        <a href="services/concrete-polishing.html">Concrete Polishing</a>
-      </div>
-    </div>
-    <a href="gallery.html">Gallery</a>
-    <div class="nav-drop">
-      <span class="nav-drop-trigger" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Locations <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></span>
-      <div class="nav-drop-panel">
-        <a href="la.html" class="current">Los Angeles</a>
-        <a href="chi.html">Chicago</a>
-      </div>
-    </div>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<!-- NAV (landing page: logo, phone, CTA only) -->
+<header class="nav solid lp-nav" id="nav">
+  <div class="nav-logo">
+    <img src="images/brand/aggrepoxy-logo.svg" alt="Aggrepoxy"/>
+  </div>
   <div class="nav-cta-group">
-  <a href="tel:2139715868" class="nav-phone" data-geo-phone aria-label="Call Aggrepoxy"><svg viewBox="0 0 24 24" width="14" height="14" style="display:block;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-geo-phone-text>(213) 971-5868</span></a>
+  <a href="tel:2139715868" class="nav-phone"><svg viewBox="0 0 24 24" width="14" height="14" style="display:block;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>(213) 971-5868</span></a>
   <a href="#contact" class="nav-cta">Get a Free Estimate</a>
-  <button type="button" class="nav-burger" id="nav-burger" aria-label="Open menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
   </div>
 </header>
-<div class="nav-mobile" id="nav-mobile">
-  <a href="index.html">Home</a>
-  <div class="nav-mobile-services">
-    <a href="services/garage-floors.html">Garage Floors</a>
-    <a href="services/industrial.html">Industrial Coatings</a>
-    <a href="services/concrete-polishing.html">Concrete Polishing</a>
-  </div>
-  <a href="gallery.html">Gallery</a>
-  <div class="nav-mobile-services">
-    <a href="la.html">Los Angeles</a>
-    <a href="chi.html">Chicago</a>
-  </div>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-  <a href="tel:2139715868" class="nav-mobile-phone" data-geo-phone><svg viewBox="0 0 24 24" width="15" height="15" style="display:block;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-geo-phone-text>(213) 971-5868</span></a>
-  <a href="#contact" class="nav-mobile-cta">Get a Free Estimate</a>
-</div>
+<main id="main" tabindex="-1">
 
-<!-- HERO -->
-<section class="hero grain grain-d" id="hero">
-  <div class="hero-bg" style="background-image:url('images/hero-bg.jpg')"></div>
-  <div class="hero-veil"></div>
-  <div class="hero-outer">
-    <div class="hero-inner">
-      <div class="hero-left">
-        <h1 class="hero-h1" id="h-h1">That Floor You<br/>Keep Ignoring?<br/><span class="hl-cyan">Not Anymore.</span></h1>
-        <p class="hero-sub" id="h-sub">Showroom-ready floors in as little as 1-2 days with our extremely durable Precision Coating System!</p>
-        <div class="hero-proof" id="h-proof">
-          <div><div class="hp-num">LA/OC</div><div class="hp-label">Service Area</div></div>
-          <div><div class="hp-num">1-2 days</div><div class="hp-label">Most Jobs Complete</div></div>
-          <div><div class="hp-num">10 Year</div><div class="hp-label">Warranty</div></div>
+<!-- ═══ 1. HERO + ESTIMATE FORM ═══ -->
+<section class="svc-hero la-hero grain grain-d">
+  <div class="svc-hero-bg" style="background-image:url('images/heroes/garage-floor-coating-hero.jpg')"></div>
+  <div class="svc-hero-veil"></div>
+  <div class="svc-hero-outer">
+    <div class="svc-hero-inner">
+      <div class="svc-hero-left">
+        <h1 class="hero-h1 gf-hero-h1">A Floor You'll Want<br/>To Show Off.</h1>
+        <p class="hero-sub gf-hero-sub"><strong>Ground, coated, and sealed in one day.</strong> Built not to peel, stain, or fade. Serving homeowners across LA &amp; Orange County.</p>
+        <div class="svc-hero-check gf-hero-check">
+          <div class="svc-hero-check-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>1-Day Install</div>
+          <div class="svc-hero-check-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>10-Year Limited Warranty</div>
+          <div class="svc-hero-check-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Financing Available</div>
+        </div>
+        <div class="lp-proof">
+          <div class="lp-proof-item"><span class="lp-proof-num">1M+</span><span class="lp-proof-label">Sq Ft<br/>Coated</span></div>
+          <div class="lp-proof-item"><span class="lp-proof-num">2016</span><span class="lp-proof-label">Family-Owned<br/>Since</span></div>
         </div>
       </div>
-      <div class="hero-card" id="h-form">
+      <div class="hero-card" id="svc-form">
         <div class="hc-title">Get Your Free Estimate</div>
         <p class="hc-sub">Fast Response. No Obligation.</p>
-        <form id="hero-estimate-form" novalidate>
+        <form id="svc-quote-form" novalidate>
           <div class="hc-row">
-            <div class="hc-field"><input type="text" id="he-name" placeholder="Name" autocomplete="name" required/></div>
-            <div class="hc-field"><input type="tel" id="he-phone" placeholder="Phone Number" autocomplete="tel" required/></div>
+            <div class="hc-field"><input aria-label="Name" type="text" id="sf-name" placeholder="Name *" autocomplete="name" required/></div>
+            <div class="hc-field"><input aria-label="Phone Number" type="tel" id="sf-phone" placeholder="Phone Number *" autocomplete="tel" required/></div>
           </div>
           <div class="hc-row" style="margin-top:12px;">
-            <div class="hc-field"><input type="text" id="he-address" placeholder="Address" autocomplete="street-address"/></div>
-            <div class="hc-field"><input type="email" id="he-email" placeholder="Email Address" autocomplete="email" required/></div>
+            <div class="hc-field"><input aria-label="Email Address" type="email" id="sf-email" placeholder="Email Address *" autocomplete="email" required/></div>
+            <div class="hc-field"><input aria-label="ZIP Code" type="text" id="sf-zip" placeholder="ZIP Code *" autocomplete="postal-code" inputmode="numeric" maxlength="5" required/></div>
           </div>
-          <div class="hc-field" style="margin-top:12px;">
-            <textarea id="he-details" placeholder="Project Details"></textarea>
-          </div>
-          <div class="hc-field hc-file" style="margin-top:12px;">
-            <label class="hc-file-label" for="he-photos">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>
-              <span>Upload Photos or Plans <em>(optional)</em></span>
-            </label>
-            <input type="file" id="he-photos" class="hc-file-input" multiple accept="image/*,.pdf,.heic,.heif"/>
-            <span class="hc-file-name" id="he-photos-name">No files selected</span>
-          </div>
-          <div class="hc-field" style="margin-top:12px;">
-            <select id="he-source">
-              <option value="">How Did You Hear About Us?</option>
-              <option>Google Search</option>
-              <option>Referral</option>
-              <option>Instagram / Facebook</option>
-              <option>Yard Sign / Door Hanger</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <label class="hc-check" style="margin-top:14px;">
-            <input type="checkbox" id="he-agree" required/>
-            <span>By submitting this form, you agree to Aggrepoxy's <a href="#">Privacy Policy</a> and <a href="#">Terms &amp; Conditions</a>.</span>
-          </label>
+          <div class="hc-field" style="margin-top:12px;"><textarea aria-label="What would you like coated? (garage, driveway, patio...)" id="sf-details" placeholder="What would you like coated? (garage, driveway, patio...)"></textarea></div>
+          <label class="hc-check" style="margin-top:14px;"><input type="checkbox" id="sf-agree" required/><span>By submitting this form, you agree to Aggrepoxy's <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and <a href="terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>.</span></label>
           <button type="submit" class="hc-submit" style="margin-top:6px;">Get Free Estimate</button>
         </form>
       </div>
@@ -125,125 +211,73 @@
   </div>
 </section>
 
-<!-- CLIENT BAR -->
-<div class="clients-bar">
-  <p class="clients-label">Trusted by Industry Leaders</p>
-  <div class="clients-track-wrap">
-    <div class="clients-list">
-      <div class="client-item"><img src="images/clients/ferguson.svg" alt="Ferguson" class="client-logo wordmark"/></div>
-      <div class="client-item"><img src="images/clients/valvoline.svg" alt="Valvoline" class="client-logo"/></div>
-      <div class="client-item center"><img src="images/clients/mclaren.svg" alt="McLaren" class="client-logo"/></div>
-      <div class="client-item center"><img src="images/clients/lexus.svg" alt="Lexus" class="client-logo wordmark"/></div>
-      <div class="client-item"><img src="images/clients/toyota.svg" alt="Toyota" class="client-logo wordmark"/></div>
-      <div class="client-item"><img src="images/clients/sloan.svg" alt="Sloan" class="client-logo wordmark"/></div>
-      <div class="client-item"><img src="images/clients/driven.svg" alt="Driven Car Wash" class="client-logo"/></div>
-    </div>
+<!-- ═══ 2. KEY BENEFITS ═══ -->
+<section class="gf-benefits la-benefits" aria-label="Why homeowners choose Aggrepoxy">
+  <div class="gf-benefits-inner">
+    <div class="gf-benefit rv"><img src="images/icons/clean.avif" alt="" aria-hidden="true" loading="lazy"/><h2 class="gf-benefit-title">Easy To Clean</h2><p class="gf-benefit-body">Dirt, dust, and spills wipe right up.</p></div>
+    <div class="gf-benefit rv d1"><img src="images/icons/shield.avif" alt="" aria-hidden="true" loading="lazy"/><h2 class="gf-benefit-title">Safe Underfoot</h2><p class="gf-benefit-body">Slip-resistant texture for kids, pets, and guests.</p></div>
+    <div class="gf-benefit rv d2"><img src="images/icons/sun.avif" alt="" aria-hidden="true" loading="lazy"/><h2 class="gf-benefit-title">Won't Fade Or Yellow</h2><p class="gf-benefit-body">UV-stable topcoat built for the SoCal sun.</p></div>
+    <div class="gf-benefit rv d3"><img src="images/icons/clock.avif" alt="" aria-hidden="true" loading="lazy"/><h2 class="gf-benefit-title">Walk In 24, Park In 48</h2><p class="gf-benefit-body">Walk on it the next day. Park on it in two.</p></div>
   </div>
-</div>
+</section>
 
-<!-- PAIN / PROBLEM SECTION -->
-<section class="pain-section grain grain-d" id="why" style="display:none;">
+<!-- ═══ 2b. PAIN ═══ -->
+<section class="pain-section grain grain-d" id="why">
   <div class="pain-bg" id="pain-bg"></div>
   <div class="pain-veil"></div>
   <div class="pain-content">
     <div class="pain-header rv">
-      <span class="pain-eyebrow">Old or Cracked Concrete?</span>
-      <h2 class="pain-h">It's Costing You More Than You Think.</h2>
+      <span class="pain-eyebrow">Tired Of Your Concrete?</span>
+      <h2 class="pain-h">Bare Concrete Is Costing You More Than You Think.</h2>
+      <a href="#contact" class="btn-solid cyan lp-pain-btn">Get My Free Estimate</a>
     </div>
     <div class="pain-pills">
       <div class="pain-pill" data-pain>
-        <div class="pain-pill-icon"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
-        <span class="pain-pill-title">Made to Break</span>
-        <span class="pain-pill-sub">One heavy drop and it's cracked for good.</span>
+        <div class="pain-pill-icon"><svg viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></div>
+        <span class="pain-pill-title">Stains For Good</span>
+        <span class="pain-pill-sub">Oil, rust, and spills soak in and never come out.</span>
+      </div>
+      <div class="pain-pill" data-pain>
+        <div class="pain-pill-icon"><svg viewBox="0 0 24 24"><path d="M4 16c2-1 4-1 6 0s4 1 6 0 3-1 4 0"/><path d="M4 11c2-1 4-1 6 0s4 1 6 0 3-1 4 0"/></svg></div>
+        <span class="pain-pill-title">Dust Everywhere</span>
+        <span class="pain-pill-sub">Bare concrete sheds dust that gets tracked into your home.</span>
       </div>
       <div class="pain-pill" data-pain>
         <div class="pain-pill-icon"><svg viewBox="0 0 24 24"><path d="M12 3l9 17H3l9-17z"/><path d="M12 10v4"/><path d="M12 17.5v.01"/></svg></div>
-        <span class="pain-pill-title">Safety Hazard</span>
-        <span class="pain-pill-sub">Dusty, slick concrete, one slip away from a claim.</span>
-      </div>
-      <div class="pain-pill" data-pain>
-        <div class="pain-pill-icon"><svg viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></div>
-        <span class="pain-pill-title">Stains Easily</span>
-        <span class="pain-pill-sub">Oil and rust soak in and never come back out.</span>
+        <span class="pain-pill-title">DIY Kits Peel</span>
+        <span class="pain-pill-sub">Store-bought epoxy lifts under hot tires within a year.</span>
       </div>
       <div class="pain-pill" data-pain>
         <div class="pain-pill-icon"><svg viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <span class="pain-pill-title">Poor First Impression</span>
-        <span class="pain-pill-sub">The first thing guests and buyers notice.</span>
+        <span class="pain-pill-title">First Impressions</span>
+        <span class="pain-pill-sub">It's the first thing guests and buyers notice.</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TRANSFORM YOUR SPACE -->
-<section class="coat-section" id="coatings">
-  <div class="coat-section-inner">
-    <div class="coat-section-head rv">
-      <span class="sec-eyebrow" style="justify-content:center;color:rgba(12,12,12,.45)">Floors That Exceed Your Demands</span>
-      <h2 class="coat-section-h">Our Performance Coatings</h2>
+<!-- ═══ 3. SPACES WE TRANSFORM ═══ -->
+<section class="section bg-white">
+  <div class="section-inner">
+    <div class="gf-head rv">
+      <span class="sec-eyebrow" style="justify-content:center;">Spaces We Transform</span>
+      <h2 class="sec-h2">Not Just The Garage.</h2>
+      <p class="gf-lead">Freshen up every concrete surface around your home with one system.</p>
     </div>
-    <div class="space-grid" id="space-grid">
-      <a class="space-card rv garage-thumb" href="services/garage-floors.html">
-        <img src="images/Libertyville-Hero-thumb.jpg" alt="Coated garage floor"/>
-        <div class="space-card-body">
-          <div class="space-card-title">Garage Floors</div>
-          <div class="space-card-link">Explore <svg width="11" height="11" viewBox="0 0 13 13" style="display:inline-block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></div>
-        </div>
-      </a>
-      <a class="space-card rv d1" href="services/industrial.html">
-        <img src="images/industrial_hero.jpg" alt="Coated industrial warehouse floor"/>
-        <div class="space-card-body">
-          <div class="space-card-title">Industrial Coatings</div>
-          <div class="space-card-link">Explore <svg width="11" height="11" viewBox="0 0 13 13" style="display:inline-block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></div>
-        </div>
-      </a>
-      <a class="space-card rv d2" href="services/concrete-polishing.html">
-        <img src="images/polish-hero.jpg" alt="Polished concrete floor"/>
-        <div class="space-card-body">
-          <div class="space-card-title">Concrete Polishing</div>
-          <div class="space-card-link">Explore <svg width="11" height="11" viewBox="0 0 13 13" style="display:inline-block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg></div>
-        </div>
-      </a>
+    <div class="gf-where-grid rv d1">
+      <div class="gf-where-card"><img src="images/projects/residential/garage-black-white-flake.jpg" alt="Flake-coated residential garage floor" loading="lazy"/><span class="gf-where-title">Garages</span></div>
+      <div class="gf-where-card"><img src="images/projects/residential/driveway-flake.avif" alt="Flake-coated driveway" loading="lazy"/><span class="gf-where-title">Driveways</span></div>
+      <div class="gf-where-card"><img src="images/projects/residential/pool-deck-patio-coating.avif" alt="Coated pool deck and patio" loading="lazy"/><span class="gf-where-title">Patios &amp; Pool Decks</span></div>
+      <div class="gf-where-card"><img src="images/projects/residential/exterior-stairway-coating.jpg" alt="Coated exterior walkway and stairs" loading="lazy"/><span class="gf-where-title">Walkways &amp; Stairs</span></div>
     </div>
   </div>
 </section>
 
-<!-- THE AGX PRECISION SYSTEM -->
-<section class="why-section" id="process">
+<!-- ═══ 4. THE AGX PRECISION SYSTEM (shared with homepage) ═══ -->
+<section class="why-section" id="process" style="background-image:url('images/projects/residential/garage-flake-wide.avif')">
   <div class="why-inner">
-
     <div class="why-header rv">
-      <span class="why-eyebrow">Two Generations, One Standard</span>
-      <h2 class="why-h">Why Choose Aggrepoxy</h2>
-    </div>
-    <div class="pillar-grid" id="pillar-grid">
-      <div class="pillar-card" data-pillar>
-        <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M4 9l4-6h8l4 6-8 11-8-11z"/><path d="M4 9h16M9 3l3 6 3-6"/></svg></div>
-        <span class="pillar-tag">our team</span>
-        <span class="pillar-title">Experience</span>
-        <p class="pillar-body">Our experience spans 3 generations and 50+ combined years in the trades. Our fully vetted W-2 team delivers elite craftsmanship backed by 250+ five-star reviews.</p>
-      </div>
-      <div class="pillar-card" data-pillar>
-        <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 3l9 4-9 4-9-4 9-4z"/><path d="M3 12l9 4 9-4"/><path d="M3 17l9 4 9-4"/></svg></div>
-        <span class="pillar-tag">surface prep</span>
-        <span class="pillar-title">Tools &amp; Equipment</span>
-        <p class="pillar-body">Our team arrives in a professional, branded fleet vehicle outfitted with state-of-the-art grinders and HEPA-filter vacuums, backed by a proven 5-star installation process.</p>
-      </div>
-      <div class="pillar-card" data-pillar>
-        <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M3 4h18l-7 9v6l-4 2v-8L3 4z"/></svg></div>
-        <span class="pillar-tag">Our coatings</span>
-        <span class="pillar-title">Formulations</span>
-        <p class="pillar-body">Our high-solids resins are engineered for performance and built to withstand the harshest environments including Minnesota's extreme freeze–thaw climate.</p>
-      </div>
-      <div class="pillar-card" data-pillar>
-        <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <span class="pillar-tag">our warranty</span>
-        <span class="pillar-title">Peace of mind</span>
-        <p class="pillar-body">We back every install with confidence by offering a 10-Year Warranty. If an issue ever stems from our product or workmanship, our team will step in and make it right.</p>
-      </div>
-    </div>
-
-    <div class="why-header why-header-left why-header-gap rv">
+      <span class="why-eyebrow">Three Layers, One Seamless Floor</span>
       <h2 class="why-h">The AGX Precision System</h2>
     </div>
     <div class="precision-grid rv d1">
@@ -298,13 +332,71 @@
         </div>
       </div>
       <div class="precision-visual" id="precision-visual">
-        <div class="precision-layer" data-layer="0"><img src="images/precision-system/Concrete-1.png" alt="Diamond-ground concrete surface profile" loading="lazy"/></div>
-        <div class="precision-layer" data-layer="1"><img src="images/precision-system/Basecoat.png" alt="High-solids basecoat layer" loading="lazy"/></div>
-        <div class="precision-layer" data-layer="2"><img src="images/precision-system/Flakes.png" alt="Full flake broadcast layer" loading="lazy"/></div>
-        <div class="precision-layer" data-layer="3"><img src="images/precision-system/Polyaspartic.png" alt="Polyaspartic top-coat layer" loading="lazy"/></div>
+        <div class="precision-layer" data-layer="0"><img src="images/precision-system/layer-1-concrete.webp" alt="Diamond-ground concrete surface profile" loading="lazy"/></div>
+        <div class="precision-layer" data-layer="1"><img src="images/precision-system/layer-2-basecoat.webp" alt="High-solids basecoat layer" loading="lazy"/></div>
+        <div class="precision-layer" data-layer="2"><img src="images/precision-system/layer-3-flake.webp" alt="Full flake broadcast layer" loading="lazy"/></div>
+        <div class="precision-layer" data-layer="3"><img src="images/precision-system/layer-4-polyaspartic.webp" alt="Polyaspartic top-coat layer" loading="lazy"/></div>
       </div>
     </div>
+    <div class="ind-scn-grid la-who-grid rv d2">
+      <div class="ind-scn">
+        <svg class="ind-scn-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8"/><path d="M12 15v6"/><path d="M5 3h14l-2 7a5 5 0 0 1-10 0L5 3z"/></svg>
+        <span class="ind-scn-title">Entertainers</span>
+        <p>A clean, finished space that's ready when guests show up.</p>
+      </div>
+      <div class="ind-scn">
+        <svg class="ind-scn-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16h14"/><path d="M3 16v-3l2-5h14l2 5v3"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+        <span class="ind-scn-title">Collectors</span>
+        <p>A showroom-worthy floor for your cars, toys, and man cave.</p>
+      </div>
+      <div class="ind-scn">
+        <svg class="ind-scn-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5"/><path d="M4 5h14v8H4"/><path d="M8 9h6"/></svg>
+        <span class="ind-scn-title">Selling Soon</span>
+        <p>Stand out to buyers with a clean, move-in-ready space.</p>
+      </div>
+      <div class="ind-scn">
+        <svg class="ind-scn-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+        <span class="ind-scn-title">New Builds</span>
+        <p>Protect new concrete and start fresh from day one.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ═══ INSTALL PROCESS (6 steps) ═══ -->
+<section class="section bg-white" id="install">
+  <div class="section-inner">
+    <div class="gf-head rv">
+      <span class="sec-eyebrow" style="justify-content:center;">Our Install Process</span>
+      <h2 class="sec-h2">Six Steps. One Day. Done Right.</h2>
+      <p class="gf-lead">No shortcuts, no mystery. Here's exactly how we build your floor.</p>
+    </div>
+    <div class="pr-grid rv d1">
+      <div class="pr-step">
+        <div class="pr-media"><img src="images/process/grind.jpg" alt="Diamond grinding the slab" loading="lazy" style="object-position:center 55%;"/></div>
+        <div class="pr-body"><span class="pr-num">01</span><span class="pr-title">Grind</span><p>We diamond-grind the slab to open the surface for a true mechanical bond.</p></div>
+      </div>
+      <div class="pr-step">
+        <div class="pr-media"><img src="images/process/repair.jpg" alt="Crack repair" loading="lazy" style="object-position:center;"/></div>
+        <div class="pr-body"><span class="pr-num">02</span><span class="pr-title">Repair</span><p>Cracks, chips, and pitting are filled and ground flush.</p></div>
+      </div>
+      <div class="pr-step">
+        <div class="pr-media"><img src="images/projects/residential/garage-basecoat-rolling.jpg" alt="Coat step" loading="lazy" style="object-position:center;"/></div>
+        <div class="pr-body"><span class="pr-num">03</span><span class="pr-title">Coat</span><p>A high-solids basecoat is rolled on and bonds tight to the concrete.</p></div>
+      </div>
+      <div class="pr-step">
+        <div class="pr-media"><img src="images/process/broadcast.jpg" alt="Broadcasting flake into the basecoat" loading="lazy" style="object-position:center 40%;"/></div>
+        <div class="pr-body"><span class="pr-num">04</span><span class="pr-title">Broadcast</span><p>Your chosen blend is distributed into the wet basecoat for full coverage.</p></div>
+      </div>
+      <div class="pr-step">
+        <div class="pr-media"><img src="images/process/scrape.jpg" alt="Scraping a flake floor" loading="lazy" style="object-position:center 60%;"/></div>
+        <div class="pr-body"><span class="pr-num">05</span><span class="pr-title">Clean</span><p>Flake floors are scraped smooth. Quartz floors are swept clean.</p></div>
+      </div>
+      <div class="pr-step">
+        <div class="pr-media"><img src="images/process/seal.jpg" alt="Rolling on the topcoat" loading="lazy" style="object-position:center 45%;"/></div>
+        <div class="pr-body"><span class="pr-num">06</span><span class="pr-title">Seal</span><p>A UV-stable polyaspartic topcoat locks it all in. <strong>No yellowing, no peeling.</strong></p></div>
+      </div>
+    </div>
     <a href="#contact" class="why-quote-banner rv">
       <span>Get A Free Quote For Your Next Project</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -312,110 +404,238 @@
   </div>
 </section>
 
-<!-- BEFORE / AFTER -->
+<!-- ═══ 5. CHOOSE YOUR FINISH ═══ -->
+<section class="section bg-white">
+  <div class="section-inner">
+    <div class="gf-head rv">
+      <span class="sec-eyebrow" style="justify-content:center;">Choose Your Finish</span>
+      <h2 class="sec-h2">Flake Or Quartz.</h2>
+    </div>
+    <div class="gf-finish-grid rv d1">
+      <div class="gf-finish-card">
+        <div class="gf-finish-img"><span class="gf-sticker">Popular</span><img src="images/heroes/flake-colors-hero.jpg" alt="Vinyl flake floor finish"/></div>
+        <div class="gf-finish-body">
+          <span class="gf-finish-title">Flake</span>
+          <div class="gf-finish-list">
+            <div class="svc-check-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Hides dirt, dust, and tire marks</div>
+            <div class="svc-check-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Masks cracks and slab imperfections</div>
+            <div class="svc-check-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Speckled, terrazzo-style look</div>
+            <div class="svc-check-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Wide range of color blends</div>
+          </div>
+          <div class="gf-finish-best"><span>Best for</span>Garages &middot; Driveways &middot; Workshops</div>
+          <a href="#contact" class="btn-solid gf-finish-btn">See Samples In Person</a>
+        </div>
+      </div>
+      <div class="gf-finish-card">
+        <div class="gf-finish-img"><img src="images/projects/residential/quartz-floor-finish.jpg" alt="Quartz floor finish"/></div>
+        <div class="gf-finish-body">
+          <span class="gf-finish-title">Quartz</span>
+          <div class="gf-finish-list">
+            <div class="svc-check-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Textured, slip-resistant surface</div>
+            <div class="svc-check-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Natural stone look</div>
+            <div class="svc-check-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Sure footing in wet areas</div>
+            <div class="svc-check-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Built for high traffic</div>
+          </div>
+          <div class="gf-finish-best"><span>Best for</span>Patios &middot; Pool Decks &middot; Stairs &middot; Walkways &middot; Garages</div>
+          <a href="#contact" class="btn-solid gf-finish-btn">See Samples In Person</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6. MID-PAGE CTA (cyan) ═══ -->
+<section class="gf-midcta">
+  <div class="gf-midcta-inner rv">
+    <div>
+      <h2 class="gf-midcta-h">Can't Decide? <span>We'll Bring Samples.</span></h2>
+      <p class="gf-midcta-sub">See flake and quartz in person on your own slab during your free estimate.</p>
+    </div>
+    <a href="#contact" class="btn-solid cyan">Get My Free Estimate</a>
+  </div>
+</section>
+
+<!-- ═══ 7b. RECENT WORK STRIP ═══ -->
+<section class="la-work" aria-label="Snapshots from our job sites">
+  <div class="la-work-head rv">
+    <div><span class="sec-eyebrow">Snapshots</span><h2 class="sec-h2">Straight From The Job Site.</h2></div>
+    <div class="la-work-nav">
+      <button type="button" class="la-work-btn" data-dir="-1" aria-label="Scroll left"><svg viewBox="0 0 14 14"><path d="M9 2L4.5 7 9 12"/></svg></button>
+      <button type="button" class="la-work-btn" data-dir="1" aria-label="Scroll right"><svg viewBox="0 0 14 14"><path d="M5 2l4.5 5L5 12"/></svg></button>
+    </div>
+  </div>
+  <div class="la-strip" id="la-strip" data-lenis-prevent tabindex="0" role="region" aria-label="Project photos, scroll horizontally">
+    <div class="la-strip-item"><img src="images/thumbs/garage-dark-flake-door-open.jpg" alt="Dark flake garage floor with door open" loading="lazy" decoding="async"/></div>
+    <div class="la-strip-item"><img style="object-position:center top;" src="images/thumbs/garage-diamond-grinding.jpg" alt="Diamond grinding a garage slab before coating" loading="lazy" decoding="async"/></div>
+    <div class="la-strip-item"><img src="images/thumbs/garage-charcoal-flake.jpg" alt="Charcoal flake garage floor" loading="lazy" decoding="async"/></div>
+    <div class="la-strip-item"><img style="object-position:center 38%;" src="images/thumbs/garage-entry-stairs.jpg" alt="Coated garage entry step and stairs" loading="lazy" decoding="async"/></div>
+    <div class="la-strip-item"><img src="images/thumbs/garage-basecoat-rolling.jpg" alt="Rolling out the basecoat on a garage floor" loading="lazy" decoding="async"/></div>
+    <div class="la-strip-item"><img src="images/thumbs/garage-flake-red-cabinets.jpg" alt="Flake garage floor with red cabinets" loading="lazy" decoding="async"/></div>
+    <div class="la-strip-item"><img src="images/thumbs/garage-light-gray-flake-patio-door.jpg" alt="Light gray flake garage floor" loading="lazy" decoding="async"/></div>
+    <div class="la-strip-item"><img src="images/thumbs/garage-flake-closeup.jpg" alt="Close-up of flake garage floor texture" loading="lazy" decoding="async"/></div>
+    <div class="la-strip-item"><img style="object-position:center 55%;" src="images/thumbs/garage-patio-transition.jpg" alt="Clean coating edge where the garage meets the patio" loading="lazy" decoding="async"/></div>
+    <div class="la-strip-item"><img src="images/thumbs/garage-flake-to-driveway.jpg" alt="Gray flake garage floor" loading="lazy" decoding="async"/></div>
+    <div class="la-strip-item"><img src="images/thumbs/covered-patio-coating.jpg" alt="Coated covered patio" loading="lazy" decoding="async"/></div>
+    <div class="la-strip-item"><img style="object-position:center 45%;" src="images/thumbs/exterior-stairway-coating.jpg" alt="Coated exterior stairway" loading="lazy" decoding="async"/></div>
+    <div class="la-strip-item"><img src="images/thumbs/garage-tan-brown-flake.jpg" alt="Tan and brown flake garage floor" loading="lazy" decoding="async"/></div>
+    <div class="la-strip-item"><img src="images/thumbs/two-car-garage-coating.jpg" alt="Wide view of a coated two-car garage" loading="lazy" decoding="async"/></div>
+    <div class="la-strip-item"><img style="object-position:center 40%;" src="images/thumbs/metal-shop-floor.jpg" alt="High-gloss flake floor in a metal shop building" loading="lazy" decoding="async"/></div>
+    <div class="la-strip-item"><img src="images/thumbs/front-porch-steps-coating.jpg" alt="Coated front porch and steps" loading="lazy" decoding="async"/></div>
+    <div class="la-strip-item"><img src="images/thumbs/garage-flake-cabinets.jpg" alt="Flake garage floor with cabinets" loading="lazy" decoding="async"/></div>
+    <div class="la-strip-item"><img style="object-position:center 50%;" src="images/thumbs/solid-color-coating-install.jpg" alt="Fresh solid-color coating going down" loading="lazy" decoding="async"/></div>
+    <div class="la-strip-item"><img src="images/thumbs/garage-gray-flake-corner.jpg" alt="Gray flake garage floor detail" loading="lazy" decoding="async"/></div>
+  </div>
+  <div class="pr-cta rv"><a href="#contact" class="btn-solid">Book My Free Estimate</a></div>
+</section>
+
+<!-- ═══ 8. CONCRETE TRANSFORMATIONS (full width, matches homepage) ═══ -->
 <section class="ba-section bg-white" id="work">
   <div class="section-inner">
     <div class="ba-head rv" style="text-align:center;">
       <span class="ba-eyebrow" style="justify-content:center;display:flex;">Concrete Transformations</span>
       <h2 class="ba-h2">See the difference.</h2>
     </div>
-    <div class="ba-grid rv d1" id="ba-grid"></div>
+    <div class="ba-grid rv d1" id="ba-grid-la"></div>
   </div>
 </section>
 
-<!-- STATS BAND -->
-<section class="stats-band">
-  <div class="stats-band-inner">
-    <div class="why-counters" id="why-counters">
-      <div class="why-counter"><div class="why-counter-num"><span class="count-num" data-target="1" data-suffix="M+">0</span></div><div class="why-counter-label">Sq Ft Installed</div></div>
-      <div class="why-counter"><div class="why-counter-num"><span class="count-num" data-target="500" data-suffix="+">0</span></div><div class="why-counter-label">Jobs Completed</div></div>
-      <div class="why-counter"><div class="why-counter-num"><span class="count-num" data-target="10" data-suffix="+">0</span></div><div class="why-counter-label">Years Experience</div></div>
-      <div class="why-counter"><div class="why-counter-num"><span class="count-num" data-target="10" data-suffix="">0</span></div><div class="why-counter-label">Year Warranty</div></div>
+<!-- ═══ 9. FAMILY / TRUST ═══ -->
+<section class="section bg-white">
+  <div class="la-fam">
+    <div class="la-polaroid rv">
+      <img src="images/heroes/about-hero.jpg" alt="Polaroid of Jim and Jordan in front of their first Aggrepoxy trailer wrap, 2016" loading="lazy"/>
+    </div>
+    <div class="la-fam-body rv d1">
+      <span class="sec-eyebrow">Family-Owned Since 2016</span>
+      <h2 class="sec-h2" style="color:#0C0C0C;font-size:clamp(36px,4.4vw,64px);line-height:.95;margin-bottom:20px;">From Our Family<br/>To Your Home.</h2>
+      <p>Aggrepoxy is a <strong>two-generation family business</strong>. Jim started it in Chicago, and Jordan now brings the same process to homeowners across Los Angeles and Orange County.</p>
+      <div class="gf-finish-list"><div class="svc-check-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>10-year limited warranty</div><div class="svc-check-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Financing available</div><div class="svc-check-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Honest, written proposals</div></div>
+      <a href="#contact" class="btn-solid">Get My Free Estimate</a>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIAL -->
-<div class="testi-section grain grain-d" id="testimonials">
-  <div class="testi-photo" style="background-image:url('images/hero-bg.jpg')"></div>
-  <div class="testi-veil"></div>
-  <div class="testi-card" id="testi-card">
-    <span class="testi-mark">&#8220;</span>
-    <p class="testi-headline" id="testi-headline"></p>
-    <p class="testi-body" id="testi-body"></p>
-    <p class="testi-author" id="testi-author"></p>
-    <div class="testi-nav">
-      <div class="testi-dots" id="testi-dots"></div>
-      <button class="testi-btn" id="testi-prev" aria-label="Previous"><svg viewBox="0 0 14 14"><path d="M9 2L4.5 7 9 12"/></svg></button>
-      <button class="testi-btn" id="testi-next" aria-label="Next"><svg viewBox="0 0 14 14"><path d="M5 2l4.5 5L5 12"/></svg></button>
+<!-- ═══ 10. FAQ ═══ -->
+<section class="section bg-off gf-faq">
+  <div class="section-inner narrow">
+    <div class="gf-head rv"><span class="sec-eyebrow" style="justify-content:center;">Before You Book</span><h2 class="sec-h2">Common Questions</h2></div>
+    <div class="faq-list rv d1">
+      <div class="faq-item"><button type="button" class="faq-q"><span>Do you offer free estimates?</span><span class="faq-q-icon"></span></button><div class="faq-a"><div class="faq-a-inner">Damn right we do! Every project starts with a free, on-site estimate from an experienced estimator, so you know exactly what your project will cost before moving forward. Most estimates take 20 minutes, including measuring the space, reviewing colors, and walking through the install process.</div></div></div>
+      <div class="faq-item"><button type="button" class="faq-q"><span>How long does the floor take to cure after install?</span><span class="faq-q-icon"></span></button><div class="faq-a"><div class="faq-a-inner">Most floors are ready for light foot traffic in about 24 hours and full vehicle traffic in 48 hours. Cure times can vary slightly depending on temperature and humidity. We'll give you a care guide after install to make sure your investment is protected.</div></div></div>
+      <div class="faq-item"><button type="button" class="faq-q"><span>Do you warranty against chipping and peeling?</span><span class="faq-q-icon"></span></button><div class="faq-a"><div class="faq-a-inner">Yes. Every floor is backed by our 10-year limited warranty, and you'll get the full written warranty with your proposal. Our coatings are engineered to flex with temperature changes, helping them resist chipping and peeling.</div></div></div>
+      <div class="faq-item"><button type="button" class="faq-q"><span>Will hot tires lift the coating?</span><span class="faq-q-icon"></span></button><div class="faq-a"><div class="faq-a-inner">No. Our topcoat is engineered to resist hot tire pickup, the peeling you often see with DIY epoxy kits.</div></div></div>
+      <div class="faq-item"><button type="button" class="faq-q"><span>Is the floor slippery when wet?</span><span class="faq-q-icon"></span></button><div class="faq-a"><div class="faq-a-inner">We add texture and full flake to improve traction, making the floor safer than bare concrete, even when wet.</div></div></div>
+      <div class="faq-item"><button type="button" class="faq-q"><span>Will it fade or yellow in the sun?</span><span class="faq-q-icon"></span></button><div class="faq-a"><div class="faq-a-inner">No. The topcoat is UV stable, so it won't yellow or fade, even on patios, driveways, and garages with the door open all day.</div></div></div>
+      <div class="faq-item"><button type="button" class="faq-q"><span>Can you remove a failing coating or tile?</span><span class="faq-q-icon"></span></button><div class="faq-a"><div class="faq-a-inner">Yes. We see this a lot: homeowners with peeling coatings from a DIY installation. We'll remove the old coating or tile so your new floor gets a long-lasting bond to the concrete slab.</div></div></div>
+      <div class="faq-item"><button type="button" class="faq-q"><span>Do you offer financing?</span><span class="faq-q-icon"></span></button><div class="faq-a"><div class="faq-a-inner">Yes. Financing is available on our estimate through Acorn Finance, making it easy to get approved quickly.</div></div></div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- CTA -->
-<section class="cta-section grain" id="contact">
+<!-- ═══ SERVICE AREA ═══ -->
+<section class="sa2 lp-area">
+  <div class="sa2-photo" role="img" aria-label="Aggrepoxy truck and wrapped trailer in Southern California"></div>
+  <div class="sa2-body rv">
+    <span class="sa2-eyebrow">Service Area</span>
+    <h2>Proudly Coating<br/>LA &amp; Orange County.</h2>
+    <p>Our crew comes to you, samples in tow.</p>
+    <div class="sa2-locs">
+      <div class="sa2-loc"><svg class="sa2-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><div class="sa2-loc-name">Orange County</div><div class="sa2-loc-sub">Fullerton to San Clemente</div></div></div>
+      <div class="sa2-loc"><svg class="sa2-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><div class="sa2-loc-name">Los Angeles County</div><div class="sa2-loc-sub">Pasadena to Long Beach</div></div></div>
+    </div>
+    <p class="sa2-note">Don't see your city? <a href="#contact">Ask us</a>, we likely cover it.</p>
+  </div>
+</section>
+
+<!-- ═══ 12. CTA + ESTIMATE FORM (matches homepage) ═══ -->
+<section class="cta-section grain gf-cta ind-cta-white" id="contact">
   <div class="cta-split-grid">
     <div class="cta-split-left rv">
-      <h2 class="cta-h">Ready to Transform Your Floor?</h2>
-      <p class="cta-sub-under">Schedule a free on-site walkthrough. We'll assess your space, answer your questions, and give you an honest quote. No pressure.</p>
-      <div class="cta-bullets left">
-        <div class="cta-bullet-item"><div class="cta-bullet-dot"></div>Free Walkthrough</div>
-        <div class="cta-bullet-item"><div class="cta-bullet-dot"></div>No Obligation</div>
-        <div class="cta-bullet-item"><div class="cta-bullet-dot"></div>Quick Response</div>
-      </div>
-      <p class="cta-split-phone">Prefer to talk it through? Call <a href="tel:2139715868" data-geo-phone><span data-geo-phone-text>(213) 971-5868</span></a>.</p>
+      <h2 class="cta-h">Ready For A Floor You'll Love?</h2>
+      <p class="cta-sub-under">Book a free on-site estimate. We'll measure your space, show you samples, and send you a written proposal. No pressure.</p>
+      <ol class="lp-steps">
+        <li><span>1</span><div><strong>Free 20-minute estimate.</strong> We measure, check your slab, and bring samples.</div></li>
+        <li><span>2</span><div><strong>Written proposal within hours.</strong> Clear pricing, no pressure.</div></li>
+        <li><span>3</span><div><strong>Installed in 1 day.</strong> Walk on it in 24 hours, park on it in 48, backed by a 10-year limited warranty.</div></li>
+      </ol>
+      <p class="cta-split-phone">Prefer to talk it through? Call <a href="tel:2139715868">(213) 971-5868</a>.</p>
     </div>
     <div class="hero-card rv d1" id="cta-quote-panel">
       <div class="hc-title">Get Your Free Estimate</div>
       <p class="hc-sub">Fast Response. No Obligation.</p>
       <form id="cta-quote-form" novalidate>
-        <div class="hc-row">
-          <div class="hc-field"><input type="text" id="cqf-name" placeholder="Name" autocomplete="name" required/></div>
-          <div class="hc-field"><input type="tel" id="cqf-phone" placeholder="Phone Number" autocomplete="tel" required/></div>
-        </div>
-        <div class="hc-row" style="margin-top:12px;">
-          <div class="hc-field"><input type="text" id="cqf-address" placeholder="Address" autocomplete="street-address"/></div>
-          <div class="hc-field"><input type="email" id="cqf-email" placeholder="Email Address" autocomplete="email" required/></div>
-        </div>
-        <div class="hc-field" style="margin-top:12px;"><textarea id="cqf-details" placeholder="Project Details"></textarea></div>
-        <div class="hc-field hc-file" style="margin-top:12px;"><label class="hc-file-label" for="cqf-photos"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg><span>Upload Photos or Plans <em>(optional)</em></span></label><input type="file" id="cqf-photos" class="hc-file-input" multiple accept="image/*,.pdf,.heic,.heif"/><span class="hc-file-name" id="cqf-photos-name">No files selected</span></div>
-        <div class="hc-field" style="margin-top:12px;">
-          <select id="cqf-source">
-            <option value="">How Did You Hear About Us?</option>
-            <option>Google Search</option><option>Referral</option><option>Instagram / Facebook</option><option>Yard Sign / Door Hanger</option><option>Other</option>
-          </select>
-        </div>
-        <label class="hc-check" style="margin-top:14px;"><input type="checkbox" id="cqf-agree" required/><span>By submitting this form, you agree to Aggrepoxy's <a href="#">Privacy Policy</a> and <a href="#">Terms &amp; Conditions</a>.</span></label>
+          <div class="hc-row">
+            <div class="hc-field"><input aria-label="Name" type="text" id="cqf-name" placeholder="Name *" autocomplete="name" required/></div>
+            <div class="hc-field"><input aria-label="Phone Number" type="tel" id="cqf-phone" placeholder="Phone Number *" autocomplete="tel" required/></div>
+          </div>
+          <div class="hc-row" style="margin-top:12px;">
+            <div class="hc-field"><input aria-label="Email Address" type="email" id="cqf-email" placeholder="Email Address *" autocomplete="email" required/></div>
+            <div class="hc-field"><input aria-label="ZIP Code" type="text" id="cqf-zip" placeholder="ZIP Code *" autocomplete="postal-code" inputmode="numeric" maxlength="5" required/></div>
+          </div>
+          <div class="hc-field" style="margin-top:12px;"><textarea aria-label="What would you like coated? (garage, driveway, patio...)" id="cqf-details" placeholder="What would you like coated? (garage, driveway, patio...)"></textarea></div>
+          <label class="hc-check" style="margin-top:14px;"><input type="checkbox" id="cqf-agree" required/><span>By submitting this form, you agree to Aggrepoxy's <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and <a href="terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>.</span></label>
         <button type="submit" class="hc-submit" style="margin-top:6px;">Get Free Estimate</button>
       </form>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-top">
-    <div class="footer-brand">
-      <a href="index.html" aria-label="Aggrepoxy" style="display:block;line-height:0;"><img src="images/aggrepoxy-logo.svg" alt="Aggrepoxy"/></a>
-      <div class="footer-social"><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a></div>
-    </div>
-    <div class="footer-col"><div class="footer-col-head">Services</div>
-      <a href="services/garage-floors.html">Garage Floors</a>
-      <a href="services/industrial.html">Industrial Coatings</a>
-      <a href="services/concrete-polishing.html">Concrete Polishing</a>
-    </div>
-    <div class="footer-col"><div class="footer-col-head">Locations</div><a href="la.html" class="current">Los Angeles</a><a href="chi.html">Chicago</a></div>
-    <div class="footer-col"><div class="footer-col-head">Company</div><a href="faq.html">FAQ</a><a href="colors.html">Colors</a><a href="about.html">About</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
+<!-- FOOTER (landing page) -->
+</main>
+
+<footer class="footer lp-footer">
+  <div class="lp-footer-inner" style="justify-content:center;">
+    <div style="line-height:0;"><img src="images/brand/aggrepoxy-logo.svg" alt="Aggrepoxy"/></div>
   </div>
-  <div class="footer-base">
+  <div class="footer-base" style="justify-content:center;text-align:center;">
     <span class="footer-copy">Aggrepoxy Floor Coatings Copyright 2026. All rights reserved.</span>
+    <span class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="accessibility.html">Accessibility</a></span>
   </div>
 </footer>
+
+<!-- Sticky mobile action bar -->
+<div class="lp-sticky" id="lp-sticky" role="region" aria-label="Quick contact">
+  <a href="tel:2139715868" class="lp-sticky-call"><svg viewBox="0 0 24 24" width="14" height="14" style="display:block;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call / Text</a>
+  <a href="#contact" class="lp-sticky-cta">Free Estimate</a>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/core.js"></script>
-<script src="js/home.js"></script>
+<script src="js/inner.js"></script>
+<script>
+['svc','cta'].forEach(function(k){
+  var p=k==='svc'?'sf':'cqf';
+  window.AGX.wireForm({
+    formId:k+'-quote-form',requiredIds:[p+'-name',p+'-phone',p+'-email',p+'-zip'],agreeId:p+'-agree',
+    successContainerId:k==='svc'?'svc-quote-form':'cta-quote-panel',
+    subject:'New estimate request: LA Residential ('+(k==='svc'?'Hero':'CTA')+' form)',
+    fields:[{id:p+'-name',label:'Name'},{id:p+'-phone',label:'Phone'},{id:p+'-email',label:'Email'},{id:p+'-zip',label:'ZIP code'},{id:p+'-details',label:'Project details'}],
+    submitSelector:'.hc-submit'
+  });
+});
+if(window.AGX&&window.AGX.renderBeforeAfter){
+  window.AGX.renderBeforeAfter('ba-grid-la',[
+    {tag:'Flake',loc:'Santa Ana · Large Garage',before:'images/before-after/garage-prosper-before.jpg',after:'images/before-after/garage-prosper-after.jpg'},
+    {tag:'Flake',loc:'Tustin · Refinished Driveway',before:'images/before-after/driveway-1.jpg',after:'images/before-after/driveway-2.jpg'},
+    {tag:'Flake',loc:'Irvine · Small Garage',before:'images/before-after/garage-before.jpg',after:'images/before-after/garage-after.jpg'},
+    {tag:'Flake',loc:'Altadena · Small Garage',before:'images/before-after/spalled-concrete-before.jpg',after:'images/before-after/spalled-concrete-after.jpg'}
+  ]);
+}
+(function(){var st=document.getElementById('la-strip');if(!st)return;
+  document.querySelectorAll('.la-work-btn').forEach(function(b){b.addEventListener('click',function(){
+    var item=st.querySelector('.la-strip-item');var w=item?item.getBoundingClientRect().width+12:300;
+    st.scrollBy({left:w*parseInt(b.dataset.dir,10),behavior:'smooth'});});});})();
+/* Pain section: parallax the concrete background */
+(function(){var bg=document.getElementById('pain-bg');if(!bg||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  if(window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);gsap.to(bg,{yPercent:22,ease:'none',scrollTrigger:{trigger:'.pain-section',start:'top bottom',end:'bottom top',scrub:true}});return;}
+  var sec=bg.parentNode,tick=false;function upd(){tick=false;var r=sec.getBoundingClientRect(),vh=window.innerHeight;var t=(vh-r.top)/(vh+r.height);t=Math.max(0,Math.min(1,t));bg.style.transform='translateY('+(t*22-11)+'%)';}
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});upd();})();
+/* Hide sticky mobile bar while a form is on screen */
+(function(){var bar=document.getElementById('lp-sticky');if(!bar||!window.IntersectionObserver)return;
+  var vis=new Set();var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)vis.add(e.target);else vis.delete(e.target);});bar.classList.toggle('hide',vis.size>0);},{threshold:.15});
+  ['svc-form','cta-quote-panel'].forEach(function(id){var el=document.getElementById(id);if(el)o.observe(el);});})();
+</script>
 </body>
 </html>

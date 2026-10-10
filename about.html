@@ -1,21 +1,111 @@
 <!doctype html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CG2LTVT35F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CG2LTVT35F');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yvr9kfo5jo");
+</script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<link rel="icon" type="image/svg+xml" href="images/favicon.svg"/>
+<link rel="icon" type="image/svg+xml" href="images/brand/favicon.svg"/>
 <title>About Aggrepoxy: Two Generations of Coating Craftsmanship</title>
-<meta name="description" content="Aggrepoxy started in Chicago and now brings that same precision to Los Angeles, Orange County, and the Inland Empire. Meet the owner behind the work."/>
+<meta name="description" content="Aggrepoxy is a family-owned floor coating company serving Chicagoland and Southern California since 2016. Two generations, 1M+ sq ft coated, one standard."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="css/main.css"/>
 <link rel="stylesheet" href="css/inner.css"/>
+<style>
+/* About page only (layout modeled on a split-story structure) */
+.ab-hero{min-height:44vh;display:flex;align-items:center;}
+.ab-hero .inner-hero-bg{filter:contrast(1.05) saturate(.7);transform:scaleX(-1);}
+.ab-hero .inner-hero-veil{background:linear-gradient(0deg,rgba(12,12,12,.9) 0%,rgba(12,12,12,.55) 50%,rgba(12,12,12,.45) 100%);}
+.ab-hero .inner-hero-sub{color:rgba(255,255,255,.75);}
+@media(min-width:641px){.ab-hero .inner-hero-bg{background-position:center 30%;}}
+
+.ab-eyebrow{font-family:var(--font-sub);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#007A70;display:block;margin-bottom:14px;}
+.ab-began{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px);align-items:center;}
+.ab-began p{font-size:17px;line-height:1.75;color:rgba(12,12,12,.68);margin-bottom:18px;max-width:56ch;}
+.ab-polaroid{max-width:480px;margin:0 auto;}
+.ab-polaroid img{display:block;width:100%;height:auto;transform:rotate(0deg);transition:transform 1s cubic-bezier(.34,1.56,.64,1) .55s;}
+.ab-polaroid.on img{transform:rotate(3deg);}
+@media(prefers-reduced-motion:reduce){.ab-polaroid img{transform:rotate(3deg);transition:none;}}
+
+.ab-promise{position:relative;padding:clamp(100px,14vw,180px) var(--pad);text-align:center;overflow:hidden;}
+.ab-promise-bg{position:absolute;left:-24px;right:-24px;top:-18%;bottom:-18%;background-size:cover;background-position:center;filter:blur(4px) saturate(.6) contrast(1.05);will-change:transform;}
+.ab-promise-veil{position:absolute;inset:0;background:rgba(12,12,12,.72);}
+.ab-promise-inner{position:relative;z-index:2;max-width:1000px;margin:0 auto;}
+.ab-promise-eyebrow{font-family:var(--font-display);font-weight:var(--display-weight);font-size:clamp(28px,3vw,40px);text-transform:uppercase;color:var(--cyan);letter-spacing:.02em;margin-bottom:18px;}
+.ab-promise-text{font-family:var(--font-display);font-weight:var(--display-weight);font-size:clamp(34px,4.6vw,64px);line-height:1.04;text-transform:uppercase;color:#fff;}
+.ab-work{background:#f4f3ef;padding:var(--sec-pad) var(--pad);}
+.ab-work-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(40px,5vw,72px);align-items:center;}
+.ab-work-body > p{font-size:19px;line-height:1.7;color:rgba(12,12,12,.68);max-width:none;}
+.ab-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px;padding-top:32px;border-top:1px solid rgba(12,12,12,.12);}
+.ab-video{max-width:460px;width:100%;margin:0 0 0 auto;aspect-ratio:9/16;overflow:hidden;background:#0C0C0C;}
+.ab-video video{display:block;width:100%;height:100%;object-fit:cover;}
+.ab-stat-num{font-family:var(--font-display);font-weight:var(--display-weight);font-size:clamp(48px,6vw,96px);line-height:1;color:#0C0C0C;}
+.ab-stat-label{font-family:var(--font-sub);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(12,12,12,.68);margin-top:10px;}
+
+.ab-family{display:grid;grid-template-columns:1fr 1fr;background:#131417;}
+.ab-family-photo{min-height:560px;background-size:cover;background-position:center;}
+.ab-family-body{padding:clamp(56px,7vw,110px) clamp(24px,6vw,96px);display:flex;flex-direction:column;justify-content:center;}
+.ab-family-body h2{font-family:var(--font-display);font-weight:var(--display-weight);font-size:clamp(40px,4.6vw,68px);line-height:.98;text-transform:uppercase;color:#fff;margin-bottom:22px;}
+.ab-family-body > p{font-size:17px;line-height:1.75;color:rgba(255,255,255,.7);max-width:52ch;}
+.ab-locs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px;max-width:600px;}
+.ab-loc{border:1px solid rgba(255,255,255,.14);padding:20px 22px;display:flex;align-items:center;gap:16px;transition:border-color .2s;}
+.ab-loc:hover{border-color:var(--cyan);}
+.ab-loc-map{width:64px;height:64px;flex-shrink:0;overflow:visible;}
+.ab-loc-map path{fill:rgba(22,240,228,.1);stroke:var(--cyan);stroke-width:1.6;vector-effect:non-scaling-stroke;stroke-linejoin:round;}
+.ab-loc-map circle{fill:#fff;}
+.ab-loc-city{font-family:var(--font-display);font-weight:var(--display-weight);font-size:30px;text-transform:uppercase;color:var(--cyan);line-height:1;}
+.ab-loc-who{font-family:var(--font-sub);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-top:8px;}
+
+.ab-cta{display:block;background:var(--cyan);color:#0C0C0C;text-align:center;padding:clamp(40px,5vw,64px) var(--pad);transition:background .2s;}
+.ab-cta:hover{background:#fff;}
+.ab-cta span{font-family:var(--font-display);font-weight:var(--display-weight);font-size:clamp(28px,3.4vw,48px);text-transform:uppercase;line-height:1;display:inline-flex;align-items:center;gap:18px;}
+.ab-cta svg{width:.9em;height:.9em;stroke:currentColor;fill:none;stroke-width:2.4;transition:transform .2s;}
+.ab-cta:hover svg{transform:translateX(6px);}
+
+@media(max-width:900px){
+  .ab-began,.ab-family,.ab-work-inner{grid-template-columns:1fr;}
+  .ab-video{max-width:340px;margin:0 auto;}
+  .ab-polaroid{max-width:380px;}
+  .ab-family-photo{min-height:340px;}
+}
+@media(max-width:600px){
+  .ab-stats{gap:12px;}
+  .ab-stat-num{font-size:40px;}
+  .ab-stat-label{font-size:10px;letter-spacing:.08em;}
+  .ab-locs{grid-template-columns:1fr;}
+}
+</style>
+<link rel="canonical" href="https://aggrepoxy.com/about.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Aggrepoxy Floor Coatings"/>
+<meta property="og:title" content="About Aggrepoxy: Two Generations of Coating Craftsmanship"/>
+<meta property="og:description" content="Aggrepoxy is a family-owned floor coating company serving Chicagoland and Southern California since 2016. Two generations, 1M+ sq ft coated, one standard."/>
+<meta property="og:url" content="https://aggrepoxy.com/about.html"/>
+<meta property="og:image" content="https://aggrepoxy.com/images/heroes/about-hero.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="nav solid" id="nav">
-  <a href="index.html" class="nav-logo" aria-label="Aggrepoxy"><img src="images/aggrepoxy-logo.svg" alt="Aggrepoxy"/></a>
+  <a href="index.html" class="nav-logo" aria-label="Aggrepoxy"><img src="images/brand/aggrepoxy-logo.svg" alt="Aggrepoxy"/></a>
   <nav class="nav-links" id="nav-links">
     <a href="index.html">Home</a>
     <div class="nav-drop">
@@ -26,11 +116,10 @@
         <a href="services/concrete-polishing.html">Concrete Polishing</a>
       </div>
     </div>
-    <a href="gallery.html">Gallery</a>
     <div class="nav-drop">
       <span class="nav-drop-trigger" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Locations <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></span>
       <div class="nav-drop-panel">
-        <a href="la.html">Los Angeles</a>
+        <a href="los-angeles.html">Los Angeles &amp; OC</a>
         <a href="chi.html">Chicago</a>
       </div>
     </div>
@@ -38,115 +127,113 @@
     <a href="contact.html">Contact</a>
   </nav>
   <div class="nav-cta-group">
-  <a href="tel:2139715868" class="nav-phone" data-geo-phone aria-label="Call Aggrepoxy"><svg viewBox="0 0 24 24" width="14" height="14" style="display:block;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-geo-phone-text>(213) 971-5868</span></a>
+  <a href="tel:2139715868" class="nav-phone" data-geo-phone><svg viewBox="0 0 24 24" width="14" height="14" style="display:block;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-geo-phone-text>(213) 971-5868</span></a>
   <a href="contact.html" class="nav-cta">Get a Free Estimate</a>
-  <button type="button" class="nav-burger" id="nav-burger" aria-label="Open menu"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  <button type="button" class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
   </div>
 </header>
-<div class="nav-mobile" id="nav-mobile">
+<nav class="nav-mobile" id="nav-mobile" aria-label="Mobile menu">
   <a href="index.html">Home</a>
   <div class="nav-mobile-services">
     <a href="services/garage-floors.html">Garage Floors</a>
     <a href="services/industrial.html">Industrial Coatings</a>
     <a href="services/concrete-polishing.html">Concrete Polishing</a>
   </div>
-  <a href="gallery.html">Gallery</a>
   <div class="nav-mobile-services">
-    <a href="la.html">Los Angeles</a>
+    <a href="los-angeles.html">Los Angeles &amp; OC</a>
     <a href="chi.html">Chicago</a>
   </div>
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
   <a href="tel:2139715868" class="nav-mobile-phone" data-geo-phone><svg viewBox="0 0 24 24" width="15" height="15" style="display:block;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-geo-phone-text>(213) 971-5868</span></a>
   <a href="contact.html" class="nav-mobile-cta">Get a Free Estimate</a>
-</div>
+</nav>
+<main id="main" tabindex="-1">
 
-<section class="inner-hero grain grain-d" style="min-height:44vh;">
-  <div class="inner-hero-bg" style="background-image:url('images/cracked-concrete.webp')"></div>
+<section class="inner-hero ab-hero grain grain-d">
+  <div class="inner-hero-bg" style="background-image:url('images/projects/commercial/commercial-polished-concrete.jpg')"></div>
   <div class="inner-hero-veil"></div>
   <div class="inner-hero-inner">
     <div class="inner-hero-crumb"><a href="index.html">Home</a><span>/</span><span>About</span></div>
-    <h1 class="inner-hero-h1">Two Generations. One Standard.</h1>
-    <p class="inner-hero-sub">Aggrepoxy didn't start in California. It started in Chicago, where the winters don't forgive a shortcut, and neither do we.</p>
+    <h1 class="inner-hero-h1">Two Generations.<br/>One Standard.</h1>
+    <p class="inner-hero-sub">A family-owned floor coating company serving Chicagoland and Southern California.</p>
   </div>
 </section>
 
-<!-- WHERE IT STARTED -->
+<!-- WHERE IT ALL BEGAN -->
 <section class="section bg-white">
   <div class="section-inner">
-    <div class="about-start rv">
-      <h2 class="sec-h2" style="color:#0C0C0C;">Where It Started</h2>
-      <p>My dad started this business in Chicago, where freeze-thaw winters put more stress on a concrete slab in one season than most floors see in a decade out here. I grew up on his job sites, learning the trade from the ground up: how to prep a slab, mix a batch, and spot a shortcut before it became someone else's problem down the road.</p>
-      <p>That's the standard I brought west when I built Aggrepoxy here in Southern California. The climate changed. The standard didn't.</p>
-    </div>
-  </div>
-</section>
-
-<!-- OUR MISSION (renamed) -->
-<section class="section bg-dark">
-  <div class="section-inner">
-    <div class="about-mission rv">
-      <span class="sec-eyebrow" style="justify-content:center;margin:0 auto 16px;width:fit-content;">Our Promise</span>
-      <p class="about-mission-text">California floors get more sun, more foot traffic, and more scrutiny than anywhere else. <span class="hl-cyan">Our job is to build one that holds up to all three.</span></p>
-    </div>
-  </div>
-</section>
-
-<!-- JORDAN MIZRAHI - OWNER -->
-<section class="section bg-white">
-  <div class="section-inner">
-    <div class="about-split">
-      <div class="about-photo rv">
-        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=900&auto=format&fit=crop&q=80" alt="Jordan Mizrahi, Aggrepoxy owner"/>
+    <div class="ab-began">
+      <div class="rv">
+        <span class="ab-eyebrow">Our Story &middot; Since 2016</span>
+        <h2 class="sec-h2" style="color:#0C0C0C;font-size:clamp(36px,4.2vw,60px);margin-bottom:22px;">Chicago Winters.<br/>California Summers.</h2>
+        <p>Aggrepoxy started in Chicago, where Jim built a floor coating business on doing the job right. His grandson, Jordan, learned the trade working at his side. Together they've coated more than a million square feet, from car dealerships to food manufacturing plants and everything in between. Years later, Jordan would carry that same process west to California.</p>
+        <p>Chicago is hard on concrete. Hot summers and freezing winters taught them what it takes to build a floor that lasts, and that process is the foundation of every job they do.</p>
       </div>
-      <div class="about-body rv d1">
-        <h2 class="sec-h2" style="color:#0C0C0C;font-size:clamp(30px,3.6vw,48px);">Jordan Mizrahi, Owner</h2>
-        <p>I grew up on job sites, not behind a desk. By the time I was a teenager I already knew how to prep a slab, mix a batch, and spot a shortcut from across the room. Freeze-thaw winters don't forgive a shortcut, and neither did my dad.</p>
-        <p>When I moved to California, I brought that same standard with me: diamond-grind the slab, use real commercial-grade material, keep the job site clean and HEPA-filtered, and back every install with a real, written warranty.</p>
-        <p>Today, Aggrepoxy is trusted by brands like Valvoline, Lexus, and McLaren, and every floor we install still gets built the way my dad taught me: the right way, or not at all.</p>
-        <p class="about-signoff">Jordan Mizrahi, Owner</p>
+      <div class="ab-polaroid rv d1">
+        <img src="images/heroes/about-hero.jpg" alt="Polaroid of Jim and Jordan in front of their first Aggrepoxy trailer wrap, 2016" loading="lazy"/>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TRUCK PHOTO -->
-<section class="section bg-off">
-  <div class="section-inner">
-    <div class="about-truck-img rv">
-      <img src="images/section-03.jpg" alt="Aggrepoxy truck on-site"/>
-    </div>
-    <p class="about-truck-caption">On-site somewhere across LA, OC, or the Inland Empire.</p>
-  </div>
-</section>
-
-<section class="trust-strip">
-  <div class="trust-strip-inner">
-    <div class="trust-item"><div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M4 9l4-6h8l4 6-8 11-8-11z"/><path d="M4 9h16M9 3l3 6 3-6"/></svg></div><span class="trust-title">Diamond-Ground</span><p class="trust-body">True mechanical bond, not a coat of paint over dust.</p></div>
-    <div class="trust-item"><div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M12 3l9 4-9 4-9-4 9-4z"/><path d="M3 12l9 4 9-4"/><path d="M3 17l9 4 9-4"/></svg></div><span class="trust-title">Commercial-Grade</span><p class="trust-body">The same polyaspartic systems used on dealership floors.</p></div>
-    <div class="trust-item"><div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M3 4h18l-7 9v6l-4 2v-8L3 4z"/></svg></div><span class="trust-title">HEPA-Filtered</span><p class="trust-body">Protecting your home and family during install.</p></div>
-    <div class="trust-item"><div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div><span class="trust-title">10-Year Coverage</span><p class="trust-body">If it's not right, we make it right. No fine print.</p></div>
-  </div>
-</section>
-
-<!-- SMALL CTA: button only, no form -->
-<section class="cta-section small grain">
-  <div class="cta-stack">
-    <div class="cta-head-center rv"><h2 class="cta-h">Want to talk to<br/><span class="hl-cyan">the person doing the work?</span></h2></div>
-    <div class="btn-row rv d1" style="margin-top:20px;">
-      <a href="contact.html" class="btn-solid">Get My Free Estimate</a>
+<!-- TWO LOCATIONS, ONE FAMILY -->
+<section class="ab-family">
+  <div class="ab-family-photo" style="background-image:url('images/company/truck-and-trailer.jpg');background-position:97% 60%;" role="img" aria-label="Aggrepoxy truck and wrapped trailer in Southern California"></div>
+  <div class="ab-family-body rv">
+    <span class="ab-eyebrow" style="color:var(--cyan);">Chicago to SoCal</span>
+    <h2>Two Locations.<br/>One Family.</h2>
+    <p>When Jordan moved to California in 2022, the family opened a branch in Orange County to bring that same process to SoCal homeowners and businesses. Today Jim leads the Chicago operation and Jordan runs Southern California. Two locations, one family, one standard.</p>
+    <div class="ab-locs">
+      <a href="chi.html" class="ab-loc"><svg class="ab-loc-map" viewBox="-4 -4 108 108" aria-hidden="true"><path d="M24,38.2L24.6,37.9L24.5,37.2L24.7,35.8L24.2,35.2L24.8,34.2L26.3,33.5L27.2,33.6L28.1,32.9L28.2,32L28.5,31.2L28.5,30.2L29,29.8L29.7,28.8L30.2,28.5L30.6,26.9L30.5,25.4L29.9,24.2L29.3,24.1L28.4,22.7L28.9,21.6L29.1,20.4L29.4,19.6L30.3,19.3L30.9,19.5L32,18.9L33.5,19L34.6,18.8L35.4,17.9L35.9,17.7L37.1,17.8L38,16.9L38.8,16.6L38.7,15.6L39.2,14.7L39.2,13.8L39.6,13.4L40.9,12.7L40.9,12L41.3,10.9L41.2,10L41.5,9.1L41.2,8.5L41.2,7.1L40.6,6.5L38.4,5.3L37.7,4.2L37.9,3.3L37.1,2.3L36.1,1.7L36,1.3L35,0.7L35,0L37.1,0.1L47.8,0.2L50.2,0.3L59.3,0.4L61.2,0.4L68.4,0.3L72.2,0.3L72.2,2.2L71.8,3.7L72.3,5.4L73.3,7.2L73.9,7.8L74,8.6L74.7,10.7L74.9,11.9L75.6,13.3L76,13.6L76.1,14.4L76.1,18.3L76.4,36.8L76.5,40.6L76.5,45.2L76.5,45.4L76.6,51.5L76.6,51.5L76.7,56.9L76.1,57L75.8,57.5L75.7,58.5L76.2,59.2L75.3,60.2L75.4,61.3L76.2,62.2L76.2,63.4L77.1,64L76.6,65.7L77.4,67.2L77.4,67.8L76.8,69L76.1,69.2L75.7,69.7L75.3,71L75.3,72L74.1,72.7L74.2,73.3L73.6,74.6L73.2,74.7L72.6,76.3L72.2,75.8L71.8,76.5L71.6,75.9L71.2,77L70.7,76.8L70.9,77.7L71.6,78.7L70.5,79.8L71.1,79.5L71,80.1L70.1,80.4L70.5,80.8L70.5,81.7L69.7,82.8L70.5,83.2L69.3,83.1L70.1,84.5L69.5,84.4L69.7,84.9L70.3,84.9L69.9,86L69,86.5L68.5,87.4L68.8,89L69.9,90.1L69.6,90.8L67.2,91.2L66.6,91.3L65.7,92.2L64.9,91.8L64,92.4L63.9,93.3L63.5,94.3L63.6,94.7L64.5,95.7L64.8,96.7L64.3,98.1L63.6,98.3L62.9,98.1L61.9,97.3L60.2,96.7L59.5,96.1L57.9,95.4L56.9,95.3L56.3,95.7L55.6,96.3L55.2,97.3L54.4,98.1L54.1,99L54.9,99.8L54.3,100L53.9,99.2L53,98.3L52.3,98.5L53.1,99.2L52.6,99.6L51.4,98.7L51.4,97.9L50.9,97.2L50.2,95.9L50.3,95.1L49.4,94.3L49.8,93.4L50.6,93.3L50.8,92.3L49.5,89.8L49.4,89L50,88.9L49.5,87.8L49.5,87L48.5,86.6L48.1,85.9L47.4,85.9L47.5,85.3L46.3,84.2L45.6,84L45.5,83.5L44.9,83.1L44.4,83.6L43.4,83.5L43.1,82.7L43.7,82.3L43.5,81.9L42.7,82L41.9,81.1L41.5,81.1L40.9,80.2L39.7,79.6L38.7,78.3L37.8,77.5L37.6,76.4L37.7,75.2L38,74.4L38.9,73.3L39.2,71.8L40.3,70.3L40.4,69.7L39.9,68.3L40.6,67.4L41.2,67L41.3,66L39.4,64.7L38.6,64.7L37.3,63.9L36.4,64L35.9,65L35.3,65.5L34.8,65.6L33.7,64.5L33.6,63.5L33.1,62.2L33.5,61.6L33.2,60.4L33,59L32.1,57.6L29.2,55.4L28.4,54.6L27.9,53.4L27.3,53.3L26.8,52.2L26.3,51.9L25.6,51L24.3,49.8L24.5,48.9L24.3,48.4L23.6,47.9L23.4,47.3L23.8,46.3L23.4,45.9L22.8,44.3L22.6,41.7L22.7,40.6L23.6,38.4Z"/><circle cx="74.6" cy="11.3" r="6"/></svg><div><div class="ab-loc-city">Chicago</div><div class="ab-loc-who">Led by Jim</div></div></a>
+      <a href="los-angeles.html" class="ab-loc"><svg class="ab-loc-map" viewBox="-4 -4 108 108" aria-hidden="true"><path d="M54.1,90.3L54.6,90.4L55.5,90.8L56.1,91L56.2,91.3L56.7,91.8L56.5,92.2L56.1,92L55.3,91.9L55.1,91.6L55.1,90.9L54.5,90.8ZM54.1,95L54.4,95L55.1,96L56.4,97.2L56.1,97.2L55.7,97.4L55.2,97L54.8,96.3L54.3,95.3ZM50.2,90.2L50.4,90.2L50.5,90.5L50.1,90.5ZM47,84.6L47.2,84.7L47.5,84.6L47.5,84.9L47,84.9L46.8,84.7ZM45.7,92.5L46.1,92.4L46.8,92.7L47,93L46.6,93.1L46,92.9ZM42.8,84.1L43.3,84.1L43.7,84.3L44.2,84.3L44.8,84.7L45.4,84.7L45.6,84.4L46.2,84.6L45.9,84.9L45,85L44.5,85.3L43.2,85.1L43.2,84.6ZM40,84.9L40.7,84.8L40.9,84.6L41.3,84.7L41.7,84.5L41.7,84.9L42.3,85.1L42.3,85.5L41.1,86L40.6,85.6ZM38.3,84.5L38.8,84.3L38.9,84.1L39.1,84.4L39.5,84.6L38.9,84.7ZM10.2,0L14.5,0.2L14.7,0.2L16.8,0.3L18.4,0.2L19.2,0.3L22.3,0.4L23.3,0.4L26,0.5L27.2,0.6L31.4,0.8L34.6,0.9L40,0.9L42.5,0.9L42.5,0.9L42.5,14L42.5,14.3L42.5,21.1L42.4,24.7L42.4,24.8L42.4,28.9L42.3,30L42.4,32.4L43.1,33.1L46.4,36.1L49.7,39.1L51.6,40.7L54.5,43.4L58.2,46.7L60,48.4L63.8,51.9L73.4,60.5L80.7,67.1L82.9,69.1L87.5,73.3L87.5,74.7L88.1,75.2L88.3,75.8L89,76.3L89.9,78.4L89.9,78.9L90.3,79L91.3,79.8L91.7,80L92.1,80.4L92.2,80.9L91.4,81.5L91.4,81.7L90.9,81.9L90.6,82.3L89.9,82.6L89.7,82.8L89.7,83.5L88.9,84.5L89.1,84.7L89.2,85.2L89,85.3L89,85.7L89.3,86.3L89.4,87L89.1,87.1L89.1,88.1L89.2,88.5L88.9,88.7L88.1,90L87.6,90.1L87.8,90.5L87.6,91.1L88.1,91.5L88.1,92.8L87.9,93.4L88.3,94L88.4,93.8L88.8,94L89.1,93.9L89.6,93.9L90.1,95.1L90.1,95.8L89.6,96.4L89.6,96.8L88.9,97.1L88.1,97L88,97.3L75,99L67.1,100L67,99.1L66.7,98.6L66.4,98.4L66,98.6L65.9,98L65.9,97.4L65.7,97L65.9,96.5L65.6,95L65.2,93.9L64.9,93.4L63.6,91.7L62.8,91.2L62.5,90.7L62,90.4L61.8,90.4L61.2,89.6L60.3,89.1L59.9,88.9L59.3,88.4L58.5,87.6L57.8,87.3L57.7,87.7L57.1,87.9L56.5,87.8L56.2,87.6L55.7,87.6L55.6,87.2L55.9,86.9L55.9,86.5L55.5,85.5L55.1,84.9L54.6,84.5L53.5,84.5L52.8,84.5L52.3,84.9L51.9,84.5L51.1,84.4L49.9,83.9L49.5,83.8L48.8,83.4L48.3,82.1L48,82L47.5,81.5L47.3,81.6L46.7,81L46.1,80.7L45.9,80.6L44.9,80.5L44.4,80.7L43.9,80.5L43.2,80.6L42.1,80.1L41.4,80.1L40.9,79.9L39.6,80L38.1,80.2L38.1,79.9L37.7,79.3L37.2,79L36.8,79L36.6,78.7L37.1,77.5L36.7,76.9L37,75.8L36.5,75.4L36.8,74.3L36.8,73.1L36.3,72.5L35.8,72.5L35.8,72.7L34.9,72.2L34.6,71.7L34.9,70.5L34.9,70.1L34.6,69.6L33.7,69.5L32.9,68.5L32.4,67.6L31.7,67.4L31.2,66.8L31.1,66L30.6,65.6L30.4,65.3L30,64.9L29.8,64L29.7,63.7L29.1,63.4L28.7,62.5L27.9,61.6L27,61L26.6,60.6L26.4,59.9L26.5,59.5L26.1,58.6L26.2,57.8L25.9,57.6L26.2,57L26.7,57.3L27,57L27.2,56.5L27.5,55.2L26.9,53.9L26.6,53.5L26.3,53.4L26,53.6L24.9,53.6L24.1,52.9L23.5,52L23.1,51.8L23,51.5L22.5,51L22.4,50.4L22.6,49.3L22.3,48.4L22.3,48L21.9,47.8L21.7,47.5L21.7,47L21.9,46.7L22,46L21.8,44.8L22.2,44.6L22.7,44.5L22.9,44.7L23.1,45.5L22.8,45.6L23.1,46.6L23,46.8L23.8,47.1L24.6,47.8L24.8,47.8L25.2,48.3L25.6,48.3L25.4,48L25,47.8L24.8,47L24.6,46L24,45.5L24,45.1L23.3,44.8L23.6,44.2L23.4,43.5L23,43.5L22.6,42.9L22.8,43L23.1,42.8L23.1,42.4L23.6,42.4L24,42.1L23.7,41.4L22.9,41L22.5,41.3L22.1,41.3L22.2,41.8L22,42.2L22.4,42.6L22.1,42.9L22,43.2L22.5,43.8L22.3,43.9L22,43.6L22.2,44.3L21.7,44.4L21.5,44L20.7,43.5L20.3,43.6L19.7,42.9L19.4,42.4L18.9,42.1L18.5,42L17.9,42.3L18.3,41.2L18.4,40.8L18.1,39.9L18.3,39.7L17.9,39.1L17.6,39.2L17.6,38.6L17.1,37.6L16.5,37.1L16.1,36.9L15.5,36.3L14.5,34.7L14.1,34.4L13.9,34L13.1,33.2L12.4,32.1L12.8,31.4L12.8,31L12.5,29.9L12.1,28.8L11.9,27.8L12,26.9L12.5,25.7L12.3,25.3L12.4,24.7L12,23.8L11.9,22.8L11.5,22.5L11.4,22L10.4,20.8L10.2,20.7L10.2,20.3L10,19.9L9.4,19.6L8.1,18.2L8.3,17.6L8.2,17L7.8,16.3L8.1,15.4L8.6,14.4L9.9,12.1L10.2,11.3L10.5,10.2L10.2,9.9L10.2,9L10.3,9L10.6,8.1L11.1,5.9L11,4.8L10.6,3.6L10.5,2.7L10.2,2.8L9.8,2.2L10.1,1.6L10.3,0.6Z"/><circle cx="60.7" cy="88" r="6"/></svg><div><div class="ab-loc-city">Southern California</div><div class="ab-loc-who">Led by Jordan</div></div></a>
     </div>
   </div>
 </section>
+
+<!-- OUR PROMISE -->
+<section class="ab-promise grain grain-d">
+  <div class="ab-promise-bg" style="background-image:url('images/projects/commercial/industrial-surface-prep.jpg')"></div>
+  <div class="ab-promise-veil"></div>
+  <div class="ab-promise-inner">
+    <div class="ab-promise-eyebrow rv">Our Promise</div>
+    <p class="ab-promise-text rv d1">A 5-star experience, every time. We go above and beyond for our customers, our crew, and our communities.</p>
+  </div>
+</section>
+
+<!-- ON THE JOB: video + stats -->
+<section class="ab-work">
+  <div class="ab-work-inner">
+    <div class="ab-work-body rv">
+      <span class="ab-eyebrow">On the Job</span>
+      <h2 class="sec-h2" style="color:#0C0C0C;font-size:clamp(44px,6vw,92px);line-height:.95;margin-bottom:24px;">Same Process.<br/>Every Floor.</h2>
+      <p>Whether it's a Chicago warehouse or a SoCal garage, every floor gets the same prep, the same materials, and the same attention to detail.</p>
+      <div class="ab-stats">
+        <div><div class="ab-stat-num">1M+</div><div class="ab-stat-label">Sq Ft Coated</div></div>
+        <div><div class="ab-stat-num">2016</div><div class="ab-stat-label">Family-Owned Since</div></div>
+        <div><div class="ab-stat-num">2</div><div class="ab-stat-label">Locations: Chicago &amp; SoCal</div></div>
+      </div>
+    </div>
+    <div class="ab-video rv d1">
+      <video src="images/company/crew-timelapse.mp4" poster="images/company/crew-timelapse-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Timelapse of the Aggrepoxy crew coating a floor"></video>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAR -->
+<a href="contact.html" class="ab-cta"><span>Get a free estimate for your next project <svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span></a>
+
+</main>
 
 <footer class="footer">
   <div class="footer-top">
-    <div class="footer-brand"><a href="index.html" aria-label="Aggrepoxy" style="display:block;line-height:0;"><img src="images/aggrepoxy-logo.svg" alt="Aggrepoxy"/></a><div class="footer-social"><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a></div></div>
+    <div class="footer-brand"><a href="index.html" aria-label="Aggrepoxy" style="display:block;line-height:0;"><img src="images/brand/aggrepoxy-logo.svg" alt="Aggrepoxy"/></a><div class="footer-social"><a href="https://www.facebook.com/aggrepoxy-floors" aria-label="Aggrepoxy on Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
     <div class="footer-col"><div class="footer-col-head">Services</div><a href="services/garage-floors.html">Garage Floors</a><a href="services/industrial.html">Industrial Coatings</a><a href="services/concrete-polishing.html">Concrete Polishing</a></div>
     
-    <div class="footer-col"><div class="footer-col-head">Company</div><a href="faq.html">FAQ</a><a href="colors.html">Colors</a><a href="about.html">About</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><div class="footer-col-head">Company</div><a href="faq.html">FAQ</a><a href="colors.html">Colors</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
   </div>
-  <div class="footer-base"><span class="footer-copy">Aggrepoxy Floor Coatings Copyright 2026. All rights reserved.</span></div>
+  <div class="footer-base"><span class="footer-copy">Aggrepoxy Floor Coatings Copyright 2026. All rights reserved.</span>
+    <span class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="accessibility.html">Accessibility</a></span></div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
@@ -154,5 +241,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/core.js"></script>
 <script src="js/inner.js"></script>
+<script>
+/* About: respect reduced motion for the timelapse */
+(function(){var v=document.querySelector('.ab-video video');
+  if(v&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();v.controls=true;}})();
+/* About: subtle parallax on the promise background */
+(function(){
+  if(!window.gsap||!window.ScrollTrigger)return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  if(window.AGX_LENIS)window.AGX_LENIS.on('scroll',ScrollTrigger.update);
+  gsap.fromTo('.ab-promise-bg',{yPercent:-10},{yPercent:10,ease:'none',
+    scrollTrigger:{trigger:'.ab-promise',start:'top bottom',end:'bottom top',scrub:true}});
+})();
+</script>
 </body>
 </html>

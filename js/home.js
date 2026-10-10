@@ -25,7 +25,7 @@ if(window.gsap){
     .to('#h-proof',{opacity:1,y:0,duration:.48,ease:'power3.out'},'-=.34');
 
   /* ─── HERO PARALLAX ───────────────────────────────────────── */
-  if(window.ScrollTrigger){
+  if(window.ScrollTrigger&&!window.AGX_REDUCED){
     gsap.to('.hero-bg',{yPercent:13,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
     gsap.to('#pain-bg',{yPercent:22,ease:'none',scrollTrigger:{trigger:'.pain-section',start:'top bottom',end:'bottom top',scrub:true}});
   }
@@ -151,26 +151,20 @@ if(window.gsap){
 /* ─── HOME FORMS — real mailto submission ────────────────────── */
 window.AGX.wireForm({
   formId:'hero-estimate-form',
-  requiredIds:['he-name','he-phone','he-email'],
+  requiredIds:['he-name','he-phone','he-email','he-zip'],
   agreeId:'he-agree',
   successContainerId:'h-form',
   subject:'New estimate request: Aggrepoxy (Hero form)',
-  fields:[
-    {id:'he-name',label:'Name'},{id:'he-phone',label:'Phone'},{id:'he-address',label:'Address'},
-    {id:'he-email',label:'Email'},{id:'he-details',label:'Project details'},{id:'he-photos',label:'Attached files'},{id:'he-source',label:'Heard about us via'}
-  ],
+  fields:[{id:'he-name',label:'Name'},{id:'he-phone',label:'Phone'},{id:'he-email',label:'Email'},{id:'he-zip',label:'ZIP code'},{id:'he-details',label:'Project details'}],
   submitSelector:'.hc-submit'
 });
 window.AGX.wireForm({
   formId:'cta-quote-form',
-  requiredIds:['cqf-name','cqf-phone','cqf-email'],
+  requiredIds:['cqf-name','cqf-phone','cqf-email','cqf-zip'],
   agreeId:'cqf-agree',
   successContainerId:'cta-quote-panel',
   subject:'New estimate request: Aggrepoxy (CTA form)',
-  fields:[
-    {id:'cqf-name',label:'Name'},{id:'cqf-phone',label:'Phone'},{id:'cqf-address',label:'Address'},
-    {id:'cqf-email',label:'Email'},{id:'cqf-details',label:'Project details'},{id:'cqf-photos',label:'Attached files'},{id:'cqf-source',label:'Heard about us via'}
-  ],
+  fields:[{id:'cqf-name',label:'Name'},{id:'cqf-phone',label:'Phone'},{id:'cqf-email',label:'Email'},{id:'cqf-zip',label:'ZIP code'},{id:'cqf-details',label:'Project details'}],
   submitSelector:'.ctaf-submit'
 });
 
@@ -185,7 +179,7 @@ var tCard=document.getElementById('testi-card');
 if(tCard){
   var tHeadEl=document.getElementById('testi-headline'),tBodyEl=document.getElementById('testi-body'),tAuthEl=document.getElementById('testi-author'),tDotsEl=document.getElementById('testi-dots');
   testis.forEach(function(_,i){
-    var dot=document.createElement('div');
+    var dot=document.createElement('button');dot.type='button';dot.setAttribute('aria-label','Show review '+(i+1));
     dot.className='testi-dot'+(i===0?' on':'');
     dot.addEventListener('click',function(){setTesti(i);});
     tDotsEl.appendChild(dot);
@@ -220,9 +214,9 @@ if(tCard){
 if(window.AGX&&window.AGX.renderBeforeAfter){
   window.AGX.renderBeforeAfter('ba-grid',[
     {tag:'Garage Floors',loc:'Residential garage, Los Angeles CA',before:'images/before-after/garage-before.jpg',after:'images/before-after/garage-after.jpg'},
-    {tag:'Dealership Showroom',loc:'Commercial showroom, Irvine CA',before:'images/before-after/dealer-before.jpeg',after:'images/before-after/dealer-after.jpeg'},
-    {tag:'Concrete Polishing',loc:'Showroom floor, Orange County CA',before:'images/before-after/polish-before.jpg',after:'images/before-after/polish-after.jpeg'},
-    {tag:'Industrial Coating',loc:'Commercial facility, Los Angeles CA',before:'images/before-after/lockers-before.jpeg',after:'images/before-after/lockers-after.jpeg'}
+    {tag:'Dealership Showroom',loc:'Commercial showroom, Irvine CA',before:'images/before-after/dealership-before.jpg',after:'images/before-after/dealership-after.jpg'},
+    {tag:'Concrete Polishing',loc:'Showroom floor, Orange County CA',before:'images/before-after/office-polish-before.jpg',after:'images/before-after/office-polish-after.jpg'},
+    {tag:'Industrial Coating',loc:'Commercial facility, Los Angeles CA',before:'images/before-after/locker-room-before.jpg',after:'images/before-after/locker-room-after.jpg'}
   ]);
 }
 
