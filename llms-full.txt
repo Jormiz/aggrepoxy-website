@@ -21,22 +21,22 @@
 
 ## Services
 
-- [Garage floor coatings](https://aggrepoxy.com/services/garage-floors.html): AGX Precision System. A 3-part system: epoxy base coat, full broadcast of decorative flake or quartz, and a UV-stable polyaspartic topcoat. Also used for driveways, patios, walkways, stairs and pool decks.
+- [Garage floor coatings](https://aggrepoxy.com/services/garage-floors): AGX Precision System. A 3-part system: epoxy base coat, full broadcast of decorative flake or quartz, and a UV-stable polyaspartic topcoat. Also used for driveways, patios, walkways, stairs and pool decks.
 - Metallic epoxy floors: custom high-gloss metallic epoxy with a marbled, three-dimensional look for garages, showrooms, retail spaces and home interiors.
 - Solid color epoxy floors: clean, single-color epoxy coatings for garages, workshops, warehouses and commercial spaces.
-- [Polished and sealed concrete](https://aggrepoxy.com/services/concrete-polishing.html): AGX Polish (multi-step diamond-ground polished concrete in matte, low sheen, high sheen or high gloss) and AGX Seal (diamond grind and seal in matte or gloss).
-- [Commercial and industrial floors](https://aggrepoxy.com/services/industrial.html): urethane cement (AGX Thermal Shield), non-slip epoxy with silica sand (AGX Iron Tread), flexible polyurethane traffic coating (AGX Flex Guard), solid color epoxy, and flake systems. For warehouses, food plants, dealerships, commercial kitchens, parking structures and aircraft hangars. Night, weekend and phased scheduling.
+- [Polished and sealed concrete](https://aggrepoxy.com/services/concrete-polishing): AGX Polish (multi-step diamond-ground polished concrete in matte, low sheen, high sheen or high gloss) and AGX Seal (diamond grind and seal in matte or gloss).
+- [Commercial and industrial floors](https://aggrepoxy.com/services/industrial): urethane cement (AGX Thermal Shield), non-slip epoxy with silica sand (AGX Iron Tread), flexible polyurethane traffic coating (AGX Flex Guard), solid color epoxy, and flake systems. For warehouses, food plants, dealerships, commercial kitchens, parking structures and aircraft hangars. Night, weekend and phased scheduling.
 - Surface preparation: diamond grinding, shot blasting, crack and joint repair, and removal of failing coatings and tile.
 
 ## Main pages
 
 - [Home](https://aggrepoxy.com/): overview of all services and both locations
-- [Southern California (LA, Orange County, Inland Empire)](https://aggrepoxy.com/los-angeles.html): residential floor coatings and the cities served
-- [Chicago](https://aggrepoxy.com/chi.html): commercial and industrial floor coatings for contractors and facilities
-- [Flake and quartz colors](https://aggrepoxy.com/colors.html): color blends (Torginol flake, hybrid flake and quartz)
-- [FAQ](https://aggrepoxy.com/faq.html): cost, cure times, warranty, prep and maintenance
-- [About](https://aggrepoxy.com/about.html): company and family history
-- [Contact and free estimate](https://aggrepoxy.com/contact.html)
+- [Southern California (LA, Orange County, Inland Empire)](https://aggrepoxy.com/los-angeles): residential floor coatings and the cities served
+- [Chicago](https://aggrepoxy.com/chi): commercial and industrial floor coatings for contractors and facilities
+- [Flake and quartz colors](https://aggrepoxy.com/colors): color blends (Torginol flake, hybrid flake and quartz)
+- [FAQ](https://aggrepoxy.com/faq): cost, cure times, warranty, prep and maintenance
+- [About](https://aggrepoxy.com/about): company and family history
+- [Contact and free estimate](https://aggrepoxy.com/contact)
 
 ## Profiles and reviews
 
@@ -47,7 +47,7 @@
 ## Frequently asked questions
 
 ### General questions
-Source: https://aggrepoxy.com/faq.html
+Source: https://aggrepoxy.com/faq
 
 **Do you offer free estimates?**
 Yes. Every estimate is a free, no-obligation on-site walkthrough. We'll look at your slab, talk through your goals, and can usually give you a firm number before we leave.
@@ -99,7 +99,7 @@ Yes. We install across Los Angeles, Orange County, and the Inland Empire, as wel
 
 
 ### Residential: Southern California
-Source: https://aggrepoxy.com/los-angeles.html
+Source: https://aggrepoxy.com/los-angeles
 
 **How long does the floor take to cure after install?**
 Most floors are ready for light foot traffic in about 24 hours and full vehicle traffic in 48 hours. Cure times can vary slightly depending on temperature and humidity. We'll give you a care guide after install to make sure your investment is protected.
@@ -121,7 +121,7 @@ Yes. Financing is available on our estimate through Acorn Finance, making it eas
 
 
 ### Garage, driveway and patio coatings
-Source: https://aggrepoxy.com/services/garage-floors.html
+Source: https://aggrepoxy.com/services/garage-floors
 
 **How long does an estimate take?**
 About 20 minutes. We measure the space, check the condition of your concrete, and show you flake and quartz samples, then put together your quote. We never quote over the phone, because every slab is different.
@@ -137,7 +137,7 @@ No. Our polyaspartic topcoat is UV stable, so it won't amber or yellow in the su
 
 
 ### Polished and sealed concrete
-Source: https://aggrepoxy.com/services/concrete-polishing.html
+Source: https://aggrepoxy.com/services/concrete-polishing
 
 **What's the difference between sealed and polished concrete?**
 Both start with a diamond grind. Sealed concrete is finished with a protective sealer in matte or gloss. Polished concrete goes through multiple finer diamond passes until the concrete itself shines. Polished costs more, but lasts longer and needs less upkeep.
@@ -156,7 +156,7 @@ Dust mop regularly and damp mop with a pH-neutral cleaner. No waxing or strippin
 
 
 ### Commercial and industrial floors
-Source: https://aggrepoxy.com/services/industrial.html
+Source: https://aggrepoxy.com/services/industrial
 
 **Can you work around our operating hours?**
 Yes. We schedule nights, weekends, and holiday shutdowns, and can phase the work so the rest of your facility keeps running.
@@ -175,7 +175,7 @@ Yes. Tile removal and coating removal are part of our prep, so the new system bo
 
 
 ### Chicago commercial projects
-Source: https://aggrepoxy.com/chi.html
+Source: https://aggrepoxy.com/chi
 
 **Can you install to our project spec?**
 Yes. Share the spec or plans when Jim follows up. We'll confirm the system, match it, or recommend an approved equal if something better fits the conditions.

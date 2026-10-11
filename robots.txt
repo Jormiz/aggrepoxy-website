@@ -3,7 +3,7 @@
 
 User-agent: *
 Allow: /
-Disallow: /thank-you.html
+Disallow: /thank-you
 Disallow: /Old/
 
 # AI search and assistant crawlers (explicitly allowed)
@@ -23,7 +23,7 @@ User-agent: DuckAssistBot
 User-agent: meta-externalagent
 User-agent: CCBot
 Allow: /
-Disallow: /thank-you.html
+Disallow: /thank-you
 Disallow: /Old/
 
 Sitemap: https://aggrepoxy.com/sitemap.xml
