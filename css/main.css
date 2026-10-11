@@ -527,3 +527,15 @@ input:focus,select:focus,textarea:focus{outline:none;}
 .agx-modal iframe{flex:1;width:100%;border:0;display:block;}
 .agx-modal-fallback{display:block;text-align:center;padding:10px;font-size:12.5px;color:rgba(12,12,12,.6);background:#f4f3ef;text-decoration:underline;}
 @media(max-width:640px){.agx-modal{padding:0;}.agx-modal-panel{height:100%;max-width:none;}}
+
+/* ─── Mobile header: smaller logo so phone + menu button fit ─── */
+@media(max-width:640px){
+  .nav-logo svg,.nav-logo img{height:30px;}
+  .nav-cta-group{gap:8px;}
+  .nav-phone{font-size:14px;padding:6px 10px 6px 9px;gap:6px;}
+  .nav-phone svg{width:13px;height:13px;}
+}
+@media(max-width:380px){
+  .nav-logo svg,.nav-logo img{height:26px;}
+  .nav-phone{font-size:13px;padding:5px 8px;}
+}

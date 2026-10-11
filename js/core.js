@@ -745,3 +745,35 @@ document.addEventListener('click',function(e){
     page_path:window.location.pathname
   });
 });
+
+
+/* ─── AGX section background: lock the image size at load so opening
+   the accordion reveals more of the section instead of re-zooming
+   the photo (background-size:cover rescales as the section grows). ── */
+(function(){
+  var secs=document.querySelectorAll('.why-section');
+  if(!secs.length)return;
+  function lock(sec,ratio){
+    sec.style.backgroundSize='';sec.style.backgroundPosition='';
+    /* size for the section plus room to grow, so opening a dropdown
+       uncovers more photo instead of a blank strip */
+    var w=sec.offsetWidth,h=sec.offsetHeight+200,W,H;
+    if(w/h>ratio){W=w;H=w/ratio;}else{H=h;W=h*ratio;}
+    sec.style.backgroundSize=Math.ceil(W)+'px '+Math.ceil(H)+'px';
+    sec.style.backgroundPosition='center 0px';
+  }
+  secs.forEach(function(sec){
+    var m=(getComputedStyle(sec).backgroundImage||'').match(/url\(["']?(.*?)["']?\)/);
+    if(!m)return;
+    var img=new Image();
+    img.onload=function(){
+      var ratio=img.naturalWidth/img.naturalHeight,lastW=window.innerWidth;
+      lock(sec,ratio);
+      window.addEventListener('resize',function(){
+        if(window.innerWidth===lastW)return; /* ignore mobile address-bar resizes */
+        lastW=window.innerWidth;lock(sec,ratio);
+      });
+    };
+    img.src=m[1];
+  });
+})();

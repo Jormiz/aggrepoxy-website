@@ -205,3 +205,21 @@ a.hero-tag:hover::before{background:#0C0C0C;}
 @media(max-width:1024px){.testi-card{width:clamp(300px,80%,560px);}.pain-content{grid-template-columns:1fr;gap:28px;}}
 @media(max-width:768px){.clients-list{padding:0 160px;gap:clamp(20px,4vw,48px);}.testi-card{width:90%;padding:32px 28px 28px;}}
 @media(max-width:540px){.clients-list{padding:0 100px;gap:24px;}.clients-track-wrap::before,.clients-track-wrap::after{width:100px;}}
+
+/* ─── Mobile: client logos wrap into rows instead of a clipped strip ─── */
+@media(max-width:640px){
+  .clients-bar{padding:28px 0;}
+  .clients-label{margin-bottom:20px;}
+  .clients-track-wrap::before,.clients-track-wrap::after{display:none;}
+  .clients-list{flex-wrap:wrap;padding:0 20px;gap:18px 28px;}
+  .client-logo{height:17px;}
+  .client-logo.wordmark{height:12px;}
+  .client-logo.icon{height:22px;}
+}
+
+/* ─── Mobile: quote / "see more" banners stay on one line ─── */
+@media(max-width:640px){
+  .why-quote-banner{flex-wrap:nowrap;gap:10px;padding:18px 14px;}
+  .why-quote-banner span{font-size:clamp(11px,3.3vw,16px);letter-spacing:.06em;white-space:nowrap;}
+  .why-quote-banner svg{width:16px;height:16px;}
+}
