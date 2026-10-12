@@ -666,3 +666,12 @@ body .lp-pain-cta .btn-solid{display:flex;justify-content:center;width:100%;}
   .la-who-name{font-size:21px;}
 }
 body .pain-content:has(.lp-pain-cta){row-gap:18px;}
+
+/* Process cards: title left, step number right on one line */
+body .pr-body{display:grid;grid-template-columns:1fr auto;align-items:baseline;column-gap:12px;}
+body .pr-title{grid-column:1;grid-row:1;margin-bottom:0;}
+body .pr-num{grid-column:2;grid-row:1;margin-bottom:0;font-family:var(--font-sub);font-weight:400;font-size:36px;line-height:1;color:#0C0C0C;letter-spacing:-.01em;}
+body .pr-body p{grid-column:1 / -1;margin-top:10px;}
+@media(max-width:560px){body .pr-num{font-size:24px;}body .pr-body{column-gap:6px;}body .pr-body p{margin-top:7px;}}
+/* Home hero: drop the learn-more link on phones */
+@media(max-width:640px){.hero-learn-link{display:none !important;}}
