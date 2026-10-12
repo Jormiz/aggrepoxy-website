@@ -40,7 +40,7 @@ a.hero-tag:hover::before{background:#0C0C0C;}
 /* ── Hero card, light variant (off-white bg, black text, Tungsten header) ── */
 .hero-card.light{background:#dbdbd9;box-shadow:0 24px 64px rgba(0,0,0,.35),0 2px 10px rgba(0,0,0,.15);}
 .hero-card.light .hc-title{color:#0C0C0C;}
-.hero-card.light .hc-sub{color:rgba(12,12,12,.68);}
+.hero-card.light .hc-sub{color:#0C0C0C;}
 .hero-card.light .hc-check{color:rgba(12,12,12,.66);}
 .hero-card.light .hc-check a{color:#0C0C0C;text-decoration:underline;text-underline-offset:2px;}
 

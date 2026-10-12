@@ -62,7 +62,7 @@
 .svc-blurb p{font-size:16px;line-height:1.7;color:rgba(12,12,12,.65);}
 
 /* ── Advantages + Best For combined section ── */
-.svc-advantages-lead{max-width:640px;margin:clamp(28px,4vh,40px) auto 0;text-align:center;font-size:14.5px;line-height:1.6;color:rgba(12,12,12,.68);}
+.svc-advantages-lead{max-width:640px;margin:clamp(28px,4vh,40px) auto 0;text-align:center;font-size:14.5px;line-height:1.6;color:#0C0C0C;}
 .svc-advantages-lead .hl-cyan{font-style:normal;font-weight:600;}
 
 /* ── AGX Precision System — interactive layer stack ── */
@@ -93,7 +93,7 @@
 .agx-layer-plus{margin-left:auto;flex-shrink:0;width:30px;height:30px;border:1.5px solid rgba(255,255,255,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .35s,border-color .2s;}
 .agx-layer-plus svg{width:12px;height:12px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;}
 .agx-layer.active .agx-layer-plus{transform:rotate(45deg);border-color:var(--cyan);}
-.agx-caption{text-align:center;font-size:12.5px;color:rgba(12,12,12,.68);margin-top:16px;}
+.agx-caption{text-align:center;font-size:12.5px;color:#0C0C0C;margin-top:16px;}
 @media(max-width:700px){
   .agx-stack{height:auto;}
   .agx-layer{min-height:76px;padding:16px clamp(18px,5vw,28px);}
@@ -104,7 +104,7 @@
 
 /* ── Service detail intro (copy + sticky quote card) ── */
 .svc-intro-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(40px,5vw,80px);align-items:start;}
-.svc-intro-body p{margin-bottom:16px;font-size:16px;line-height:1.7;color:rgba(12,12,12,.68);max-width:60ch;}
+.svc-intro-body p{margin-bottom:16px;font-size:16px;line-height:1.7;color:#0C0C0C;max-width:60ch;}
 .svc-intro-body p:last-child{margin-bottom:0;}
 .svc-check-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-top:28px;}
 .svc-check-item{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;line-height:1.5;color:#1a1a1a;}
@@ -166,7 +166,7 @@
 .about-split{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(40px,6vw,90px);align-items:center;}
 .about-photo{position:relative;aspect-ratio:4/5;overflow:hidden;background:#eae8e2;}
 .about-photo img{width:100%;height:100%;object-fit:cover;}
-.about-body p{font-size:16px;line-height:1.75;color:rgba(12,12,12,.68);margin-bottom:18px;max-width:60ch;}
+.about-body p{font-size:16px;line-height:1.75;color:#0C0C0C;margin-bottom:18px;max-width:60ch;}
 .about-signoff{font-family:var(--font-sub);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#0C0C0C;margin-top:10px;}
 @media(max-width:900px){.about-split{grid-template-columns:1fr;}}
 
@@ -182,7 +182,7 @@
 /* ── About: truck photo ── */
 .about-truck-img{position:relative;aspect-ratio:21/9;overflow:hidden;background:#111;}
 .about-truck-img img{width:100%;height:100%;object-fit:cover;}
-.about-truck-caption{text-align:center;font-size:13px;color:rgba(12,12,12,.68);margin-top:14px;}
+.about-truck-caption{text-align:center;font-size:13px;color:#0C0C0C;margin-top:14px;}
 @media(max-width:768px){.about-truck-img{aspect-ratio:4/3;}}
 
 /* ── Small CTA (button only, no form) ── */
@@ -305,7 +305,7 @@
 .cc-swatch.no-img::after{content:'Photo coming soon';font-family:var(--font-sub);font-weight:600;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(12,12,12,.68);}
 .cc-tile figcaption{font-family:var(--font-sub);font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#0C0C0C;margin-top:10px;}
 .cc-pop{position:absolute;top:10px;left:10px;z-index:2;background:#0C0C0C;color:#fff;font-family:var(--font-sub);font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:999px;}
-.cc-note{text-align:center;font-size:13px;color:rgba(12,12,12,.68);}
+.cc-note{text-align:center;font-size:13px;color:#0C0C0C;}
 @media(max-width:520px){.cc-grid{grid-template-columns:repeat(2,1fr);}}
 .cc-divided{border-top:1px solid rgba(0,0,0,.07);}
 /* Colors page: subgroup headings + blend codes */
@@ -326,7 +326,7 @@
 .cc-chip.on{background:#0C0C0C;border-color:#0C0C0C;color:#fff;}
 .cc-curated{grid-template-columns:repeat(auto-fill,minmax(170px,1fr)) !important;}
 .cc-tile[hidden]{display:none;}
-.cc-empty{text-align:center;font-size:14px;color:rgba(12,12,12,.68);padding:24px 0;}
+.cc-empty{text-align:center;font-size:14px;color:#0C0C0C;padding:24px 0;}
 .cc-more{margin-top:clamp(28px,4vh,40px);}
 .cc-more summary{list-style:none;cursor:pointer;display:flex;justify-content:center;}
 .cc-more summary::-webkit-details-marker{display:none;}
