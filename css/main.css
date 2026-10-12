@@ -628,3 +628,41 @@ body .la-cities-acc .la-cities-list{columns:2;column-gap:24px;padding-bottom:10p
   body .cp-sheen-title{font-size:22px;margin-bottom:4px;}
   body .cp-sheen p{font-size:13px;line-height:1.45;}
 }
+
+/* ===== Oct 11 round 2 ===== */
+/* CTA steps (shared from the LA ad page) */
+.lp-steps{list-style:none;padding:0;margin:22px 0 26px;display:flex;flex-direction:column;gap:14px;max-width:44ch;}
+.lp-steps li{display:flex;gap:14px;align-items:flex-start;font-size:15px;line-height:1.55;color:rgba(12,12,12,.7);}
+.lp-steps li span{flex-shrink:0;width:30px;height:30px;background:var(--cyan);color:#0C0C0C;display:flex;align-items:center;justify-content:center;font-family:var(--font-sub);font-weight:700;font-size:13px;}
+.lp-steps strong{color:#0C0C0C;}
+@media(max-width:900px){.cta-split-left .lp-steps{margin-left:auto;margin-right:auto;text-align:left;}}
+/* hero eyebrows / breadcrumbs hidden on phones */
+@media(max-width:640px){.svc-hero-crumb,.inner-hero-crumb,.svc-hero .sec-eyebrow,.inner-hero .sec-eyebrow,.hero .sec-eyebrow{display:none !important;}}
+/* LA hero stats: one clean row on desktop */
+@media(min-width:1025px){
+  body .lp-proof-4{grid-template-columns:repeat(4,max-content);justify-content:start;gap:0;max-width:none;}
+  body .lp-proof-4 .lp-proof-label{white-space:nowrap;}
+  body .lp-proof-4 .lp-proof-item{flex-direction:column;align-items:flex-start;gap:6px;padding:0 30px;border-left:1px solid rgba(255,255,255,.18);}
+  body .lp-proof-4 .lp-proof-item:first-child{padding-left:0;border-left:0;}
+}
+/* pain CTA: full width under the pain points */
+body .lp-pain-cta{grid-column:2;}
+body .lp-pain-cta .btn-solid{display:flex;justify-content:center;width:100%;}
+@media(max-width:1024px){body .lp-pain-cta{grid-column:1 / -1;}}
+/* LA "Perfect For" strip */
+.la-who-strip{margin-top:clamp(44px,6vw,68px);display:flex;align-items:center;justify-content:center;gap:clamp(20px,3vw,40px);flex-wrap:wrap;}
+.la-who-label{font-family:var(--font-sub);font-weight:700;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);}
+.la-who-items{display:flex;gap:clamp(18px,3vw,40px);flex-wrap:wrap;justify-content:center;}
+.la-who-item{display:flex;align-items:center;gap:12px;}
+.la-who-ic{width:52px;height:52px;border-radius:50%;background:var(--cyan);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.la-who-ic svg{width:26px;height:26px;fill:none;stroke:#0C0C0C;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.la-who-name{font-family:var(--font-display);font-weight:var(--display-weight);font-size:26px;line-height:1;text-transform:uppercase;color:#fff;}
+@media(max-width:640px){
+  .la-who-strip{flex-direction:column;gap:18px;}
+  .la-who-items{display:grid;grid-template-columns:1fr 1fr;gap:16px 12px;width:100%;}
+  .la-who-item{gap:10px;}
+  .la-who-ic{width:44px;height:44px;}
+  .la-who-ic svg{width:22px;height:22px;}
+  .la-who-name{font-size:21px;}
+}
+body .pain-content:has(.lp-pain-cta){row-gap:18px;}
