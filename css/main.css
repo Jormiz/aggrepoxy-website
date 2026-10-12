@@ -604,13 +604,6 @@ body .la-cities-acc .la-cities-list{columns:2;column-gap:24px;padding-bottom:10p
   body .pr-num{font-size:15px;margin-bottom:4px;}
   body .pr-title{font-size:21px;margin-bottom:6px;}
   body .pr-body p{font-size:13px;line-height:1.45;}
-  /* operations / process steps */
-  body .how-grid{grid-template-columns:1fr 1fr;gap:28px 14px;}
-  body .gf-how .how-grid{gap:28px 14px;}
-  body .gf-how .how-step::after,body .gf-how .how-step:not(:last-child)::after{display:none !important;}
-  body .how-step-num{font-size:40px;margin-bottom:6px;}
-  body .how-step-title{font-size:13px;}
-  body .how-step-body{font-size:13px;}
   /* where it goes / industries */
   body .gf-where-grid{grid-template-columns:1fr 1fr;gap:10px;}
   body .gf-where-card,body .ind-where-grid .gf-where-card{aspect-ratio:1/1;}
