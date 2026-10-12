@@ -667,6 +667,7 @@ window.AGX.renderBeforeAfter=function(containerId,data){
     var n=NUMBERS[region]||NUMBERS.la;
     document.querySelectorAll('[data-geo-phone]').forEach(function(el){
       if(el.tagName==='A')el.setAttribute('href',n.href);
+      if(el.hasAttribute('data-geo-href-only'))return;
       var textEl=el.querySelector('[data-geo-phone-text]');
       if(textEl)textEl.textContent=n.display;else el.textContent=n.display;
     });
@@ -776,4 +777,76 @@ document.addEventListener('click',function(e){
     };
     img.src=m[1];
   });
+})();
+
+
+/* ─── STICKY CALL / ESTIMATE BAR (phones, every page) ─────────────
+   Uses the page's own phone number (LA, Chicago or geo-swapped) and
+   hides itself while an estimate form is on screen. */
+(function(){
+  if(document.getElementById('agx-sticky')||/thank-you/.test(location.pathname))return;
+  var navPhone=document.querySelector('.nav-phone[href^="tel:"]');
+  var tel=navPhone?navPhone.getAttribute('href'):'tel:2139715868';
+  var geo=navPhone&&navPhone.hasAttribute('data-geo-phone');
+  var form=document.getElementById('cta-quote-panel')||document.getElementById('svc-form')||document.getElementById('h-form');
+  var cta=document.querySelector('.nav-cta');
+  var href=form?'#contact':(cta?cta.getAttribute('href'):'contact.html');
+  if(href==='#contact'&&!form)href='contact.html';
+  var bar=document.createElement('div');
+  bar.className='agx-sticky';bar.id='agx-sticky';bar.setAttribute('role','region');bar.setAttribute('aria-label','Quick contact');
+  bar.innerHTML='<a href="'+tel+'" class="agx-sticky-call"'+(geo?' data-geo-phone data-geo-href-only':'')+'><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Call Now</span></a>'+
+    '<a href="'+href+'" class="agx-sticky-cta">Free Estimate</a>';
+  document.body.appendChild(bar);document.body.classList.add('has-sticky');
+  if(!window.IntersectionObserver)return;
+  var vis=new Set();
+  var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)vis.add(e.target);else vis.delete(e.target);});bar.classList.toggle('hide',vis.size>0);},{threshold:.15});
+  ['svc-form','cta-quote-panel','h-form'].forEach(function(id){var el=document.getElementById(id);if(el)o.observe(el);});
+})();
+
+/* ─── "FREE ESTIMATE" LINKS LAND ON THE FORM ITSELF ────────────────
+   #contact points at the section; on phones the form sits several
+   scrolls below the section's heading, so jump straight to the form. */
+(function(){
+  function target(){
+    return document.getElementById('cta-quote-panel')||document.getElementById('svc-form')||document.getElementById('h-form')||document.getElementById('contact');
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href="#contact"]');
+    if(!a)return;
+    var t=target();if(!t)return;
+    e.preventDefault();
+    var mob=document.getElementById('nav-mobile');
+    if(mob&&mob.classList.contains('open')){var b=document.getElementById('nav-burger');if(b)b.click();}
+    var nav=document.getElementById('nav');
+    var reduce=window.AGX_REDUCED;
+    function go(smooth){
+      var off=(nav?nav.offsetHeight:0)+12;
+      var y=t.getBoundingClientRect().top+window.pageYOffset-off;
+      if(window.AGX_LENIS&&!reduce)window.AGX_LENIS.scrollTo(y,{duration:smooth?1:.35});
+      else window.scrollTo({top:y,behavior:(smooth&&!reduce)?'smooth':'auto'});
+    }
+    go(true);
+    /* photos above the form can finish loading mid-scroll and push it
+       down; re-aim a couple of times until it settles */
+    [1100,1700,2400].forEach(function(ms){
+      setTimeout(function(){
+        var off=(nav?nav.offsetHeight:0)+12;
+        if(Math.abs(t.getBoundingClientRect().top-off)>8)go(false);
+      },ms);
+    });
+  });
+})();
+
+/* Mobile hero: size the photo band to end where the hero form begins */
+(function(){
+  var hero=document.querySelector('.svc-hero');if(!hero)return;
+  var card=hero.querySelector('.hero-card');if(!card)return;
+  var lastW=0;
+  function fit(){
+    var w=window.innerWidth;if(w===lastW)return;lastW=w;
+    if(w>900){hero.style.removeProperty('--mh-bg');return;}
+    var top=card.getBoundingClientRect().top-hero.getBoundingClientRect().top;
+    hero.style.setProperty('--mh-bg',Math.round(top+90)+'px');
+  }
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',function(){lastW=0;fit();});
 })();

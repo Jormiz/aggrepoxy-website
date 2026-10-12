@@ -181,7 +181,7 @@ a.hero-tag:hover::before{background:#0C0C0C;}
 .space-card-link{margin-top:12px;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-sub);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#fff;transition:color .25s;}
 .space-card:hover .space-card-link{color:var(--cyan);}
 @media(max-width:900px){.space-grid{grid-template-columns:repeat(2,1fr);}.space-card{grid-column:span 1 !important;}}
-@media(max-width:560px){.space-grid{grid-template-columns:1fr;}.coat-section-h{font-size:clamp(36px,10vw,60px);}}
+@media(max-width:560px){.space-grid{grid-template-columns:1fr;gap:12px;}.space-card{aspect-ratio:16/9;}.space-card-body{padding:18px 20px;}.space-card-title{font-size:30px;}.space-card-link{margin-top:8px;}.coat-section-h{font-size:clamp(36px,10vw,60px);}}
 
 /* ================================================================
    TESTIMONIAL
