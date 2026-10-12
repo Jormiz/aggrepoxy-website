@@ -675,3 +675,20 @@ body .pr-body p{grid-column:1 / -1;margin-top:10px;}
 @media(max-width:560px){body .pr-num{font-size:24px;}body .pr-body{column-gap:6px;}body .pr-body p{margin-top:7px;}}
 /* Home hero: drop the learn-more link on phones */
 @media(max-width:640px){.hero-learn-link{display:none !important;}}
+
+/* Home: FAQ "see more" as a normal-size button */
+.faq-more-btn{display:flex;width:max-content;margin:clamp(32px,4.5vh,48px) auto 0;align-items:center;gap:10px;background:var(--cyan);color:#0C0C0C;font-family:var(--font-sub);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:16px 28px;transition:background .2s,gap .2s;}
+.faq-more-btn:hover{background:#fff;gap:14px;}
+.faq-more-btn svg{width:16px;height:16px;}
+/* Home: industrial thumbnail framing */
+.space-card img.space-img-ind{object-position:center 12%;}
+/* Home: why pillars, compact two-column on phones */
+@media(max-width:640px){
+  body .pillar-grid{grid-template-columns:1fr 1fr;gap:10px;}
+  body .pillar-card{padding:20px 12px 22px;gap:5px;}
+  body .pillar-icon{width:46px;height:46px;margin-bottom:2px;}
+  body .pillar-icon svg{width:32px;height:32px;}
+  body .pillar-tag{font-size:10.5px;letter-spacing:.12em;}
+  body .pillar-title{font-size:23px;margin-top:-4px;line-height:1.05;}
+  body .pillar-body{font-size:13px;line-height:1.45;}
+}
