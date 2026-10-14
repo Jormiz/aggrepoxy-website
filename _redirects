@@ -1,0 +1,7 @@
+# Old Weebly URLs -> new pages (301 permanent)
+/aggrepoxycomabout.html  /about  301
+/aggrepoxycomabout       /about  301
+/home.html               /       301
+/home                    /       301
+/gallery.html            /       301
+/gallery                 /       301
