@@ -25,8 +25,8 @@
 const QUO = 'https://api.quo.com/v1';
 
 const DEFAULT_TEXT =
-  "Hi {first}, it's Jordan with Aggrepoxy. Got your request for a free floor estimate. " +
-  'What day this week works for a quick 20-min visit? Reply STOP to opt out.';
+  "Hi {first}, it's Jordan with Aggrepoxy Floor Coatings. Just got your request! " +
+  'Do weekdays or weekends work better for your free 20-min estimate? Reply STOP to opt out';
 
 // Don't text the same number twice within this window (resubmits, double clicks).
 const RETEXT_AFTER_DAYS = 7;
