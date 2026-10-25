@@ -6,9 +6,10 @@
      1. Adds the visitor to Quo as a contact (name, phone, email,
         ZIP, page), so their name shows up when they call or text.
      2. Sends them one instant text from the Aggrepoxy Quo number.
+     3. Pushes a clean alert to your phone (Pushover): name, number,
+        project details. Tapping the number opens Quo.
 
-   The email + Pushover alert (Web3Forms) still fires separately
-   from the browser, so if this ever fails, you still get the lead.
+   The Web3Forms email still fires separately from the browser.
 
    SETUP (Cloudflare dashboard > Workers & Pages > aggrepoxy site >
    Settings > Variables and Secrets), add to Production AND Preview:
@@ -18,6 +19,8 @@
                                     keep adding contacts)
      LEAD_TEXT     (Text)    optional: custom message. {first} is
                              replaced with their first name.
+     PUSHOVER_TOKEN (Secret) Pushover application API token
+     PUSHOVER_USER  (Secret) your Pushover user key
 
    Quo bills API texts at about $0.01 each from prepaid API credits.
 ================================================================ */
@@ -25,8 +28,8 @@
 const QUO = 'https://api.quo.com/v1';
 
 const DEFAULT_TEXT =
-  "Hi {first}, it's Jordan with Aggrepoxy Floor Coatings. Just got your request! " +
-  'Do weekdays or weekends work better for your free 20-min estimate? Reply STOP to opt out';
+  "Hi {first}, it's Jordan, owner of Aggrepoxy Floor Coatings. Got your floor estimate request! " +
+  'Do weekdays or weekends work better for a free 20-min visit? Reply STOP to opt out';
 
 // Don't text the same number twice within this window (resubmits, double clicks).
 const RETEXT_AFTER_DAYS = 7;
@@ -55,6 +58,11 @@ export async function onRequestPost({ request, env }) {
   const email = clean(d.email, 120);
   const zip = clean(d.zip, 10);
   const page = clean(d.page, 120);
+  const details = clean(d.details, 600);
+  const fullName = clean(d.name, 80) || [first, last].filter(Boolean).join(' ');
+
+  // 0. Phone alert first, so it lands fastest.
+  out.push = await pushAlert(env, { fullName, phone, details });
 
   if (!env.QUO_API_KEY) { console.log('lead: QUO_API_KEY not set'); return json({ ...out, error: 'not configured' }); }
   const headers = { Authorization: env.QUO_API_KEY, 'Content-Type': 'application/json' };
@@ -111,8 +119,41 @@ export async function onRequestPost({ request, env }) {
     } catch (e) { out.text = 'error'; console.log('lead: text threw', String(e)); }
   }
 
-  console.log('lead:', externalId, out.contact, out.text);
+  console.log('lead:', externalId, out.contact, out.text, 'push', out.push);
   return json(out);
+}
+
+// Pushover alert: name, tappable number (opens Quo), project details.
+async function pushAlert(env, { fullName, phone, details }) {
+  if (!env.PUSHOVER_TOKEN || !env.PUSHOVER_USER) return 'not configured';
+  const pretty = `(${phone.slice(2, 5)}) ${phone.slice(5, 8)}-${phone.slice(8)}`;
+  const from = String(env.QUO_FROM || '').replace(/\D/g, '').slice(-10);
+  const dial = `openphone://dial?number=${encodeURIComponent(phone)}`;
+  const call = dial + (from ? `&from=${from}` : '') + '&action=call';
+  const message = [
+    `<b>${esc(fullName || 'Website lead')}</b>`,
+    `<a href="${dial}">${pretty}</a>`,
+    details ? esc(details) : '<i>No project details</i>',
+  ].join('\n');
+  const form = new URLSearchParams({
+    token: env.PUSHOVER_TOKEN,
+    user: env.PUSHOVER_USER,
+    title: 'New website lead',
+    message,
+    html: '1',
+    url: call,
+    url_title: `Call ${pretty} in Quo`,
+    priority: '1',
+  });
+  try {
+    const r = await fetch('https://api.pushover.net/1/messages.json', { method: 'POST', body: form });
+    if (!r.ok) { console.log('lead: pushover failed', r.status, await r.text()); return 'error ' + r.status; }
+    return 'sent';
+  } catch (e) { console.log('lead: pushover threw', String(e)); return 'error'; }
+}
+
+function esc(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 // US/Canada numbers only, valid area code and exchange.
