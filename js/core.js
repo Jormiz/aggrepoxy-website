@@ -562,6 +562,14 @@ window.AGX.wireForm=function(opts){
       }
 
       window.agxTrack('generate_lead',{form_id:opts.formId,page_path:window.location.pathname,with_booking:useBooking?'yes':'no'});
+      /* Instant Quo contact + text (functions/api/lead.js). SoCal forms
+         only; Chicago forms use booking:false. Fire-and-forget: if it
+         fails, the email + Pushover alert below still goes out. */
+      if(useBooking){
+        try{
+          fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(crmPayload),keepalive:true}).catch(function(){});
+        }catch(err){/* ignore */}
+      }
       if(w3Configured){
         if(btn){btn.textContent='Sending…';}
         try{
